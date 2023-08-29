@@ -16,3 +16,80 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.custom-btn:active {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.custom-btn {
+    border-radius: 25%;
+    transition: box-shadow 0.5s;
+    border-color: white;
+    position: fixed;
+    margin-right: 20px;
+    top: 15px;
+    right: 20px;
+}
+
+.logo-title {
+    text-align: center;
+    font-size: 40px;
+    vertical-align: middle;
+}
+
+.logo-image {
+    border-radius: 8px;
+    max-width: 100px;
+    vertical-align: middle;
+}
+
+.container-text {
+    background-color: floralwhite;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 25px;
+}
+
+
+body {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+
+}
+
+.content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    animation: changeBackground 40s infinite;
+    background-size: cover; 
+}
+
+@keyframes changeBackground {
+    0% {
+        background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/01/mountains-736886_1280.jpg);
+    }
+    20% {
+        background-image: url(https://cdn.pixabay.com/photo/2016/10/22/17/46/mountains-1761292_1280.jpg);
+    }
+
+    40% {
+        background-image: url(https://cdn.pixabay.com/photo/2018/08/12/15/29/hintersee-3601004_1280.jpg);
+    }
+
+    60% {
+        background-image: url(https://cdn.pixabay.com/photo/2017/08/07/22/10/lake-2608425_1280.jpg);
+    }
+    80% {
+        background-image: url(https://pixabay.com/get/gfd32e64f57058c78a068b3ccc6d7a121b11d135c672c541b5dda5ce7e3bd76cbdb1a60e7235fbea177104114ac36946bf4042461b7e8cf69b2f246dd14e0252b_1920.jpg);
+    }
+    100% {
+        background-image: url(https://cdn.pixabay.com/photo/2017/01/14/13/59/castelmezzano-1979546_1280.jpg);
+    }
+}
+

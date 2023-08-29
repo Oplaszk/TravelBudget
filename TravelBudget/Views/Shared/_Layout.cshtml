@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TravelBudget.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="content">
     <header style="background-color: floralwhite">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm custom-navbar navbar-light bg-w border-bottom box-shadow mb-3">
 
@@ -17,38 +17,7 @@
                 <img src="/images/winding-road.jpg" class="logo-image"/>
                 <span class="logo-title">Travel Budget</span>                  
                 </a>
-                <style>
-
-                .logo-image 
-                {
-                        border-radius: 8px;
-                        max-width: 100px; 
-                        vertical-align: middle;
-                }
-
-                .logo-title
-                {
-                        text-align: center;
-                        font-size: 40px;
-                        vertical-align: middle;                       
-                }
-
-                 .custom-btn 
-                 {
-                                             
-                        border-radius: 25%;
-                        transition: box-shadow 0.5s;  
-                        border-color:white;
-                        
-                  }
-
-                 .custom-btn:active 
-                 {
-                        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
-                 }
-               
-                </style>
-
+ 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -79,13 +48,13 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-300">
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer text-muted" style="background-color: floralwhite">
-        <div class="container-text align-bottom">
-            <b>Author:</b> Mariusz Klatkowski; no i Klaudia też troszku. <br> &copy; copyright reserved - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>          
+    <footer class="footer">
+        <div class="container-text">
+            <b>Author:</b> Mariusz Klatkowski; no i Klaudia też troszku.<br> &copy; copyright reserved - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
