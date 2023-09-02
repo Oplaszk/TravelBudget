@@ -1,0 +1,44 @@
+General assumptions
+1) Aplikacja webowa z opcjonalną możliwością wersji mobile 
+2) Opis aplikacji na stronie startowej 
+2) Możliwość utworzenia konta użytkownika 
+3) Dodanie do listy startowej odwiedzanego przez nas kraju 
+4) Wybór dnia z kalendarza (intuicyjna podpowiedź aktualnego miesiąca)
+5) Dodanie poniesionego wydatku i przypisanie go do dnia
+6) Możliwość dodania komentarzu pod wydatkiem 
+7) Sumowanie wydatków - dniowych, tygodniowych, miesięcznych oraz całego okresu podróży 
+8) Kategorie wydatków: Transport, Jedzenie, Atrakcje, Zakupy, Inne.
+9) Możliwość dokonania przewalutowania na waluty (podgląd): euro, dolar amerykański, funt brytyjski, PLN(default). 
+10) Opcjonalnie wykres przedstawiający poziom wydatków na przestrzeni podróży. 
+11) W podsumowaniu wyjazdu powinien znaleźć się: okres trwania podróży, łączny koszt, odwiedzone kraje.
+12) Osobny notes wyjazdowy
+
+
+
+Working principle
+- Strona startowa wyświetla logowanie do aplikacji (login oraz hasło)
+- Po zalogowaniu użytkownik Znajduje się na stronie głównej "Main section" (docelowy tytuł to "Travel Budget") w prawym górnym rogu ma możliwość wylogowania się z serwisu
+- Na środku widnieją trzy wejścia: Current Travels/Create New Travel/Travel History (W zakładce "My Travels" mamy możliwość przejrzenia historii poprzednich planów podróży)
+
+Zasada działania zakładki "Create New Travel":
+Po kliknięciu w zakładkę "Create New Travel" 
+- W pierwszej kolejności wybieramy kraj dostępny z rozwijanej listy który działa na zasadzie "prompt support"
+- Następnie w kalendarzu zaznaczamy dni w których chcemy odbyć podróż.
+- Klikamy opcję "Add" i nasz nowo utworzony plan zostaje dodany do do zakładki "My travels"
+Na każdym z 3 etapów mamy możliwość skorzystania z przycisku "return to main section" który ponownie zawróci nas do strony głównej 
+
+Zasada działania zakładki "Current Travels"
+- Na tej stronie dostępne są utworzone wcześniej podróże. Po najechaniu kursorem na naszą wyprawę mamy możliwość podejrzeć nasz wyjazd lub przenieść daną podróż do zakładki 
+"Travel History".
+- Po wejściu w naszą podróż otrzymujemy podsumowanie w tabeli po prawej stronie: Kraj docelowy, Okres trwania wyprawy, Poniesione koszty. 
+- Pod tabelą mamy dostęp do indywidualnego notesu wyjazdowego w którym mamy możliwość tworzenia notatek ogólnych.
+- Po lewej stronie dostajemy kalendarz za pomocą którego do każdego dnia możemy przypisać wydatek przydzielony do konkretnej kategorii: 
+(Transport, jedzenie, Atrakcje, Zakupy, Inne (Całkowity koszt aktualizuje się w tabeli obok)).
+* Opcjonalnie w tabeli mamy możliwość przewalutowania naszego aktualnego kosztu na dowolną walutę.   
+- Po lewej stronie na dole znajduje się przycisk "return do main page" który cofa nas do strony głównej 
+
+Zasada działania zakładki "Travel History"
+- Mamy tutaj możliwość podejrzenia wszystkich poprzednich podróży które wcześniej zakończyliśmy. 
+- W podsumowaniu widzimy kalendarz z datą podróży po lewej stronie oraz po prawej stronie tabelę podsumowującą
+- Po lewej stronie na dole znajduje się przycisk "return to main page" który cofa nas do strony głównej 
+* Wykres przedstawiający poziom wydatków na przestrzeni podróży 
