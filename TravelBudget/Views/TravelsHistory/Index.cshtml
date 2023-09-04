@@ -1,0 +1,39 @@
+﻿@model List<TravelBudget.Models.TravelsHistoryModels.TravelsHistory>
+
+@{
+    Layout = "~/Views/TravelsHistory/_Layout-TravelsHistory.cshtml";
+}
+
+<!DOCTYPE html>
+
+ <html>
+ <head>
+    <link rel="stylesheet" href="~/css/TravelsHistory-View.css" asp-append-version="true" />
+</head>
+<body id ="travels-history-page" style="margin:0; padding:0;">
+    <br>
+    <table>
+        <thead>
+            <tr>
+    <th>Country</th>
+    <th>Continent</th>
+    <th>StartingDate</th>
+    <th>FinishDate</th>
+            </tr>
+        </thead>
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Country</td>
+            <td>@item.Continent</td>
+            <td>@item.StartingDate</td>
+            <td>@item.FinishDate</td>
+        </tr>
+    }
+    </tbody>
+    </table>
+ </body>
+</html>
+ 
+

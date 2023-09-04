@@ -7,18 +7,17 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TravelBudget.styles.css" asp-append-version="true" />
-    
 </head>
 <body class="content">
-    <header style="background-color: floralwhite">
+    <header class="header">
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm custom-navbar navbar-light bg-w border-bottom box-shadow mb-3">
 
             <div class="container-fluid">
-                <a href="#" class="navbar-brand">                 
-                <img src="/images/winding-road.jpg" class="logo-image"/>
-                <span class="logo-title">Travel Budget</span>                  
+                <a href="#" class="navbar-brand">
+                    <img src="/images/winding-road.jpg" class="logo-image" />
+                    <span class="logo-title">Travel Budget</span>
                 </a>
- 
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,21 +25,23 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 align-items-center">
                         <li class="nav-item" style="margin-right: 10px; vertical-align: middle;">
-                            <a><button type="button" class="btn btn-success" asp-area="" asp-controller="TravelBudget" asp-action="Index">Create New Travel</button></a>
+                            <a><button type="button" class="btn btn-success" asp-area="" asp-controller="CreateNewTravel" asp-action="Index">Create New Travel</button></a>
                         </li>
 
                         <li class="nav-item" style="margin-right: 10px; vertical-align: middle;">
-                            <a><button type="button" class="btn btn-danger" asp-area="" asp-controller="TravelBudget" asp-action="Index">Current Travels</button></a>
+                            <a><button type="button" class="btn btn-danger" asp-area="" asp-controller="CurrentTravels" asp-action="Index">Current Travels</button></a>
                         </li>
                         <li class="nav-item" style="margin-right: 660px; vertical-align: middle;">
-                            <a><button type="button" class="btn btn-primary" asp-area="" asp-controller="TravelBudget" asp-action="Index">Travels History</button></a>
-                        </li> 
+                            <a asp-area="" asp-controller="TravelsHistory" asp-action="Index">
+                                <button type="button" class="btn btn-primary">Travels History</button>
+                            </a>
+                        </li>
                         <button type="button" class="btn btn-outline-secondary custom-btn">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="50" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
-                            <path d="M7.5 1v7h1V1h-1z" />
-                            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
-                        </svg>                           
-                        </button>                   
+                                <path d="M7.5 1v7h1V1h-1z" />
+                                <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
+                            </svg>
+                        </button>
                     </ul>
                 </div>
             </div>

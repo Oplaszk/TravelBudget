@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Models\CreateNewTravelModels\" />
-    <Folder Include="Models\CurrentTravel\" />
+    <Folder Include="Models\CurrentTravelModels\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

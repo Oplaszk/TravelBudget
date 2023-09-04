@@ -13,6 +13,10 @@ html {
   min-height: 100%;
 }
 
+.header {
+    background-color: beige;
+}
+
 body {
     margin-bottom: 60px;
     margin: 0;
@@ -38,6 +42,7 @@ body {
     text-align: center;
     font-size: 40px;
     vertical-align: middle;
+    text-shadow: 3px 3px 5px rgb(114, 23, 186), -4px -4px 5px rgb(90, 228, 186);
 }
 
 .logo-image {
@@ -89,4 +94,6 @@ body {
         background-image: url(/images/HomePage/river-night.jpg);
     }
 }
+
+
 
