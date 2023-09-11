@@ -1,33 +1,24 @@
-html {
-    font-size: 14px;
-}
-
-@font-face {
-    src: url("~\Fonts\Lobster-Regular.ttf");
-    font-family: Lobster-font;
-}
-
-@media (min-width: 768px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-#header {
-    background-color: lightblue;
-    vertical-align: middle;
-    height: 100px;
-    align-content: center;
-}
-body {
-    background-color: lightcyan;
-    margin-bottom: 0;
+#h1 {
+    text-align: center;
     margin: 0;
+}
+
+.separation-bar {
+    height: 2px;
+    background-color: #0a0825db;
+    border: none;
     padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, transparent 1%, #208bd3 40%, #013763 60%, transparent 99%);
+}
+
+.icon {
+    max-width: 3%;
+    max-height: auto;
+    margin-left: 95%;
+    cursor: pointer;
+    display: block;
+
 }
 
 table {
@@ -41,44 +32,3 @@ th, td {
     padding: 8px;
     text-align: center;
 }
-
-#travels-history-page {
-    background-image: none !important;
-    margin:0px;
-    padding:0px;
-}
-
-.content {
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.navbar-nav {
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 100%;
-}
-.nav-item {
-    margin: 0;
-    padding-left: 85%;
-    padding-bottom: 50px;
-}
-
-.btn-custom {
-    font-size: 20px;
-    width: 160px;
-    height: 65px;
-}
-
-#h1 {
-    font-family: Lobster-font;
-    font-size: 60px;
-    text-align: center;
-    padding-top: 15px;
-    margin: 0 auto;
-    text-shadow: 3px 3px 5px rgb(226, 3, 72), -2px -2px 5px rgb(90, 228, 186);
-}
-

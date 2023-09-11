@@ -14,7 +14,7 @@ html {
 }
 
 .header {
-    background-color: beige;
+    background-color: rgb(195, 168, 38);
 }
 
 body {
@@ -76,7 +76,7 @@ body {
         background-image: url(/images/HomePage/canyon.jpg);
     }
     25% {
-        background-image: url(/images/HomePage/Bled.jpg);
+        background-image: url(/images/HomePage/boat-4899802.jpg);
     }
     35% {
         background-image: url(/images/HomePage/alberta-mountains.jpg);

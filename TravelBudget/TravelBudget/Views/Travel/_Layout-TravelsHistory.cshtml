@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="~/TravelBudget.styles.css" asp-append-version="true" />
 </head>
 <body class="content">
-    <header id="header">
-        <nav>
+    <nav>
         <h1 id="h1">Travels History</h1>
-            <ul class="navbar-nav navbar">
-                <li class="nav-item">
-                    <a href="~/TravelBudget/Index"> <button type="button" class="btn btn-dark btn-custom">Home Page</button></a>
-                </li>        
-            </ul>
-        </nav>
-    </header>
+    </nav>
+    <span style="background-color: red">
+        <a href="~/Travel/Index" class="centered">
+            <img class="icon" src="/images/return-icon.jpg">
+        </a>
+    </span>
+    <div class="separation-bar"></div>
+ </body>       
+ <body>
     <div class="container">
         <main role="main" class="pb-300">
             @RenderBody()

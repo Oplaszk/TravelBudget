@@ -1,12 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Travel Budget</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TravelBudget</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TravelBudget.styles.css" asp-append-version="true" />
+    <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg">
 </head>
 <body class="content">
     <header class="header">
@@ -14,7 +16,7 @@
 
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
-                    <img src="/images/winding-road.jpg" class="logo-image" />
+                    <img src="/images/Logo/Compass.jpg" class="logo-image" />
                     <span class="logo-title">Travel Budget</span>
                 </a>
 
@@ -32,7 +34,7 @@
                             <a><button type="button" class="btn btn-danger" asp-area="" asp-controller="CurrentTravels" asp-action="Index">Current Travels</button></a>
                         </li>
                         <li class="nav-item" style="margin-right: 660px; vertical-align: middle;">
-                            <a asp-area="" asp-controller="TravelsHistory" asp-action="Index">
+                            <a asp-area="" asp-controller="Travel" asp-action="History">
                                 <button type="button" class="btn btn-primary">Travels History</button>
                             </a>
                         </li>
