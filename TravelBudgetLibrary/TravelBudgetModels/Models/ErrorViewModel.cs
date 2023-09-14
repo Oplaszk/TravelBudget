@@ -1,4 +1,4 @@
-namespace TravelBudget.Models
+namespace TravelBudgetModels.Models
 {
     public class ErrorViewModel
     {
