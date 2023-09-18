@@ -28,19 +28,34 @@ namespace TravelBudgetContactContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
-                new Category() { Id = 1, Type = "Accomodation", Description = "Hotel ***" }
+                new Category() { Id = 1, Type = "Accomodation"},
+                new Category() { Id = 2, Type = "Food"},
+                new Category() { Id = 3, Type = "Transport" },
+                new Category() { Id = 4, Type = "Atractions"},
+                new Category() { Id = 5, Type = "Shopping"},
+                new Category() { Id = 6, Type = "Others"}
             );
             modelBuilder.Entity<Comment>().HasData(
-                new Comment() { Id = 1, Content = "At the first day..." }
+                new Comment() { Id = 1, Content = "At the first day..."}
             );
             modelBuilder.Entity<Continent>().HasData(
-                new Continent() { Id = 1, Name = "Europe", CountryId = 1 }
+                new Continent() { Id = 1, Name = "Europe"},
+                new Continent() { Id = 2, Name = "Africa"},
+                new Continent() { Id = 3, Name = "Asia"},
+                new Continent() { Id = 4, Name = "North America"},
+                new Continent() { Id = 5, Name = "South America"},
+                new Continent() { Id = 6, Name = "Australia"},
+                new Continent() { Id = 7, Name = "Zelandia"},
+                new Continent() { Id = 8, Name = "Antarctica"}
             );
             modelBuilder.Entity<Country>().HasData(
                 new Country() { Id = 1, Name = "Poland", Code = "PL", ContinentId = 1, CurrencyId = 1 }
             );
             modelBuilder.Entity<Currency>().HasData(
-                new Currency() { Id = 1, Code = "PLN", CountryId = 1}
+                new Currency() { Id = 1, Code = "PLN" },
+                new Currency() { Id = 2, Code = "EUR" },
+                new Currency() { Id = 3, Code = "USD" },
+                new Currency() { Id = 4, Code = "GBP" }
             );
             modelBuilder.Entity<Expense>().HasData(
                 new Expense() { Id = 1, Description = "I bought a souvenir", Price = 15.5, Date = new DateTime(2022, 12, 17, 15, 15, 15), CategoryId = 1, TravelId = 1, CountryId = 1 }

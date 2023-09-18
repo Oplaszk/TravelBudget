@@ -4,7 +4,6 @@
     {
         public int Id { get; set; }
         public string Type { get; set; }
-        public string Description { get; set; }
-        public ICollection<Expense> Expenses { get; set; }
+        public ICollection<Expense> Expenses { get; set; } = new List<Expense>();   
     }
 }

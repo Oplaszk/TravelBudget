@@ -10,8 +10,8 @@
         public bool Active { get; set; }
         public int CommentId { get; set; }
         public Comment Comment { get; set; }
-        public ICollection<Expense> Expenses { get; set; }
-        public ICollection<Country> Countries { get; set; }
+        public ICollection<Expense> Expenses { get; set; } = new List<Expense>();
+        public ICollection<Country> Countries { get; set; } = new List<Country>();  
 
     }
 }

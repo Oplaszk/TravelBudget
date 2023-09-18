@@ -1,4 +1,6 @@
-﻿namespace TravelBudgetModels.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TravelBudgetModels.Models
 {
     public class Country
     {
@@ -9,6 +11,7 @@
         public int CurrencyId { get; set; }
         public Continent Continent { get; set; }
         public Currency Currency { get; set; }
-        
+        public ICollection<Travel> Travels { get; set; }
+
     }
 }
