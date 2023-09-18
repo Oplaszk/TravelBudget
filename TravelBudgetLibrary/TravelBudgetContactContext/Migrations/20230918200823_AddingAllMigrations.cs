@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravelBudgetContactContext.Migrations
 {
-    public partial class MigrationFirst : Migration
+    public partial class AddingAllMigrations : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -183,7 +183,11 @@ namespace TravelBudgetContactContext.Migrations
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "Content" },
-                values: new object[] { 1, "At the first day..." });
+                values: new object[,]
+                {
+                    { 1, "At the first day..." },
+                    { 2, "At the first day..." }
+                });
 
             migrationBuilder.InsertData(
                 table: "Continents",
@@ -219,12 +223,17 @@ namespace TravelBudgetContactContext.Migrations
             migrationBuilder.InsertData(
                 table: "Travels",
                 columns: new[] { "Id", "Active", "CommentId", "Description", "FinishDate", "Name", "StartingDate" },
-                values: new object[] { 1, true, 1, "Visiting castles around Poland", new DateTime(2022, 12, 12, 21, 14, 15, 0, DateTimeKind.Unspecified), "Around Poland", new DateTime(2022, 12, 16, 6, 15, 15, 0, DateTimeKind.Unspecified) });
+                values: new object[] { 1, false, 1, "Visiting castles around Poland", new DateTime(2022, 12, 12, 21, 15, 0, 0, DateTimeKind.Unspecified), "Around Poland", new DateTime(2022, 12, 16, 6, 15, 0, 0, DateTimeKind.Unspecified) });
+
+            migrationBuilder.InsertData(
+                table: "Travels",
+                columns: new[] { "Id", "Active", "CommentId", "Description", "FinishDate", "Name", "StartingDate" },
+                values: new object[] { 2, true, 2, "Visiting forests", new DateTime(2023, 10, 12, 21, 15, 0, 0, DateTimeKind.Unspecified), "Around Poland", new DateTime(2023, 9, 18, 6, 15, 0, 0, DateTimeKind.Unspecified) });
 
             migrationBuilder.InsertData(
                 table: "Expenses",
                 columns: new[] { "Id", "CategoryId", "CountryId", "Date", "Description", "Price", "TravelId" },
-                values: new object[] { 1, 1, 1, new DateTime(2022, 12, 17, 15, 15, 15, 0, DateTimeKind.Unspecified), "I bought a souvenir", 15.5, 1 });
+                values: new object[] { 1, 1, 1, new DateTime(2022, 12, 17, 15, 15, 0, 0, DateTimeKind.Unspecified), "I bought a souvenir", 15.5, 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Countries_ContinentId",

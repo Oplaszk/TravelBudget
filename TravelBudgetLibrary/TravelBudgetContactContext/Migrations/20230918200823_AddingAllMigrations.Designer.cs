@@ -12,8 +12,8 @@ using TravelBudgetContactContext;
 namespace TravelBudgetContactContext.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20230918155306_MigrationFirst")]
-    partial class MigrationFirst
+    [Migration("20230918200823_AddingAllMigrations")]
+    partial class AddingAllMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -108,6 +108,11 @@ namespace TravelBudgetContactContext.Migrations
                         new
                         {
                             Id = 1,
+                            Content = "At the first day..."
+                        },
+                        new
+                        {
+                            Id = 2,
                             Content = "At the first day..."
                         });
                 });
@@ -293,7 +298,7 @@ namespace TravelBudgetContactContext.Migrations
                             Id = 1,
                             CategoryId = 1,
                             CountryId = 1,
-                            Date = new DateTime(2022, 12, 17, 15, 15, 15, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2022, 12, 17, 15, 15, 0, 0, DateTimeKind.Unspecified),
                             Description = "I bought a souvenir",
                             Price = 15.5,
                             TravelId = 1
@@ -339,12 +344,22 @@ namespace TravelBudgetContactContext.Migrations
                         new
                         {
                             Id = 1,
-                            Active = true,
+                            Active = false,
                             CommentId = 1,
                             Description = "Visiting castles around Poland",
-                            FinishDate = new DateTime(2022, 12, 12, 21, 14, 15, 0, DateTimeKind.Unspecified),
+                            FinishDate = new DateTime(2022, 12, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
-                            StartingDate = new DateTime(2022, 12, 16, 6, 15, 15, 0, DateTimeKind.Unspecified)
+                            StartingDate = new DateTime(2022, 12, 16, 6, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Active = true,
+                            CommentId = 2,
+                            Description = "Visiting forests",
+                            FinishDate = new DateTime(2023, 10, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Around Poland",
+                            StartingDate = new DateTime(2023, 9, 18, 6, 15, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
