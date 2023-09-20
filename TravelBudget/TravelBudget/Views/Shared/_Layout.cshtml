@@ -5,63 +5,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - TravelBudget</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/TravelBudget.styles.css" asp-append-version="true" />
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="~/css/TravelBudget_MainPage.css"/> 
     <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https"/>
 </head>
-<body class="content">
-    <header class="header">
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm custom-navbar navbar-light bg-w border-bottom box-shadow mb-3">
-
-            <div class="container-fluid">
-                <a href="#" class="navbar-brand">
-                    <img src="/images/Logo/Compass.jpg" class="logo-image" />
-                    <span class="logo-title">Travel Budget</span>
-                </a>
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1 align-items-center">
-                        <li class="nav-item" style="margin-right: 10px; vertical-align: middle;">
-                            <a><button type="button" class="btn btn-success" asp-area="" asp-controller="CreateNewTravel" asp-action="Index">Create New Travel</button></a>
-                        </li>
-
-                        <li class="nav-item" style="margin-right: 10px; vertical-align: middle;">
-                            <a><button type="button" class="btn btn-danger" asp-area="" asp-controller="CurrentTravels" asp-action="Index">Current Travels</button></a>
-                        </li>
-                        <li class="nav-item" style="margin-right: 660px; vertical-align: middle;">
-                            <a asp-area="" asp-controller="Travel" asp-action="History">
-                                <button type="button" class="btn btn-primary">Travels History</button>
-                            </a>
-                        </li>
-                        <button type="button" class="btn btn-outline-secondary custom-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="50" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
-                                <path d="M7.5 1v7h1V1h-1z" />
-                                <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
-                            </svg>
-                        </button>
-                    </ul>
+<body>
+    <nav>
+        <img src="/images/Logo/Compass.jpg" class="logo-image"/>
+        <label class="logo">TravelBudget</label>
+        <ul>           
+            <li><a class = "a1" href="#"> Create New Travel </a></li>
+            <li><a class = "a2" href="#"> Current Travels </a></li>
+            <li><a class="a3" href="~/Travel/History"> Travel History </a></li>
+            <li id="buttonLi">
+                <div class="button-container">
+                    <button type="button" class="btn btn-outline-secondary" id="Mybutton">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                            <path d="M7.5 1v7h1V1h-1z" />
+                            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
+                        </svg>
+                    </button>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-300">
-            @RenderBody()
-        </main>
-    </div>
-    <footer class="footer">
-        <div class="container-text">
-            <b>Author:</b> Mariusz Klatkowski; no i Klaudia też troszku.<br> &copy; copyright reserved - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </li>
+        </ul>
+
+    </nav>
+    <!-- Main Section -->
+    <main>
+        <div class="main-section">
         </div>
+        <div class="sidebar">
+            <h1 id="title">Pending Travels</h1>
+            @RenderBody()
+        </div>
+    </main>
+    <!-- Footer Design -->
+    <footer class="footer">
+        <p>Copyright &copy; 2023 Designed by <span>MK</span></p>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

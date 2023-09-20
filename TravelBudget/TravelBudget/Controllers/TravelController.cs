@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using TravelBudget.Models.TravelsHistoryModels;
+using TravelBudgetModels.Models;
 
 namespace TravelBudget.Controllers
 {
@@ -8,7 +8,29 @@ namespace TravelBudget.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            List<Travel> travelsHistory = new List<Travel>();
+            {
+                new Travel
+                {
+                    Id = 1,
+                    StartingDate = new DateTime(2023, 10, 10, 06, 15, 0),
+                    FinishDate = new DateTime(2023, 10, 20, 06, 15, 0),
+                    Name = "Adventure to Sardinia",
+                    Description = "Visiting whole island",
+                    Active = true
+                };
+                new Travel
+                {
+                    Id = 2,
+                    StartingDate = new DateTime(2022, 08, 16, 06, 15, 0),
+                    FinishDate = new DateTime(2022, 08, 25, 06, 15, 0),
+                    Name = "Jordan trip",
+                    Description = "Trip to Jordan with strangers",
+                    Active = true
+                };
+
+                return View();
+            }
         }
 
         public IActionResult Create()
@@ -17,33 +39,31 @@ namespace TravelBudget.Controllers
             return View();
         }
 
-        public IActionResult Travels()
-        {
-
-            return View();
-        }
-
         public IActionResult History()
         {
-            List<TravelsHistory> travelsHistory = new List<TravelsHistory>()
+            List<Travel> travelsHistory = new List<Travel>();
             {
-                 new TravelsHistory()
-                 {
-                     Country = "Italy",
-                     Continent = "Europe",
-                     StartingDate = new DateTime(2023, 10, 10),
-                     FinishDate = new DateTime(2023, 10, 15)
-                 },
-                 new TravelsHistory()
-                 {
-                     Country = "Jordan",
-                     Continent = "Asia",
-                     StartingDate = new DateTime(2023, 12, 6),
-                     FinishDate = new DateTime(2023, 12, 12)
-                 }
-            };
+                new Travel
+                {
+                    Id = 1,
+                    StartingDate = new DateTime(2022, 12, 16, 06, 15, 0),
+                    FinishDate = new DateTime(2022, 12, 20, 06, 15, 0),
+                    Name = "Adventure to Sicily",
+                    Description = "Visiting at least half of an island",
+                    Active = false
+                };
+                new Travel
+                {
+                    Id = 2,
+                    StartingDate = new DateTime(2022, 08, 16, 06, 15, 0),
+                    FinishDate = new DateTime(2022, 08, 25, 06, 15, 0),
+                    Name = "Balkans concuering",
+                    Description = "Visiting 4 different countries on the Balkans",
+                    Active = false
+                };
 
-            return View(travelsHistory);
+                return View(travelsHistory);
+            }
         }
     }
 }

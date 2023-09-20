@@ -1,4 +1,4 @@
-﻿@model List<TravelBudget.Models.TravelsHistoryModels.TravelsHistory>
+﻿@model List<TravelBudgetModels.Models.Travel>
 
 @{
     Layout = "~/Views/Travel/_Layout-TravelsHistory.cshtml";
@@ -15,20 +15,24 @@
     <table>
         <thead>
             <tr>
-    <th>Country</th>
-    <th>Continent</th>
+    <th>Id</th>
     <th>StartingDate</th>
     <th>FinishDate</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Active</th>
             </tr>
         </thead>
 <tbody>
     @foreach (var item in Model)
     {
         <tr>
-            <td>@item.Country</td>
-            <td>@item.Continent</td>
+            <td>@item.Id</td>
             <td>@item.StartingDate</td>
             <td>@item.FinishDate</td>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Active</td>
         </tr>
     }
     </tbody>

@@ -1,0 +1,148 @@
+
+    * {
+        margin: 0; /*ustawia wszystkie marginesy na zero*/
+        padding: 0; /*padding czyli odstêp kontentu jest ustawiony na zero*/
+        list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>). Usuwa równie¿ tzn. 
+        list markery z tagu typu (<li>)*/
+        box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
+        font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
+        overflow: hidden;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    /*<-------------------- Navbar section -------------------->*/
+    .logo {
+        color: white; /*ustawia kolor dla ca³ego napisu logo.*/
+        font-size: 40px;
+        line-height: 80px; /*To oznacza, ¿e linie tekstu (wiersze) bêd¹ oddzielone od siebie o 80 pikseli wertykalnie.*/
+        padding: 0 80px 0, 0; /*Nadpisanie paddingu dla tytu³u: top: 0right: 100px.*/
+        margin: 0px;
+        text-align: center;
+    }
+    .logo-image {
+        border-radius: 8px;
+        width: 155px;
+        height: 125px;
+        padding-left: 25px;
+        padding-bottom: 60px;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+    }
+    nav {
+        background: black;
+        width: 100%;
+        height: 90px;
+        align-items: center;
+        border-bottom: 2px solid white;
+    }
+    nav ul {      
+        float: right;
+        margin:0;
+        padding: 0; 
+        display: flex;
+        justify-content: space-evenly;
+    }
+    nav ul li {
+        line-height: 80px;
+        text-align: center;
+        padding-right: 10px;
+    }
+    nav ul li a {
+        text-decoration: none; /*usuwa hyperlinks*/
+        color: white;
+        font-size: 22px;
+        padding-right: 30px;
+    }
+    nav ul li .a1:hover { /*:hover jest pseudo klas¹ która umo¿liwia dodanie efektów w momencie w którym u¿ytkownik naje¿d¿a kursorem na obiekt*/
+        transition: 0.7s; /*ustawia czas zmiany standardowego koloru czcionki (w tym przypadku bia³y ustawiony sekcjê wy¿ej) na ten ustawiony poni¿ej (darkred))*/
+        color: darkgoldenrod;
+        text-shadow: 10px 10px 10px darkgoldenrod; /*Dodaje cienie do wyrazów o odstêpnie zdefiniowanym w parametrach*/
+        text-shadow: -15px -15px -15px darkgoldenrod; /*Dodaje cienie do wyrazów o odstêpnie zdefiniowanym w parametrach*/
+    }
+    nav ul li .a2:hover { /*:hover jest pseudo klas¹ która umo¿liwia dodanie efektów w momencie w którym u¿ytkownik naje¿d¿a kursorem na obiekt*/
+        transition: 0.7s; /*ustawia czas zmiany standardowego koloru czcionki (w tym przypadku bia³y ustawiony sekcjê wy¿ej) na ten ustawiony poni¿ej (darkred))*/
+        color: darkgoldenrod;
+        text-shadow: 10px 10px 10px darkgoldenrod;
+        text-shadow: -15px -15px -15px darkgoldenrod;
+    }
+    nav ul li .a3:hover { /*:hover jest pseudo klas¹ która umo¿liwia dodanie efektów w momencie w którym u¿ytkownik naje¿d¿a kursorem na obiekt*/
+        transition: 0.7s; /*ustawia czas zmiany standardowego koloru czcionki (w tym przypadku bia³y ustawiony sekcjê wy¿ej) na ten ustawiony poni¿ej (darkred))*/
+        color: darkgoldenrod;
+        text-shadow: 10px 10px 10px darkgoldenrod;
+        text-shadow: -15px -15px -15px darkgoldenrod;
+    }
+    /*<-------------------- Log out Button section -------------------->*/
+    .button-container{
+        padding-left:3px;
+        padding-right:3px;
+    }
+    #buttonLi {       
+        display: flex;
+        justify-content:flex-end;
+        padding-top: 4px;
+        padding-right: 40px;
+    }
+    #Mybutton {
+        border-radius: 25%;
+        border-width: 1.5px;
+        transition: box-shadow 0.5s;
+        border-color: white;
+        width: 60px;
+        height: 60px;
+}
+     #Mybutton:active {
+        box-shadow: 0px 0px 5px 4px darkgoldenrod;
+    }
+    /*<-------------------- Main Grids -------------------->*/
+     main {
+        width: 100%;
+        display: flex; /* W³¹czenie flexbox */
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+        min-height: 100vh;
+        width: auto;
+     }
+     .main-section {
+        flex: 1; 
+        justify-content: center;
+        background-color: lightblue; 
+        padding: 0; 
+        margin: 0;
+        background-image: url('/images/pexels-stephan-seeber-1261728.jpg');
+        background-size: cover; /* Zachowuje proporcje obrazu i wype³nia ca³¹ sekcjê */
+        background-position: center; /* Wyœrodkowanie obrazu w sekcji */
+    }
+    .sidebar {
+        flex: 1;
+        justify-content: center;
+        background-color: black;
+        margin:0;
+        padding:0;
+    }
+    #title {
+          color:darkgoldenrod ; /* Kolor tekstu */
+          text-align: center;
+    }
+        /*<-------------------- Footer section -------------------->*/
+    .footer {
+        background-color: black;
+        font-size: 15px;
+        color: white;
+        text-align: center;
+        padding-top: 0;
+        justify-content: center;
+        position: fixed;  /*Ustaw pozycjê na sta³¹ */
+        bottom: 0; /* Przyczep stopkê do dolnej krawêdzi */
+        left: 0; /* Przesuñ stopkê w lewo */
+        right: 0; /* Przesuñ stopkê w prawo */
+        margin: 0;
+    }
+
+
+
+
+
