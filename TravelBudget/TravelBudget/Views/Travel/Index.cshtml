@@ -1,5 +1,46 @@
-﻿@model List<TravelBudgetModels.Models.Travel>
+﻿@model TravelBudget.Models.TravelViewModel
 
-    <p>content</p>
+@{
+    // Layout = "~/TravelBudget/Views/Shared/_Layout.cshtml ";
+}
 
+<!DOCTYPE html>
 
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/Index-View.css" asp-append-version="true" />
+</head>
+<body>
+    <br>
+    <div id ="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StartingDate</th>
+                <th>FinishDate</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Travels)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.StartingDate</td>
+                    <td>@item.FinishDate</td>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>@item.Active</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+    <div class="button-container">
+        <a id="a1" herf="#"><span class="AddButton">Add Expense</span> <i></i></a>
+    </div>
+</body>
+</html>

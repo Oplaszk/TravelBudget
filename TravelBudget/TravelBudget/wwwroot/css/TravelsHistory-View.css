@@ -1,26 +1,37 @@
-#h1 {
-    text-align: center;
-    margin: 0;
-}
 
-.separation-bar {
+/*.separation-bar {
     height: 2px;
     background-color: #0a0825db;
     border: none;
     padding: 0;
     margin: 0;
     background: linear-gradient(to right, transparent 1%, #208bd3 40%, #013763 60%, transparent 99%);
+}*/
+
+* {
+    margin: 0; /*ustawia wszystkie marginesy na zero*/
+    padding: 0; /*padding czyli odstêp kontentu jest ustawiony na zero*/
+    list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>). Usuwa równie¿ tzn. 
+        list markery z tagu typu (<li>)*/
+    box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
+    font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
+    overflow: hidden;
 }
-
-.icon {
-    max-width: 3%;
-    max-height: auto;
-    margin-left: 95%;
-    cursor: pointer;
-    display: block;
-
+nav {
+    background: black;
+    text-align: center;
+    width: 100%;
+    height: 90px;
+    align-items: center;
+    border-bottom: 2px solid white;
 }
-
+.logo {
+    color: darkgoldenrod; /*ustawia kolor dla ca³ego napisu logo.*/
+    font-size: 40px;
+}
+body {
+    background-color: black;
+}
 table {
     border-collapse: collapse;
     width: 100%;
