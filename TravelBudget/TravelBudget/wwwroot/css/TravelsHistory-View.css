@@ -17,21 +17,43 @@
     font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
     overflow: hidden;
 }
+/*<-------------------- Navigation bar section -------------------->*/
 nav {
     background: black;
     text-align: center;
     width: 100%;
     height: 90px;
-    align-items: center;
     border-bottom: 2px solid white;
 }
+nav ul {
+    float: right;
+    display: block;
+    justify-content: center;
+    margin:0;
+    align-items: center;
+    vertical-align: central;
+    padding: 0;
+}
+nav ul li {
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    align-content: center;
+    vertical-align: central;
+}
+/*<-------------------- Logo section -------------------->*/
 .logo {
     color: darkgoldenrod; /*ustawia kolor dla ca³ego napisu logo.*/
     font-size: 40px;
+    padding-left: 60px;
 }
+/*<-------------------- Body section -------------------->*/
 body {
     background-color: black;
 }
+/*<-------------------- Table section -------------------->*/
 table {
     border-collapse: collapse;
     width: 100%;
@@ -42,4 +64,17 @@ th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: center;
+}
+/*<-------------------- Return Button section -------------------->*/
+#returnButton {
+    background-color: darkgoldenrod;
+    float: right;
+    text-align: center;
+    align-content: center;
+    vertical-align: central;
+    height: 40px;
+}
+#returnButton:hover {
+    box-shadow: 0px 0px 5px 4px darkgoldenrod;
+    transition: 0.7s;
 }

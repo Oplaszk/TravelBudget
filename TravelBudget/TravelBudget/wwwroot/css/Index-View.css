@@ -1,13 +1,4 @@
 
-/*.separation-bar {
-    height: 2px;
-    background-color: #0a0825db;
-    border: none;
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(to right, transparent 1%, #208bd3 40%, #013763 60%, transparent 99%);
-}*/
-
 * {
     list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>). Usuwa równie¿ tzn. 
         list markery z tagu typu (<li>)*/
@@ -46,7 +37,7 @@ th, td {
     text-align: center;
 }
 /*<-------------------- Add button section -------------------->*/
-.button-container {
+.button-containerAdd {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,22 +52,23 @@ th, td {
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-#a1 {
+[data-record-id] {
     position: relative;
     background: white;
     color: white;
-    /*text-decoration: none;*/
+    text-decoration: none;
     padding: 10px 30px;
     transition: 0.5s;
     border: 2px solid black;
     border-radius: 5px;
 }
-#a1:hover{
+[data-record-id]:hover {
     letter-spacing: 0.06em;
     background: darkgoldenrod;
     box-shadow: 0 0 30px darkgoldenrod;
+    color: darkgoldenrod;
 }
-#a1:before{
+[data-record-id]:before {
     position: absolute;
     inset: 2px;
     content: '';
@@ -86,39 +78,5 @@ a span {
     position: relative;
     z-index: 1;
 }
-a i {
-    position: absolute;
-    inset: 0;
-    display: block;
-}
-/*a i::before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 80%;
-    width: 10px;
-    height: 4px;
-    background: black;
-    transform: translateX(-50%) skew(325deg);
-    transition: 0.5s;
-}
-a:hover i::before {
-    width: 40px;
-    left: 25%;
-}
-a i::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 20%;
-    width: 10px;
-    height: 4px;
-    background: black;
-    transform: translateX(-50%) skew(325deg);
-    transition: 0.5s;
-}
 
-a:hover i::after {
-    width: 40px;
-    left: 75%;
-}*/
+

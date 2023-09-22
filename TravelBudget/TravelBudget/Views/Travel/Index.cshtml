@@ -12,35 +12,36 @@
 </head>
 <body>
     <br>
-    <div id ="table-container">
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>StartingDate</th>
-                <th>FinishDate</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Active</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model.Travels)
-            {
-                <tr>
-                    <td>@item.Id</td>
-                    <td>@item.StartingDate</td>
-                    <td>@item.FinishDate</td>
-                    <td>@item.Name</td>
-                    <td>@item.Description</td>
-                    <td>@item.Active</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    </div>
-    <div class="button-container">
-        <a id="a1" herf="#"><span class="AddButton">Add Expense</span> <i></i></a>
-    </div>
+    @foreach (var item in Model.travels)
+    {
+        <!-- Wyświetl osobną tabelę dla każdego rekordu -->
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>StartingDate</th>
+                        <th>FinishDate</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.StartingDate</td>
+                        <td>@item.FinishDate</td>
+                        <td>@item.Name</td>
+                        <td>@item.Description</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Dodaj przycisk "Add Expense" poza tabelą -->
+            <div class="button-containerAdd">
+                <a href="#" data-record-id="@item.Id"><span class="AddButton">Add Expense</span> <i></i></a>
+            </div>
+        </div>
+    }
 </body>
 </html>
