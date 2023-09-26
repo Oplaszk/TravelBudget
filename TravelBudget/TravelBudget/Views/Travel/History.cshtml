@@ -4,14 +4,7 @@
     Layout = "~/Views/Travel/_Layout-TravelsHistory.cshtml";
 }
 
-<!DOCTYPE html>
-
- <html>
- <head>
-    <link rel="stylesheet" href="~/css/TravelsHistory-View.css" asp-append-version="true" />
-</head>
-<body>
-    <br>
+<br>
     <table>
         <thead>
             <tr>
@@ -23,7 +16,7 @@
     <th>Active</th>
             </tr>
         </thead>
-<tbody>
+    <tbody>
     @foreach (var item in Model.Travels)
     {
         <tr>
@@ -38,7 +31,6 @@
     </tbody>
     </table>
     </div>
- </body>
-</html>
+
  
 

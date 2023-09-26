@@ -18,10 +18,7 @@ namespace TravelBudgetContactContext.Repositories
         public List<Travel> GetAllTravel()
         {
             var result = _db.Travels.ToList();
-            //if (result. > 0) 
-            //{
 
-            //}
             return result;
         }
     }

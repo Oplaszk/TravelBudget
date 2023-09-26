@@ -1,18 +1,11 @@
 ﻿@model TravelBudget.Models.TravelViewModel
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <link rel="stylesheet" href="~/css/Index-View.css" asp-append-version="true" />
-</head>
-<body>
-    <br>
     <div id="container">
     @foreach (var item in Model.Travels)
     {
         <div class ="record-container">
-            <table>
+            <table id="table">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -40,5 +33,4 @@
         </div>
     }
     </div>
-</body>
-</html>
+

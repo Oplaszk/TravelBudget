@@ -23,7 +23,7 @@
     }
 }
 
-table {
+#table {
     border-collapse: collapse;
     max-width: 100%;
     min-width: 90%;

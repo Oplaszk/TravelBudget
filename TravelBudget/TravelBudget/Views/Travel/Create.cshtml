@@ -1,19 +1,16 @@
-﻿@model TravelBudget.Models.TravelViewModel
+﻿@model Travel
 
-@{
-    // Layout = "~/TravelBudget/Views/Shared/_Layout.cshtml ";
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <link rel="stylesheet" href="~/css/Create-View.css" asp-append-version="true" />
-</head>
-<body>
-    
-    <div class="button-containerAdd">
-        <a id="a1" herf="#"><span class="AddButton">Add Expense</span> <i></i></a>
+<form>
+    <div class="row mb-3">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail3">
+        </div>
     </div>
-</body>
-</html>
+    <div class="row mb-3">
+        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-10">
+            <input type="password" class="form-control" id="inputPassword3">
+        </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+</form>

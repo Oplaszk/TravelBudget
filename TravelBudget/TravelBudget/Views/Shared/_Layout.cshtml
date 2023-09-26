@@ -7,25 +7,26 @@
     <title>@ViewData["Title"] - TravelBudget</title>
     <!-- CSS Links -->
     <link rel="stylesheet" href="~/css/TravelBudget_MainPage.css"/> 
-    <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg">
+    <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https"/>
+    <link rel="stylesheet" href="~/css/Index-View.css" asp-append-version="true" />
 </head>
 <body>
     <nav>
         <img src="/images/Logo/Compass.jpg" class="logo-image"/>
         <label class="logo">TravelBudget</label>
         <ul>           
-            <li><a class = "a1" href="#"> Create New Travel </a></li>
-            <li><a class = "a2" href="~/Travel/Index"> Current Travels </a></li>
-            <li><a class= "a3" href="~/Travel/History"> Travel History </a></li>
+            <li><a class = "a1" asp-controller="Travel" asp-action = "Create"> Create New Travel </a></li>
+            <li><a class="a2" asp-controller="Travel" asp-action="Index"> Current Travels </a></li>
+            <li><a class="a3" asp-controller="Travel" asp-action="History"> Travel History </a></li>
             <li id="buttonLi">
                 <div class="button-container">
                     <button type="button" class="btn btn-outline-secondary" id="Mybutton">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
                             <path d="M7.5 1v7h1V1h-1z" />
-                            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
+                            <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z"/>
                         </svg>
                     </button>
                 </div>

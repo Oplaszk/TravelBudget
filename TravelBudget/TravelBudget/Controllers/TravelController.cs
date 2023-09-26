@@ -29,6 +29,11 @@ namespace TravelBudget.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Create(Travel travel)
+        {
+            return View();
+        }
 
         public IActionResult History()
         {
