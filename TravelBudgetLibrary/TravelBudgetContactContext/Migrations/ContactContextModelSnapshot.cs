@@ -358,6 +358,16 @@ namespace TravelBudgetContactContext.Migrations
                             FinishDate = new DateTime(2023, 10, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2023, 9, 18, 6, 15, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Active = true,
+                            CommentId = 3,
+                            Description = "Mazurian lakes",
+                            FinishDate = new DateTime(2023, 12, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Around Poland",
+                            StartingDate = new DateTime(2023, 6, 18, 6, 15, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 

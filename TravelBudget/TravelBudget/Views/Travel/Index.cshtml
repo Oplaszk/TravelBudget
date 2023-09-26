@@ -1,9 +1,5 @@
 ﻿@model TravelBudget.Models.TravelViewModel
 
-@{
-    // Layout = "~/TravelBudget/Views/Shared/_Layout.cshtml ";
-}
-
 <!DOCTYPE html>
 
 <html>
@@ -12,10 +8,10 @@
 </head>
 <body>
     <br>
-    @foreach (var item in Model.travels)
+    <div id="container">
+    @foreach (var item in Model.Travels)
     {
-        <!-- Wyświetl osobną tabelę dla każdego rekordu -->
-        <div>
+        <div class ="record-container">
             <table>
                 <thead>
                     <tr>
@@ -33,15 +29,16 @@
                         <td>@item.FinishDate</td>
                         <td>@item.Name</td>
                         <td>@item.Description</td>
-                    </tr>
+                    </tr> 
                 </tbody>
             </table>
-
-            <!-- Dodaj przycisk "Add Expense" poza tabelą -->
-            <div class="button-containerAdd">
-                <a href="#" data-record-id="@item.Id"><span class="AddButton">Add Expense</span> <i></i></a>
+            <div id="button-containerAdd">
+                <a href="#" data-record-id="@item.Id"><span class="MenuButton">Detail</span></a>
+                    <a href="#" data-record-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+                <a href="#" data-record-id="@item.Id"><span class="MenuButton">Edit</span></a>
             </div>
         </div>
     }
+    </div>
 </body>
 </html>

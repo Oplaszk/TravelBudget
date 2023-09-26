@@ -6,13 +6,13 @@
     font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
     overflow: hidden;
 }
-
-#table-container {
+/*<-------------------- Table section -------------------->*/
+#container {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: central;
+    flex-direction: column; /* Wyœwietlanie elementów pionowo */
+    align-items: center; /* Wyrównanie elementów do œrodka */
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -36,8 +36,8 @@ th, td {
     padding: 8px;
     text-align: center;
 }
-/*<-------------------- Add button section -------------------->*/
-.button-containerAdd {
+/*<-------------------- Menu button section -------------------->*/
+#button-containerAdd {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,7 +46,7 @@ th, td {
     cursor: pointer;
     animation: fadeIn 10s ease;
 }
-.AddButton {
+.MenuButton {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -58,15 +58,14 @@ th, td {
     color: white;
     text-decoration: none;
     padding: 10px 30px;
-    transition: 0.5s;
     border: 2px solid black;
     border-radius: 5px;
 }
 [data-record-id]:hover {
     letter-spacing: 0.06em;
     background: darkgoldenrod;
-    box-shadow: 0 0 30px darkgoldenrod;
-    color: darkgoldenrod;
+    box-shadow: 0 0 30px; /*darkgoldenrod; kolor cienia po najechaniu na przycisk*/
+    color: darkgoldenrod; /*kolor liter po najechaniu na przycisk*/
 }
 [data-record-id]:before {
     position: absolute;

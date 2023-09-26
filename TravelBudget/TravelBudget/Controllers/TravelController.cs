@@ -1,40 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using TravelBudget.Models;
+using TravelBudgetContactContext.Repositories;
 using TravelBudgetModels.Models;
 
 namespace TravelBudget.Controllers
 {
     public class TravelController : Controller
     {
+        TravelRepository _travelRepository { get; set; }
+        public TravelController(TravelRepository travelRepository)
+        {
+            _travelRepository = travelRepository;   
+        }
         public IActionResult Index()
         {
-            TravelViewModel travelViewModel = new TravelViewModel
-            {
-               travels = new List<Travel>
-                {
-                    new Travel
-                    {
-                        Id = 1,
-                        StartingDate = new DateTime(2023, 10, 10, 06, 15, 0),
-                        FinishDate = new DateTime(2023, 10, 20, 06, 15, 0),
-                        Name = "Adventure to Sardinia",
-                        Description = "Visiting the whole island"
-                        //Active = true
-                    },
-                    new Travel
-                    {
-                        Id = 2,
-                        StartingDate = new DateTime(2022, 08, 16, 06, 15, 0),
-                        FinishDate = new DateTime(2022, 08, 25, 06, 15, 0),
-                        Name = "Jordan trip",
-                        Description = "Trip to Jordan with strangers"
-                        //Active = true
-                    }
-                }
-            };
-
+            var travelsFromDB = _travelRepository.GetAllTravel();
+            var activeTravels = travelsFromDB.Where(t => t.Active == true).ToList();
+            TravelViewModel travelViewModel = new TravelViewModel();
+            travelViewModel.Travels = activeTravels;
+  
             return View(travelViewModel);
         }
 
@@ -45,33 +32,12 @@ namespace TravelBudget.Controllers
 
         public IActionResult History()
         {
-            TravelViewModel travelsHistory = new TravelViewModel
-            {
-                travels = new List<Travel>()
-                {
-                    new Travel()
-                    {
-                        Id = 1,
-                        StartingDate = new DateTime(2022, 12, 16, 06, 15, 0),
-                        FinishDate = new DateTime(2022, 12, 20, 06, 15, 0),
-                        Name = "Adventure to Sicily",
-                        Description = "Visiting at least half of the island",
-                        Active = false
-                    },
-                    new Travel()
-                    {
-                        Id = 2,
-                        StartingDate = new DateTime(2022, 08, 16, 06, 15, 0),
-                        FinishDate = new DateTime(2022, 08, 25, 06, 15, 0),
-                        Name = "Balkans conquering",
-                        Description = "Visiting 4 different countries in the Balkans",
-                        Active = false
-                
-                    }
-                }
-            };
+            var travelsFromDB = _travelRepository.GetAllTravel();
+            var inactiveTravels = travelsFromDB.Where(t => t.Active == false).ToList();
+            TravelViewModel travelViewModel = new TravelViewModel();
+            travelViewModel.Travels = inactiveTravels;
 
-            return View(travelsHistory);
+            return View(travelViewModel);
         }
     }
 }

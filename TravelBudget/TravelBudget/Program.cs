@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TravelBudgetContactContext;
+using TravelBudgetContactContext.Repositories;
+
 namespace TravelBudget
 {
     public class Program
@@ -12,7 +14,7 @@ namespace TravelBudget
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<ContactContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+            builder.Services.AddTransient<TravelRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
