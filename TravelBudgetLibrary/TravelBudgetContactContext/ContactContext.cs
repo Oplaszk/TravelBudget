@@ -36,7 +36,8 @@ namespace TravelBudgetContactContext
             );
             modelBuilder.Entity<Comment>().HasData(
                 new Comment() { Id = 1, Content = "At the first day..."},
-                new Comment() { Id = 2, Content = "At the first day..." }
+                new Comment() { Id = 2, Content = "At the first day..." },
+                new Comment() { Id = 3, Content = "At the first day..." }
             );
             modelBuilder.Entity<Continent>().HasData(
                 new Continent() { Id = 1, Name = "Europe"},

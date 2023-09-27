@@ -1,0 +1,36 @@
+
+
+#CreateTitle {
+    color: darkgoldenrod;
+    text-align: center;
+}
+#label_1 {
+    color:darkgoldenrod;
+}
+#label_2 {
+    color: darkgoldenrod;
+}
+#label_3 {
+    color: darkgoldenrod;
+}
+#label_4 {
+    color: darkgoldenrod;
+}
+#label_5 {
+    color: darkgoldenrod;
+}
+.form-outline {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 0;
+    margin: 0;
+}
+#submitButton:hover {
+    box-shadow: 0px 0px 7px 5px darkgoldenrod;
+    transition: 0.7s;
+}
+.submitButtonSection {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}

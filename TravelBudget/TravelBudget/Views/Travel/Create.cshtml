@@ -1,16 +1,42 @@
 ﻿@model Travel
 
-<form>
-    <div class="row mb-3">
-        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail3">
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/TravelsCreate-View.css" asp-append-version="true" />
+</head>
+
+<body>
+<div class="container">
+<form method="post">
+    <div class="row pb-2">
+        <h2 id="CreateTitle">Create Travel</h2>
     </div>
-    <div class="row mb-3">
-        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-        <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword3">
-        </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
+    <div class="form-outline mb-4" id="label_1">
+             <label asp-for="Name" class="form-label"></label>
+             <input asp-for="Name" class=form-control/>                    
+    </div>
+    <div class="form-outline mb-4" id="label_2">
+             <label asp-for="Description" class="form-label"></label>
+             <input asp-for="Description" class=form-control/>                    
+    </div>
+    <div class="form-outline mb-4" id="label_3">
+             <label asp-for="StartingDate" class="form-label"></label>
+             <input asp-for="StartingDate" class=form-control/>             
+    </div>
+    <div class="form-outline mb-4" id="label_4">
+             <label asp-for="FinishDate" class="form-label"></label>
+             <input asp-for="FinishDate" class=form-control/>             
+    </div>
+    <div class="form-outline mb-4" id="label_5">
+        <input asp-for="Active" class="form-check-input" type="checkbox" id="activeCheckbox">
+        <label asp-for="Active" class="form-check-label" for="activeCheckbox">Active</label>
+        <input asp-for="Active" class="form-check-input" type="checkbox" id="InactiveCheckbox">
+        <label asp-for="Active" class="form-check-label" for="InactiveCheckbox">Inactive</label>
+    </div>
+    <li class="submitButtonSection"><button id="submitButton" type="button" class="btn btn-warning btn-lg">Submit</button></li>
 </form>
+</div>
+</body>
