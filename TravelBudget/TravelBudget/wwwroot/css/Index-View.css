@@ -1,10 +1,9 @@
 
 * {
-    list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>). Usuwa równie¿ tzn. 
-        list markery z tagu typu (<li>)*/
-    box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
-    font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
-    overflow: hidden;
+    list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>).
+        Usuwa równie¿ tzn. list markery z tagu typu (<li>)*/
+    box-sizing: border-box; /*This style means that when you set the width and height of an element,
+        any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
 }
 /*<-------------------- Table section -------------------->*/
 #container {

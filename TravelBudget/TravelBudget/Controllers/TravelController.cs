@@ -17,14 +17,14 @@ namespace TravelBudget.Controllers
         }
         public IActionResult Index()
         {
-            var travelsFromDB = _travelRepository.GetAllTravel();
-            var activeTravels = travelsFromDB.Where(t => t.Active == true).ToList();
+            //var travelsFromDB = _travelRepository.GetAllTravels();
+            var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);// usunąlem .ToList(); na końcu, a
             TravelViewModel travelViewModel = new TravelViewModel();
             travelViewModel.Travels = activeTravels;
   
             return View(travelViewModel);
         }
-
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -32,12 +32,13 @@ namespace TravelBudget.Controllers
         [HttpPost]
         public IActionResult Create(Travel travel)
         {
+            _travelRepository.Create(travel);
             return View();
         }
 
         public IActionResult History()
         {
-            var travelsFromDB = _travelRepository.GetAllTravel();
+            var travelsFromDB = _travelRepository.GetAllTravels();
             var inactiveTravels = travelsFromDB.Where(t => t.Active == false).ToList();
             TravelViewModel travelViewModel = new TravelViewModel();
             travelViewModel.Travels = inactiveTravels;

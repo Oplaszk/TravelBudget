@@ -6,26 +6,27 @@
         list markery z tagu typu (<li>)*/
         box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
         font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
-        overflow: hidden;
     }
     /*<-------------------- Navbar section -------------------->*/
+    .logo-container
+    {
+        display: inline-block;
+
+    }
     .logo {
         color: white; /*ustawia kolor dla ca³ego napisu logo.*/
         font-size: 40px;
         line-height: 80px; /*To oznacza, ¿e linie tekstu (wiersze) bêd¹ oddzielone od siebie o 80 pikseli wertykalnie.*/
         padding: 0 80px 0, 0; /*Nadpisanie paddingu dla tytu³u: top: 0right: 100px.*/
         margin: 0px;
-        text-align: center;
+        vertical-align: middle;
     }
     .logo-image {
         border-radius: 8px;
-        width: 155px;
-        height: 125px;
-        padding-left: 25px;
-        padding-bottom: 60px;
-        vertical-align: middle;
-        justify-content: center;
-        align-items: center;
+        width: 160px;  
+        height: 80px;  
+        padding-left: 12px;
+        padding-top: 7px;
     }
     nav {
         background: black;
@@ -33,6 +34,7 @@
         height: 90px;
         align-items: center;
         border-bottom: 2px solid white;
+        vertical-align: central;
     }
     nav ul {      
         float: right;

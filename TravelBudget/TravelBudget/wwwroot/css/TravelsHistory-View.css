@@ -44,7 +44,7 @@ nav ul li {
     vertical-align: central;
 }
 /*<-------------------- Logo section -------------------->*/
-.logo {
+.title {
     color: darkgoldenrod; /*ustawia kolor dla ca³ego napisu logo.*/
     font-size: 40px;
     padding-left: 60px;
@@ -66,13 +66,20 @@ th, td {
     text-align: center;
 }
 /*<-------------------- Return Button section -------------------->*/
+
+.return-container {
+    align-content: center;
+    vertical-align: central;
+}
+
 #returnButton {
     background-color: darkgoldenrod;
     float: right;
     text-align: center;
     align-content: center;
     vertical-align: central;
-    height: 40px;
+    height: 45px;
+    border: 2px solid black;
 }
 #returnButton:hover {
     box-shadow: 0px 0px 5px 4px darkgoldenrod;
@@ -121,7 +128,7 @@ th, td {
         background: black;
     }
 
-a span {
-    position: relative;
-    z-index: 1;
-}
+    a span {
+        position: relative;
+        z-index: 1;
+    }

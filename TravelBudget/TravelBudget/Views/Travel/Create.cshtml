@@ -8,35 +8,33 @@
     <link rel="stylesheet" href="~/css/TravelsCreate-View.css" asp-append-version="true" />
 </head>
 
-<body>
-<div class="container">
+<body id="Body-create">
+<div class="container-create">
 <form method="post">
     <div class="row pb-2">
         <h2 id="CreateTitle">Create Travel</h2>
     </div>
-    <div class="form-outline mb-4" id="label_1">
-             <label asp-for="Name" class="form-label"></label>
-             <input asp-for="Name" class=form-control/>                    
-    </div>
-    <div class="form-outline mb-4" id="label_2">
-             <label asp-for="Description" class="form-label"></label>
-             <input asp-for="Description" class=form-control/>                    
-    </div>
-    <div class="form-outline mb-4" id="label_3">
-             <label asp-for="StartingDate" class="form-label"></label>
+    <div class="form-outline mb-2" id="label_1">
+             <label asp-for="Name" class="form-label" style="font-size:20px"></label>
+             <input asp-for="Name" class=form-control autocomplete="off" />
+            </div>
+    <div class="form-outline mb-2" id="label_2">
+             <label asp-for="Description" class="form-label" style="font-size:20px"></label>
+             <input asp-for="Description" class=form-control autocomplete="off" />
+            </div>
+    <div class="form-outline mb-2" id="label_3">
+             <label asp-for="StartingDate" class="form-label" style="font-size:20px"></label>
              <input asp-for="StartingDate" class=form-control/>             
     </div>
-    <div class="form-outline mb-4" id="label_4">
-             <label asp-for="FinishDate" class="form-label"></label>
+    <div class="form-outline mb-2" id="label_4">
+             <label asp-for="FinishDate" class="form-label" style="font-size:20px"></label>
              <input asp-for="FinishDate" class=form-control/>             
     </div>
-    <div class="form-outline mb-4" id="label_5">
-        <input asp-for="Active" class="form-check-input" type="checkbox" id="activeCheckbox">
-        <label asp-for="Active" class="form-check-label" for="activeCheckbox">Active</label>
-        <input asp-for="Active" class="form-check-input" type="checkbox" id="InactiveCheckbox">
-        <label asp-for="Active" class="form-check-label" for="InactiveCheckbox">Inactive</label>
+    <div class="form-outline mb-2" id="label_5">
+        <input asp-for="Active" class="form-check-input custom-buttom" type="checkbox" id="activeCheckbox">
+        <label asp-for="Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 20px">Active</label>
     </div>
-    <li class="submitButtonSection"><button id="submitButton" type="button" class="btn btn-warning btn-lg">Submit</button></li>
+    <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg">Create</button></li>
 </form>
 </div>
 </body>

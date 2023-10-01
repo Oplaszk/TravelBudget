@@ -10,25 +10,23 @@
     <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg"> 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/Index-View.css" asp-append-version="true"/>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Material Design for Bootstrap</title>
     <!-- MDB icon -->
-    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"/>
+    @* <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon"/> *@
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    @* <link rel="stylesheet" *@
+          @* href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/> *@
     <!-- Google Fonts Roboto -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
+@*     <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/> *@
     <!-- MDB -->
-    <link rel="stylesheet" href="css/mdb.min.css"/>
+@*     <link rel="stylesheet" href="css/mdb.min.css"/> *@
 </head>
 <body>
     <nav>
+        <div class="logo-container">
         <img src="/images/Logo/Compass.jpg" class="logo-image"/>
         <label class="logo">TravelBudget</label>
+        </div>
         <ul>           
             <li><a class = "a1" asp-controller="Travel" asp-action = "Create"> Create New Travel </a></li>
             <li><a class="a2" asp-controller="Travel" asp-action="Index"> Current Travels </a></li>
