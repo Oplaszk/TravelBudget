@@ -11,10 +11,8 @@ namespace TravelBudgetContactContext
     public class ContactContext : DbContext
     {
 
-        public ContactContext(DbContextOptions<ContactContext> options) : base(options)
-        {
+        public ContactContext(DbContextOptions<ContactContext> options) : base(options) { }
 
-        }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Continent> Continents { get; set; }

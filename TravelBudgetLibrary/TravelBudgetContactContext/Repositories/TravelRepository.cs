@@ -18,11 +18,12 @@ namespace TravelBudgetContactContext.Repositories
 
         public List<Travel> GetAllTravels()
         {
+            // "Travels" odnosi się w tym przypadku do tabeli o tej nazwie która znajduje się w naszej bazie danych. 
             var result = _db.Travels.ToList();
 
             return result;
         }
-        public bool Create(Travel travel)
+        public bool SaveToDB(Travel travel)
         {
             try
             {
@@ -35,6 +36,34 @@ namespace TravelBudgetContactContext.Repositories
                 return false;
             }
         }
+        public Travel GetById(int id)
+        {
+            try
+            {
+                return _db.Travels.Where(a => a.Id == id).FirstOrDefault();
+            }
+            catch(Exception e)
+            {
+                return new Travel();
+            }
+
+        }
+        public bool UpdateTravel(Travel travel)
+        {
+            try
+            {
+                _db.Travels.Update(travel);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception e) 
+            {
+                return false;
+            }
+            
+        }
+
+        
     }
 
 }

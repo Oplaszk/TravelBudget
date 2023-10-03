@@ -8,10 +8,10 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public bool Active { get; set; }
-        public int CommentId { get; set; }
+        public int? CommentId { get; set; }
         public Comment Comment { get; set; }
-        public ICollection<Expense> Expenses { get; set; } = new List<Expense>();
-        public ICollection<Country> Countries { get; set; } = new List<Country>();  
+        public List<Expense> Expenses { get; set; } = new List<Expense>();
+        public List<Country> Countries { get; set; } = new List<Country>();  
 
     }
 }

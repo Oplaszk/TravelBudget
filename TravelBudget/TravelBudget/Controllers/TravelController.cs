@@ -13,27 +13,16 @@ namespace TravelBudget.Controllers
         TravelRepository _travelRepository { get; set; }
         public TravelController(TravelRepository travelRepository)
         {
-            _travelRepository = travelRepository;   
+            _travelRepository = travelRepository;
         }
+
         public IActionResult Index()
         {
-            //var travelsFromDB = _travelRepository.GetAllTravels();
-            var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);// usunąlem .ToList(); na końcu, a
+            var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);
             TravelViewModel travelViewModel = new TravelViewModel();
             travelViewModel.Travels = activeTravels;
-  
+
             return View(travelViewModel);
-        }
-        [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult Create(Travel travel)
-        {
-            _travelRepository.Create(travel);
-            return View();
         }
 
         public IActionResult History()
@@ -45,5 +34,38 @@ namespace TravelBudget.Controllers
 
             return View(travelViewModel);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Travel travel)
+        {
+            _travelRepository.SaveToDB(travel);
+            if (travel.Active == true)
+            {
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("History");
+        }
+
+        
+        public IActionResult Edit(int id)
+        {
+            var travel = _travelRepository.GetById((int)id);
+            return View("Create", travel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Travel travel)
+        {
+            _travelRepository.UpdateTravel(travel);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

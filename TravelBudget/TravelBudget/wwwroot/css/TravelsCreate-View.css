@@ -45,11 +45,26 @@
 /*<-------------------- Create button section -------------------->*/
 #create-button {
     border: 2px solid black;
+    background-color: darkgoldenrod;
 }
+/*#update-button {
+    border: 2px solid black;
+    background-color: darkgoldenrod;
+}*/
 #create-button:hover {
-    box-shadow: 0px 0px 7px 5px darkgoldenrod;
+    box-shadow: 0px 0px 8px 5px darkgoldenrod;
     transition: 0.7s;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
 }
+/*#update-button:hover {
+    box-shadow: 0px 0px 8px 5px darkred;
+    transition: 0.7s;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}*/
 .create-buttonSection {
     display: flex;
     justify-content: center;
