@@ -1,33 +1,42 @@
 
+/*<-------------------- Main section -------------------->*/
 #Body-create {
     max-height: 100vh;
     overflow-y: auto;
 }
+/*<-------------------- Title section -------------------->*/
 #CreateTitle {
     color: darkgoldenrod;
     text-align: center;
+    animation: fadeIn 2s ease;
+    padding-top: 10px;
 }
 /*<-------------------- Form section -------------------->*/
 #label_1 {
     margin: 0;
-    color:darkgoldenrod;
+    color: darkgoldenrod;
+    animation: fadeIn 2s ease;
 }
 #label_2 {
     margin: 0;
     color: darkgoldenrod;
+    animation: fadeIn 5s ease;
 }
 #label_3 {
     margin: 0;
     color: darkgoldenrod;
+    animation: fadeIn 7s ease;
 }
 #label_4 {
     margin: 0;
     color: darkgoldenrod;
+    animation: fadeIn 9s ease;
 }
 #label_5 {
     margin: 0;
     color: darkgoldenrod;
     text-align: center;
+    animation: fadeIn 11s ease;
 }
 .form-outline {
     padding-left: 50px;
@@ -36,7 +45,7 @@
     margin: 0;
 }
 .custom-buttom {
-    width: 30px; 
+    width: 30px;
     height: 30px;
 }
 .custom-label {
@@ -47,26 +56,29 @@
     border: 2px solid black;
     background-color: darkgoldenrod;
 }
-/*#update-button {
-    border: 2px solid black;
-    background-color: darkgoldenrod;
-}*/
+
 #create-button:hover {
     box-shadow: 0px 0px 8px 5px darkgoldenrod;
     transition: 0.7s;
     background-color: black;
-    color: white;
+    color: darkgoldenrod;
     border: 2px solid white;
 }
-/*#update-button:hover {
-    box-shadow: 0px 0px 8px 5px darkred;
-    transition: 0.7s;
-    background-color: black;
-    color: white;
-    border: 2px solid white;
-}*/
+
 .create-buttonSection {
     display: flex;
     justify-content: center;
     padding: 8px;
+    animation: fadeIn 13s ease;
 }
+/*<-------------------- Animation section -------------------->*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+

@@ -43,11 +43,12 @@ nav ul li {
     align-content: center;
     vertical-align: central;
 }
-/*<-------------------- Logo section -------------------->*/
+/*<-------------------- Title section -------------------->*/
 .title {
     color: darkgoldenrod; /*ustawia kolor dla ca³ego napisu logo.*/
     font-size: 40px;
     padding-left: 60px;
+    animation: fadeIn 2s ease;
 }
 /*<-------------------- Body section -------------------->*/
 body {
@@ -58,6 +59,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     background-color: white;
+    animation: fadeIn 6s ease;
 }
 
 th, td {
@@ -132,3 +134,13 @@ th, td {
         position: relative;
         z-index: 1;
     }
+/*<-------------------- Animation section -------------------->*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

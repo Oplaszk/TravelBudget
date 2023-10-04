@@ -132,7 +132,7 @@
         }
     }
     #title {
-          color:darkgoldenrod ; /* Kolor tekstu */
+          color: darkgoldenrod ; /* Kolor tekstu */
           text-align: center;
           animation: fadeIn 4s ease;
     }
