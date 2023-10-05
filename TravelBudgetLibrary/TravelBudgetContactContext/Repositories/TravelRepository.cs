@@ -81,6 +81,11 @@ namespace TravelBudgetContactContext.Repositories
                 travel.Active = false;
                 _db.SaveChanges();                 
         }
+        public void RetrieveTravel(Travel travel)
+        {
+            travel.Active = true;
+            _db.SaveChanges();
+        }
     }
 
 }

@@ -75,12 +75,20 @@ namespace TravelBudget.Controllers
             return RedirectToAction("History");
         }
         #endregion
-        #region END Travel section
+        #region End Travel section
         public IActionResult End(int id)
         {
             var selected = _travelRepository.GetById(id);
             _travelRepository.EndTravel(selected);
             return RedirectToAction("History");
+        }
+        #endregion
+        #region Retrive Travel section
+        public IActionResult Retrieve(int id)
+        {
+            var selected = _travelRepository.GetById(id);
+            _travelRepository.RetrieveTravel(selected);
+            return RedirectToAction("Index");
         }
         #endregion
     }
