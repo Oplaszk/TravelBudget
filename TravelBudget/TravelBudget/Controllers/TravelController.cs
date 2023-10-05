@@ -15,7 +15,7 @@ namespace TravelBudget.Controllers
         {
             _travelRepository = travelRepository;
         }
-
+        #region READ section
         public IActionResult Index()
         {
             var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);
@@ -28,13 +28,14 @@ namespace TravelBudget.Controllers
         public IActionResult History()
         {
             var travelsFromDB = _travelRepository.GetAllTravels();
-            var inactiveTravels = travelsFromDB.Where(t => t.Active == false).ToList();
+            var inactiveTravels = travelsFromDB.Where(t => t.Active == false);
             TravelViewModel travelViewModel = new TravelViewModel();
             travelViewModel.Travels = inactiveTravels;
 
             return View(travelViewModel);
         }
-
+        #endregion
+        #region CREATE section
         [HttpGet]
         public IActionResult Create()
         {
@@ -51,21 +52,36 @@ namespace TravelBudget.Controllers
             }
             return RedirectToAction("History");
         }
-
-        
-        public IActionResult Edit(int id)
+        #endregion
+        #region UPDATE section
+        public IActionResult Update(int id)
         {
             var travel = _travelRepository.GetById((int)id);
             return View("Create", travel);
         }
 
         [HttpPost]
-        public IActionResult Edit(Travel travel)
+        public IActionResult Update(Travel travel)
         {
             _travelRepository.UpdateTravel(travel);
             return RedirectToAction("Index");
         }
-
-
+        #endregion
+        #region DELETE section
+        public IActionResult Delete(int id)
+        {
+            var travel = _travelRepository.GetById(id);
+            _travelRepository.DeleteTravel(travel);
+            return RedirectToAction("History");
+        }
+        #endregion
+        #region END Travel section
+        public IActionResult End(int id)
+        {
+            var selected = _travelRepository.GetById(id);
+            _travelRepository.EndTravel(selected);
+            return RedirectToAction("History");
+        }
+        #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -62,8 +63,24 @@ namespace TravelBudgetContactContext.Repositories
             }
             
         }
-
-        
+        public bool DeleteTravel(Travel travel)
+        {
+            try
+            {
+                _db.Travels.Remove(travel);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+        public void EndTravel(Travel travel)
+        {                   
+                travel.Active = false;
+                _db.SaveChanges();                 
+        }
     }
 
 }

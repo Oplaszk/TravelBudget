@@ -12,8 +12,8 @@ using TravelBudgetContactContext;
 namespace TravelBudgetContactContext.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20231004061419_IdUpdate")]
-    partial class IdUpdate
+    [Migration("20231004203314_Refresh")]
+    partial class Refresh
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -311,11 +311,11 @@ namespace TravelBudgetContactContext.Migrations
 
             modelBuilder.Entity("TravelBudgetModels.Models.Travel", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
