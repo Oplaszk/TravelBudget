@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Shortcuts ignore
+Shortcuts/
 # MVC Description ignore
 MVC-description/
 *.txt

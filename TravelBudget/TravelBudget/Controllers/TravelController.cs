@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -70,20 +71,22 @@ namespace TravelBudget.Controllers
         #region DELETE section
         public IActionResult Delete(int id)
         {
-            var travel = _travelRepository.GetById(id);
-            _travelRepository.DeleteTravel(travel);
-            return RedirectToAction("History");
+            {
+                var travel = _travelRepository.GetById(id);
+                _travelRepository.DeleteTravel(travel);
+                return RedirectToAction("History");
+            }
         }
-        #endregion
-        #region End Travel section
-        public IActionResult End(int id)
+            #endregion
+            #region End Travel section
+            public IActionResult End(int id)
         {
             var selected = _travelRepository.GetById(id);
             _travelRepository.EndTravel(selected);
             return RedirectToAction("History");
         }
         #endregion
-        #region Retrive Travel section
+        #region Retrieve Travel section
         public IActionResult Retrieve(int id)
         {
             var selected = _travelRepository.GetById(id);

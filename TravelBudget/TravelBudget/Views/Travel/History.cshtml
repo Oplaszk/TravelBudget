@@ -33,11 +33,12 @@
                 <a href="#" data-record-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
                 <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
                 <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Retrieve" asp-route-id="@item.Id"><span class="MenuButton">Retreive</span></a>
-                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Delete" asp-route-id="@item.Id"><span class="MenuButton">Delete</span></a>
-                
+                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Delete" asp-route-id="@item.Id"
+                    onclick="return confirm('Are you sure that you want to delete this travel? Type OK/Cancel to continue');">
+                <span class="MenuButton">Delete</span>
+                </a>          
             </div>
     }
-
  </div>
 
  
