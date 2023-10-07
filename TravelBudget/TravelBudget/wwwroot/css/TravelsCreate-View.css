@@ -1,4 +1,4 @@
-
+ 
 /*<-------------------- Main section -------------------->*/
 #Body-create {
     max-height: 100vh;
@@ -70,6 +70,26 @@
     justify-content: center;
     padding: 8px;
     animation: fadeIn 13s ease;
+}
+/*<-------------------- Calendary buttons section -------------------->*/
+#showStartingDatePicker {
+    border: 2.5px solid darkgoldenrod;
+    background-color: black;
+    color: darkgoldenrod;
+}
+#showStartingDatePicker:hover {
+    box-shadow: 0px 0px 8px 5px darkgoldenrod;
+    border: 2.5px solid white;
+}
+#showFinishDatePicker {
+    border: 2.5px solid darkgoldenrod;
+    background-color: black;
+    color: darkgoldenrod;
+}
+#showFinishDatePicker:hover {
+    box-shadow: 0px 0px 8px 5px darkgoldenrod;
+    border: 2.5px solid white;
+
 }
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {

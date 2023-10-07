@@ -68,19 +68,15 @@ th, td {
     text-align: center;
 }
 /*<-------------------- Return Button section -------------------->*/
-
-.return-container {  
-    
-    align-content: center;
+#return-container {
+    display: inline-block;
+    float: right;
     vertical-align: central;
 }
 
 #returnButton {
-    display: flex;
-    justify-content: right;
     background-color: darkgoldenrod;
     text-align: center;
-    vertical-align: central;
     height: 45px;
     border: 2px solid black;
 }
@@ -88,7 +84,6 @@ th, td {
     box-shadow: 0px 0px 5px 4px darkgoldenrod;
     transition: 0.7s;
 }
-
 /*<-------------------- Menu button section -------------------->*/
 #button-containerAdd {
     display: flex;
@@ -99,14 +94,12 @@ th, td {
     cursor: pointer;
     animation: fadeIn 10s ease;
 }
-
 .MenuButton {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
 [data-record-id] {
     position: relative;
     background: white;
@@ -123,19 +116,43 @@ th, td {
         box-shadow: 0 0 30px; /*darkgoldenrod; kolor cienia po najechaniu na przycisk*/
         color: darkgoldenrod; /*kolor liter po najechaniu na przycisk*/
     }
-
     [data-record-id]:before {
         position: absolute;
         inset: 2px;
         content: '';
         background: black;
     }
-
     a span {
         position: relative;
         z-index: 1;
     }
-
+/*<-------------------- Delete button section -------------------->*/
+    [data-record-id-delete] {
+        position: relative;
+        background: white;
+        color: white;
+        text-decoration: none;
+        padding: 10px 30px;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+    [data-record-id-delete]:hover {
+        letter-spacing: 0.06em;
+        background-color: darkgoldenrod;
+        box-shadow: 1px 1px 30px; /*darkgoldenrod; kolor cienia po najechaniu na przycisk*/
+        color: darkred; /*kolor liter po najechaniu na przycisk*/
+    }
+    [data-record-id-delete]:before {
+        position: absolute;
+        inset: 2px;
+        content: '';
+        color: black;
+        background: black;
+    }
+        a span {
+        position: relative;
+        z-index: 1;
+    }
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {
     from {
