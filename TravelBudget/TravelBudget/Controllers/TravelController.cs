@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,18 @@ namespace TravelBudget.Controllers
 {
     public class TravelController : Controller
     {
-        TravelRepository _travelRepository { get; set; }
+        private readonly TravelRepository _travelRepository;
         public TravelController(TravelRepository travelRepository)
         {
             _travelRepository = travelRepository;
         }
+        #region TRAVEL SECTION
         #region READ section
         public IActionResult Index()
         {
             var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);
             TravelViewModel travelViewModel = new TravelViewModel();
             travelViewModel.Travels = activeTravels;
-
             return View(travelViewModel);
         }
 
@@ -46,7 +47,7 @@ namespace TravelBudget.Controllers
         [HttpPost]
         public IActionResult Create(Travel travel)
         {
-            _travelRepository.SaveToDB(travel);
+            _travelRepository.CreateTravel(travel);
             if (travel.Active == true)
             {
                 return RedirectToAction("Index");
@@ -78,7 +79,7 @@ namespace TravelBudget.Controllers
             }
         }
             #endregion
-            #region End Travel section
+        #region End Travel section
             public IActionResult End(int id)
         {
             var selected = _travelRepository.GetById(id);
@@ -91,6 +92,19 @@ namespace TravelBudget.Controllers
         {
             var selected = _travelRepository.GetById(id);
             _travelRepository.RetrieveTravel(selected);
+            return RedirectToAction("Index");
+        }
+        #endregion
+        #endregion
+        #region EXPENSE SECTION
+        [HttpGet]
+        public IActionResult AddExpense()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddExpense(Expense expense)
+        {
             return RedirectToAction("Index");
         }
         #endregion

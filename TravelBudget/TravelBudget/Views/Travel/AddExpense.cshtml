@@ -1,0 +1,43 @@
+﻿@model Expense
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/TravelsExpense-View.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-expense">
+    <form method="post">
+        <div>
+            <h1 id="CreateTitle">Add Expense</h1>
+        </div>
+            <div class="form-outline mb-2" id="label_0" hidden>
+                <input asp-for="Id" class=form-control autocomplete="off"/>
+        </div>
+        <div class="form-outline mb-2" id="label_1">
+             <label asp-for="Price" class="form-label" style="font-size:20px"></label>
+             <input asp-for="Price" class=form-control autocomplete="off" placeholder=""/>
+        </div>
+        <div class="form-outline mb-2" id="label_2">
+             <label asp-for="Date" class="form-label" style="font-size:20px"></label>
+             <input asp-for="Date" class=form-control autocomplete="off" placeholder=""/>
+        </div>
+        <div class="form-outline mb-2" id="label_3">
+             <label asp-for="CategoryId" class="form-label" style="font-size:20px"></label>              
+             <input asp-for="CategoryId" class=form-control autocomplete="off" placeholder="Give the type of category of your expense" />
+        </div>
+        <div class="form-outline mb-2" id="label_4">
+             <label asp-for="Description" class="form-label" style="font-size:20px"></label>
+             <input asp-for="Description" class=form-control autocomplete="off" placeholder="You can give a short description of the expense if you want"/>
+        </div>
+        <div class="form-outline mb-2" id="label_5">
+             <label asp-for="CountryId" class="form-label" style="font-size:20px"></label>
+             <input asp-for="CountryId" class=form-control autocomplete="off" placeholder="Type name of the country where you paid"/>
+        </div>
+    </form>
+</body>
+</html>

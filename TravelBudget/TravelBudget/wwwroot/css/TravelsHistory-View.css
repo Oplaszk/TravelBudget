@@ -15,7 +15,6 @@
         list markery z tagu typu (<li>)*/
     box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
     font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
-    overflow: hidden;
 }
 /*<-------------------- Navigation bar section -------------------->*/
 nav {
@@ -139,8 +138,8 @@ th, td {
     [data-record-id-delete]:hover {
         letter-spacing: 0.06em;
         background-color: darkgoldenrod;
-        box-shadow: 1px 1px 30px; /*darkgoldenrod; kolor cienia po najechaniu na przycisk*/
-        color: darkred; /*kolor liter po najechaniu na przycisk*/
+        box-shadow: 1px 1px 30px; 
+        color: rgb(183, 8, 8); /*kolor liter po najechaniu na przycisk*/
     }
     [data-record-id-delete]:before {
         position: absolute;

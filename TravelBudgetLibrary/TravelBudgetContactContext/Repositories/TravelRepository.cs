@@ -24,7 +24,7 @@ namespace TravelBudgetContactContext.Repositories
 
             return result;
         }
-        public bool SaveToDB(Travel travel)
+        public bool CreateTravel(Travel travel)
         {
             try
             {
@@ -79,13 +79,27 @@ namespace TravelBudgetContactContext.Repositories
         public void EndTravel(Travel travel)
         {                   
                 travel.Active = false;
-                _db.SaveChanges();                 
+                _db.SaveChanges();
         }
         public void RetrieveTravel(Travel travel)
         {
             travel.Active = true;
             _db.SaveChanges();
         }
+        public bool AddExpense(Expense expense)
+        {
+            try
+            {
+                _db.Expenses.Add(expense);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
     }
 
 }
