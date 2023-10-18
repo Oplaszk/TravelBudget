@@ -12,7 +12,7 @@ namespace TravelBudgetModels.Models
         [DisplayName(displayName: "Category")]
         public int CategoryId { get; set; }
         [NotMapped]
-        public List<Category> CategoryOptions { get; set; }
+        public List<Category> CategoryOptions { get; set; } = new List<Category>(); // dodałem instancje
         public int TravelId { get; set; }
         [DisplayName(displayName: "Country")]
         public int CountryId { get; set; } 

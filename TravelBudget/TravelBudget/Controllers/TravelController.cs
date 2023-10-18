@@ -14,6 +14,7 @@ namespace TravelBudget.Controllers
     {
         private readonly TravelRepository _travelRepository;
         private readonly TravelViewModel _travelViewModel;
+        private readonly ExpenseViewModel _expenseViewModel;
         public TravelController(TravelRepository travelRepository)
         {
             _travelRepository = travelRepository;

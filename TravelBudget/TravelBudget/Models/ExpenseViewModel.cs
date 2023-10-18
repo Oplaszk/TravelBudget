@@ -4,7 +4,7 @@ namespace TravelBudget.Models
 {
     public class ExpenseViewModel
     {
-        IEnumerable<Expense> expenses { get; set; }
-        IEnumerable<Category> CategoryOptions { get; set; }
+        IEnumerable<Expense> Expenses { get; set; }
+        IEnumerable<Category> CategoryOptions { get; set; } = new List<Category>();
     }
 }
