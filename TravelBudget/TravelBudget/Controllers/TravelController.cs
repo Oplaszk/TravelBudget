@@ -13,28 +13,27 @@ namespace TravelBudget.Controllers
     public class TravelController : Controller
     {
         private readonly TravelRepository _travelRepository;
+        private readonly TravelViewModel _travelViewModel;
         public TravelController(TravelRepository travelRepository)
         {
             _travelRepository = travelRepository;
+            _travelViewModel = new TravelViewModel();
         }
         #region TRAVEL SECTION
         #region READ section
         public IActionResult Index()
         {
             var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);
-            TravelViewModel travelViewModel = new TravelViewModel();
-            travelViewModel.Travels = activeTravels;
-            return View(travelViewModel);
+            _travelViewModel.Travels = activeTravels;
+            return View(_travelViewModel);
         }
 
         public IActionResult History()
         {
             var travelsFromDB = _travelRepository.GetAllTravels();
             var inactiveTravels = travelsFromDB.Where(t => t.Active == false);
-            TravelViewModel travelViewModel = new TravelViewModel();
-            travelViewModel.Travels = inactiveTravels;
-
-            return View(travelViewModel);
+            _travelViewModel.Travels = inactiveTravels;
+            return View(_travelViewModel);
         }
         #endregion
         #region CREATE section
