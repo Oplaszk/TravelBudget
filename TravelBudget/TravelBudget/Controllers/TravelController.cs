@@ -14,7 +14,6 @@ namespace TravelBudget.Controllers
     {
         private readonly TravelRepository _travelRepository;
         private readonly TravelViewModel _travelViewModel;
-        private readonly ExpenseViewModel _expenseViewModel;
         public TravelController(TravelRepository travelRepository)
         {
             _travelRepository = travelRepository;
@@ -95,18 +94,6 @@ namespace TravelBudget.Controllers
             return RedirectToAction("Index");
         }
         #endregion
-        #endregion
-        #region EXPENSE SECTION
-        [HttpGet]
-        public IActionResult AddExpense()
-        {
-            return View();
-        }
-        [HttpPost]
-        public IActionResult AddExpense(Expense expense)
-        {
-            return RedirectToAction("Index");
-        }
         #endregion
     }
 }

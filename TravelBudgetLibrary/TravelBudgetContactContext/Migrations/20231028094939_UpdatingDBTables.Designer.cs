@@ -12,8 +12,8 @@ using TravelBudgetContactContext;
 namespace TravelBudgetContactContext.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20230927004654_All")]
-    partial class All
+    [Migration("20231028094939_UpdatingDBTables")]
+    partial class UpdatingDBTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -206,8 +206,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasIndex("ContinentId");
 
-                    b.HasIndex("CurrencyId")
-                        .IsUnique();
+                    b.HasIndex("CurrencyId");
 
                     b.ToTable("Countries");
 
@@ -219,6 +218,38 @@ namespace TravelBudgetContactContext.Migrations
                             ContinentId = 1,
                             CurrencyId = 1,
                             Name = "Poland"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Code = "SE",
+                            ContinentId = 2,
+                            CurrencyId = 5,
+                            Name = "Sweden"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Code = "BR",
+                            ContinentId = 5,
+                            CurrencyId = 3,
+                            Name = "Brazil"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Code = "CR",
+                            ContinentId = 5,
+                            CurrencyId = 3,
+                            Name = "Costa Rica"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Code = "CJP",
+                            ContinentId = 3,
+                            CurrencyId = 6,
+                            Name = "Japan"
                         });
                 });
 
@@ -258,6 +289,16 @@ namespace TravelBudgetContactContext.Migrations
                         {
                             Id = 4,
                             Code = "GBP"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Code = "SEK"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Code = "JPY"
                         });
                 });
 
@@ -279,7 +320,6 @@ namespace TravelBudgetContactContext.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")
@@ -320,7 +360,7 @@ namespace TravelBudgetContactContext.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<int>("CommentId")
+                    b.Property<int?>("CommentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -340,7 +380,8 @@ namespace TravelBudgetContactContext.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CommentId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[CommentId] IS NOT NULL");
 
                     b.ToTable("Travels");
 
@@ -401,8 +442,8 @@ namespace TravelBudgetContactContext.Migrations
                         .IsRequired();
 
                     b.HasOne("TravelBudgetModels.Models.Currency", "Currency")
-                        .WithOne("Country")
-                        .HasForeignKey("TravelBudgetModels.Models.Country", "CurrencyId")
+                        .WithMany("Countries")
+                        .HasForeignKey("CurrencyId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -434,9 +475,7 @@ namespace TravelBudgetContactContext.Migrations
                 {
                     b.HasOne("TravelBudgetModels.Models.Comment", "Comment")
                         .WithOne("Travel")
-                        .HasForeignKey("TravelBudgetModels.Models.Travel", "CommentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TravelBudgetModels.Models.Travel", "CommentId");
 
                     b.Navigation("Comment");
                 });
@@ -448,7 +487,8 @@ namespace TravelBudgetContactContext.Migrations
 
             modelBuilder.Entity("TravelBudgetModels.Models.Comment", b =>
                 {
-                    b.Navigation("Travel");
+                    b.Navigation("Travel")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("TravelBudgetModels.Models.Continent", b =>
@@ -458,8 +498,7 @@ namespace TravelBudgetContactContext.Migrations
 
             modelBuilder.Entity("TravelBudgetModels.Models.Currency", b =>
                 {
-                    b.Navigation("Country")
-                        .IsRequired();
+                    b.Navigation("Countries");
                 });
 
             modelBuilder.Entity("TravelBudgetModels.Models.Travel", b =>

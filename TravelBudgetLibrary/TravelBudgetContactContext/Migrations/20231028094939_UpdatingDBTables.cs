@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TravelBudgetContactContext.Migrations
 {
-    public partial class All : Migration
+    public partial class UpdatingDBTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -72,7 +72,7 @@ namespace TravelBudgetContactContext.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Active = table.Column<bool>(type: "bit", nullable: false),
-                    CommentId = table.Column<int>(type: "int", nullable: false)
+                    CommentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -81,8 +81,7 @@ namespace TravelBudgetContactContext.Migrations
                         name: "FK_Travels_Comments_CommentId",
                         column: x => x.CommentId,
                         principalTable: "Comments",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -119,7 +118,7 @@ namespace TravelBudgetContactContext.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
@@ -213,13 +212,22 @@ namespace TravelBudgetContactContext.Migrations
                     { 1, "PLN" },
                     { 2, "EUR" },
                     { 3, "USD" },
-                    { 4, "GBP" }
+                    { 4, "GBP" },
+                    { 5, "SEK" },
+                    { 6, "JPY" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Countries",
                 columns: new[] { "Id", "Code", "ContinentId", "CurrencyId", "Name" },
-                values: new object[] { 1, "PL", 1, 1, "Poland" });
+                values: new object[,]
+                {
+                    { 1, "PL", 1, 1, "Poland" },
+                    { 2, "SE", 2, 5, "Sweden" },
+                    { 3, "BR", 5, 3, "Brazil" },
+                    { 4, "CR", 5, 3, "Costa Rica" },
+                    { 5, "CJP", 3, 6, "Japan" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Travels",
@@ -244,8 +252,7 @@ namespace TravelBudgetContactContext.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Countries_CurrencyId",
                 table: "Countries",
-                column: "CurrencyId",
-                unique: true);
+                column: "CurrencyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CountryTravel_TravelsId",
@@ -266,7 +273,8 @@ namespace TravelBudgetContactContext.Migrations
                 name: "IX_Travels_CommentId",
                 table: "Travels",
                 column: "CommentId",
-                unique: true);
+                unique: true,
+                filter: "[CommentId] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

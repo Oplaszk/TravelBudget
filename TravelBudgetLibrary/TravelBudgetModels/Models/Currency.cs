@@ -6,6 +6,6 @@ namespace TravelBudgetModels.Models
     {
         public int Id { get; set; }
         public string Code { get; set; }
-        public Country Country { get; set; }
+        public ICollection<Country> Countries { get; set; }
     }
 }

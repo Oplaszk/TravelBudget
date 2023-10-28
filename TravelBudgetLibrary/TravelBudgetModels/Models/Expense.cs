@@ -9,10 +9,8 @@ namespace TravelBudgetModels.Models
         public string? Description { get; set; }
         public double Price { get; set; }
         public DateTime Date { get; set; } = new DateTime();
-        [DisplayName(displayName: "Category")]
+        [DisplayName(displayName: "Category Options")]
         public int CategoryId { get; set; }
-        [NotMapped]
-        public List<Category> CategoryOptions { get; set; } = new List<Category>(); // dodałem instancje
         public int TravelId { get; set; }
         [DisplayName(displayName: "Country")]
         public int CountryId { get; set; } 

@@ -87,54 +87,8 @@ namespace TravelBudgetContactContext.Repositories
             travel.Active = true;
             _db.SaveChanges();
         }
-        #endregion
-        #region EXPENSE SECTION
-        public List<Expense> GetExpensesByTravelId(int travelId)
-        {           
-            return _db.Expenses.Where(e => e.TravelId == travelId).ToList();
-        }
-        public bool AddExpense(Expense expense)
-        {
-            try
-            {
-                _db.Expenses.Add(expense);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-        public bool UpdateExpense(Expense expense)
-        {
-            try
-            {
-                _db.Expenses.Update(expense);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
-        public bool DeleteExpense(Expense expense)
-        {
-            try
-            {
-                _db.Expenses.Remove(expense);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception e)
-            {
-                return false;
-            }
-        }
+        #endregion       
     }
-    #endregion
-
 }
 
 

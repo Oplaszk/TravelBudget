@@ -10,7 +10,6 @@ namespace TravelBudgetContactContext
 {
     public class ContactContext : DbContext
     {
-
         public ContactContext(DbContextOptions<ContactContext> options) : base(options) { }
 
         public DbSet<Category> Categories { get; set; }
@@ -48,13 +47,19 @@ namespace TravelBudgetContactContext
                 new Continent() { Id = 8, Name = "Antarctica"}
             );
             modelBuilder.Entity<Country>().HasData(
-                new Country() { Id = 1, Name = "Poland", Code = "PL", ContinentId = 1, CurrencyId = 1 }
+                new Country() { Id = 1, Name = "Poland", Code = "PL", ContinentId = 1, CurrencyId = 1 },
+                new Country() { Id = 2, Name = "Sweden", Code = "SE", ContinentId = 2, CurrencyId = 5 },
+                new Country() { Id = 3, Name = "Brazil", Code = "BR", ContinentId = 5, CurrencyId = 3 },
+                new Country() { Id = 4, Name = "Costa Rica", Code = "CR", ContinentId = 5, CurrencyId = 3 },
+                new Country() { Id = 5, Name = "Japan", Code = "CJP", ContinentId = 3, CurrencyId = 6 }
             );
             modelBuilder.Entity<Currency>().HasData(
                 new Currency() { Id = 1, Code = "PLN" },
                 new Currency() { Id = 2, Code = "EUR" },
                 new Currency() { Id = 3, Code = "USD" },
-                new Currency() { Id = 4, Code = "GBP" }
+                new Currency() { Id = 4, Code = "GBP" },
+                new Currency() { Id = 5, Code = "SEK" },
+                new Currency() { Id = 6, Code = "JPY" }
             );
             modelBuilder.Entity<Expense>().HasData(
                 new Expense() { Id = 1, Description = "I bought a souvenir", Price = 15.5, Date = new DateTime(2022, 12, 17, 15, 15, 0), CategoryId = 1, TravelId = 1, CountryId = 1 }
