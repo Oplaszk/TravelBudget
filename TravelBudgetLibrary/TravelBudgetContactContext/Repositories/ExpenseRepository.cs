@@ -20,7 +20,11 @@ namespace TravelBudgetContactContext.Repositories
         {
             return _db.Expenses.Where(e => e.TravelId == travelId).ToList();
         }
-        public bool AddExpense(Expense expense)
+        public IEnumerable<Expense> GetAll()
+        {
+            return _db.Expenses.ToList();
+        }
+        public bool SaveExpenseToDB(Expense expense)
         {
             try
             {
@@ -28,8 +32,9 @@ namespace TravelBudgetContactContext.Repositories
                 _db.SaveChanges();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
         }
@@ -41,8 +46,9 @@ namespace TravelBudgetContactContext.Repositories
                 _db.SaveChanges();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
         }
@@ -54,8 +60,9 @@ namespace TravelBudgetContactContext.Repositories
                 _db.SaveChanges();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
         }

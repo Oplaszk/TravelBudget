@@ -1,0 +1,45 @@
+﻿@model TravelBudget.Models.ExpenseViewModel
+
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/TravelsDetails-View.css" asp-append-version="true" />
+
+    <h1 id="title">Details</h1>
+    <div id="container">
+    @foreach (var item in Model.Expenses)
+    {
+        <div class ="record-container">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Travel</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Category</th>
+                        <th>Country</th>                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.TravelId</td>
+                        <td>@item.Description</td>
+                        <td>@item.Price</td>
+                        <td>@item.Date</td>
+                        <td>@item.CategoryId</td>
+                        <td>@item.CountryId</td>
+                    </tr> 
+                </tbody>
+            </table>
+@*             <div id="button-containerAdd">
+                <a href="#" data-record-id="@item.Id"><span class="MenuButton">Detail</span></a>
+                <a data-record-id asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
+                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="End" asp-route-id="@item.Id"><span class="MenuButton">End</span></a>
+            </div> *@
+        </div>
+    }
+    </div>
+

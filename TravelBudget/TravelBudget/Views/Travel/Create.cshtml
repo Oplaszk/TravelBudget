@@ -1,4 +1,8 @@
-﻿@model Travel
+﻿@model TravelBudget.Models.TravelViewModel
+
+<link rel="stylesheet" href="~/css/TravelsCreate-View.css" asp-append-version="true"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 
     <body id="Body-create">
     <div class="container-create">
@@ -6,42 +10,42 @@
         <div>
             <h1 id="CreateTitle">@(Model == null? "Create Travel" : "Update Travel")</h1>
         </div>
-            <div class="form-outline mb-2" id="label_0" hidden>
-                <input asp-for="Id" class=form-control autocomplete="off"/>
+            <div class="form-outline mb-2" id="C_label_0" hidden>
+                <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off"/>
             </div>
-        <div class="form-outline mb-2" id="label_1">
-             <label asp-for="Name" class="form-label" style="font-size:20px"></label>
-                <input asp-for="Name" class=form-control autocomplete="off" placeholder="Type name of your travel" />
+        <div class="form-outline mb-2" id="C_label_1">
+             <label asp-for="@Model.Travel.Name" class="form-label" style="font-size:20px"></label>
+             <input asp-for="@Model.Travel.Name" class=form-control autocomplete="off" placeholder="Type name of your travel" />
             </div>
-        <div class="form-outline mb-2" id="label_2">
-             <label asp-for="Description" class="form-label" style="font-size:20px"></label>
-             <input asp-for="Description" class=form-control autocomplete="off" placeholder="What is your travel about?" />
+        <div class="form-outline mb-2" id="C_label_2">
+             <label asp-for="@Model.Travel.Description" class="form-label" style="font-size:20px"></label>
+             <input asp-for="@Model.Travel.Description" class=form-control autocomplete="off" placeholder="What is your travel about?" />
             </div>
-        <div class="form-outline mb-2" id="label_3">
-             <label asp-for="StartingDate" class="form-label" style="font-size:20px"></label>
+        <div class="form-outline mb-2" id="C_label_3">
+             <label asp-for="@Model.Travel.StartingDate" class="form-label" style="font-size:20px"></label>
                  <div class="input-group date">
-                 <input asp-for="StartingDate" class=form-control id="startingDatePicker"/>
+                 <input asp-for="@Model.Travel.StartingDate" class=form-control id="startingDatePicker"/>
                      <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showStartingDatePicker">Comfirm date</button>
                     </div>
                 </div>
         </div>
-        <div class="form-outline mb-2" id="label_4">
-             <label asp-for="FinishDate" class="form-label" style="font-size: 20px"></label>
+        <div class="form-outline mb-2" id="C_label_4">
+             <label asp-for="@Model.Travel.FinishDate" class="form-label" style="font-size: 20px"></label>
              <div class="input-group date">
-                 <input asp-for="FinishDate" class="form-control" id="finishDatePicker" />
+                 <input asp-for="@Model.Travel.FinishDate" class="form-control" id="finishDatePicker" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showFinishDatePicker">Confirm date</button>                      
                     </div>
               </div>
         </div>
-            <div class="form-outline mb-2" id="label_5">
-                <input asp-for="Active" class="form-check-input custom-buttom" type="checkbox" id="activeCheckbox">
-                <label asp-for="Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 20px">Active</label>
+            <div class="form-outline mb-2" id="C_label_5">
+                <input asp-for="@Model.Travel.Active" class="form-check-input custom-buttom" type="checkbox" id="activeCheckbox">
+                <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 20px">Active</label>
             </div>
             <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model == null? "Create" : "Update")</button></li>         
-</form>
-</div>
+    </form>
+    </div>
 @*     <script>
         $(document).ready(function () {
             // Inicjalizacja Datepicker dla pola StartingDate

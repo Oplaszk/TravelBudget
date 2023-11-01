@@ -16,6 +16,8 @@ namespace TravelBudget
             builder.Services.AddDbContext<ContactContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
             builder.Services.AddTransient<TravelRepository>();
             builder.Services.AddTransient<ExpenseRepository>();
+            builder.Services.AddTransient<CategoryRepository>();
+            builder.Services.AddTransient<CountryRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

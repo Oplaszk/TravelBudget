@@ -10,12 +10,13 @@
 <body class="content">
     <nav>
         <label class="title">Travels History</label>
-        <ul>
+        <div class="return-button-container">
+            <a href="~/Travel/Index" class="return-button">Return</a>
+        </div>
+@*         <ul>
             <li id="return-container"><a href ="~/Travel/Index"><button id="returnButton" type="button" class="btn btn-warning">Return</button></a></li>
-        </ul>
+        </ul> *@
     </nav>
- </body>       
- <body>
     <div class="container">
         <main role="main" class="pb-300">
             @RenderBody()

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
+using Microsoft.AspNetCore.Mvc;
 using TravelBudget.Models;
 using TravelBudgetContactContext.Repositories;
 using TravelBudgetModels.Models;
@@ -9,28 +10,33 @@ namespace TravelBudget.Controllers
     {
         private readonly ExpenseViewModel _expenseViewModel;
         private readonly ExpenseRepository _expenseRepository;
-        public ExpenseController(ExpenseRepository expenseRepository)
+        private readonly CategoryRepository _categoryRepository;
+        private readonly CountryRepository _countryRepository;
+        public ExpenseController(ExpenseRepository expenseRepository, CategoryRepository categoryRepository, CountryRepository countryRepository)
         {
             _expenseRepository = expenseRepository;
+            _categoryRepository = categoryRepository;
+            _countryRepository = countryRepository;
             _expenseViewModel = new ExpenseViewModel();
         }
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-        #region EXPENSE SECTION
         #region CREATE section
         [HttpGet]
-        public IActionResult AddExpense()
+        public IActionResult AddExpense(int travelId)
         {
-            return View();
+            _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategory();
+            _expenseViewModel.Countries = _countryRepository.GetAllCountries();
+            _expenseViewModel.TravelId = travelId;
+
+            return View(_expenseViewModel);
         }
         [HttpPost]
-        public IActionResult AddExpense(Expense expense)
+        public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
-            return RedirectToAction("Index");
+            expenseViewModel.Expense.TravelId = expenseViewModel.TravelId;
+            _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
+
+            return RedirectToAction("Details", "Detail");
         }
-        #endregion
         #endregion
     }
 }

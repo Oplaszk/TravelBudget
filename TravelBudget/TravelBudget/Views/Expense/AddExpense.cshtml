@@ -1,34 +1,48 @@
-﻿@model Expense
+﻿@model TravelBudget.Models.ExpenseViewModel
 
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/TravelsExpense-View.css" asp-append-version="true" />
 <body>
     <div class="container-expense">
     <form method="post">
         <div>
-            <h1 id="CreateTitle">Add Expense</h1>
+            <h1 id="ExpenseTitle">@(Model.TravelId == 0? "Add Expense" : "Update Expense")</h1>
         </div>
-            <div class="form-outline mb-2" id="label_0" hidden>
-                <input asp-for="Id" class="form-control" autocomplete="off"/>
+            <div class="form-outline mb-2" id="E_label_0" hidden>
+                <input asp-for="@Model.Expense.Id" class="form-control" autocomplete="off" />
+                <input asp-for="@Model.TravelId" class="form-control" autocomplete="off" />
+                @* <input asp-for="@Model.Travel" class="form-control" autocomplete="off" /> *@
         </div>
-        <div class="form-outline mb-2" id="label_1">
-             <label asp-for="Price" class="form-label" style="font-size:20px"></label>
-             <input asp-for="Price" class="form-control" autocomplete="off" placeholder="Type the price of the expense"/>
+            <div class="form-outline mb-2" id="E_label_1">
+                <label asp-for="@Model.Expense.Price" class="form-label" style="font-size:24px"></label>
+                <input asp-for="@Model.Expense.Price" class="form-control" autocomplete="off" placeholder="Type the price of the expense" />
         </div>
-        <div class="form-outline mb-2" id="label_2">
-             <label asp-for="Date" class="form-label" style="font-size:20px"></label>
-             <input asp-for="Date" class="form-control" autocomplete="off" placeholder=""/>
+        <div class="form-outline mb-2 " id="E_label_2">
+                <label asp-for="@Model.Expense.Date" class="form-label" style="font-size:24px"></label>
+                <div class="input-group date">
+                <input asp-for="@Model.Expense.Date" class="form-control" autocomplete="off" placeholder=""/>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary" id="showFinishDatePicker">Confirm date</button>
+                    </div>
+                </div>
         </div>
-            <div class="form-outline mb-2" id="label_2">
-                <label asp-for="CategoryId" class="form-label" style="font-size:20px"></label>
-                <input asp-for="CategoryId" class="form-control" autocomplete="off" placeholder="" />
+            <div class="form-outline mb-2" id="E_label_3">
+                <label asp-for="@Model.Expense.CategoryId" class="form-label" style="font-size:25px"></label>
+                @Html.DropDownListFor(c => c.Expense.CategoryId, new SelectList
+                (Model.CategoryOptions,"Id", "Type"),"Select Category")
             </div>
-        <div class="form-outline mb-2" id="label_4">
-             <label asp-for="Description" class="form-label" style="font-size:20px"></label>
-             <input asp-for="Description" class="form-control" autocomplete="off" placeholder="You can give a short description of the expense"/>
+        <div class="form-outline mb-2" id="E_label_4">
+                <label asp-for="@Model.Expense.Description" class="form-label" style="font-size:24px"></label>
+                <input asp-for="@Model.Expense.Description" class="form-control" autocomplete="off" placeholder="You can give a short description of the expense" />
         </div>
-        <div class="form-outline mb-2" id="label_5">
-             <label asp-for="CountryId" class="form-label" style="font-size:20px"></label>
-             <input asp-for="CountryId" class="form-control" autocomplete="off" placeholder="Type name of the country which you paid"/>
+        <div class="form-outline mb-2" id="E_label_5">
+                <label asp-for="@Model.Expense.CountryId" class="form-label" style="font-size:25px"></label>
+                @Html.DropDownListFor(c => c.Expense.CategoryId, new SelectList
+                (Model.Countries, "Id","Name"), "Select Country")   
+                @* <input asp-for="@Model.Expense.CountryId" class="form-control" autocomplete="off" placeholder="Type name of the country which you paid" /> *@
         </div>
+            <li class="expense-buttonSection"><button id="expense-button" type="submit" class="btn btn-warning btn-lg"> @(Model.TravelId == 0 ? "Add Expense" : "Update Expense")</button></li>
     </form>
+    </div>
 </body>
 

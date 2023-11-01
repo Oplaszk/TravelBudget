@@ -12,31 +12,33 @@
     padding-top: 10px;
 }
 /*<-------------------- Form section -------------------->*/
-#C_label_1 {
+#E_label_1 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 2s ease;
 }
-#C_label_2 {
+#E_label_2 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 5s ease;
 }
-#C_label_3 {
+#E_label_3 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 7s ease;
+    margin-top: 20px;
 }
-#C_label_4 {
+#E_label_4 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 9s ease;
 }
-#C_label_5 {
+#E_label_5 {
     margin: 0;
     color: darkgoldenrod;
-    text-align: center;
     animation: fadeIn 11s ease;
+    text-align: left;
+    margin-top: 20px;
 }
 .form-outline {
     padding-left: 50px;
@@ -47,9 +49,6 @@
 .custom-buttom {
     width: 30px;
     height: 30px;
-}
-.custom-label {
-    text-align: center;
 }
 /*<-------------------- Create button section -------------------->*/
 #create-button {
@@ -89,7 +88,6 @@
 #showFinishDatePicker:hover {
     box-shadow: 0px 0px 8px 5px darkgoldenrod;
     border: 2.5px solid white;
-
 }
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {

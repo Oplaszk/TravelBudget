@@ -12,7 +12,7 @@ namespace TravelBudgetModels.Models
         [DisplayName(displayName: "Category Options")]
         public int CategoryId { get; set; }
         public int TravelId { get; set; }
-        [DisplayName(displayName: "Country")]
+        [DisplayName(displayName: "Country Options")]
         public int CountryId { get; set; } 
         public Category Category { get; set; }
         public Travel Travel { get; set; }

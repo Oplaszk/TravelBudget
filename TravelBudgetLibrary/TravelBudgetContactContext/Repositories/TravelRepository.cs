@@ -16,8 +16,6 @@ namespace TravelBudgetContactContext.Repositories
         {
             _db = db;
         }
-
-        #region TRAVEL SECTION
         public List<Travel> GetAllTravels()
         {
             // "Travels" odnosi się w tym przypadku do tabeli o tej nazwie która znajduje się w naszej bazie danych. 
@@ -25,7 +23,7 @@ namespace TravelBudgetContactContext.Repositories
 
             return result;
         }
-        public bool CreateTravel(Travel travel)
+        public bool SaveTravelToDB(Travel travel)
         {
             try
             {
@@ -33,8 +31,9 @@ namespace TravelBudgetContactContext.Repositories
                 _db.SaveChanges();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
         }
@@ -44,8 +43,9 @@ namespace TravelBudgetContactContext.Repositories
             {
                 return _db.Travels.Where(a => a.Id == id).FirstOrDefault();
             }
-            catch(Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return new Travel();
             }
 
@@ -54,12 +54,14 @@ namespace TravelBudgetContactContext.Repositories
         {
             try
             {
+                // Update jest wbudowaną metodą w Entity Framework
                 _db.Travels.Update(travel);
                 _db.SaveChanges();
                 return true;
             }
-            catch (Exception e) 
+            catch (Exception ex) 
             {
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
             
@@ -72,22 +74,41 @@ namespace TravelBudgetContactContext.Repositories
                 _db.SaveChanges();
                 return true;
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
+                Console.WriteLine("An error occurred: " + ex.Message);
                 return false;
             }
         }
-        public void EndTravel(Travel travel)
-        {                   
+        public bool EndTravel(Travel travel)
+        {
+            try
+            {
                 travel.Active = false;
                 _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
+            }
         }
-        public void RetrieveTravel(Travel travel)
+        public bool RetrieveTravel(Travel travel)
         {
-            travel.Active = true;
-            _db.SaveChanges();
-        }
-        #endregion       
+            try
+            {
+                travel.Active = true;
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                return false;
+            }
+            
+        }      
     }
 }
 

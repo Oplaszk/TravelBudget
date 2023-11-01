@@ -5,38 +5,40 @@
     overflow-y: auto;
 }
 /*<-------------------- Title section -------------------->*/
-#CreateTitle {
+#ExpenseTitle {
     color: darkgoldenrod;
     text-align: center;
     animation: fadeIn 2s ease;
     padding-top: 10px;
 }
 /*<-------------------- Form section -------------------->*/
-#label_1 {
+#E_label_1 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 2s ease;
 }
-#label_2 {
+#E_label_2 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 5s ease;
 }
-#label_3 {
+#E_label_3 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 7s ease;
+    margin-top: 20px;
 }
-#label_4 {
+#E_label_4 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 9s ease;
 }
-#label_5 {
+#E_label_5 {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 11s ease;
-/*    text-align: left;*/
+    text-align: left;
+    margin-top: 20px;
 }
 .form-outline {
     padding-left: 50px;
@@ -48,13 +50,13 @@
     width: 30px;
     height: 30px;
 }
-/*<-------------------- Create button section -------------------->*/
-#create-button {
+/*<-------------------- Expense button section -------------------->*/
+#expense-button {
     border: 2px solid black;
     background-color: darkgoldenrod;
 }
 
-#create-button:hover {
+#expense-button:hover {
     box-shadow: 0px 0px 8px 5px darkgoldenrod;
     transition: 0.7s;
     background-color: black;
@@ -62,7 +64,7 @@
     border: 2px solid white;
 }
 
-.create-buttonSection {
+.expense-buttonSection {
     display: flex;
     justify-content: center;
     padding: 8px;

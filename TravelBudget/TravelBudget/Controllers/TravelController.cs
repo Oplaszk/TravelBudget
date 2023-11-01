@@ -19,20 +19,20 @@ namespace TravelBudget.Controllers
             _travelRepository = travelRepository;
             _travelViewModel = new TravelViewModel();
         }
-        #region TRAVEL SECTION
         #region READ section
         public IActionResult Index()
         {
             var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);
             _travelViewModel.Travels = activeTravels;
+
             return View(_travelViewModel);
         }
-
         public IActionResult History()
         {
             var travelsFromDB = _travelRepository.GetAllTravels();
             var inactiveTravels = travelsFromDB.Where(t => t.Active == false);
             _travelViewModel.Travels = inactiveTravels;
+
             return View(_travelViewModel);
         }
         #endregion
@@ -42,12 +42,11 @@ namespace TravelBudget.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        public IActionResult Create(Travel travel)
+        public IActionResult Create(TravelViewModel travelViewModel)
         {
-            _travelRepository.CreateTravel(travel);
-            if (travel.Active == true)
+            _travelRepository.SaveTravelToDB(travelViewModel.Travel);
+            if (travelViewModel.Travel.Active == true)
             {
                 return RedirectToAction("Index");
             }
@@ -55,16 +54,19 @@ namespace TravelBudget.Controllers
         }
         #endregion
         #region UPDATE section
+        [HttpGet]
         public IActionResult Update(int id)
         {
             var travel = _travelRepository.GetById((int)id);
-            return View("Create", travel);
+            _travelViewModel.Travel = travel;
+
+            return View("Create", _travelViewModel);
         }
 
         [HttpPost]
-        public IActionResult Update(Travel travel)
+        public IActionResult Update(TravelViewModel travel)
         {
-            _travelRepository.UpdateTravel(travel);
+            _travelRepository.UpdateTravel(travel.Travel);
             return RedirectToAction("Index");
         }
         #endregion
@@ -93,7 +95,6 @@ namespace TravelBudget.Controllers
             _travelRepository.RetrieveTravel(selected);
             return RedirectToAction("Index");
         }
-        #endregion
         #endregion
     }
 }
