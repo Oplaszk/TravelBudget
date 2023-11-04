@@ -26,7 +26,7 @@
                 </tbody>
             </table>
             <div id="button-containerAdd">
-                <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details"><span class="MenuButton">Details</span></a>
+                <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton">Details</span></a>
                 <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
                 <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
                 <a data-record-id="@item.Id" asp-controller="Travel" asp-action="End" asp-route-id="@item.Id"><span class="MenuButton">End</span></a>

@@ -6,7 +6,7 @@
     <div class="container-expense">
     <form method="post">
         <div>
-            <h1 id="ExpenseTitle">@(Model.TravelId == 0? "Add Expense" : "Update Expense")</h1>
+            <h1 id="ExpenseTitle">@(Model.Expense.TravelId == 0? "Add Expense" : "Update Expense")</h1>
         </div>
             <div class="form-outline mb-2" id="E_label_0" hidden>
                 <input asp-for="@Model.Expense.Id" class="form-control" autocomplete="off" />
@@ -41,7 +41,7 @@
                 (Model.Countries, "Id","Name"), "Select Country")   
                 @* <input asp-for="@Model.Expense.CountryId" class="form-control" autocomplete="off" placeholder="Type name of the country which you paid" /> *@
         </div>
-            <li class="expense-buttonSection"><button id="expense-button" type="submit" class="btn btn-warning btn-lg"> @(Model.TravelId == 0 ? "Add Expense" : "Update Expense")</button></li>
+            <li class="expense-buttonSection"><button id="expense-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</button></li>
     </form>
     </div>
 </body>

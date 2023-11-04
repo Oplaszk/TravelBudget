@@ -16,7 +16,7 @@ namespace TravelBudgetContactContext.Repositories
             _db = db;
         }
         
-        public List<Category> GetAllCategory()
+        public List<Category> GetAllCategories()
         {
             return _db.Categories.ToList();
         }

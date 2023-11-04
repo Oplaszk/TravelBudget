@@ -73,15 +73,15 @@ namespace TravelBudget.Controllers
         #region DELETE section
         public IActionResult Delete(int id)
         {
-            {
-                var travel = _travelRepository.GetById(id);
-                _travelRepository.DeleteTravel(travel);
-                return RedirectToAction("History");
-            }
+
+            var travel = _travelRepository.GetById(id);
+            _travelRepository.DeleteTravel(travel);
+            return RedirectToAction("History");
+
         }
-            #endregion
+        #endregion
         #region End Travel section
-            public IActionResult End(int id)
+        public IActionResult End(int id)
         {
             var selected = _travelRepository.GetById(id);
             _travelRepository.EndTravel(selected);

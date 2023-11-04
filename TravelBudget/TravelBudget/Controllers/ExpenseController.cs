@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq.Expressions;
 using TravelBudget.Models;
 using TravelBudgetContactContext.Repositories;
 using TravelBudgetModels.Models;
@@ -21,21 +22,22 @@ namespace TravelBudget.Controllers
         }
         #region CREATE section
         [HttpGet]
-        public IActionResult AddExpense(int travelId)
+        public IActionResult AddExpense(int id)
         {
-            _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategory();
+            _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
             _expenseViewModel.Countries = _countryRepository.GetAllCountries();
-            _expenseViewModel.TravelId = travelId;
+            _expenseViewModel.TravelId = id;
 
             return View(_expenseViewModel);
         }
         [HttpPost]
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
-            expenseViewModel.Expense.TravelId = expenseViewModel.TravelId;
+            int Id = expenseViewModel.TravelId;
+            expenseViewModel.Expense.TravelId = Id;
             _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
 
-            return RedirectToAction("Details", "Detail");
+            return RedirectToAction("Details", "Detail", new { id = Id });
         }
         #endregion
     }

@@ -1,94 +1,148 @@
- 
-/*<-------------------- Main section -------------------->*/
-#Body-create {
-    max-height: 100vh;
-    overflow-y: auto;
-}
-/*<-------------------- Title section -------------------->*/
-#CreateTitle {
-    color: darkgoldenrod;
-    text-align: center;
-    animation: fadeIn 2s ease;
-    padding-top: 10px;
-}
-/*<-------------------- Form section -------------------->*/
-#E_label_1 {
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 2s ease;
-}
-#E_label_2 {
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 5s ease;
-}
-#E_label_3 {
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 7s ease;
-    margin-top: 20px;
-}
-#E_label_4 {
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 9s ease;
-}
-#E_label_5 {
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 11s ease;
-    text-align: left;
-    margin-top: 20px;
-}
-.form-outline {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 0;
-    margin: 0;
-}
-.custom-buttom {
-    width: 30px;
-    height: 30px;
-}
-/*<-------------------- Create button section -------------------->*/
-#create-button {
-    border: 2px solid black;
-    background-color: darkgoldenrod;
-}
 
-#create-button:hover {
-    box-shadow: 0px 0px 8px 5px darkgoldenrod;
-    transition: 0.7s;
-    background-color: black;
-    color: darkgoldenrod;
-    border: 2px solid white;
+* {
+    margin: 0; /*ustawia wszystkie marginesy na zero*/
+    padding: 0; /*padding czyli odstêp kontentu jest ustawiony na zero*/
+    list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>). Usuwa równie¿ tzn. 
+        list markery z tagu typu (<li>)*/
+    box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
+    font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
 }
-
-.create-buttonSection {
+/*<-------------------- Navigation bar section -------------------->*/
+nav {
     display: flex;
     justify-content: center;
+    background: black;
+    text-align: center;
+    width: 100%;
+    height: 90px;
+    border-bottom: 2px solid white;
+}
+nav ul {
+    margin:0;
+    align-items: center;
+    vertical-align: central;
+    padding: 0;
+}
+nav ul li {
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    align-content: center;
+    vertical-align: central;
+}
+/*<-------------------- Title section -------------------->*/
+.title {
+    color: darkgoldenrod; /*ustawia kolor dla ca³ego napisu logo.*/
+    font-size: 40px;
+    padding-left: 60px;
+    animation: fadeIn 2s ease;
+    text-align: center;
+}
+/*<-------------------- Body section -------------------->*/
+body {
+    background-color: black;
+}
+/*<-------------------- Table section -------------------->*/
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: white;
+    animation: fadeIn 6s ease;
+}
+
+th, td {
+    border: 1px solid black;
     padding: 8px;
-    animation: fadeIn 13s ease;
+    text-align: center;
 }
-/*<-------------------- Calendary buttons section -------------------->*/
-#showStartingDatePicker {
-    border: 2.5px solid darkgoldenrod;
-    background-color: black;
-    color: darkgoldenrod;
+/*<-------------------- Return Button section -------------------->*/
+#return-container {
+    display: inline-block;
+    float: right;
+    vertical-align: central;
 }
-#showStartingDatePicker:hover {
-    box-shadow: 0px 0px 8px 5px darkgoldenrod;
-    border: 2.5px solid white;
+
+#returnButton {
+    background-color: darkgoldenrod;
+    text-align: center;
+    height: 45px;
+    border: 2px solid black;
 }
-#showFinishDatePicker {
-    border: 2.5px solid darkgoldenrod;
-    background-color: black;
-    color: darkgoldenrod;
+#returnButton:hover {
+    box-shadow: 0px 0px 5px 4px darkgoldenrod;
+    transition: 0.7s;
 }
-#showFinishDatePicker:hover {
-    box-shadow: 0px 0px 8px 5px darkgoldenrod;
-    border: 2.5px solid white;
+/*<-------------------- Menu button section -------------------->*/
+#button-containerAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    animation: fadeIn 10s ease;
 }
+.MenuButton {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+[data-record-id] {
+    position: relative;
+    background: white;
+    color: white;
+    text-decoration: none;
+    padding: 10px 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+    [data-record-id]:hover {
+        letter-spacing: 0.06em;
+        background: darkgoldenrod;
+        box-shadow: 0 0 30px; /*darkgoldenrod; kolor cienia po najechaniu na przycisk*/
+        color: darkgoldenrod; /*kolor liter po najechaniu na przycisk*/
+    }
+    [data-record-id]:before {
+        position: absolute;
+        inset: 2px;
+        content: '';
+        background: black;
+    }
+    a span {
+        position: relative;
+        z-index: 1;
+    }
+/*<-------------------- Delete button section -------------------->*/
+    [data-record-id-delete] {
+        position: relative;
+        background: white;
+        color: white;
+        text-decoration: none;
+        padding: 10px 30px;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+    [data-record-id-delete]:hover {
+        letter-spacing: 0.06em;
+        background-color: darkgoldenrod;
+        box-shadow: 1px 1px 30px; 
+        color: rgb(183, 8, 8); /*kolor liter po najechaniu na przycisk*/
+    }
+    [data-record-id-delete]:before {
+        position: absolute;
+        inset: 2px;
+        content: '';
+        color: black;
+        background: black;
+    }
+        a span {
+        position: relative;
+        z-index: 1;
+    }
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {
     from {
@@ -98,5 +152,6 @@
     to {
         opacity: 1;
     }
+
 }
 

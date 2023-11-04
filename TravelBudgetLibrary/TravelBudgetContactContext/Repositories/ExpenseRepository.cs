@@ -20,7 +20,7 @@ namespace TravelBudgetContactContext.Repositories
         {
             return _db.Expenses.Where(e => e.TravelId == travelId).ToList();
         }
-        public IEnumerable<Expense> GetAll()
+        public IEnumerable<Expense> GetAllExpenses()
         {
             return _db.Expenses.ToList();
         }
@@ -35,6 +35,10 @@ namespace TravelBudgetContactContext.Repositories
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception: " + ex.InnerException.Message);
+                }
                 return false;
             }
         }
@@ -49,6 +53,10 @@ namespace TravelBudgetContactContext.Repositories
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception: " + ex.InnerException.Message);
+                }
                 return false;
             }
         }
@@ -63,6 +71,10 @@ namespace TravelBudgetContactContext.Repositories
             catch (Exception ex)
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception: " + ex.InnerException.Message);
+                }
                 return false;
             }
         }

@@ -1,13 +1,4 @@
 
-/*.separation-bar {
-    height: 2px;
-    background-color: #0a0825db;
-    border: none;
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(to right, transparent 1%, #208bd3 40%, #013763 60%, transparent 99%);
-}*/
-
 * {
     margin: 0; /*ustawia wszystkie marginesy na zero*/
     padding: 0; /*padding czyli odstêp kontentu jest ustawiony na zero*/
@@ -66,33 +57,8 @@ th, td {
     padding: 8px;
     text-align: center;
 }
-.return-button-container {
-    display: flex;
-    justify-content: flex-end; /* Przesuñ przycisk w prawy górny róg */
-    align-items: center;
-    background: black;
-    width: 100%;
-    height: 90px;
-    border-bottom: 2px solid white;
-}
-
-.return-button {
-    background-color: darkgoldenrod;
-    text-align: center;
-    height: 45px;
-    padding: 10px 20px; /* Dostosuj marginesy */
-    border: 2px solid black;
-    color: white;
-    text-decoration: none;
-    margin-right: 20px; /* Dodaj odstêp od prawej strony */
-}
-
-    .return-button:hover {
-        box-shadow: 0 0 5px 4px darkgoldenrod;
-        transition: 0.7s;
-    }
 /*<-------------------- Return Button section -------------------->*/
-/*#return-container {
+#return-container {
     display: inline-block;
     float: right;
     vertical-align: central;
@@ -107,7 +73,7 @@ th, td {
 #returnButton:hover {
     box-shadow: 0px 0px 5px 4px darkgoldenrod;
     transition: 0.7s;
-}*/
+}
 /*<-------------------- Menu button section -------------------->*/
 #button-containerAdd {
     display: flex;

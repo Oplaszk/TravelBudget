@@ -24,7 +24,7 @@ namespace TravelBudgetContactContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Category>().HasData(
-                new Category() { Id = 1, Type = "Accomodation"},
+                new Category() { Id = 1, Type = "Accommodation"},
                 new Category() { Id = 2, Type = "Food"},
                 new Category() { Id = 3, Type = "Transport" },
                 new Category() { Id = 4, Type = "Atractions"},
