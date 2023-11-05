@@ -24,6 +24,10 @@ namespace TravelBudgetContactContext.Repositories
         {
             return _db.Expenses.ToList();
         }
+        public Expense GetExpenseById(int expenseId)
+        {
+            return _db.Expenses.Single(e => e.Id == expenseId);
+        }
         public bool SaveExpenseToDB(Expense expense)
         {
             try

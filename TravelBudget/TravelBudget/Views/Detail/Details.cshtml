@@ -37,11 +37,11 @@
                 </tbody>
             </table>
             <div id="button-containerAdd">
-                <a data-record-id="@item.Id" asp-controller="Expense" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
-                <a data-record-id-delete="@item.Id" asp-controller="Detail" asp-action="Delete" asp-route-id="@item.Id"
+                <a data-record-id="@item.Id" asp-controller="Expense" asp-action="Update" asp-route-id="@item.Id">
+                    <span class="MenuButton">Update</span></a>
+                <a data-record-id-delete="@item.Id" asp-controller="Expense" asp-action="Delete" asp-route-id="@item.Id"
                     onclick="return confirm('Are you sure that you want to delete this expense? Type OK/Cancel to continue');">
-                    <span class="MenuButton">Delete</span>
-                </a>
+                    <span class="MenuButton">Delete</span></a>               
             </div>
         </div>
     }

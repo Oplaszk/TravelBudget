@@ -21,28 +21,7 @@ namespace TravelBudget.Controllers
             _expenseViewModel.Expenses = expenses;
 
             return View(_expenseViewModel);
-        }
-        public IActionResult Delete(int Id)
-        {
-            var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == Id);
-            _expenseRepository.DeleteExpense(expenseToDetele);
-            int travelId = expenseToDetele.TravelId;
-
-            return RedirectToAction("Details", new {id = travelId });
-        }
-        //[HttpGet]
-        //public IActionResult Update(int Id)
-        //{
-        //    var expense = _expenseRepository.GetExpensesByTravelId(travelId);
-        //    _expenseViewModel
-
-        //    return RedirectToAction("Expense","AddExpense");
-        //}
-        //[HttpPost]
-        //public IActionResult Update()
-        //{
-        //    return RedirectToAction("Details");
-        //}
+        }      
         #endregion
     }
 }
