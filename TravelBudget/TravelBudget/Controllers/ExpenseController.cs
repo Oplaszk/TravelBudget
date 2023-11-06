@@ -26,22 +26,6 @@ namespace TravelBudget.Controllers
         {
             _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
             _expenseViewModel.Countries = _countryRepository.GetAllCountries();
-            if (id == 0)
-            {
-
-            }
-            //if (id > 0)
-            //{
-            //    var existingExpense = _expenseRepository.GetExpenseById(id);
-            //    if (existingExpense != null)
-            //    {
-            //        _expenseViewModel.Expense = existingExpense;
-            //    }
-            //}
-            //else
-            //{
-            //    _expenseViewModel.Expense = new Expense();
-            //}
             _expenseViewModel.TravelId = id;
 
             return View(_expenseViewModel);
@@ -52,19 +36,12 @@ namespace TravelBudget.Controllers
         {
             int Id = expenseViewModel.TravelId;
 
-            if (expenseViewModel.Expense.Id != null)
-            {
-                _expenseRepository.UpdateExpense(expenseViewModel.Expense);
-            }
-            else
-            {
-                expenseViewModel.Expense.TravelId = Id;
-                _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
-            }
+            expenseViewModel.Expense.TravelId = Id;
+            _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
 
             return RedirectToAction("Details", "Detail", new { id = Id });
         }
-        public IActionResult Delete(int id) 
+        public IActionResult Delete(int id)
         {
             var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
             _expenseRepository.DeleteExpense(expenseToDetele);
@@ -76,16 +53,25 @@ namespace TravelBudget.Controllers
         public IActionResult Update(int id)
         {
             var expenseToUpdate = _expenseRepository.GetExpenseById(id);
-            _expenseViewModel.Expense = expenseToUpdate;
-            int travelId = _expenseViewModel.TravelId;
 
-            return RedirectToAction("AddExpense", travelId/*_expenseViewModel*/);
+                var viewModel = new ExpenseViewModel
+                {
+                    Expense = expenseToUpdate,
+                    CategoryOptions = _categoryRepository.GetAllCategories(),// Czemu tutaj nie dochodzi do populacja i wyczyszczenia rubryki?
+                    Countries = _countryRepository.GetAllCountries(),
+                    TravelId = expenseToUpdate.TravelId
+                };
+                return View("AddExpense", viewModel); // Teoretycznie Expense.TravelId jest tutaj wypełnione a mimo to odczytuje mi formularz z Update 
         }
-        //[HttpPost]
-        //public IActionResult Update()
-        //{
-        //    return RedirectToAction("Details");
-        //}
+        [HttpPost]
+        public IActionResult Update(ExpenseViewModel expenseToUpdate)
+        {
+            int travelId = expenseToUpdate.TravelId;
+            expenseToUpdate.Expense.TravelId = travelId;
+            _expenseRepository.UpdateExpense(expenseToUpdate.Expense);
+
+            return RedirectToAction("Details", "Detail", new { id = travelId });
+        }
         #endregion
     }
 }

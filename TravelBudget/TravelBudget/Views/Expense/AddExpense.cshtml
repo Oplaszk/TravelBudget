@@ -9,8 +9,8 @@
             <h1 id="ExpenseTitle">@(Model.Expense.TravelId == 0? "Add Expense" : "Update Expense")</h1>
         </div>
             <div class="form-outline mb-2" id="E_label_0" hidden>
-                <input asp-for="@Model.Expense.Id" class="form-control" autocomplete="off" readonly />
-                <input asp-for="@Model.TravelId" class="form-control" autocomplete="off" readonly />
+                <input asp-for="@Model.Expense.Id" class="form-control" autocomplete="off"/>
+                <input asp-for="@Model.TravelId" class="form-control" autocomplete="off"/>
         </div>
             <div class="form-outline mb-2" id="E_label_1">
                 <label asp-for="@Model.Expense.Price" class="form-label" style="font-size:24px"></label>
