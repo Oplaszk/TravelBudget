@@ -22,6 +22,9 @@
     color: darkgoldenrod;
     animation: fadeIn 5s ease;
 }
+#price-input:focus {
+    text-align: center; 
+}
 #E_label_3 {
     margin: 0;
     color: darkgoldenrod;
@@ -29,6 +32,8 @@
     margin-top: 20px;
 }
 #E_label_4 {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 9s ease;
@@ -89,14 +94,72 @@
     box-shadow: 0px 0px 8px 5px darkgoldenrod;
     border: 2.5px solid white;
 }
+/*<-------------------- Additial styles for better look -------------------->*/
+
+/*<-------------------- Modification price box -------------------->*/
+.form-control-price {
+    border: 2px solid darkgoldenrod;
+    border-radius: 2px;
+    background-color: black;
+    color: darkgoldenrod;
+    padding: 5px;
+    cursor: pointer;
+}
+.form-control-price:hover {
+    background-color: darkgoldenrod;
+    color: black;
+    transition: 0.4s;
+}
+/*<-------------------- Modification description box -------------------->*/
+.form-control-description {
+    border: 2px solid darkgoldenrod;
+    border-radius: 2px;
+    background-color: black;
+    color: darkgoldenrod;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.form-control-description:hover {
+    background-color: darkgoldenrod;
+    color: black;
+    transition: 0.4s;
+}
+/*<-------------------- Modification data box -------------------->*/
+#E_label_2 input[type="datetime-local"] {
+    border: 2px solid darkgoldenrod;
+    background-color: black;
+    color: darkgoldenrod;
+    padding: 5px;
+    cursor: pointer;
+}
+#E_label_2 input[type="datetime-local"]:hover {
+    background-color: darkgoldenrod;
+    color: black;
+    transition: 0.4s;
+}
+/*<-------------------- Modification category dropdown -------------------->*/
+.category-drop-down {
+    border: 2px solid darkgoldenrod;
+    border-radius: 2px;
+    background-color: black;
+    color: darkgoldenrod;
+}
+/*<-------------------- Modification country dropdown -------------------->*/
+.country-drop-down {
+    border: 2px solid darkgoldenrod;
+    border-radius: 2px;
+    background-color: black;
+    color: darkgoldenrod;
+}
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {
     from {
-        opacity: 0;
-    }
+            opacity: 0;
+        }
 
-    to {
-        opacity: 1;
+        to {
+            opacity: 1;
+        }
     }
-}
 
