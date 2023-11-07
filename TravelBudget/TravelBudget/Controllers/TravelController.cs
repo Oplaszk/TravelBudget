@@ -64,9 +64,9 @@ namespace TravelBudget.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(TravelViewModel travel)
+        public IActionResult Update(TravelViewModel travelViewModel)
         {
-            _travelRepository.UpdateTravel(travel.Travel);
+            _travelRepository.UpdateTravel(travelViewModel.Travel);
             return RedirectToAction("Index");
         }
         #endregion
