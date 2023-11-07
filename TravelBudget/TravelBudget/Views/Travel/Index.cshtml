@@ -18,8 +18,8 @@
                 <tbody>
                     <tr>
                         <td>@item.Id</td>
-                        <td>@Html.DisplayFor(modelItem => item.StartingDate, "{0:yyyy-MM-dd HH:mm}")</td>
-                        <td>@Html.DisplayFor(modelItem => item.FinishDate, "{0:yyyy-MM-dd HH:mm}")</td>
+                        <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.StartingDate)</td>
+                        <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.FinishDate)</td>
                         <td>@item.Name</td>
                         <td>@item.Description</td>
                     </tr> 

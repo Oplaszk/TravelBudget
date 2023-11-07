@@ -21,8 +21,8 @@
         <tbody>
         <tr>
             <td>@item.Id</td>
-            <td>@item.StartingDate</td>
-            <td>@item.FinishDate</td>
+            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.StartingDate)</td>
+            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.FinishDate)</td>
             <td>@item.Name</td>
             <td>@item.Description</td>
         </tr>

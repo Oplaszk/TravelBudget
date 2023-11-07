@@ -30,7 +30,7 @@
                         <td>@item.TravelId</td>
                         <td>@item.Description</td>
                         <td>@item.Price</td>
-                        <td>@Html.DisplayFor(modelItem => item.Date, "{0:yyyy-MM-dd HH:mm}")</td>
+                        <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.Date)</td>
                         <td>@item.CategoryId</td>
                         <td>@item.CountryId</td>
                     </tr>
