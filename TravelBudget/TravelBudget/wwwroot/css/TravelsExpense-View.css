@@ -12,33 +12,30 @@
     padding-top: 10px;
 }
 /*<-------------------- Form section -------------------->*/
-#E_label_1 {
+#E_label_1-price {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 2s ease;
 }
-#E_label_2 {
+#E_label_2-date {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 5s ease;
 }
-#price-input:focus {
-    text-align: center; 
-}
-#E_label_3 {
+#E_label_3-category {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 7s ease;
     margin-top: 20px;
 }
-#E_label_4 {
+#E_label_4-description {
     display: flex;
     flex-direction: column;
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 9s ease;
 }
-#E_label_5 {
+#E_label_5-country {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 11s ease;
@@ -94,9 +91,9 @@
     box-shadow: 0px 0px 8px 5px darkgoldenrod;
     border: 2.5px solid white;
 }
-/*<-------------------- Additial styles for better look -------------------->*/
+/*<---------------------- Additional styles for better look ----------------------->*/
 
-/*<-------------------- Modification price box -------------------->*/
+/*<-------------------- Modification Price box -------------------->*/
 .form-control-price {
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
@@ -110,7 +107,10 @@
     color: black;
     transition: 0.4s;
 }
-/*<-------------------- Modification description box -------------------->*/
+#price-input:focus {
+    text-align: center;
+}
+/*<-------------------- Modification Description box -------------------->*/
 .form-control-description {
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
@@ -125,33 +125,34 @@
     color: black;
     transition: 0.4s;
 }
-/*<-------------------- Modification data box -------------------->*/
-#E_label_2 input[type="datetime-local"] {
+/*<-------------------- Modification Data box -------------------->*/
+#E_label_2-date input[type="datetime-local"] {
     border: 2px solid darkgoldenrod;
     background-color: black;
     color: darkgoldenrod;
     padding: 5px;
     cursor: pointer;
 }
-#E_label_2 input[type="datetime-local"]:hover {
+#E_label_2-date input[type="datetime-local"]:hover {
     background-color: darkgoldenrod;
     color: black;
     transition: 0.4s;
 }
-/*<-------------------- Modification category dropdown -------------------->*/
+/*<-------------------- Modification Category dropdown -------------------->*/
 .category-drop-down {
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
     color: darkgoldenrod;
 }
-/*<-------------------- Modification country dropdown -------------------->*/
+/*<-------------------- Modification Country dropdown -------------------->*/
 .country-drop-down {
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
     color: darkgoldenrod;
 }
+
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {
     from {

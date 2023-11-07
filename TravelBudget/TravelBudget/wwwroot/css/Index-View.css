@@ -76,5 +76,37 @@ a span {
     position: relative;
     z-index: 1;
 }
+/*<---------------------- Additional styles for better look ----------------------->*/
+
+/*<-------------------- Table section -------------------->*/
+#table {
+    width: 100%; /* 100% szerokoœci tabeli */
+    margin-top: 10px; /* Dodaj margines na górze i na dole tabeli */
+    background-color: darkgoldenrod; /* Kolor t³a tabeli */
+    animation: fadeIn 10s ease;
+    border: 2px solid darkgoldenrod;
+}
+
+/* Dostosuj style dla nag³ówków (th) */
+th {
+    background-color: black; /* Kolor t³a nag³ówków */
+    color: darkgoldenrod; /* Kolor tekstu w nag³ówkach */
+    font-weight: bold; /* Pogrubienie tekstu w nag³ówkach */
+    padding: 10px; /* Wielkoœæ wewnêtrznego marginesu nag³ówków */
+    text-align: center;
+}
+
+/* Dostosuj style dla komórek (td) */
+td {
+    background-color: white; /* Kolor t³a komórek */
+    color: black; /* Kolor tekstu w komórkach */
+    padding: 8px;
+    text-align: center;;
+}
+
+/* Dodaj obramowanie wokó³ komórek */
+th, td {
+    border: 2px solid darkgoldenrod;
+}
 
 

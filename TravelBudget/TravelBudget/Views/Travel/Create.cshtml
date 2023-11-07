@@ -13,56 +13,37 @@
             <div class="form-outline mb-2" id="C_label_0" hidden>
                 <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off"/>
             </div>
-        <div class="form-outline mb-2" id="C_label_1">
+        <div class="form-outline mb-2" id="C_label_1-name">
              <label asp-for="@Model.Travel.Name" class="form-label" style="font-size:20px"></label>
-             <input asp-for="@Model.Travel.Name" class=form-control autocomplete="off" placeholder="Type name of your travel" />
+             <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" />
             </div>
-        <div class="form-outline mb-2" id="C_label_2">
+        <div class="form-outline mb-2" id="C_label_2-description">
              <label asp-for="@Model.Travel.Description" class="form-label" style="font-size:20px"></label>
-             <input asp-for="@Model.Travel.Description" class=form-control autocomplete="off" placeholder="What is your travel about?" />
+             <input asp-for="@Model.Travel.Description" class=form-control-description autocomplete="off" placeholder="What is your travel about?" />
             </div>
-        <div class="form-outline mb-2" id="C_label_3">
+        <div class="form-outline mb-2" id="C_label_3-startDate">
              <label asp-for="@Model.Travel.StartingDate" class="form-label" style="font-size:20px"></label>
                  <div class="input-group date">
-                 <input asp-for="@Model.Travel.StartingDate" class=form-control id="startingDatePicker"/>
+                 <input asp-for="@Model.Travel.StartingDate" class=form-control type="datetime-local" id="startingDatePicker"/>
                      <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" id="showStartingDatePicker">Comfirm date</button>
+                        <button type="button" class="btn btn-primary" id="showStartingDatePicker">Select</button>
                     </div>
                 </div>
         </div>
-        <div class="form-outline mb-2" id="C_label_4">
+        <div class="form-outline mb-2" id="C_label_4-finishDate">
              <label asp-for="@Model.Travel.FinishDate" class="form-label" style="font-size: 20px"></label>
              <div class="input-group date">
-                 <input asp-for="@Model.Travel.FinishDate" class="form-control" id="finishDatePicker" />
+                    <input asp-for="@Model.Travel.FinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" id="showFinishDatePicker">Confirm date</button>                      
+                        <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>                      
                     </div>
               </div>
         </div>
-            <div class="form-outline mb-2" id="C_label_5">
+            <div class="form-outline mb-2" id="C_label_5-activeBox">
                 <input asp-for="@Model.Travel.Active" class="form-check-input custom-buttom" type="checkbox" id="activeCheckbox">
                 <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 20px">Active</label>
             </div>
             <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model == null? "Create" : "Update")</button></li>         
     </form>
     </div>
-@*     <script>
-        $(document).ready(function () {
-            // Inicjalizacja Datepicker dla pola StartingDate
-            $("#startingDatePicker").datepicker();
-
-            // Obsługa kliknięcia przycisku do otwarcia Datepickera dla StartingDate
-            $("#showStartingDatePicker").click(function () {
-                $("#startingDatePicker").datepicker("show");
-            });
-
-            // Inicjalizacja Datepicker dla pola FinishDate
-            $("#finishDatePicker").datepicker();
-
-            // Obsługa kliknięcia przycisku do otwarcia Datepickera dla FinishDate
-            $("#showFinishDatePicker").click(function () {
-                $("#finishDatePicker").datepicker("show");
-            });
-        });
-    </script> *@
 </body>
