@@ -28,7 +28,7 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@item.TravelId</td>
-                        <td>@item.Price</td>
+                        <td>@item.Price @item.Country.Currency.Code</td>
                         <td>@item.Description</td>
                         <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.Date)</td>
                         <td>@item.Category.Type</td>

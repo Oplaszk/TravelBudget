@@ -19,7 +19,20 @@ namespace TravelBudgetContactContext.Repositories
         #region EXPENSE SECTION
         public List<Expense> GetExpensesByTravelId(int travelId)
         {
-            return _db.Expenses.Include(a => a.Category).Include(b => b.Country).Where(e => e.TravelId == travelId).ToList();
+            try
+            {
+                return _db.Expenses.Include(a => a.Category).Include(b => b.Country).Where(e => e.TravelId == travelId).ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: " + ex.Message);
+                if (ex.InnerException != null)
+                {
+                    Console.WriteLine("Inner Exception: " + ex.InnerException.Message);
+                }
+                return new List<Expense>();
+            }
+
         }
         public IEnumerable<Expense> GetAllExpenses()
         {
