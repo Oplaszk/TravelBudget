@@ -35,8 +35,11 @@ namespace TravelBudget.Controllers
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
             int Id = expenseViewModel.TravelId;
-
             expenseViewModel.Expense.TravelId = Id;
+
+            //expenseViewModel.Expense.Category = _categoryRepository.GetCategoryById(expenseViewModel.Expense.CategoryId);
+            //expenseViewModel.Expense.Country = _countryRepository.GetCountryById(expenseViewModel.Expense.CountryId);
+
             _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
 
             return RedirectToAction("Details", "Detail", new { id = Id });
@@ -68,6 +71,10 @@ namespace TravelBudget.Controllers
         {
             int travelId = expenseToUpdate.TravelId;
             expenseToUpdate.Expense.TravelId = travelId;
+
+            //expenseToUpdate.Expense.Category = _categoryRepository.GetCategoryById(expenseToUpdate.Expense.CategoryId);
+            //expenseToUpdate.Expense.Country = _countryRepository.GetCountryById(expenseToUpdate.Expense.CountryId);
+
             _expenseRepository.UpdateExpense(expenseToUpdate.Expense);
 
             return RedirectToAction("Details", "Detail", new { id = travelId });

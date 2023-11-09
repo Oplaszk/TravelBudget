@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace TravelBudgetContactContext.Repositories
         #region EXPENSE SECTION
         public List<Expense> GetExpensesByTravelId(int travelId)
         {
-            return _db.Expenses.Where(e => e.TravelId == travelId).ToList();
+            return _db.Expenses.Include(a => a.Category).Include(b => b.Country).Where(e => e.TravelId == travelId).ToList();
         }
         public IEnumerable<Expense> GetAllExpenses()
         {

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using TravelBudgetContactContext.Response.DTO;
 using TravelBudgetModels.Models;
 
 namespace TravelBudget.Models

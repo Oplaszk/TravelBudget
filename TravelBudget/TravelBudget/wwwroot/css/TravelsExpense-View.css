@@ -107,6 +107,12 @@
     color: black;
     transition: 0.4s;
 }
+.form-control-price::placeholder {
+    color: darkgray;
+}
+.form-control-price:hover::placeholder {
+    color: black;
+}
 #price-input:focus {
     text-align: center;
 }
@@ -125,11 +131,17 @@
     color: black;
     transition: 0.4s;
 }
+.form-control-description::placeholder {
+    color: darkgray;
+}
+.form-control-description:hover::placeholder {
+    color: black;
+}
 /*<-------------------- Modification Data box -------------------->*/
 #E_label_2-date input[type="datetime-local"] {
     border: 2px solid darkgoldenrod;
     background-color: black;
-    color: darkgoldenrod;
+    color: darkgray;
     padding: 5px;
     cursor: pointer;
 }
@@ -145,12 +157,20 @@
     background-color: black;
     color: darkgoldenrod;
 }
+.category-drop-down:hover{
+    box-shadow: 0px 0px 10px 5px darkgoldenrod;
+    border: 2px solid white;
+}
 /*<-------------------- Modification Country dropdown -------------------->*/
 .country-drop-down {
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
     color: darkgoldenrod;
+}
+.country-drop-down:hover {
+    box-shadow: 0px 0px 10px 5px darkgoldenrod;
+    border: 2px solid white;
 }
 
 /*<-------------------- Animation section -------------------->*/

@@ -8,10 +8,15 @@ namespace TravelBudgetModels.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
-        public int ContinentId { get; set; }
-        public int CurrencyId { get; set; }
-        public Continent Continent { get; set; }
-        public Currency Currency { get; set; }
+
+        [ForeignKey("ContinentId")]
+        public int ContinentId { get; set; } // Klucz obcy
+        public Continent Continent { get; set; } // Wartość nawigacyjna
+
+        [ForeignKey("CurrencyId")]
+        public int CurrencyId { get; set; } // Klucz obcy
+        public Currency Currency { get; set; } // Wartość nawigacyjna
         public ICollection<Travel> Travels { get; set; }
+        public string NamePlusCode { get { return (Name + $"({Code})"); }}
     }
 }

@@ -51,7 +51,7 @@ namespace TravelBudgetContactContext
                 new Country() { Id = 2, Name = "Sweden", Code = "SE", ContinentId = 2, CurrencyId = 5 },
                 new Country() { Id = 3, Name = "Brazil", Code = "BR", ContinentId = 5, CurrencyId = 3 },
                 new Country() { Id = 4, Name = "Costa Rica", Code = "CR", ContinentId = 5, CurrencyId = 3 },
-                new Country() { Id = 5, Name = "Japan", Code = "CJP", ContinentId = 3, CurrencyId = 6 }
+                new Country() { Id = 5, Name = "Japan", Code = "JP", ContinentId = 3, CurrencyId = 6 }
             );
             modelBuilder.Entity<Currency>().HasData(
                 new Currency() { Id = 1, Code = "PLN" },
