@@ -37,7 +37,7 @@
         <div class="form-outline mb-2" id="E_label_5-country">
                 <label asp-for="@Model.Expense.CountryId" class="form-label" style="font-size:25px"></label>
                 @Html.DropDownListFor(c => c.Expense.CountryId, new SelectList
-                (Model.Countries, "Id","NamePlusCode"), "Select Country", new { @class = "country-drop-down" })
+                (Model.Countries, "Id","Name"), "Select Country", new { @class = "country-drop-down" })
                 @* <input asp-for="@Model.Expense.CountryId" class="form-control" autocomplete="off" placeholder="Type name of the country which you paid" /> *@
         </div>
             <li class="expense-buttonSection"><button id="expense-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</button></li>

@@ -34,7 +34,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasIndex("TravelsId");
 
-                    b.ToTable("CountryTravel");
+                    b.ToTable("CountryTravel", (string)null);
                 });
 
             modelBuilder.Entity("TravelBudgetModels.Models.Category", b =>
@@ -51,7 +51,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
 
                     b.HasData(
                         new
@@ -99,7 +99,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Comments");
+                    b.ToTable("Comments", (string)null);
 
                     b.HasData(
                         new
@@ -133,7 +133,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Continents");
+                    b.ToTable("Continents", (string)null);
 
                     b.HasData(
                         new
@@ -206,7 +206,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasIndex("CurrencyId");
 
-                    b.ToTable("Countries");
+                    b.ToTable("Countries", (string)null);
 
                     b.HasData(
                         new
@@ -265,7 +265,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Currencies");
+                    b.ToTable("Currencies", (string)null);
 
                     b.HasData(
                         new
@@ -334,7 +334,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasIndex("TravelId");
 
-                    b.ToTable("Expenses");
+                    b.ToTable("Expenses", (string)null);
 
                     b.HasData(
                         new
@@ -381,7 +381,7 @@ namespace TravelBudgetContactContext.Migrations
                         .IsUnique()
                         .HasFilter("[CommentId] IS NOT NULL");
 
-                    b.ToTable("Travels");
+                    b.ToTable("Travels", (string)null);
 
                     b.HasData(
                         new

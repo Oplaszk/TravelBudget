@@ -21,7 +21,7 @@ namespace TravelBudgetContactContext.Repositories
         {
             try
             {
-                return _db.Expenses.Include(a => a.Category).Include(b => b.Country).Where(e => e.TravelId == travelId).ToList();
+                return _db.Expenses.Include(a => a.Category).Include(b => b.Country).ThenInclude(a => a.Currency).Where(e => e.TravelId == travelId).ToList();
             }
             catch (Exception ex)
             {
