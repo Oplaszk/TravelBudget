@@ -37,9 +37,6 @@ namespace TravelBudget.Controllers
             int Id = expenseViewModel.TravelId;
             expenseViewModel.Expense.TravelId = Id;
 
-            //expenseViewModel.Expense.Category = _categoryRepository.GetCategoryById(expenseViewModel.Expense.CategoryId);
-            //expenseViewModel.Expense.Country = _countryRepository.GetCountryById(expenseViewModel.Expense.CountryId);
-
             _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
 
             return RedirectToAction("Details", "Detail", new { id = Id });
@@ -60,7 +57,7 @@ namespace TravelBudget.Controllers
                 var viewModel = new ExpenseViewModel
                 {
                     Expense = expenseToUpdate,
-                    CategoryOptions = _categoryRepository.GetAllCategories(),// Czemu tutaj nie dochodzi do populacja i wyczyszczenia rubryki?
+                    CategoryOptions = _categoryRepository.GetAllCategories(),
                     Countries = _countryRepository.GetAllCountries(),
                     TravelId = expenseToUpdate.TravelId
                 };
@@ -71,9 +68,6 @@ namespace TravelBudget.Controllers
         {
             int travelId = expenseToUpdate.TravelId;
             expenseToUpdate.Expense.TravelId = travelId;
-
-            //expenseToUpdate.Expense.Category = _categoryRepository.GetCategoryById(expenseToUpdate.Expense.CategoryId);
-            //expenseToUpdate.Expense.Country = _countryRepository.GetCountryById(expenseToUpdate.Expense.CountryId);
 
             _expenseRepository.UpdateExpense(expenseToUpdate.Expense);
 

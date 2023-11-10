@@ -22,7 +22,7 @@
              <input asp-for="@Model.Travel.Description" class=form-control-description autocomplete="off" placeholder="What is your travel about?" />
             </div>
         <div class="form-outline mb-2" id="C_label_3-startDate">
-             <label asp-for="@Model.Travel.StartingDate" class="form-label" style="font-size:20px"></label>
+                <label asp-for="@Model.Travel.StartingDate" class="form-label" style="font-size:20px">StartingDate</label>
                  <div class="input-group date">
                  <input asp-for="@Model.Travel.StartingDate" class=form-control type="datetime-local" id="startingDatePicker"/>
                      <div class="input-group-append">
@@ -31,7 +31,7 @@
                 </div>
         </div>
         <div class="form-outline mb-2" id="C_label_4-finishDate">
-             <label asp-for="@Model.Travel.FinishDate" class="form-label" style="font-size: 20px"></label>
+             <label asp-for="@Model.Travel.FinishDate" class="form-label" style="font-size: 20px">FinishDate</label>
              <div class="input-group date">
                     <input asp-for="@Model.Travel.FinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
                     <div class="input-group-append">

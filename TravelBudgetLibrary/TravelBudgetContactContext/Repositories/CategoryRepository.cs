@@ -20,9 +20,5 @@ namespace TravelBudgetContactContext.Repositories
         {
             return _db.Categories.ToList();
         }
-        ////public Category GetCategoryById(int id)
-        ////{
-        ////    return _db.Categories.Single(c => c.Id == id);
-        ////}
     }
 }

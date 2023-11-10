@@ -111,6 +111,13 @@
     color: black;
     transition: 0.4s;
 }
+.form-control-name::placeholder {
+    color: darkgray;
+}
+
+.form-control-name:hover::placeholder {
+    color: black;
+}
 /*<-------------------- Modification Description box -------------------->*/
 .form-control-description {
     border: 2px solid darkgoldenrod;
@@ -125,11 +132,18 @@
     color: black;
     transition: 0.4s;
 }
+    .form-control-description::placeholder {
+        color: darkgray;
+    }
+
+    .form-control-description:hover::placeholder {
+        color: black;
+    }
 /*<-------------------- Modification StartingDate box -------------------->*/
 #C_label_3-startDate input[type=datetime-local] {
     border: 2px solid darkgoldenrod;
     background-color: black;
-    color: darkgoldenrod;
+    color: darkgray;
     padding: 5px;
     cursor: pointer;
 }
@@ -142,14 +156,14 @@
 #C_label_4-finishDate input[type=datetime-local] {
     border: 2px solid darkgoldenrod;
     background-color: black;
-    color: darkgoldenrod;
+    color: darkgray;
     padding: 5px;
     cursor: pointer;
 }
 #C_label_4-finishDate input[type=datetime-local]:hover{
         background-color: darkgoldenrod;
-    color: black;
-    transition: 0.4s;
+        color: black;
+        transition: 0.4s;
 }
 /*<-------------------- Modification Active checkbox -------------------->*/
 #C_label_5-activeBox {

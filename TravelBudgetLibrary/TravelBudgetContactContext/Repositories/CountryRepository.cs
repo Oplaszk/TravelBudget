@@ -19,23 +19,18 @@ namespace TravelBudgetContactContext.Repositories
         }
 
         // Aktualnie metoda ta jest niewykorzystywana a jest powiązana z CountryDTO.
-        //public List<CountryDTO> GetAllCountries()
-        //{
-        //    return _db.Countries.Include(c => c.Continent).Select(d => new CountryDTO
-        //    {
-        //        Id = d.Id,
-        //        CountryName = d.Name,
-        //        ContinentName = d.Continent.Name
-        //    }).ToList();
-        //}
+        public List<CountryDTO> GetAllCountriesDTO()
+        {
+            return _db.Countries.Include(c => c.Continent).Select(d => new CountryDTO
+            {
+                Id = d.Id,
+                CountryName = d.Name,
+                ContinentName = d.Continent.Name
+            }).ToList();
+        }
         public List<Country> GetAllCountries()
         {
             return _db.Countries.ToList();
         }
-
-        //public Country GetCountryById(int id)
-        //{
-        //    return _db.Countries.Single(c => c.Id == id);
-        //}
     }
 }

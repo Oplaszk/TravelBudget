@@ -27,6 +27,6 @@ namespace TravelBudgetModels.Models
         [DisplayName(displayName: "Country Options")]
         [ForeignKey("CountryId")]
         public int CountryId { get; set; }      
-        public Country Country { get; set; }
+        public Country Country { get; set; } 
     }
 }
