@@ -207,7 +207,7 @@ namespace TravelBudgetContactContext.Migrations
 
                     b.HasIndex("CurrencyId");
 
-                    b.ToTable("Countries, (string)null");
+                    b.ToTable("Countries", (string)null);
 
                     b.HasData(
                         new
