@@ -11,7 +11,7 @@ using TravelBudgetContactContext;
 
 namespace TravelBudgetContactContext.Migrations
 {
-    [DbContext(typeof(ContactContext))]
+    [DbContext(typeof(DBContact))]
     [Migration("20231028094939_UpdatingDBTables")]
     partial class UpdatingDBTables
     {

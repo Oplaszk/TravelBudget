@@ -6,15 +6,17 @@ using System;
 using System.Collections.Generic;
 using TravelBudget.Models;
 using TravelBudgetContactContext.Repositories;
+using TravelBudgetContactContext.Repositories.Interfaces;
 using TravelBudgetModels.Models;
 
 namespace TravelBudget.Controllers
 {
     public class TravelController : Controller
     {
-        private readonly TravelRepository _travelRepository;
+        private readonly ITravelRepository _travelRepository;
+        //private readonly TravelRepository _travelRepository;
         private readonly TravelViewModel _travelViewModel;
-        public TravelController(TravelRepository travelRepository)
+        public TravelController(ITravelRepository travelRepository)
         {
             _travelRepository = travelRepository;
             _travelViewModel = new TravelViewModel();

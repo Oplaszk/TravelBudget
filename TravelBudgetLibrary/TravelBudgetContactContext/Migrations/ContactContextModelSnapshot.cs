@@ -11,7 +11,7 @@ using TravelBudgetContactContext;
 
 namespace TravelBudgetContactContext.Migrations
 {
-    [DbContext(typeof(ContactContext))]
+    [DbContext(typeof(DBContact))]
     partial class ContactContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

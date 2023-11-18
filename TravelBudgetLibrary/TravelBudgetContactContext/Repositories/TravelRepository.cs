@@ -5,20 +5,20 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using TravelBudgetContactContext.Repositories.Interfaces;
 using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories
 {
-    public class TravelRepository
+    public class TravelRepository : ITravelRepository
     {
-        public ContactContext _db { get; set; }
-        public TravelRepository(ContactContext db)
+        public DBContact _db { get; set; }
+        public TravelRepository(DBContact db)
         {
             _db = db;
         }
         public List<Travel> GetAllTravels()
         {
-            // "Travels" odnosi się w tym przypadku do tabeli o tej nazwie która znajduje się w naszej bazie danych. 
             var result = _db.Travels.ToList();
 
             return result;

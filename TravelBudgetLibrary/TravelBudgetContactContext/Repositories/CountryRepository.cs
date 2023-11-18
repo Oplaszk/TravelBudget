@@ -4,28 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelBudgetContactContext.Repositories.Interfaces;
 using TravelBudgetContactContext.Response.DTO;
 using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories
 {
-    public class CountryRepository
+    public class CountryRepository : ICountryRepository
     {
-        public ContactContext _db { get; set; }
+        public DBContact _db { get; set; }
 
-        public CountryRepository(ContactContext db)
+        public CountryRepository(DBContact db)
         {
             _db = db;
         }
 
         // Aktualnie metoda ta jest niewykorzystywana a jest powiązana z CountryDTO.
-        public List<CountryDTO> GetAllCountriesDTO()
+        public IEnumerable<CountryDTO> GetAllCountriesDTO()
         {
-            return _db.Countries.Include(c => c.Continent).Select(d => new CountryDTO
+            return _db.Countries.Select(d => new CountryDTO
             {
                 Id = d.Id,
                 CountryName = d.Name,
-                ContinentName = d.Continent.Name
+                Code = d.Code
             }).ToList();
         }
         public List<Country> GetAllCountries()

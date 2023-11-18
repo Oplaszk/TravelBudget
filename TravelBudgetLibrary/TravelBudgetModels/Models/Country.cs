@@ -9,9 +9,11 @@ namespace TravelBudgetModels.Models
         public string Name { get; set; }
         public string Code { get; set; }
 
+        [ForeignKey("ContinentId")]
         public int ContinentId { get; set; } // Klucz obcy
         public Continent Continent { get; set; } // Wartość nawigacyjna
 
+        [ForeignKey("CurrencyId")] 
         public int CurrencyId { get; set; } // Klucz obcy
         public Currency Currency { get; set; } // Wartość nawigacyjna
         public ICollection<Travel> Travels { get; set; }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace TravelBudgetContactContext
 {
-    public class ContactContext : DbContext
+    public class DBContact : DbContext
     {
-        public ContactContext(DbContextOptions<ContactContext> options) : base(options) { }
+        public DBContact(DbContextOptions<DBContact> options) : base(options) { }
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
@@ -19,7 +19,6 @@ namespace TravelBudgetContactContext
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<Travel> Travels { get; set; }
-
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

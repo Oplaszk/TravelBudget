@@ -4,19 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelBudgetContactContext.Repositories.Interfaces;
 using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories
 {
-    public class ExpenseRepository
+    public class ExpenseRepository : IExpenseRepository
     {
-        public ContactContext _db { get; set; }
-        public ExpenseRepository(ContactContext db)
+        public DBContact _db { get; set; }
+        public ExpenseRepository(DBContact db)
         {
             _db = db;
         }
-
-        #region EXPENSE SECTION
         public List<Expense> GetExpensesByTravelId(int travelId)
         {
             try
@@ -98,6 +97,5 @@ namespace TravelBudgetContactContext.Repositories
                 return false;
             }
         }
-        #endregion
     }
 }

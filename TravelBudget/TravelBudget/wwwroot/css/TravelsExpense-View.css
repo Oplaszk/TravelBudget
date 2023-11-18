@@ -33,12 +33,12 @@
     flex-direction: column;
     margin: 0;
     color: darkgoldenrod;
-    animation: fadeIn 9s ease;
+    animation: fadeIn 11s ease;
 }
 #E_label_5-country {
     margin: 0;
     color: darkgoldenrod;
-    animation: fadeIn 11s ease;
+    animation: fadeIn 9s ease;
     text-align: left;
     margin-top: 20px;
 }

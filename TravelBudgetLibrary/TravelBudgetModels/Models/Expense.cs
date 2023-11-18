@@ -8,11 +8,12 @@ namespace TravelBudgetModels.Models
     {
         public int Id { get; set; }
         public string? Description { get; set; }
+        [Range(0, double.MaxValue, ErrorMessage ="The Price must be greater than 0")]
         public double? Price { get; set; }
 
         [Display(Name = "Date")]
         [DataType(DataType.DateTime)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime? Date { get; set; }
         [DisplayName(displayName: "Category Options")]
 

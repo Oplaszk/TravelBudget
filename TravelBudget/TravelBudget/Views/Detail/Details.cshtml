@@ -28,11 +28,11 @@
                     <tr>
                         <td>@item.Id</td>
                         <td>@item.TravelId</td>
-                        <td>@item.Price + @item.Country?.Currency?.Code</td>
+                        <td>@item.Price @item.Country.Currency.Code</td>
                         <td>@item.Description</td>
                         <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.Date)</td>
                         <td>@item.Category.Type</td>
-                        <td>@item.Country.NamePlusCode</td>
+                        <td>@item.Country.Name (@item.Country.Code)</td>
                     </tr>
                 </tbody>
             </table>
@@ -40,7 +40,7 @@
                 <a data-record-id="@item.Id" asp-controller="Expense" asp-action="Update" asp-route-id="@item.Id">
                     <span class="MenuButton">Update</span></a>
                 <a data-record-id-delete="@item.Id" asp-controller="Expense" asp-action="Delete" asp-route-id="@item.Id"
-                    onclick="return confirm('Are you sure that you want to delete this expense? Type OK/Cancel to continue');">
+                    onclick="return confirm('Are you sure that you want to delete this expense? Type OK/Cancel');">
                     <span class="MenuButton">Delete</span></a>               
             </div>
         </div>

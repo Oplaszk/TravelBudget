@@ -3,17 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 using TravelBudget.Models;
 using TravelBudgetContactContext.Repositories;
+using TravelBudgetContactContext.Repositories.Interfaces;
 using TravelBudgetModels.Models;
 
 namespace TravelBudget.Controllers
 {
     public class ExpenseController : Controller
-    {
+    {      
+        private readonly IExpenseRepository _expenseRepository;
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly ICountryRepository _countryRepository;
         private readonly ExpenseViewModel _expenseViewModel;
-        private readonly ExpenseRepository _expenseRepository;
-        private readonly CategoryRepository _categoryRepository;
-        private readonly CountryRepository _countryRepository;
-        public ExpenseController(ExpenseRepository expenseRepository, CategoryRepository categoryRepository, CountryRepository countryRepository)
+        public ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository)
         {
             _expenseRepository = expenseRepository;
             _categoryRepository = categoryRepository;
@@ -25,7 +26,7 @@ namespace TravelBudget.Controllers
         public IActionResult AddExpense(int id)
         {
             _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
-            _expenseViewModel.Countries = _countryRepository.GetAllCountries();
+            _expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
             _expenseViewModel.TravelId = id;
 
             return View(_expenseViewModel);
@@ -34,6 +35,15 @@ namespace TravelBudget.Controllers
         [HttpPost]
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                
+                foreach (var error in errors)
+                {
+                    Console.WriteLine(error.ErrorMessage);
+                }
+            }
             int Id = expenseViewModel.TravelId;
             expenseViewModel.Expense.TravelId = Id;
 
@@ -54,12 +64,12 @@ namespace TravelBudget.Controllers
         {
             var expenseToUpdate = _expenseRepository.GetExpenseById(id);
 
-                var viewModel = new ExpenseViewModel
-                {
-                    Expense = expenseToUpdate,
-                    CategoryOptions = _categoryRepository.GetAllCategories(),
-                    Countries = _countryRepository.GetAllCountries(),
-                    TravelId = expenseToUpdate.TravelId
+            var viewModel = new ExpenseViewModel
+            {
+                Expense = expenseToUpdate,
+                CategoryOptions = _categoryRepository.GetAllCategories(),
+                Countries = _countryRepository.GetAllCountriesDTO(),
+                TravelId = expenseToUpdate.TravelId
                 };
                 return View("AddExpense", viewModel); // Teoretycznie Expense.TravelId jest tutaj wypełnione a mimo to odczytuje mi formularz z Update 
         }

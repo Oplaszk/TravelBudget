@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TravelBudgetContactContext;
 using TravelBudgetContactContext.Repositories;
+using TravelBudgetContactContext.Repositories.Interfaces;
 
 namespace TravelBudget
 {
@@ -13,11 +14,11 @@ namespace TravelBudget
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
-            builder.Services.AddDbContext<ContactContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            builder.Services.AddTransient<TravelRepository>();
-            builder.Services.AddTransient<ExpenseRepository>();
-            builder.Services.AddTransient<CategoryRepository>();
-            builder.Services.AddTransient<CountryRepository>();
+            builder.Services.AddDbContext<DBContact>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddTransient<ITravelRepository, TravelRepository>();
+            builder.Services.AddTransient<IExpenseRepository, ExpenseRepository>();
+            builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddTransient<ICountryRepository, CountryRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

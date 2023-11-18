@@ -11,7 +11,7 @@ using TravelBudgetContactContext;
 
 namespace TravelBudgetContactContext.Migrations
 {
-    [DbContext(typeof(ContactContext))]
+    [DbContext(typeof(DBContact))]
     [Migration("20231109170304_AddingForeignKeyToExpenseTable")]
     partial class AddingForeignKeyToExpenseTable
     {
