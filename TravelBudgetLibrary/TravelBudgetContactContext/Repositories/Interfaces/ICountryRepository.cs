@@ -11,6 +11,6 @@ namespace TravelBudgetContactContext.Repositories.Interfaces
     public interface ICountryRepository
     {
         public IEnumerable<CountryDTO> GetAllCountriesDTO();
-        public List<Country> GetAllCountries();
+        //public List<Country> GetAllCountries();
     }
 }

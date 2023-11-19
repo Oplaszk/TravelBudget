@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -12,16 +13,25 @@ namespace TravelBudgetContactContext.Repositories
 {
     public class TravelRepository : ITravelRepository
     {
+        private readonly ILogger<TravelRepository> _logger;
         public DBContact _db { get; set; }
-        public TravelRepository(DBContact db)
+        public TravelRepository(DBContact db, ILogger<TravelRepository> logger)
         {
+            _logger = logger;
             _db = db;
         }
         public List<Travel> GetAllTravels()
         {
-            var result = _db.Travels.ToList();
-
-            return result;
+            try
+            {
+                var listOfTravels = _db.Travels.ToList();
+                return listOfTravels;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving travels from the database.");
+                return new List<Travel>();
+            }
         }
         public bool SaveTravelToDB(Travel travel)
         {
@@ -33,7 +43,7 @@ namespace TravelBudgetContactContext.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                _logger.LogError(ex, "An error occurred while saving the travel to the database");
                 return false;
             }
         }
@@ -41,11 +51,12 @@ namespace TravelBudgetContactContext.Repositories
         {
             try
             {
-                return _db.Travels.Where(a => a.Id == id).FirstOrDefault();
+                var travel = _db.Travels.Where(a => a.Id == id).FirstOrDefault();
+                return travel;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                _logger.LogError(ex, "An error occurred while retrieving travel from the database.");
                 return new Travel();
             }
 
@@ -54,14 +65,13 @@ namespace TravelBudgetContactContext.Repositories
         {
             try
             {
-                // Update jest wbudowaną metodą w Entity Framework
                 _db.Travels.Update(travel);
                 _db.SaveChanges();
                 return true;
             }
             catch (Exception ex) 
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                _logger.LogError(ex, "An error occurred while updating travel from the database.");
                 return false;
             }
             
@@ -76,7 +86,7 @@ namespace TravelBudgetContactContext.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                _logger.LogError(ex, "An error occurred while deleting travel from the database.");
                 return false;
             }
         }
@@ -90,7 +100,7 @@ namespace TravelBudgetContactContext.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                _logger.LogError(ex, "An error occurred while moving the travel to History Travels.");
                 return false;
             }
         }
@@ -104,7 +114,7 @@ namespace TravelBudgetContactContext.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
+                _logger.LogError(ex, "An error occurred while retriving the travel from Travels History to Current Travels.");
                 return false;
             }
             

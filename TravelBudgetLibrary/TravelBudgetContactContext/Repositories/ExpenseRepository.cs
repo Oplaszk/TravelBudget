@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,11 @@ namespace TravelBudgetContactContext.Repositories
     public class ExpenseRepository : IExpenseRepository
     {
         public DBContact _db { get; set; }
-        public ExpenseRepository(DBContact db)
+        private readonly ILogger<ExpenseRepository> _logger;
+        public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger)
         {
             _db = db;
+            _logger = logger;
         }
         public List<Expense> GetExpensesByTravelId(int travelId)
         {

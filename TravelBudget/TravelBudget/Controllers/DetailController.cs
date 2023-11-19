@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelBudget.Models;
 using TravelBudgetContactContext.Repositories;
+using TravelBudgetContactContext.Repositories.Interfaces;
 using TravelBudgetModels.Models;
 
 namespace TravelBudget.Controllers
@@ -8,13 +9,12 @@ namespace TravelBudget.Controllers
     public class DetailController : Controller
     {
         private readonly ExpenseViewModel _expenseViewModel;
-        private readonly ExpenseRepository _expenseRepository;
-        public DetailController(ExpenseRepository expenseRepository)
+        private readonly IExpenseRepository _expenseRepository;
+        public DetailController(IExpenseRepository expenseRepository)
         {
             _expenseRepository = expenseRepository;
             _expenseViewModel = new ExpenseViewModel();
         }
-        #region READ section
         public IActionResult Details(int Id)
         {
             var expenses = _expenseRepository.GetExpensesByTravelId(Id);
@@ -22,6 +22,5 @@ namespace TravelBudget.Controllers
 
             return View(_expenseViewModel);
         }      
-        #endregion
     }
 }
