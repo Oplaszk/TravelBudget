@@ -15,7 +15,7 @@
             </div>
         <div class="form-outline mb-2" id="C_label_1-name">
              <label asp-for="@Model.Travel.Name" class="form-label" style="font-size:20px"></label>
-             <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" />
+             <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" required/>
             </div>
         <div class="form-outline mb-2" id="C_label_2-description">
              <label asp-for="@Model.Travel.Description" class="form-label" style="font-size:20px"></label>
@@ -24,7 +24,7 @@
         <div class="form-outline mb-2" id="C_label_3-startDate">
                 <label asp-for="@Model.Travel.StartingDate" class="form-label" style="font-size:20px">StartingDate</label>
                  <div class="input-group date">
-                    <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker" />
+                    <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker"/>
                      <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showStartingDatePicker">Select</button>
                     </div>
