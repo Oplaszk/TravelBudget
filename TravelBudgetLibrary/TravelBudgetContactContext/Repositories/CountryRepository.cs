@@ -26,7 +26,9 @@ namespace TravelBudgetContactContext.Repositories
         {
             try
             {
-                var countriesDTO = _db.Countries.Select(d => new CountryDTO { Id = d.Id, CountryName = d.Name, Code = d.Code }).ToList();
+                var countriesDTO = _db.Countries.Select(d => new CountryDTO 
+                { Id = d.Id, CountryName = d.Name, Code = d.Code }).ToList();
+
                 return countriesDTO;
             }
             catch (Exception ex) 

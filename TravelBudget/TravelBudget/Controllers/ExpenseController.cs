@@ -9,7 +9,7 @@ using TravelBudgetModels.Models;
 namespace TravelBudget.Controllers
 {
     public class ExpenseController : Controller
-    {      
+    {
         private readonly IExpenseRepository _expenseRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly ICountryRepository _countryRepository;
@@ -23,6 +23,7 @@ namespace TravelBudget.Controllers
         }
         #region CREATE section
         [HttpGet]
+        [Route("AddExpense/{id}")]
         public IActionResult AddExpense(int id)
         {
             _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
@@ -33,12 +34,13 @@ namespace TravelBudget.Controllers
         }
 
         [HttpPost]
+        [Route("AddExpense/{id}")]
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.Values.SelectMany(v => v.Errors);
-                
+
                 foreach (var error in errors)
                 {
                     Console.WriteLine(error.ErrorMessage);
@@ -51,6 +53,10 @@ namespace TravelBudget.Controllers
 
             return RedirectToAction("Details", "Detail", new { id = Id });
         }
+        #endregion
+        #region DELETE Section
+        [HttpPost]
+        [Route("Delete/{id}")]
         public IActionResult Delete(int id)
         {
             var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
@@ -59,7 +65,10 @@ namespace TravelBudget.Controllers
 
             return RedirectToAction("Details", "Detail", new { id = travelId });
         }
+        #endregion
+        #region UPDATE Section
         [HttpGet]
+        [Route("Update/{id}")]
         public IActionResult Update(int id)
         {
             var expenseToUpdate = _expenseRepository.GetExpenseById(id);
@@ -70,10 +79,11 @@ namespace TravelBudget.Controllers
                 CategoryOptions = _categoryRepository.GetAllCategories(),
                 Countries = _countryRepository.GetAllCountriesDTO(),
                 TravelId = expenseToUpdate.TravelId
-                };
-                return View("AddExpense", viewModel); // Teoretycznie Expense.TravelId jest tutaj wypełnione a mimo to odczytuje mi formularz z Update 
+            };
+            return View("AddExpense", viewModel); // Teoretycznie Expense.TravelId jest tutaj wypełnione a mimo to odczytuje mi formularz z Update 
         }
         [HttpPost]
+        [Route("Update/{id}")]
         public IActionResult Update(ExpenseViewModel expenseToUpdate)
         {
             int travelId = expenseToUpdate.TravelId;

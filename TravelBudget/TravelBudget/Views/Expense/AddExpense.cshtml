@@ -4,41 +4,41 @@
 <link rel="stylesheet" href="~/css/TravelsExpense-View.css" asp-append-version="true" />
 <body>
     <div class="container-expense">
-    <form method="post">
-        <div>
-            <h1 id="ExpenseTitle">@(Model.Expense.TravelId == 0? "Add Expense" : "Update Expense")</h1>
-        </div>
+        <form method="post">
+            <div>
+                <h1 id="ExpenseTitle">@(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</h1>
+            </div>
             <div class="form-outline mb-2" id="E_label_0" hidden>
-                <input asp-for="@Model.Expense.Id" class="form-control" autocomplete="off"/>
+                <input asp-for="@Model.Expense.Id" class="form-control" autocomplete="off" />
                 <input asp-for="@Model.TravelId" class="form-control" autocomplete="off" />
-        </div>
+            </div>
             <div class="form-outline mb-2" id="E_label_1-price">
                 <label asp-for="@Model.Expense.Price" class="form-label" style="font-size:24px"></label>
-                <input asp-for="@Model.Expense.Price" id="price-input" class="form-control-price" autocomplete="off" placeholder="Expense price"/>
-        </div>
-        <div class="form-outline mb-2 " id="E_label_2-date">
+                <input asp-for="@Model.Expense.Price" id="price-input" class="form-control-price" autocomplete="off" placeholder="Expense price" />
+            </div>
+            <div class="form-outline mb-2 " id="E_label_2-date">
                 <label asp-for="@Model.Expense.Date" class="form-label" type="datetime-local" style="font-size:24px"></label>
                 <div class="input-group date">
-                <input asp-for="@Model.Expense.Date" class="form-control" type="datetime-local" autocomplete="off" placeholder=""/>
+                    <input asp-for="@Model.Expense.Date" class="form-control" type="datetime-local" autocomplete="off" placeholder="" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>
                     </div>
                 </div>
-        </div>
+            </div>
             <div class="form-outline mb-2" id="E_label_3-category">
                 <label asp-for="@Model.Expense.CategoryId" class="form-label" style="font-size:25px"></label>
-                    @Html.DropDownListFor(c => c.Expense.CategoryId, new SelectList
-                    (Model.CategoryOptions,"Id", "Type"),"Select Category", new { @class = "category-drop-down" })
+                @Html.DropDownListFor(c => c.Expense.CategoryId, new SelectList
+                         (Model.CategoryOptions, "Id", "Type"), "Select Category", new { @class = "category-drop-down" })
             </div>
             <div class="form-outline mb-2" id="E_label_5-country">
                 <label asp-for="@Model.Expense.CountryId" class="form-label" style="font-size:25px"></label>
-                    @Html.DropDownListFor(c => c.Expense.CountryId, new SelectList
-                (Model.Countries, "Id", "CountryWithCode"), "Select Country", new { @class = "country-drop-down" })
+                @Html.DropDownListFor(c => c.Expense.CountryId, new SelectList
+                         (Model.Countries, "Id", "CountryWithCode"), "Select Country", new { @class = "country-drop-down" })
             </div>
-        <div class="form-outline mb-2" id="E_label_4-description">
+            <div class="form-outline mb-2" id="E_label_4-description">
                 <label asp-for="@Model.Expense.Description" class="form-label" style="font-size:24px"></label>
                 <input asp-for="@Model.Expense.Description" class="form-control-description" autocomplete="off" placeholder="You can give a short description of the expense" />
-        </div>
+            </div>
             <li class="expense-buttonSection"><button id="expense-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</button></li>
 
             @* ------------------ JavaScript Section ------------------ *@
@@ -57,7 +57,7 @@
                     });
                 });
             </script>
-    </form>
+        </form>
     </div>
 </body>
 
