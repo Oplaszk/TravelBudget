@@ -22,7 +22,6 @@ namespace TravelBudget.Controllers
         }
         #region READ section
         [HttpGet]
-        [Route("Index/{id}")]
         public IActionResult Index()
         {
             var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);
@@ -31,7 +30,6 @@ namespace TravelBudget.Controllers
             return View(_travelViewModel);
         }
         [HttpGet]
-        [Route("History/{id}")]
         public IActionResult History()
         {
             var travelsFromDB = _travelRepository.GetAllTravels();
@@ -43,13 +41,11 @@ namespace TravelBudget.Controllers
         #endregion
         #region CREATE section
         [HttpGet]
-        [Route("Create/{id}")]
         public IActionResult Create()
         {
             return View();
         }
         [HttpPost]
-        [Route("Create/{id}")]
         public IActionResult Create(TravelViewModel travelViewModel)
         {
             _travelRepository.SaveTravelToDB(travelViewModel.Travel);
@@ -62,7 +58,6 @@ namespace TravelBudget.Controllers
         #endregion
         #region UPDATE section
         [HttpGet]
-        [Route("Update/{id}")]
         public IActionResult Update(int id)
         {
             var travel = _travelRepository.GetById((int)id);
@@ -72,16 +67,14 @@ namespace TravelBudget.Controllers
         }
 
         [HttpPost]
-        [Route("Update/{id}")]
         public IActionResult Update(TravelViewModel travelViewModel)
         {
             _travelRepository.UpdateTravel(travelViewModel.Travel);
             return RedirectToAction("Index");
         }
         #endregion
-        #region DELETE section
-        [HttpPost]
-        [Route("Delete/{id}")]
+        #region DELETE Section
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             var travel = _travelRepository.GetById(id);
@@ -89,9 +82,8 @@ namespace TravelBudget.Controllers
             return RedirectToAction("History");
         }
         #endregion
-        #region End Travel section
-        [HttpPost]
-        [Route("End/{id}")]
+        #region End Travel Section
+        [HttpGet]
         public IActionResult End(int id)
         {
             var selected = _travelRepository.GetById(id);
@@ -99,9 +91,8 @@ namespace TravelBudget.Controllers
             return RedirectToAction("History");
         }
         #endregion
-        #region Retrieve Travel section
-        [HttpPost]
-        [Route("Retrieve/{id}")]
+        #region Retrieve Travel Section
+        [HttpGet]
         public IActionResult Retrieve(int id)
         {
             var selected = _travelRepository.GetById(id);

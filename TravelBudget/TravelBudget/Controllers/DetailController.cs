@@ -16,7 +16,6 @@ namespace TravelBudget.Controllers
             _expenseViewModel = new ExpenseViewModel();
         }
         [HttpGet]
-        [Route("Details/{id}")]
         public IActionResult Details(int Id)
         {
             var expenses = _expenseRepository.GetExpensesByTravelId(Id);

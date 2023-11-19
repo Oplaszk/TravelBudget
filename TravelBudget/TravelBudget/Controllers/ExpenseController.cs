@@ -23,7 +23,6 @@ namespace TravelBudget.Controllers
         }
         #region CREATE section
         [HttpGet]
-        [Route("AddExpense/{id}")]
         public IActionResult AddExpense(int id)
         {
             _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
@@ -34,7 +33,6 @@ namespace TravelBudget.Controllers
         }
 
         [HttpPost]
-        [Route("AddExpense/{id}")]
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
             if (!ModelState.IsValid)
@@ -55,8 +53,7 @@ namespace TravelBudget.Controllers
         }
         #endregion
         #region DELETE Section
-        [HttpPost]
-        [Route("Delete/{id}")]
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
@@ -68,7 +65,6 @@ namespace TravelBudget.Controllers
         #endregion
         #region UPDATE Section
         [HttpGet]
-        [Route("Update/{id}")]
         public IActionResult Update(int id)
         {
             var expenseToUpdate = _expenseRepository.GetExpenseById(id);
@@ -83,7 +79,6 @@ namespace TravelBudget.Controllers
             return View("AddExpense", viewModel); // Teoretycznie Expense.TravelId jest tutaj wypełnione a mimo to odczytuje mi formularz z Update 
         }
         [HttpPost]
-        [Route("Update/{id}")]
         public IActionResult Update(ExpenseViewModel expenseToUpdate)
         {
             int travelId = expenseToUpdate.TravelId;
