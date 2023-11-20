@@ -33,6 +33,7 @@ namespace TravelBudget.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
             if (!ModelState.IsValid)
@@ -79,6 +80,7 @@ namespace TravelBudget.Controllers
             return View("AddExpense", viewModel); // Teoretycznie Expense.TravelId jest tutaj wypełnione a mimo to odczytuje mi formularz z Update 
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(ExpenseViewModel expenseToUpdate)
         {
             int travelId = expenseToUpdate.TravelId;

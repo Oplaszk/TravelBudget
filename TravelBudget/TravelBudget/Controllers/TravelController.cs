@@ -46,6 +46,7 @@ namespace TravelBudget.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(TravelViewModel travelViewModel)
         {
             _travelRepository.SaveTravelToDB(travelViewModel.Travel);
@@ -67,6 +68,7 @@ namespace TravelBudget.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Update(TravelViewModel travelViewModel)
         {
             _travelRepository.UpdateTravel(travelViewModel.Travel);
