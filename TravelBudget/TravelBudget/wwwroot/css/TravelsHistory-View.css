@@ -10,35 +10,38 @@
 /*<-------------------- Navigation bar section -------------------->*/
 nav {
     display: flex;
-    justify-content: center;
     background: black;
-    text-align: center;
     width: 100%;
-    height: 90px;
+    height: 70px;
     border-bottom: 2px solid white;
 }
-nav ul {
-    margin:0;
+.right-content {
+    display: flex;
+    float: right;
+    padding-right: 40px; 
     align-items: center;
-    vertical-align: central;
-    padding: 0;
 }
-nav ul li {
-    padding-top: 25px;
-    padding-right: 25px;
-    padding-left: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-    align-content: center;
-    vertical-align: central;
+#return-link {
+    text-decoration: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+}
+#return-link:hover {
+    transition: 0.7s; 
+    color: darkgoldenrod;
+    text-shadow: 10px 10px 10px darkgoldenrod;
+    text-shadow: -15px -15px -15px darkgoldenrod;
 }
 /*<-------------------- Title section -------------------->*/
 .title {
+    flex: 1;
     color: darkgoldenrod; /*ustawia kolor dla ca³ego napisu logo.*/
     font-size: 40px;
-    padding-left: 60px;
     animation: fadeIn 2s ease;
     text-align: center;
+    padding-left: 108px;
+    vertical-align: central;
 }
 /*<-------------------- Body section -------------------->*/
 body {
