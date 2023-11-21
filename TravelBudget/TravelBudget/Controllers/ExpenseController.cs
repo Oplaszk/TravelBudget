@@ -21,7 +21,7 @@ namespace TravelBudget.Controllers
             _countryRepository = countryRepository;
             _expenseViewModel = new ExpenseViewModel();
         }
-        #region CREATE section
+        #region CREATE Section
         [HttpGet]
         public IActionResult AddExpense(int id)
         {

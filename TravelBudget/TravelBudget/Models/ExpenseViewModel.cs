@@ -11,6 +11,5 @@ namespace TravelBudget.Models
         public IEnumerable<Category> CategoryOptions { get; set; }
         public IEnumerable<CountryDTO> Countries { get; set; }
         public int TravelId { get; set; }
-        //public string NamePlusCode { get { return () }; }
     }
 }

@@ -20,7 +20,7 @@ namespace TravelBudget.Controllers
             _travelRepository = travelRepository;
             _travelViewModel = new TravelViewModel();
         }
-        #region READ section
+        #region READ Section
         [HttpGet]
         public IActionResult Index()
         {
@@ -39,7 +39,7 @@ namespace TravelBudget.Controllers
             return View(_travelViewModel);
         }
         #endregion
-        #region CREATE section
+        #region CREATE Section
         [HttpGet]
         public IActionResult Create()
         {
@@ -57,7 +57,7 @@ namespace TravelBudget.Controllers
             return RedirectToAction("History");
         }
         #endregion
-        #region UPDATE section
+        #region UPDATE Section
         [HttpGet]
         public IActionResult Update(int id)
         {

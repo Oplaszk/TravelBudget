@@ -59,7 +59,6 @@ namespace TravelBudgetContactContext.Repositories
                 _logger.LogError(ex, "An error occurred while retrieving travel from the database.");
                 return new Travel();
             }
-
         }
         public bool UpdateTravel(Travel travel)
         {

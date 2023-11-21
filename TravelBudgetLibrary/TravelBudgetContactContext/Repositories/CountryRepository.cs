@@ -20,8 +20,6 @@ namespace TravelBudgetContactContext.Repositories
             _db = db;
             _logger = logger;
         }
-
-        // Aktualnie metoda ta jest niewykorzystywana a jest powiązana z CountryDTO.
         public IEnumerable<CountryDTO> GetAllCountriesDTO()
         {
             try
@@ -38,9 +36,5 @@ namespace TravelBudgetContactContext.Repositories
             }
 
         }
-        //public List<Country> GetAllCountries()
-        //{
-        //    return _db.Countries.ToList();
-        //}
     }
 }
