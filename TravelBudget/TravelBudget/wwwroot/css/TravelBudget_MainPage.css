@@ -48,25 +48,25 @@
         padding-right: 10px;
     }
     nav ul li a {
-        text-decoration: none; /*usuwa hyperlinks*/
+        text-decoration: none; 
         color: white;
         font-size: 22px;
         padding-right: 30px;
     }
-    nav ul li .a1:hover { /*:hover jest pseudo klas¹ która umo¿liwia dodanie efektów w momencie w którym u¿ytkownik naje¿d¿a kursorem na obiekt*/
-        transition: 0.7s; /*ustawia czas zmiany standardowego koloru czcionki (w tym przypadku bia³y ustawiony sekcjê wy¿ej) na ten ustawiony poni¿ej (darkred))*/
+    nav ul li .a1:hover { 
+        transition: 0.7s; 
         color: darkgoldenrod;
-        text-shadow: 10px 10px 10px darkgoldenrod; /*Dodaje cienie do wyrazów o odstêpnie zdefiniowanym w parametrach*/
-        text-shadow: -15px -15px -15px darkgoldenrod; /*Dodaje cienie do wyrazów o odstêpnie zdefiniowanym w parametrach*/
+        text-shadow: 10px 10px 10px darkgoldenrod; 
+        text-shadow: -15px -15px -15px darkgoldenrod; 
     }
-    nav ul li .a2:hover { /*:hover jest pseudo klas¹ która umo¿liwia dodanie efektów w momencie w którym u¿ytkownik naje¿d¿a kursorem na obiekt*/
-        transition: 0.7s; /*ustawia czas zmiany standardowego koloru czcionki (w tym przypadku bia³y ustawiony sekcjê wy¿ej) na ten ustawiony poni¿ej (darkred))*/
+    nav ul li .a2:hover { 
+        transition: 0.7s; 
         color: darkgoldenrod;
         text-shadow: 10px 10px 10px darkgoldenrod;
         text-shadow: -15px -15px -15px darkgoldenrod;
     }
-    nav ul li .a3:hover { /*:hover jest pseudo klas¹ która umo¿liwia dodanie efektów w momencie w którym u¿ytkownik naje¿d¿a kursorem na obiekt*/
-        transition: 0.7s; /*ustawia czas zmiany standardowego koloru czcionki (w tym przypadku bia³y ustawiony sekcjê wy¿ej) na ten ustawiony poni¿ej (darkred))*/
+    nav ul li .a3:hover {
+        transition: 0.7s; 
         color: darkgoldenrod;
         text-shadow: 10px 10px 10px darkgoldenrod;
         text-shadow: -15px -15px -15px darkgoldenrod;
@@ -97,7 +97,7 @@
     /*<-------------------- Main Grids -------------------->*/
      main {
         width: 100%;
-        display: flex; /* W³¹czenie flexbox */
+        display: flex; 
         flex-direction: row;
         padding: 0;
         margin: 0;
@@ -131,7 +131,7 @@
         }
     }
     #title {
-          color: darkgoldenrod ; /* Kolor tekstu */
+          color: darkgoldenrod ;
           text-align: center;
           animation: fadeIn 4s ease;
     }

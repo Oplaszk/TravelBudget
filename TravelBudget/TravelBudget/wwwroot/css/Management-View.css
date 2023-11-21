@@ -1,0 +1,223 @@
+ 
+/*<-------------------- Main section -------------------->*/
+#Body-Management {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+/*<-------------------- Title section -------------------->*/
+#ManagementTitle {
+    color: darkgoldenrod;
+    text-align: center;
+    animation: fadeIn 2s ease;
+    padding-top: 10px;
+}
+/*<-------------------- Form section -------------------->*/
+#M_label_1-add-category {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    color: darkgoldenrod;
+    animation: fadeIn 2s ease;
+    align-items: center;
+}
+#C_label_2-description {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: darkgoldenrod;
+    animation: fadeIn 5s ease;
+}
+#C_label_3-startDate {
+    margin: 0;
+    color: darkgoldenrod;
+    animation: fadeIn 7s ease;
+}
+#C_label_4-finishDate {
+    margin: 0;
+    color: darkgoldenrod;
+    animation: fadeIn 9s ease;
+}
+#C_label_5-activeBox {
+    margin: 0;
+    color: darkgoldenrod;
+    text-align: center;
+    animation: fadeIn 11s ease;
+}
+.form-outline {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 0;
+    margin: 0;
+}
+.custom-buttom {
+    width: 30px;
+    height: 30px;
+}
+.custom-label {
+    text-align: center;
+}
+/*<-------------------- Create button section -------------------->*/
+#save-button {
+    border: 2px solid black;
+    background-color: darkgoldenrod;
+    width: 80px;
+    height: 50px;
+}
+
+#create-button:hover {
+    box-shadow: 0px 0px 8px 5px darkgoldenrod;
+    transition: 0.7s;
+    background-color: black;
+    color: darkgoldenrod;
+    border: 2px solid white;
+}
+
+.management-button-section {
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+    animation: fadeIn 13s ease;
+}
+/*<-------------------- Calendary buttons section -------------------->*/
+#showStartingDatePicker {
+    border: 2.5px solid darkgoldenrod;
+    background-color: black;
+    color: darkgoldenrod;
+}
+#showStartingDatePicker:hover {
+    box-shadow: 0px 0px 8px 5px darkgoldenrod;
+    border: 2.5px solid white;
+}
+#showFinishDatePicker {
+    border: 2.5px solid darkgoldenrod;
+    background-color: black;
+    color: darkgoldenrod;
+}
+#showFinishDatePicker:hover {
+    box-shadow: 0px 0px 8px 5px darkgoldenrod;
+    border: 2.5px solid white;
+
+}
+/*<---------------------- Additional styles for better look ----------------------->*/
+
+/*<-------------------- Modification Name box -------------------->*/
+.form-control-category {
+    border: 2px solid darkgoldenrod;
+    border-radius: 2px;
+    background-color: black;
+    color: darkgoldenrod;
+/*    padding: 5px;*/
+    cursor: pointer;
+}
+.form-control-name:hover {
+    background-color: darkgoldenrod;
+    color: black;
+    transition: 0.4s;
+}
+.form-control-name::placeholder {
+    color: darkgray;
+}
+
+.form-control-name:hover::placeholder {
+    color: black;
+}
+/*<-------------------- Modification Description box -------------------->*/
+.form-control-description {
+    border: 2px solid darkgoldenrod;
+    border-radius: 2px;
+    background-color: black;
+    color: darkgoldenrod;
+    padding: 5px;
+    cursor: pointer;
+}
+.form-control-description:hover{
+        background-color: darkgoldenrod;
+    color: black;
+    transition: 0.4s;
+}
+    .form-control-description::placeholder {
+        color: darkgray;
+    }
+
+    .form-control-description:hover::placeholder {
+        color: black;
+    }
+/*<-------------------- Modification StartingDate box -------------------->*/
+#C_label_3-startDate input[type=datetime-local] {
+    border: 2px solid darkgoldenrod;
+    background-color: black;
+    color: darkgray;
+    padding: 5px;
+    cursor: pointer;
+}
+#C_label_3-startDate input[type=datetime-local]:hover {
+    background-color: darkgoldenrod;
+    color: black;
+    transition: 0.4s;
+}
+/*<-------------------- Modification FinishDate box -------------------->*/
+#C_label_4-finishDate input[type=datetime-local] {
+    border: 2px solid darkgoldenrod;
+    background-color: black;
+    color: darkgray;
+    padding: 5px;
+    cursor: pointer;
+}
+#C_label_4-finishDate input[type=datetime-local]:hover{
+        background-color: darkgoldenrod;
+        color: black;
+        transition: 0.4s;
+}
+/*<-------------------- Modification Active checkbox -------------------->*/
+#C_label_5-activeBox {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Dla wyœrodkowania checkboxa wzglêdem tekstu */
+    margin: 0;
+    color: darkgoldenrod;
+    text-align: left;
+    animation: fadeIn 11s ease;
+}
+#activeCheckbox {
+    appearance: none; /* Ukryj domyœlny wygl¹d checkboxa */
+    border: 2px solid darkgoldenrod;
+    border-radius: 2px;
+    background-color: black;
+    color: darkgoldenrod;
+    width: 32px; /* Dostosuj szerokoœæ */
+    height: 32px; /* Dostosuj wysokoœæ */
+    cursor: pointer;
+    margin-right: 10px; /* Odstêp miêdzy checkboxem a tekstem */
+}
+
+/* Dostosuj wygl¹d checkboxa po zaznaczeniu */
+#activeCheckbox:checked {
+    background-color: darkgoldenrod;
+    color: black;
+}
+
+/* Ukryj domyœln¹ kontrolkê zaznaczenia */
+#activeCheckbox::before {
+    display: block;
+    text-align: center;
+    font-size: 16px; /* Dostosuj rozmiar znaku zaznaczenia */
+    line-height: 20px; /* Wysokoœæ znaku zaznaczenia dla wyœrodkowania */
+}
+
+/* Zmieñ styl tekstu etykiety */
+.form-check-label.custom-label {
+    font-size: 20px;
+    text-align: left; /* Wyœrodkuj tekst w lewo */
+}
+
+/*<-------------------- Animation section -------------------->*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+

@@ -1,0 +1,21 @@
+﻿@model TravelBudget.Models.ManagementViewModel
+
+<link rel="stylesheet" href="~/css/Management-View.css" asp-append-version="true" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+<body id="Body-Management">
+    <div class="container-management">
+        <form method="post">
+            @Html.AntiForgeryToken()
+            <div>
+                <h1 id="ManagementTitle"> Management Zone</h1>
+            <div class="form-outline mb-2" id="M_label_1-add-category">
+                <label asp-for="@Model.Categories" class="form-label" style= "font-size:20px; padding-right:10px"></label>
+                <input asp-for="@Model.Categories" class=form-control-category autocomplete="off" placeholder="Create new category"/>
+                <span class="management-button-section"><button id="save-button" type="submit">Save</button></span>
+            </div>
+            </div>
+        </form>
+    </div>
+</body>
