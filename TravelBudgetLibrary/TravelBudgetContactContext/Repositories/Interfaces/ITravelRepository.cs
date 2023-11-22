@@ -7,7 +7,7 @@ using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories.Interfaces
 {
-    public interface ITravelRepository
+     public interface ITravelRepository
     {
         public List<Travel> GetAllTravels();
         public bool SaveTravelToDB(Travel travel);

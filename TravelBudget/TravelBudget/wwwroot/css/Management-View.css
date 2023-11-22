@@ -33,14 +33,7 @@
     color: darkgray;
     text-indent: 10px; 
 }
-/*#C_label_2-description {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 5s ease;
-}
-#C_label_3-startDate {
+/*#C_label_3-startDate {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 7s ease;
