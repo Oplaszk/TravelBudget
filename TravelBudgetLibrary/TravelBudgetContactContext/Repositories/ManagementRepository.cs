@@ -27,11 +27,26 @@ namespace TravelBudgetContactContext.Repositories
                 _db.SaveChanges();
                 return true;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while adding category model to the database");
                 return false;
             }
+        }
+        public bool DeleteCategory(Category model)
+        {
+            try
+            {
+                _db.Categories.Remove(model);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex) 
+            {
+                _logger.LogError(ex, "An error occurred while deleting category model from database");
+                return false;
+            }
+
         }
     }
 }

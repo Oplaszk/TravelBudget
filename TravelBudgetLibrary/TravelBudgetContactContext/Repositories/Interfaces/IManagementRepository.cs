@@ -10,5 +10,6 @@ namespace TravelBudgetContactContext.Repositories.Interfaces
     public interface IManagementRepository
     {
         public bool CreateNewCategory(Category model);
+        public bool DeleteCategory(Category model);
     }
 }
