@@ -18,24 +18,26 @@ namespace TravelBudget.Controllers
             _categoryRepository = categoryRepository;
         }
         [HttpGet]
-        public IActionResult NewCategory()
+        public IActionResult ManageZone()
         {
             _managementViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
             return View(_managementViewModel);
         }
         [HttpPost]
-        public IActionResult NewCategory(ManagementViewModel model)
+        public IActionResult ManageZone(ManagementViewModel model)
         {
             var newCategory = model.Category;
             _managementRepository.CreateNewCategory(newCategory);
-            return View(); 
+            return RedirectToAction("ManageZone"); 
         }
         [HttpGet]
-        public IActionResult DeleteCategory(int id)
+        public IActionResult DeleteCategory(ManagementViewModel model)
         {
-            var categoryToDelete = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == id);
+            int indexToDelete = model.Category.Id;
+            var categoryToDelete = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == indexToDelete);
             _managementRepository.DeleteCategory(categoryToDelete);
-            return View(); 
+
+            return RedirectToAction("ManageZone"); 
         }
     }
 }
