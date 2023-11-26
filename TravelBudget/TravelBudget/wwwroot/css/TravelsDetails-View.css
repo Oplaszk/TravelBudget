@@ -58,32 +58,25 @@ body {
 table {
     border-collapse: collapse;
     width: 100%;
-    background-color: white;
-    animation: fadeIn 6s ease;
+    margin-top: 10px; 
+    animation: fadeIn 10s ease;
+    border: 2px solid darkgoldenrod;
 }
-
+th {
+    background-color: black;
+    color: darkgoldenrod; 
+    font-weight: bold; 
+    padding: 10px; 
+}
+td {
+    background-color: white; 
+    color: black; 
+}
 th, td {
-    border: 1px solid black;
     padding: 8px;
     text-align: center;
+    border: 2px solid darkgoldenrod;
 }
-/*<-------------------- Return Button section -------------------->*/
-/*#return-container {
-    display: inline-block;
-    float: right;
-    vertical-align: central;
-}
-
-#returnButton {
-    background-color: darkgoldenrod;
-    text-align: center;
-    height: 45px;
-    border: 2px solid black;
-}
-#returnButton:hover {
-    box-shadow: 0px 0px 5px 4px darkgoldenrod;
-    transition: 0.7s;
-}*/
 .return-link {
     color: white;
     text-decoration: none;
@@ -165,37 +158,6 @@ th, td {
     }
 /*<---------------------- Additional styles for better look ----------------------->*/
 
-/*<-------------------- Table section -------------------->*/
-#table {
-    width: 100%; /* 100% szerokoœci tabeli */
-    margin-top: 10px; /* Dodaj margines na górze i na dole tabeli */
-    background-color: darkgoldenrod; /* Kolor t³a tabeli */
-    animation: fadeIn 10s ease;
-    border: 2px solid darkgoldenrod;
-}
-
-/* Dostosuj style dla nag³ówków (th) */
-th {
-    background-color: black; /* Kolor t³a nag³ówków */
-    color: darkgoldenrod; /* Kolor tekstu w nag³ówkach */
-    font-weight: bold; /* Pogrubienie tekstu w nag³ówkach */
-    padding: 10px; /* Wielkoœæ wewnêtrznego marginesu nag³ówków */
-    text-align: center;
-}
-
-/* Dostosuj style dla komórek (td) */
-td {
-    background-color: white; /* Kolor t³a komórek */
-    color: black; /* Kolor tekstu w komórkach */
-    padding: 8px;
-    text-align: center;
-    ;
-}
-
-/* Dodaj obramowanie wokó³ komórek */
-th, td {
-    border: 2px solid darkgoldenrod;
-}
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {
     from {

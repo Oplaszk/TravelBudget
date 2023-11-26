@@ -10,6 +10,23 @@
             @Html.AntiForgeryToken()
             <div>
                 <h1 id="ManagementTitle"> Category Zone</h1>
+                <div class="category-table">
+                    <table class="table"style="border-radius: 8px">
+                        <thead>
+                            <tr>
+                                <th class="table-title" colspan="100%">Category Types</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                @foreach (var item in Model.CategoryOptions)
+                                {
+                                    <td>@item.Type</td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="form-outline" id="M_label_1-add-category">
                     <label asp-for="@Model.Category.Type" class="form-label" style="font-size:24px; text-align: center; margin:0; padding-right: 10px"></label>
                     <input asp-for="@Model.Category.Type" class=form-control-category autocomplete="off" placeholder="Insert type of new category" />

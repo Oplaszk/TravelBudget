@@ -31,6 +31,40 @@
     color: darkgray;
     text-indent: 10px;
 }
+/*<--------------------------- Table --------------------------->*/
+.category-table {
+    padding-top: 20px;
+    border-radius: 10px !important;
+    display: flex;
+    justify-content: center;
+}
+.table {
+    border-collapse: collapse;
+    animation: fadeIn 4s ease;
+    border: 2.5px solid darkgoldenrod;
+    border-radius: 10px !important;
+    width: auto;
+}
+.table-title {
+    text-align: center;
+    vertical-align:central;
+}
+th {
+    color: darkgoldenrod;
+}
+td {
+    color: darkgray;
+    vertical-align: middle;
+    vertical-align: central;
+}
+th, td {
+    border-radius: 10px !important;
+    background-color: black;
+    padding: 8px;
+    text-align: center;
+    border: 2px solid darkgoldenrod;
+}
+
 /*<--------------------------- Delete Category Form --------------------------->*/
 .delete-title,
 .category-drop-down {
@@ -78,9 +112,6 @@
     padding-right: 50px;
     height: 100px;
 }
-/*.custom-label {
-    text-align: center;
-}*/
 /*<-------------------- Management buttons section -------------------->*/
 .management-button-section {
     padding-left: 16px;
