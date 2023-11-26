@@ -11,14 +11,12 @@ using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories
 {
-    public class TravelRepository : ITravelRepository
+    public class TravelRepository : BaseRepository, ITravelRepository
     {
         private readonly ILogger<TravelRepository> _logger;
-        public DBContact _db { get; set; }
-        public TravelRepository(DBContact db, ILogger<TravelRepository> logger)
+        public TravelRepository(DBContact db, ILogger<TravelRepository> logger) : base(db)
         {
             _logger = logger;
-            _db = db;
         }
         public List<Travel> GetAllTravels()
         {

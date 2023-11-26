@@ -10,13 +10,11 @@ using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories
 {
-    public class ExpenseRepository : IExpenseRepository
+    public class ExpenseRepository : BaseRepository, IExpenseRepository
     {
-        public DBContact _db { get; set; }
         private readonly ILogger<ExpenseRepository> _logger;
-        public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger)
+        public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger) : base(db)
         {
-            _db = db;
             _logger = logger;
         }
         public List<Expense> GetExpensesByTravelId(int travelId)

@@ -11,13 +11,11 @@ using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories
 {
-    public class CountryRepository : ICountryRepository
+    public class CountryRepository : BaseRepository, ICountryRepository
     {
-        public DBContact _db { get; set; }
         private readonly ILogger<CountryRepository> _logger;
-        public CountryRepository(DBContact db, ILogger<CountryRepository> logger)
+        public CountryRepository(DBContact db, ILogger<CountryRepository> logger) : base(db)
         {
-            _db = db;
             _logger = logger;
         }
         public IEnumerable<CountryDTO> GetAllCountriesDTO()

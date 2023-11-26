@@ -9,13 +9,11 @@ using TravelBudgetModels.Models;
 
 namespace TravelBudgetContactContext.Repositories
 {
-    public class CategoryRepository : ICategoryRepository
+    public class CategoryRepository : BaseRepository, ICategoryRepository
     {
-        public DBContact _db { get; set; }
         private readonly ILogger<CategoryRepository> _logger;
-        public CategoryRepository(DBContact db, ILogger<CategoryRepository> logger)
+        public CategoryRepository(DBContact db, ILogger<CategoryRepository> logger) : base(db)
         {
-            _db = db;
             _logger = logger;
         }
 
