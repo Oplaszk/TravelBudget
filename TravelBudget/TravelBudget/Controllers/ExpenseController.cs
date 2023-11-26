@@ -36,21 +36,22 @@ namespace TravelBudget.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                var errors = ModelState.Values.SelectMany(v => v.Errors);
-
-                foreach (var error in errors)
+                if (expenseViewModel.Expense.Price >= 0)
                 {
-                    Console.WriteLine(error.ErrorMessage);
+                    int Id = expenseViewModel.TravelId;
+                    expenseViewModel.Expense.TravelId = Id;
+
+                    _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
+                    return RedirectToAction("Details", "Detail", new { id = Id });
                 }
             }
-            int Id = expenseViewModel.TravelId;
-            expenseViewModel.Expense.TravelId = Id;
+            ModelState.AddModelError("Price", "Price cannot be negative.");
+            expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
+            expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
 
-            _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
-
-            return RedirectToAction("Details", "Detail", new { id = Id });
+            return View("AddExpense", expenseViewModel);
         }
         #endregion
         #region DELETE Section

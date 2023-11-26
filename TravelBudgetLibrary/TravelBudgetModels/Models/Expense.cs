@@ -7,8 +7,9 @@ namespace TravelBudgetModels.Models
     public class Expense
     {
         public int Id { get; set; }
+        [StringLength(50, ErrorMessage = "Description can not be longer then 50 characters")]
         public string? Description { get; set; }
-        [Range(0, double.MaxValue, ErrorMessage ="The Price must be greater than 0")]
+        [Range(0, double.MaxValue, ErrorMessage = "Price must be greater than 0")]
         public double? Price { get; set; }
 
         [Display(Name = "Date")]

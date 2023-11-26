@@ -17,7 +17,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\History\" />
+    <Compile Remove="Views\History\**" />
+    <Content Remove="Views\History\**" />
+    <EmbeddedResource Remove="Views\History\**" />
+    <None Remove="Views\History\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

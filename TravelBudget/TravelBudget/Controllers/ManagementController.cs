@@ -8,26 +8,26 @@ namespace TravelBudget.Controllers
     public class ManagementController : Controller
     {
         private readonly ManagementViewModel _managementViewModel;
-        private readonly IManagementRepository _managementRepository;
         private readonly ICategoryRepository _categoryRepository;
 
-        public ManagementController(IManagementRepository managementRepository, ICategoryRepository categoryRepository)
+        public ManagementController(ICategoryRepository categoryRepository)
         {
             _managementViewModel = new ManagementViewModel();
-            _managementRepository = managementRepository;
             _categoryRepository = categoryRepository;
         }
         [HttpGet]
         public IActionResult ManageZone()
         {
             _managementViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
+
             return View(_managementViewModel);
         }
         [HttpPost]
         public IActionResult ManageZone(ManagementViewModel model)
         {
             var newCategory = model.Category;
-            _managementRepository.CreateNewCategory(newCategory);
+            _categoryRepository.CreateNewCategory(newCategory);
+
             return RedirectToAction("ManageZone"); 
         }
         [HttpGet]
@@ -35,7 +35,7 @@ namespace TravelBudget.Controllers
         {
             int indexToDelete = model.Category.Id;
             var categoryToDelete = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == indexToDelete);
-            _managementRepository.DeleteCategory(categoryToDelete);
+            _categoryRepository.DeleteCategory(categoryToDelete);
 
             return RedirectToAction("ManageZone"); 
         }

@@ -1,4 +1,4 @@
- 
+
 /*<-------------------- Main section -------------------->*/
 #Body-create {
     max-height: 100vh;
@@ -19,6 +19,7 @@
     color: darkgoldenrod;
     animation: fadeIn 2s ease;
 }
+
 #C_label_2-description {
     display: flex;
     flex-direction: column;
@@ -26,32 +27,38 @@
     color: darkgoldenrod;
     animation: fadeIn 5s ease;
 }
+
 #C_label_3-startDate {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 7s ease;
 }
+
 #C_label_4-finishDate {
     margin: 0;
     color: darkgoldenrod;
     animation: fadeIn 9s ease;
 }
+
 #C_label_5-activeBox {
     margin: 0;
     color: darkgoldenrod;
     text-align: center;
     animation: fadeIn 11s ease;
 }
+
 .form-outline {
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 0;
     margin: 0;
 }
+
 .custom-buttom {
     width: 30px;
     height: 30px;
 }
+
 .custom-label {
     text-align: center;
 }
@@ -61,13 +68,13 @@
     background-color: darkgoldenrod;
 }
 
-#create-button:hover {
-    box-shadow: 0px 0px 8px 5px darkgoldenrod;
-    transition: 0.7s;
-    background-color: black;
-    color: darkgoldenrod;
-    border: 2px solid white;
-}
+    #create-button:hover {
+        box-shadow: 0px 0px 8px 5px darkgoldenrod;
+        transition: 0.7s;
+        background-color: black;
+        color: darkgoldenrod;
+        border: 2px solid white;
+    }
 
 .create-buttonSection {
     display: flex;
@@ -81,20 +88,22 @@
     background-color: black;
     color: darkgoldenrod;
 }
-#showStartingDatePicker:hover {
-    box-shadow: 0px 0px 8px 5px darkgoldenrod;
-    border: 2.5px solid white;
-}
+
+    #showStartingDatePicker:hover {
+        box-shadow: 0px 0px 8px 5px darkgoldenrod;
+        border: 2.5px solid white;
+    }
+
 #showFinishDatePicker {
     border: 2.5px solid darkgoldenrod;
     background-color: black;
     color: darkgoldenrod;
 }
-#showFinishDatePicker:hover {
-    box-shadow: 0px 0px 8px 5px darkgoldenrod;
-    border: 2.5px solid white;
 
-}
+    #showFinishDatePicker:hover {
+        box-shadow: 0px 0px 8px 5px darkgoldenrod;
+        border: 2.5px solid white;
+    }
 /*<---------------------- Additional styles for better look ----------------------->*/
 
 /*<-------------------- Modification Name box -------------------->*/
@@ -102,36 +111,40 @@
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
-    color: darkgoldenrod;
+    color: darkgray;
     padding: 5px;
     cursor: pointer;
 }
-.form-control-name:hover {
-    background-color: darkgoldenrod;
-    color: black;
-    transition: 0.4s;
-}
-.form-control-name::placeholder {
-    color: darkgray;
-}
 
-.form-control-name:hover::placeholder {
-    color: black;
-}
+    .form-control-name:hover {
+        background-color: darkgoldenrod;
+        color: black;
+        transition: 0.4s;
+    }
+
+    .form-control-name::placeholder {
+        color: darkgray;
+    }
+
+    .form-control-name:hover::placeholder {
+        color: black;
+    }
 /*<-------------------- Modification Description box -------------------->*/
 .form-control-description {
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
-    color: darkgoldenrod;
+    color: darkgray;
     padding: 5px;
     cursor: pointer;
 }
-.form-control-description:hover{
+
+    .form-control-description:hover {
         background-color: darkgoldenrod;
-    color: black;
-    transition: 0.4s;
-}
+        color: black;
+        transition: 0.4s;
+    }
+
     .form-control-description::placeholder {
         color: darkgray;
     }
@@ -147,11 +160,12 @@
     padding: 5px;
     cursor: pointer;
 }
-#C_label_3-startDate input[type=datetime-local]:hover {
-    background-color: darkgoldenrod;
-    color: black;
-    transition: 0.4s;
-}
+
+    #C_label_3-startDate input[type=datetime-local]:hover {
+        background-color: darkgoldenrod;
+        color: black;
+        transition: 0.4s;
+    }
 /*<-------------------- Modification FinishDate box -------------------->*/
 #C_label_4-finishDate input[type=datetime-local] {
     border: 2px solid darkgoldenrod;
@@ -160,11 +174,12 @@
     padding: 5px;
     cursor: pointer;
 }
-#C_label_4-finishDate input[type=datetime-local]:hover{
+
+    #C_label_4-finishDate input[type=datetime-local]:hover {
         background-color: darkgoldenrod;
         color: black;
         transition: 0.4s;
-}
+    }
 /*<-------------------- Modification Active checkbox -------------------->*/
 #C_label_5-activeBox {
     display: flex;
@@ -175,6 +190,7 @@
     text-align: left;
     animation: fadeIn 11s ease;
 }
+
 #activeCheckbox {
     appearance: none; /* Ukryj domyœlny wygl¹d checkboxa */
     border: 2px solid darkgoldenrod;
@@ -187,19 +203,19 @@
     margin-right: 10px; /* Odstêp miêdzy checkboxem a tekstem */
 }
 
-/* Dostosuj wygl¹d checkboxa po zaznaczeniu */
-#activeCheckbox:checked {
-    background-color: darkgoldenrod;
-    color: black;
-}
+    /* Dostosuj wygl¹d checkboxa po zaznaczeniu */
+    #activeCheckbox:checked {
+        background-color: darkgoldenrod;
+        color: black;
+    }
 
-/* Ukryj domyœln¹ kontrolkê zaznaczenia */
-#activeCheckbox::before {
-    display: block;
-    text-align: center;
-    font-size: 16px; /* Dostosuj rozmiar znaku zaznaczenia */
-    line-height: 20px; /* Wysokoœæ znaku zaznaczenia dla wyœrodkowania */
-}
+    /* Ukryj domyœln¹ kontrolkê zaznaczenia */
+    #activeCheckbox::before {
+        display: block;
+        text-align: center;
+        font-size: 16px; /* Dostosuj rozmiar znaku zaznaczenia */
+        line-height: 20px; /* Wysokoœæ znaku zaznaczenia dla wyœrodkowania */
+    }
 
 /* Zmieñ styl tekstu etykiety */
 .form-check-label.custom-label {
@@ -217,4 +233,3 @@
         opacity: 1;
     }
 }
-

@@ -96,11 +96,12 @@
 /*<-------------------- Modification Price box -------------------->*/
 .form-control-price {
     border: 2px solid darkgoldenrod;
-    border-radius: 2px;
+    border-radius: 8px;
     background-color: black;
     color: darkgoldenrod;
     padding: 5px;
     cursor: pointer;
+    text-align: center;
 }
 .form-control-price:hover {
     background-color: darkgoldenrod;
@@ -119,7 +120,7 @@
 /*<-------------------- Modification Description box -------------------->*/
 .form-control-description {
     border: 2px solid darkgoldenrod;
-    border-radius: 2px;
+    border-radius: 8px;
     background-color: black;
     color: darkgoldenrod;
     padding: 5px;
