@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelBudgetModels.Models;
+using TravelBudgetDBModels.Models;
 
-namespace TravelBudgetContactContext.Repositories.Interfaces
+namespace TravelBudgetDBContact.Repositories.Interfaces
 {
     public interface ICategoryRepository
     {

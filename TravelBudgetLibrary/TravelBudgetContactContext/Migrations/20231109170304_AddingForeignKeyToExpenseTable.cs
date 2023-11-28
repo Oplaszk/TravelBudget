@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace TravelBudgetContactContext.Migrations
+namespace TravelBudgetDBContact.Migrations
 {
     public partial class AddingForeignKeyToExpenseTable : Migration
     {

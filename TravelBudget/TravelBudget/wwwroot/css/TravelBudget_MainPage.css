@@ -71,6 +71,12 @@
         text-shadow: 10px 10px 10px darkgoldenrod;
         text-shadow: -15px -15px -15px darkgoldenrod;
     }
+    nav ul li .a4:hover {
+        transition: 0.7s; 
+        color: darkgoldenrod;
+        text-shadow: 10px 10px 10px darkgoldenrod;
+        text-shadow: -15px -15px -15px darkgoldenrod;
+    }
     /*<-------------------- Log out Button section -------------------->*/
     .button-container{
         padding-left:3px;

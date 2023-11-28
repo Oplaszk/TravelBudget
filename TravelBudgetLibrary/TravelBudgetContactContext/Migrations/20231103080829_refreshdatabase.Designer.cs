@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TravelBudgetContactContext;
+using TravelBudgetDBContact;
 
 #nullable disable
 
-namespace TravelBudgetContactContext.Migrations
+namespace TravelBudgetDBContact.Migrations
 {
     [DbContext(typeof(DBContact))]
     [Migration("20231103080829_refreshdatabase")]

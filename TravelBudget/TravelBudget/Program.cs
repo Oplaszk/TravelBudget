@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using TravelBudgetContactContext;
-using TravelBudgetContactContext.Repositories;
-using TravelBudgetContactContext.Repositories.Interfaces;
+using TravelBudgetDBContact;
+using TravelBudgetDBContact.Repositories;
+using TravelBudgetDBContact.Repositories.Interfaces;
 
 namespace TravelBudget
 {

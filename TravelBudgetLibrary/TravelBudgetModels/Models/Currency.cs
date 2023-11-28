@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TravelBudgetModels.Models
+namespace TravelBudgetDBModels.Models
 {
     public class Currency
     {

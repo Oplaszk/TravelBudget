@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelBudgetContactContext.Repositories.Interfaces;
-using TravelBudgetModels.Models;
+using TravelBudgetDBContact.Repositories.Interfaces;
+using TravelBudgetDBModels.Models;
 
-namespace TravelBudgetContactContext.Repositories
+namespace TravelBudgetDBContact.Repositories
 {
     public class ExpenseRepository : BaseRepository, IExpenseRepository
     {

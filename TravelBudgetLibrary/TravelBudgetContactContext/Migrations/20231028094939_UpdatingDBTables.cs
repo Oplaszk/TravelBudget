@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TravelBudgetContactContext.Migrations
+namespace TravelBudgetDBContact.Migrations
 {
     public partial class UpdatingDBTables : Migration
     {

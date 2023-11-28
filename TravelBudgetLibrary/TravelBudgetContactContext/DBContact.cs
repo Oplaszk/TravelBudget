@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TravelBudgetModels.Models;
+using TravelBudgetDBModels.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelBudgetContactContext
+namespace TravelBudgetDBContact
 {
     public class DBContact : DbContext
     {
@@ -26,7 +26,7 @@ namespace TravelBudgetContactContext
                 new Category() { Id = 1, Type = "Accommodation"},
                 new Category() { Id = 2, Type = "Food"},
                 new Category() { Id = 3, Type = "Transport" },
-                new Category() { Id = 4, Type = "Atractions"},
+                new Category() { Id = 4, Type = "Attractions"},
                 new Category() { Id = 5, Type = "Shopping"},
                 new Category() { Id = 6, Type = "Others"}
             );

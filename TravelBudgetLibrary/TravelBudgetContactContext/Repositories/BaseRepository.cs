@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelBudgetContactContext.Repositories
+namespace TravelBudgetDBContact.Repositories
 {
     public class BaseRepository
     {
-        protected DBContact _db { get; set; }
+        protected DBContact _db;
         public BaseRepository(DBContact db)
         {
             _db = db;

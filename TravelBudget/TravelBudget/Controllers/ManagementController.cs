@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelBudget.Models;
-using TravelBudgetContactContext.Repositories.Interfaces;
-using TravelBudgetModels.Models;
+using TravelBudgetDBContact.Repositories.Interfaces;
+using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {

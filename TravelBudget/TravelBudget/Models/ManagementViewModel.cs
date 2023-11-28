@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using TravelBudgetContactContext.Response.DTO;
-using TravelBudgetModels.Models;
+using TravelBudgetDBContact.Response.DTO;
+using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Models
 {

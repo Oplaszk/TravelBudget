@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TravelBudgetModels.Models
+namespace TravelBudgetDBModels.Models
 {
     public class Expense
     {

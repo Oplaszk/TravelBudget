@@ -1,4 +1,4 @@
-﻿using TravelBudgetModels.Models;
+﻿using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Models
 {

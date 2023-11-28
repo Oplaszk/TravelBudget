@@ -37,8 +37,8 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\TravelBudgetLibrary\TravelBudgetContactContext\TravelBudgetContactContext.csproj" />
-    <ProjectReference Include="..\..\TravelBudgetLibrary\TravelBudgetModels\TravelBudgetModels.csproj" />
+    <ProjectReference Include="..\..\TravelBudgetLibrary\TravelBudgetContactContext\TravelBudgetDBContact.csproj" />
+    <ProjectReference Include="..\..\TravelBudgetLibrary\TravelBudgetModels\TravelBudgetDBModels.csproj" />
   </ItemGroup>
 
 </Project>

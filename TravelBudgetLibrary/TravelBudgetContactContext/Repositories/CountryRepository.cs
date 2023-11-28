@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelBudgetContactContext.Repositories.Interfaces;
-using TravelBudgetContactContext.Response.DTO;
-using TravelBudgetModels.Models;
+using TravelBudgetDBContact.Repositories.Interfaces;
+using TravelBudgetDBContact.Response.DTO;
+using TravelBudgetDBModels.Models;
 
-namespace TravelBudgetContactContext.Repositories
+namespace TravelBudgetDBContact.Repositories
 {
     public class CountryRepository : BaseRepository, ICountryRepository
     {

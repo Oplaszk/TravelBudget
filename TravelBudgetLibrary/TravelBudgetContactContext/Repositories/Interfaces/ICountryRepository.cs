@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelBudgetContactContext.Response.DTO;
-using TravelBudgetModels.Models;
+using TravelBudgetDBContact.Response.DTO;
+using TravelBudgetDBModels.Models;
 
-namespace TravelBudgetContactContext.Repositories.Interfaces
+namespace TravelBudgetDBContact.Repositories.Interfaces
 {
     public interface ICountryRepository
     {

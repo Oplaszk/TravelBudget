@@ -1,4 +1,4 @@
-﻿namespace TravelBudgetModels.Models
+﻿namespace TravelBudgetDBModels.Models
 {
     public class Continent
     {

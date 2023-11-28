@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelBudget", "TravelBudget\TravelBudget.csproj", "{34F62692-FA68-43DD-ADE8-C23177C4D093}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelBudgetModels", "..\TravelBudgetLibrary\TravelBudgetModels\TravelBudgetModels.csproj", "{410930A5-DC88-4E3B-AA5A-67DA94CAC945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelBudgetDBModels", "..\TravelBudgetLibrary\TravelBudgetModels\TravelBudgetDBModels.csproj", "{410930A5-DC88-4E3B-AA5A-67DA94CAC945}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelBudgetContactContext", "..\TravelBudgetLibrary\TravelBudgetContactContext\TravelBudgetContactContext.csproj", "{BC594348-66EB-4227-9104-8A209F07459A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelBudgetDBContact", "..\TravelBudgetLibrary\TravelBudgetContactContext\TravelBudgetDBContact.csproj", "{BC594348-66EB-4227-9104-8A209F07459A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
