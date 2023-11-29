@@ -43,7 +43,7 @@
                     <p class=delete-title>Delete category:</p>
                     <label asp-for="@Model.Category.Id" class="form-label" style="font-size:25px" hidden></label>
                     @Html.DropDownListFor(c => c.Category.Id, new SelectList
-                             (Model.CategoryOptions, "Id", "Type"), "Select Category", new { @class = "category-drop-down" })
+                             (Model.CategoryOptions, "Id", "Type"), "-Select Category-", new { @class = "category-drop-down" })
                     <span class="management-button-section">
                         <button id="delete-button" type="submit">Delete</button>
                     </span>

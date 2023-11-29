@@ -30,12 +30,12 @@
             <div class="form-outline mb-2" id="E_label_3-category">
                 <label asp-for="@Model.Expense.CategoryId" class="form-label" style="font-size:25px"></label>
                 @Html.DropDownListFor(c => c.Expense.CategoryId, new SelectList
-                         (Model.CategoryOptions, "Id", "Type"), "Select Category", new { @class = "category-drop-down" })
+                         (Model.CategoryOptions, "Id", "Type"), "-Select Category-", new { @class = "category-drop-down" })
             </div>
             <div class="form-outline mb-2" id="E_label_5-country">
                 <label asp-for="@Model.Expense.CountryId" class="form-label" style="font-size:25px"></label>
                 @Html.DropDownListFor(c => c.Expense.CountryId, new SelectList
-                         (Model.Countries, "Id", "CountryWithCode"), "Select Country", new { @class = "country-drop-down" })
+                         (Model.Countries, "Id", "CountryWithCode"), "-Select Country-", new { @class = "country-drop-down" })
             </div>
             <div class="form-outline mb-2" id="E_label_4-description">
                 <label asp-for="@Model.Expense.Description" class="form-label" style="font-size:24px"></label>
