@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBudgetDBContact;
 
@@ -11,9 +12,11 @@ using TravelBudgetDBContact;
 namespace TravelBudgetDBContact.Migrations
 {
     [DbContext(typeof(DBContact))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20231129181156_CreatingIdentityScheme")]
+    partial class CreatingIdentityScheme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -549,36 +552,6 @@ namespace TravelBudgetDBContact.Migrations
                             Description = "I bought a souvenir",
                             Price = 15.5,
                             TravelId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CategoryId = 2,
-                            CountryId = 1,
-                            Date = new DateTime(2022, 12, 17, 15, 15, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Random text1",
-                            Price = 15.5,
-                            TravelId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CategoryId = 3,
-                            CountryId = 1,
-                            Date = new DateTime(2022, 12, 17, 15, 15, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Random text2",
-                            Price = 15.5,
-                            TravelId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CategoryId = 4,
-                            CountryId = 1,
-                            Date = new DateTime(2022, 12, 17, 15, 15, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Random text3",
-                            Price = 15.5,
-                            TravelId = 2
                         });
                 });
 

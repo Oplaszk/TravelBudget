@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBudgetDBContact;
 
@@ -11,9 +12,11 @@ using TravelBudgetDBContact;
 namespace TravelBudgetDBContact.Migrations
 {
     [DbContext(typeof(DBContact))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20231130174750_AddingThreeAdditionalExpenses")]
+    partial class AddingThreeAdditionalExpenses
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

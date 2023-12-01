@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -11,6 +12,7 @@ using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
+    [Authorize]
     public class TravelController : Controller
     {
         private readonly ITravelRepository _travelRepository;

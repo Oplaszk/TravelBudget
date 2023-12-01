@@ -3,7 +3,7 @@
     "TravelBudget": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:7248/Travel/Index",
+      "launchUrl": "https://localhost:7248",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

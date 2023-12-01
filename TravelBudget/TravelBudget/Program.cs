@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TravelBudgetDBContact;
 using TravelBudgetDBContact.Repositories;
@@ -19,11 +20,11 @@ namespace TravelBudget
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddDbContext<DBContact>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<DBContact>();
             builder.Services.AddTransient<ITravelRepository, TravelRepository>();
             builder.Services.AddTransient<IExpenseRepository, ExpenseRepository>();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<ICountryRepository, CountryRepository>();
-            //builder.Services.AddTransient<IManagementRepository, ManagementRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -42,8 +43,8 @@ namespace TravelBudget
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Travel}/{action=Index}/{id?}");
-
+                pattern: "{controller=Welcome}/{action=Index}/{id?}");
+            app.MapRazorPages();
             app.Run();
         }
     }

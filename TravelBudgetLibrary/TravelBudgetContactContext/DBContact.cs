@@ -5,10 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace TravelBudgetDBContact
 {
-    public class DBContact : DbContext
+    public class DBContact : IdentityDbContext<IdentityUser>
     {
         public DBContact(DbContextOptions<DBContact> options) : base(options) { }
 
@@ -22,6 +24,7 @@ namespace TravelBudgetDBContact
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasData(
                 new Category() { Id = 1, Type = "Accommodation"},
                 new Category() { Id = 2, Type = "Food"},
@@ -61,7 +64,10 @@ namespace TravelBudgetDBContact
                 new Currency() { Id = 6, Code = "JPY" }
             );
             modelBuilder.Entity<Expense>().HasData(
-                new Expense() { Id = 1, Description = "I bought a souvenir", Price = 15.5, Date = new DateTime(2022, 12, 17, 15, 15, 0), CategoryId = 1, TravelId = 1, CountryId = 1 }
+                new Expense() { Id = 1, Description = "I bought a souvenir", Price = 15.5, Date = new DateTime(2022, 12, 17, 15, 15, 0), CategoryId = 1, TravelId = 1, CountryId = 1 },
+                new Expense() { Id = 2, Description = "Random text1", Price = 15.5, Date = new DateTime(2022, 12, 17, 15, 15, 0), CategoryId = 2, TravelId = 2, CountryId = 1 },
+                new Expense() { Id = 3, Description = "Random text2", Price = 15.5, Date = new DateTime(2022, 12, 17, 15, 15, 0), CategoryId = 3, TravelId = 2, CountryId = 1 },
+                new Expense() { Id = 4, Description = "Random text3", Price = 15.5, Date = new DateTime(2022, 12, 17, 15, 15, 0), CategoryId = 4, TravelId = 2, CountryId = 1 }
             );
             modelBuilder.Entity<Travel>().HasData(
                new Travel() { Id = 1, StartingDate = new DateTime(2022, 12, 16, 06, 15, 0), FinishDate = new DateTime(2022, 12, 12, 21, 15, 0), Name = "Around Poland", Description = "Visiting castles around Poland", Active = false, CommentId = 1, },

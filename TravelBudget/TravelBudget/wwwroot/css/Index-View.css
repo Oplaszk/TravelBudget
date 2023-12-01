@@ -4,12 +4,13 @@
         Usuwa równie¿ tzn. list markery z tagu typu (<li>)*/
     box-sizing: border-box; /*This style means that when you set the width and height of an element,
         any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
+    font-family: 'Sans Serif Collection';
 }
 /*<-------------------- Table section -------------------->*/
 #container {
     display: flex;
-    flex-direction: column; /* Wyœwietlanie elementów pionowo */
-    align-items: center; /* Wyrównanie elementów do œrodka */
+    flex-direction: column; 
+    align-items: center; 
 }
 
 @keyframes fadeIn {
@@ -21,7 +22,6 @@
         opacity: 1;
     }
 }
-
 #table {
     border-collapse: collapse;
     max-width: 100%;
