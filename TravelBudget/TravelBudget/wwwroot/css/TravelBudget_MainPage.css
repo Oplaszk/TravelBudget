@@ -1,11 +1,10 @@
 
     * {
-        margin: 0; /*ustawia wszystkie marginesy na zero*/
-        padding: 0; /*padding czyli odstêp kontentu jest ustawiony na zero*/
-        list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>). Usuwa równie¿ tzn. 
-        list markery z tagu typu (<li>)*/
-        box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
-        font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
+        margin: 0; 
+        padding: 0; 
+        list-style: none; 
+        box-sizing: border-box; 
+        font-family: 'Sans Serif Collection'; 
     }
     /*<-------------------- Navbar section -------------------->*/
     .logo-container
@@ -119,8 +118,8 @@
         padding: 0; 
         margin: 0;
         background-image: url('/images/pexels-stephan-seeber-1261728.jpg');
-        background-size: cover; /* Zachowuje proporcje obrazu i wype³nia ca³¹ sekcjê */
-        background-position: center; /* Wyœrodkowanie obrazu w sekcji */
+        background-size: cover; 
+        background-position: center;
     }
     .sidebar {
         flex: 1;
@@ -151,10 +150,10 @@
         text-align: center;
         padding-top: 0;
         justify-content: center;
-        position: fixed;  /*Ustaw pozycjê na sta³¹ */
-        bottom: 0; /* Przyczep stopkê do dolnej krawêdzi */
-        left: 0; /* Przesuñ stopkê w lewo */
-        right: 0; /* Przesuñ stopkê w prawo */
+        position: fixed;  
+        bottom: 0; 
+        left: 0; 
+        right: 0; 
         margin: 0;
     }
 

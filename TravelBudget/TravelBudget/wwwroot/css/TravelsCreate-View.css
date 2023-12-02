@@ -184,7 +184,7 @@
 #C_label_5-activeBox {
     display: flex;
     justify-content: center;
-    align-items: center; /* Dla wyœrodkowania checkboxa wzglêdem tekstu */
+    align-items: center; 
     margin: 0;
     color: darkgoldenrod;
     text-align: left;
@@ -192,37 +192,32 @@
 }
 
 #activeCheckbox {
-    appearance: none; /* Ukryj domyœlny wygl¹d checkboxa */
+    appearance: none; 
     border: 2px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
     color: darkgoldenrod;
-    width: 32px; /* Dostosuj szerokoœæ */
-    height: 32px; /* Dostosuj wysokoœæ */
+    width: 32px; 
+    height: 32px; 
     cursor: pointer;
-    margin-right: 10px; /* Odstêp miêdzy checkboxem a tekstem */
+    margin-right: 10px; 
 }
-
-    /* Dostosuj wygl¹d checkboxa po zaznaczeniu */
     #activeCheckbox:checked {
         background-color: darkgoldenrod;
         color: black;
     }
 
-    /* Ukryj domyœln¹ kontrolkê zaznaczenia */
     #activeCheckbox::before {
         display: block;
         text-align: center;
-        font-size: 16px; /* Dostosuj rozmiar znaku zaznaczenia */
-        line-height: 20px; /* Wysokoœæ znaku zaznaczenia dla wyœrodkowania */
+        font-size: 16px; 
+        line-height: 20px; 
     }
 
-/* Zmieñ styl tekstu etykiety */
 .form-check-label.custom-label {
     font-size: 20px;
-    text-align: left; /* Wyœrodkuj tekst w lewo */
+    text-align: left; 
 }
-
 /*<-------------------- Animation section -------------------->*/
 @keyframes fadeIn {
     from {

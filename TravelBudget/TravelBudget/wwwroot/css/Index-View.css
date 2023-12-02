@@ -12,6 +12,38 @@
     flex-direction: column; 
     align-items: center; 
 }
+/*<-------------------- Table section -------------------->*/
+#table {
+    border: 2px solid darkgoldenrod;
+    width: 100%;
+    margin-top: 10px;
+    background-color: darkgoldenrod;
+    animation: fadeIn 10s ease;
+    border: 2px solid darkgoldenrod;
+}
+
+th {
+    border: 2px solid darkgoldenrod;
+    background-color: black;
+    color: darkgoldenrod;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    border: 2px solid darkgoldenrod;
+    background-color: white;
+    color: black;
+    padding: 8px;
+    text-align: center;
+}
+
+th, td {
+    border: 2px solid darkgoldenrod;
+    padding: 8px;
+    text-align: center;
+}
 
 @keyframes fadeIn {
     from {
@@ -66,34 +98,6 @@ a span {
 }
 /*<---------------------- Additional styles for better look ----------------------->*/
 
-/*<-------------------- Table section -------------------->*/
-#table {
-    width: 100%; 
-    margin-top: 10px;
-    background-color: darkgoldenrod; 
-    animation: fadeIn 10s ease;
-    border: 2px solid darkgoldenrod;
-}
 
-th {
-    background-color: black; 
-    color: darkgoldenrod; 
-    font-weight: bold;
-    padding: 10px; 
-    text-align: center;
-}
-
-td {
-    background-color: white; 
-    color: black; 
-    padding: 8px;
-    text-align: center;;
-}
-
-th, td {
-    border: 2px solid darkgoldenrod;
-    padding: 8px;
-    text-align: center;
-}
 
 
