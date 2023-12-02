@@ -25,8 +25,7 @@
             <li><a class="a1" asp-controller="Travel" asp-action="Create"> Create New Travel </a></li>
             <li><a class="a2" asp-controller="Travel" asp-action="Index"> Current Travels </a></li>
             <li><a class="a3" asp-controller="Travel" asp-action="History"> Travels History </a></li>
-            <li id="buttonLi">
-                
+            <li id="buttonLi">             
                 <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Welcome", new { area = "" })" method="post">
                     <button type="submit" class="btn btn-outline-secondary" id="Mybutton">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">

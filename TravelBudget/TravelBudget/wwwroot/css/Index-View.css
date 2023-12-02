@@ -22,19 +22,15 @@
         opacity: 1;
     }
 }
-#table {
+/*#table {
     border-collapse: collapse;
     max-width: 100%;
     min-width: 90%;
     background-color: white;
     animation: fadeIn 10s ease;
-}
+    border: 5px;
+}*/
 
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-}
 /*<-------------------- Menu button section -------------------->*/
 #button-containerAdd {
     display: flex;
@@ -47,7 +43,6 @@ th, td {
 }
 .MenuButton {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -86,6 +81,11 @@ a span {
     animation: fadeIn 10s ease;
     border: 2px solid darkgoldenrod;
 }
+/*th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}*/
 
 /* Dostosuj style dla nag³ówków (th) */
 th {
@@ -96,7 +96,6 @@ th {
     text-align: center;
 }
 
-/* Dostosuj style dla komórek (td) */
 td {
     background-color: white; /* Kolor t³a komórek */
     color: black; /* Kolor tekstu w komórkach */
@@ -104,9 +103,10 @@ td {
     text-align: center;;
 }
 
-/* Dodaj obramowanie wokó³ komórek */
 th, td {
     border: 2px solid darkgoldenrod;
+    padding: 8px;
+    text-align: center;
 }
 
 
