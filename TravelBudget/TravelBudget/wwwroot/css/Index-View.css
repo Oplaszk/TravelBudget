@@ -1,9 +1,9 @@
 
 * {
-    list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>).
-        Usuwa równie¿ tzn. list markery z tagu typu (<li>)*/
-    box-sizing: border-box; /*This style means that when you set the width and height of an element,
-        any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
+    list-style: none; 
+
+    box-sizing: border-box; 
+
     font-family: 'Sans Serif Collection';
 }
 /*<-------------------- Table section -------------------->*/
@@ -22,14 +22,6 @@
         opacity: 1;
     }
 }
-/*#table {
-    border-collapse: collapse;
-    max-width: 100%;
-    min-width: 90%;
-    background-color: white;
-    animation: fadeIn 10s ease;
-    border: 5px;
-}*/
 
 /*<-------------------- Menu button section -------------------->*/
 #button-containerAdd {
@@ -40,6 +32,7 @@
     padding-bottom: 15px;
     cursor: pointer;
     animation: fadeIn 10s ease;
+    margin-right: 5px;
 }
 .MenuButton {
     margin: 0;
@@ -58,8 +51,8 @@
 [data-record-id]:hover {
     letter-spacing: 0.06em;
     background: darkgoldenrod;
-    box-shadow: 0 0 30px; /*darkgoldenrod; kolor cienia po najechaniu na przycisk*/
-    color: darkgoldenrod; /*kolor liter po najechaniu na przycisk*/
+    box-shadow: 0 0 30px; 
+    color: darkgoldenrod; 
 }
 [data-record-id]:before {
     position: absolute;
@@ -75,30 +68,24 @@ a span {
 
 /*<-------------------- Table section -------------------->*/
 #table {
-    width: 100%; /* 100% szerokoœci tabeli */
-    margin-top: 10px; /* Dodaj margines na górze i na dole tabeli */
-    background-color: darkgoldenrod; /* Kolor t³a tabeli */
+    width: 100%; 
+    margin-top: 10px;
+    background-color: darkgoldenrod; 
     animation: fadeIn 10s ease;
     border: 2px solid darkgoldenrod;
 }
-/*th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: center;
-}*/
 
-/* Dostosuj style dla nag³ówków (th) */
 th {
-    background-color: black; /* Kolor t³a nag³ówków */
-    color: darkgoldenrod; /* Kolor tekstu w nag³ówkach */
-    font-weight: bold; /* Pogrubienie tekstu w nag³ówkach */
-    padding: 10px; /* Wielkoœæ wewnêtrznego marginesu nag³ówków */
+    background-color: black; 
+    color: darkgoldenrod; 
+    font-weight: bold;
+    padding: 10px; 
     text-align: center;
 }
 
 td {
-    background-color: white; /* Kolor t³a komórek */
-    color: black; /* Kolor tekstu w komórkach */
+    background-color: white; 
+    color: black; 
     padding: 8px;
     text-align: center;;
 }
