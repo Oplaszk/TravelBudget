@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
 
 namespace TravelBudget.Controllers
 {
-    public class StatisticsController : Controller
+    public class StatisticsController : BaseController
     {
-        private readonly IExpenseRepository _expenseRepository;
-        public StatisticsController(IExpenseRepository expenseRepository)
+        private readonly IStatisticsRepository _statisticsRepository;
+        public StatisticsController(IStatisticsRepository statisticsRepository, ILogger<StatisticsController> logger) : base(logger)
         {
-            _expenseRepository = expenseRepository;
+            _statisticsRepository = statisticsRepository;
         }
         public IActionResult Statistics()
         {

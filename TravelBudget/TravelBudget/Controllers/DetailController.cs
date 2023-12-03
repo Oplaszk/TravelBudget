@@ -6,11 +6,11 @@ using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
-    public class DetailController : Controller
+    public class DetailController : BaseController
     {
         private readonly ExpenseViewModel _expenseViewModel;
         private readonly IExpenseRepository _expenseRepository;
-        public DetailController(IExpenseRepository expenseRepository)
+        public DetailController(IExpenseRepository expenseRepository, ILogger<DetailController> logger) : base(logger)
         {
             _expenseRepository = expenseRepository;
             _expenseViewModel = new ExpenseViewModel();
@@ -23,10 +23,10 @@ namespace TravelBudget.Controllers
 
             return View(_expenseViewModel);
         }
-        [HttpGet]
-        public IActionResult FilterLocation(int id)
-        {
-            return null;
-        }
+        //[HttpGet]
+        //public IActionResult FilterLocation(int id)
+        //{
+        //    return null;
+        //}
     }
 }

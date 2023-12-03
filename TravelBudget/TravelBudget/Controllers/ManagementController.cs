@@ -5,12 +5,12 @@ using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
-    public class ManagementController : Controller
+    public class ManagementController : BaseController
     {
         private readonly ManagementViewModel _managementViewModel;
         private readonly ICategoryRepository _categoryRepository;
 
-        public ManagementController(ICategoryRepository categoryRepository)
+        public ManagementController(ICategoryRepository categoryRepository, ILogger<ManagementController> logger) : base(logger)
         {
             _managementViewModel = new ManagementViewModel();
             _categoryRepository = categoryRepository;

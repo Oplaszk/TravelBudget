@@ -1,0 +1,103 @@
+
+* {
+    list-style: none; 
+
+    box-sizing: border-box; 
+
+    font-family: 'Sans Serif Collection';
+}
+/*<-------------------- Table section -------------------->*/
+#container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+/*<-------------------- Table section -------------------->*/
+#table {
+    border: 2px solid darkgoldenrod;
+    width: 100%;
+    margin-top: 10px;
+    background-color: darkgoldenrod;
+    animation: fadeIn 10s ease;
+    border: 2px solid darkgoldenrod;
+}
+
+th {
+    border: 2px solid darkgoldenrod;
+    background-color: black;
+    color: darkgoldenrod;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    border: 2px solid darkgoldenrod;
+    background-color: white;
+    color: black;
+    padding: 8px;
+    text-align: center;
+}
+
+th, td {
+    border: 2px solid darkgoldenrod;
+    padding: 8px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*<-------------------- Menu button section -------------------->*/
+#button-containerAdd {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    cursor: pointer;
+    animation: fadeIn 10s ease;
+    margin-right: 5px;
+}
+.MenuButton {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+[data-record-id] {
+    position: relative;
+    background: white;
+    color: white;
+    text-decoration: none;
+    padding: 10px 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+[data-record-id]:hover {
+    letter-spacing: 0.06em;
+    background: darkgoldenrod;
+    box-shadow: 0 0 30px; 
+    color: darkgoldenrod; 
+}
+[data-record-id]:before {
+    position: absolute;
+    inset: 2px;
+    content: '';
+    background: black;
+}
+a span {
+    position: relative;
+    z-index: 1;
+}
+/*<---------------------- Additional styles for better look ----------------------->*/
+
+
+
+

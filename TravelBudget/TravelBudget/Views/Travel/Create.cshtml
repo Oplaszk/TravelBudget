@@ -1,50 +1,52 @@
 ﻿@model TravelBudget.Models.TravelViewModel
 
-<link rel="stylesheet" href="~/css/TravelsCreate-View.css" asp-append-version="true"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<head>
+    <link rel="stylesheet" href="~/css/TravelsCreate-View.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+</head>
 
-    <body id="Body-create">
+<body id="Body-create">
     <div class="container-create">
-    <form method="post">
+        <form method="post">
             @Html.AntiForgeryToken()
-        <div>
-            <h1 id="CreateTitle">@(Model == null? "Create Travel" : "Update Travel")</h1>
-        </div>
+            <div>
+                <h1 id="CreateTitle">@(Model == null ? "Create Travel" : "Update Travel")</h1>
+            </div>
             <div class="form-outline mb-2" id="C_label_0" hidden>
-                <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off"/>
+                <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off" />
             </div>
-        <div class="form-outline mb-2" id="C_label_1-name">
-             <label asp-for="@Model.Travel.Name" class="form-label" style="font-size:20px"></label>
-             <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" required/>
+            <div class="form-outline mb-2" id="C_label_1-name">
+                <label asp-for="@Model.Travel.Name" class="form-label" style="font-size:20px"></label>
+                <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" required />
             </div>
-        <div class="form-outline mb-2" id="C_label_2-description">
-             <label asp-for="@Model.Travel.Description" class="form-label" style="font-size:20px"></label>
-             <input asp-for="@Model.Travel.Description" class=form-control-description autocomplete="off" placeholder="What is your travel about?" />
+            <div class="form-outline mb-2" id="C_label_2-description">
+                <label asp-for="@Model.Travel.Description" class="form-label" style="font-size:20px"></label>
+                <input asp-for="@Model.Travel.Description" class=form-control-description autocomplete="off" placeholder="What is your travel about?" />
             </div>
-        <div class="form-outline mb-2" id="C_label_3-startDate">
+            <div class="form-outline mb-2" id="C_label_3-startDate">
                 <label asp-for="@Model.Travel.StartingDate" class="form-label" style="font-size:20px">StartingDate</label>
-                 <div class="input-group date">
-                    <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker"/>
-                     <div class="input-group-append">
+                <div class="input-group date">
+                    <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker" />
+                    <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showStartingDatePicker">Select</button>
                     </div>
                 </div>
-        </div>
-        <div class="form-outline mb-2" id="C_label_4-finishDate">
-             <label asp-for="@Model.Travel.FinishDate" class="form-label" style="font-size: 20px">FinishDate</label>
-             <div class="input-group date">
+            </div>
+            <div class="form-outline mb-2" id="C_label_4-finishDate">
+                <label asp-for="@Model.Travel.FinishDate" class="form-label" style="font-size: 20px">FinishDate</label>
+                <div class="input-group date">
                     <input asp-for="@Model.Travel.FinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>                      
+                        <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>
                     </div>
-              </div>
-        </div>
+                </div>
+            </div>
             <div class="form-outline mb-2" id="C_label_5-activeBox">
                 <input asp-for="@Model.Travel.Active" class="form-check-input custom-buttom" type="checkbox" id="activeCheckbox">
                 <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 20px">Active</label>
             </div>
-            <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model == null? "Create" : "Update")</button></li>         
-    </form>
+            <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model == null ? "Create" : "Update")</button></li>
+        </form>
     </div>
 </body>

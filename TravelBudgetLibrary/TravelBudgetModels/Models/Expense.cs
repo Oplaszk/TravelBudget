@@ -14,9 +14,10 @@ namespace TravelBudgetDBModels.Models
 
         [Display(Name = "Date")]
         [DataType(DataType.DateTime)]
-        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd HH:mm}", ApplyFormatInEditMode = true)]
         public DateTime? Date { get; set; }
         [DisplayName(displayName: "Category Options")]
+
+        // EntityFramework configuration section
 
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }

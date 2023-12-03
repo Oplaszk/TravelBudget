@@ -8,13 +8,13 @@ using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
-    public class ExpenseController : Controller
+    public class ExpenseController : BaseController
     {
         private readonly IExpenseRepository _expenseRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly ICountryRepository _countryRepository;
         private readonly ExpenseViewModel _expenseViewModel;
-        public ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository)
+        public ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository, ILogger<ExpenseController> logger) : base(logger)
         {
             _expenseRepository = expenseRepository;
             _categoryRepository = categoryRepository;

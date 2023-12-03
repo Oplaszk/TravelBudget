@@ -13,10 +13,8 @@ namespace TravelBudgetDBContact.Repositories
 {
     public class TravelRepository : BaseRepository, ITravelRepository
     {
-        private readonly ILogger<TravelRepository> _logger;
-        public TravelRepository(DBContact db, ILogger<TravelRepository> logger) : base(db)
+        public TravelRepository(DBContact db, ILogger<TravelRepository> logger) : base(db, logger)
         {
-            _logger = logger;
         }
         public List<Travel> GetAllTravels()
         {

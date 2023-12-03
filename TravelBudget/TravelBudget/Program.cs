@@ -25,6 +25,7 @@ namespace TravelBudget
             builder.Services.AddTransient<IExpenseRepository, ExpenseRepository>();
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<ICountryRepository, CountryRepository>();
+            builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

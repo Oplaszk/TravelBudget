@@ -13,11 +13,11 @@ using TravelBudgetDBModels.Models;
 namespace TravelBudget.Controllers
 {
     [Authorize]
-    public class TravelController : Controller
+    public class TravelController : BaseController
     {
         private readonly ITravelRepository _travelRepository;
         private readonly TravelViewModel _travelViewModel;
-        public TravelController(ITravelRepository travelRepository)
+        public TravelController(ITravelRepository travelRepository, ILogger<TravelController> logger) : base(logger)
         {
             _travelRepository = travelRepository;
             _travelViewModel = new TravelViewModel();

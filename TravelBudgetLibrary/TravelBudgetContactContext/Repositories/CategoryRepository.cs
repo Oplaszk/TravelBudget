@@ -11,10 +11,8 @@ namespace TravelBudgetDBContact.Repositories
 {
     public class CategoryRepository : BaseRepository, ICategoryRepository
     {
-        private readonly ILogger<CategoryRepository> _logger;
-        public CategoryRepository(DBContact db, ILogger<CategoryRepository> logger) : base(db)
+        public CategoryRepository(DBContact db, ILogger<CategoryRepository> logger) : base(db, logger)
         {
-            _logger = logger;
         }
 
         public List<Category> GetAllCategories()

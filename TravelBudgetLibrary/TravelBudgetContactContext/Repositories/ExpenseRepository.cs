@@ -13,9 +13,8 @@ namespace TravelBudgetDBContact.Repositories
     public class ExpenseRepository : BaseRepository, IExpenseRepository
     {
         private readonly ILogger<ExpenseRepository> _logger;
-        public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger) : base(db)
+        public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger) : base(db, logger)
         {
-            _logger = logger;
         }
         public List<Expense> GetExpensesByTravelId(int travelId)
         {
@@ -27,16 +26,12 @@ namespace TravelBudgetDBContact.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An error occurred: " + ex.Message);
-                if (ex.InnerException != null)
-                {
-                    Console.WriteLine("Inner Exception: " + ex.InnerException.Message);
-                }
+                _logger.LogError(ex, "An error occurred while retrieving expenses from the database.");
                 return new List<Expense>();
             }
 
         }
-        public IEnumerable<Expense> GetAllExpenses()
+        public List<Expense> GetAllExpenses()
         {
             return _db.Expenses.ToList();
         }

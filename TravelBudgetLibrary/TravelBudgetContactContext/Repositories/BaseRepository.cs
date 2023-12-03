@@ -10,9 +10,11 @@ namespace TravelBudgetDBContact.Repositories
     public class BaseRepository
     {
         protected DBContact _db;
-        public BaseRepository(DBContact db)
+        protected readonly ILogger<BaseRepository> _logger;
+        public BaseRepository(DBContact db, ILogger<BaseRepository> logger)
         {
             _db = db;
+            _logger = logger;
         }
     }
 }

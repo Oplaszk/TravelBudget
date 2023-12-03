@@ -13,10 +13,8 @@ namespace TravelBudgetDBContact.Repositories
 {
     public class CountryRepository : BaseRepository, ICountryRepository
     {
-        private readonly ILogger<CountryRepository> _logger;
-        public CountryRepository(DBContact db, ILogger<CountryRepository> logger) : base(db)
+        public CountryRepository(DBContact db, ILogger<CountryRepository> logger) : base(db, logger)
         {
-            _logger = logger;
         }
         public IEnumerable<CountryDTO> GetAllCountriesDTO()
         {
