@@ -14,16 +14,15 @@
 }
 /*<-------------------- Table section -------------------->*/
 #table {
-    border: 2px solid darkgoldenrod;
+    border-collapse: collapse;
+    border: 3px solid darkgoldenrod;
     width: 100%;
     margin-top: 10px;
     background-color: darkgoldenrod;
     animation: fadeIn 10s ease;
-    border: 2px solid darkgoldenrod;
 }
 
 th {
-    border: 2px solid darkgoldenrod;
     background-color: black;
     color: darkgoldenrod;
     font-weight: bold;
@@ -32,7 +31,6 @@ th {
 }
 
 td {
-    border: 2px solid darkgoldenrod;
     background-color: white;
     color: black;
     padding: 8px;
@@ -40,7 +38,7 @@ td {
 }
 
 th, td {
-    border: 2px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
     padding: 8px;
     text-align: center;
 }

@@ -15,6 +15,7 @@ namespace TravelBudgetDBContact.Repositories
         private readonly ILogger<ExpenseRepository> _logger;
         public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger) : base(db, logger)
         {
+
         }
         public List<Expense> GetExpensesByTravelId(int travelId)
         {

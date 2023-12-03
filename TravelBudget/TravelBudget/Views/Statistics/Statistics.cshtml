@@ -1,9 +1,33 @@
 ﻿@model TravelBudget.Models.StatisticsViewModel
 
+<head>
+    <link rel="stylesheet" href="~/css/Statistics-View.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+</head>
 
-<body>
-    <h2 class="title">Your most expensive Travel</h2>
-    <div>
-
-    </div>
-</body>
+<div class="record-container">
+    <table id="table">
+        <thead>
+            <tr>
+                <th colspan="100%">Your Most Expensive Travel</th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>StartingDate</th>
+                <th>FinishDate</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.TheMostExpensiveTravel.Id</td>
+                <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.TheMostExpensiveTravel.StartingDate)</td>
+                <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.TheMostExpensiveTravel.FinishDate)</td>
+                <td>@Model.TheMostExpensiveTravel.Description</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
