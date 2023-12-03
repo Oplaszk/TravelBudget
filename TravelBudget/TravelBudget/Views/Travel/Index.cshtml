@@ -1,29 +1,12 @@
 ﻿@model TravelBudget.Models.TravelViewModel
 <h1 id="title">Pending Travels</h1>
-    <div id="container">
+<div id="container">
     @foreach (var item in Model.Travels)
     {
-        <div class ="record-container">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>StartingDate</th>
-                        <th>FinishDate</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@item.Id</td>
-                        <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.StartingDate)</td>
-                        <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.FinishDate)</td>
-                        <td>@item.Name</td>
-                        <td>@item.Description</td>
-                    </tr> 
-                </tbody>
-            </table>
+        <div class="record-container">
+
+            <partial name="_TravelDataDisplay", model="item"></partial>
+
             <div id="button-containerAdd">
                 <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton">Details</span></a>
                 <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
@@ -32,5 +15,5 @@
             </div>
         </div>
     }
-    </div>
+</div>
 

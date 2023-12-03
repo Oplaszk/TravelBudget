@@ -8,38 +8,21 @@
 <div id="container">
     @foreach (var item in Model.Travels)
     {
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>StartingDate</th>
-                <th>FinishDate</th>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>@item.Id</td>
-            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.StartingDate)</td>
-            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.FinishDate)</td>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-        </tr>
-        </tbody>
-    </table>
-            <div id="button-containerAdd">
-                <a href="#" data-record-id="@item.Id"><span class="MenuButton">Detail</span></a>
-                <a href="#" data-record-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
-                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
-                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Retrieve" asp-route-id="@item.Id"><span class="MenuButton">Retreive</span></a>
-                <a data-record-id-delete="@item.Id" asp-controller="Travel" asp-action="Delete" asp-route-id="@item.Id"
-                    onclick="return confirm('Are you sure that you want to delete this travel? Type OK/Cancel to continue');">
-                <span class="MenuButton">Delete</span>
-                </a>          
-            </div>
-    }
- </div>
 
- 
+        <partial name="_TravelDataDisplay" model="item"></partial>
+
+        <div id="button-containerAdd">
+            <a href="#" data-record-id="@item.Id"><span class="MenuButton">Detail</span></a>
+            <a href="#" data-record-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+            <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
+            <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Retrieve" asp-route-id="@item.Id"><span class="MenuButton">Retreive</span></a>
+            <a data-record-id-delete="@item.Id" asp-controller="Travel" asp-action="Delete" asp-route-id="@item.Id"
+               onclick="return confirm('Are you sure that you want to delete this travel? Type OK/Cancel to continue');">
+                <span class="MenuButton">Delete</span>
+            </a>
+        </div>
+    }
+</div>
+
+
 

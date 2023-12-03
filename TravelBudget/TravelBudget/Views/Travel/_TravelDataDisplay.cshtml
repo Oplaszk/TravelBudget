@@ -1,0 +1,24 @@
+﻿@using TravelBudget.Models;
+@model Travel
+
+<table id="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>StartingDate</th>
+            <th>FinishDate</th>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.StartingDate)</td>
+            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.FinishDate)</td>
+            <td>@Model.Name</td>
+            <td>@Model.Description</td>
+        </tr>
+    </tbody>
+</table>
+
