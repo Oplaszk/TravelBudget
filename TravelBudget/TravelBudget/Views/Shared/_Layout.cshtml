@@ -39,8 +39,14 @@
     </nav>
     <!-- Main Section -->
     <main>
+       @{
+            ViewBag.HideMainSection = (string)ViewContext.RouteData.Values["Controller"] == "Statistics" ? true : false;
+        }    
+        @if ((ViewBag.HideMainSection as bool? ?? false) == false)
+        { 
         <div class="main-section">
         </div>
+        }
         <div class="sidebar">          
             @RenderBody()
         </div>
