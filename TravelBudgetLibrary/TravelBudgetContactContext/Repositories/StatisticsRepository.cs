@@ -18,10 +18,10 @@ namespace TravelBudgetDBContact.Repositories
         {
             try
             {
-                var travel = _db.Travels.Where(t => t.Expenses.Any())
+                var TheMostExpensiveTravel = _db.Travels.Where(t => t.Expenses.Any())
                 .OrderByDescending(t => t.Expenses.Sum(e => e.Price ?? 0)).FirstOrDefault();
 
-                return travel;
+                return TheMostExpensiveTravel;
             }
             catch (Exception ex)
             {
@@ -29,14 +29,53 @@ namespace TravelBudgetDBContact.Repositories
                 return new Travel();
             }
         }
-        //public Travel TheCheapestTravel()
-        //{
-        //    return null;
-        //}
+        public Travel TheCheapestTravel()
+        {
+            try
+            {
+                var TheCheapestTravelravel = _db.Travels.Where(t => t.Expenses.Any())
+                .OrderBy(t => t.Expenses.Sum(e => e.Price ?? 0)).FirstOrDefault();
 
-        //public Travel TheLongestTravel()
-        //{
-        //    return null;
-        //}
+                return TheCheapestTravelravel;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "En error occured while retrieving travel from the database.");
+                return new Travel();
+            }
+        }
+
+        public Travel TheLongestTravel()
+        {
+            try
+            {
+                var TheLongestTravel = _db.Travels.Where(t => t.StartingDate != null && t.FinishDate != null)
+                .AsEnumerable().OrderByDescending(t => (t.FinishDate - t.StartingDate)).FirstOrDefault();
+
+                return TheLongestTravel;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+
+                return new Travel();
+            }
+        }
+        public Travel TheShortestTravel()
+        {
+            try
+            {
+                var TheShortestTravel = _db.Travels.Where(t => (t.StartingDate != null && t.FinishDate != null))
+                .AsEnumerable().OrderBy(t => (t.FinishDate - t.StartingDate)).FirstOrDefault();
+
+                return TheShortestTravel;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"{ex.Message}");
+
+                return new Travel();
+            }
+        }
     }
 }

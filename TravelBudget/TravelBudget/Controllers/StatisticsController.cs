@@ -20,6 +20,15 @@ namespace TravelBudget.Controllers
             var theMostExpensiveTravel = _statisticsRepository.GetTheMostExpensiveTravel();
             _statisticsViewModel.TheMostExpensiveTravel = theMostExpensiveTravel;
 
+            var TheCheapestTravel = _statisticsRepository.TheCheapestTravel();
+            _statisticsViewModel.TheCheapestTravel = TheCheapestTravel;
+
+            var TheLongestTravel = _statisticsRepository.TheLongestTravel();
+            _statisticsViewModel.TheLongestTravel = TheLongestTravel;
+
+            var TheShortestTravel = _statisticsRepository.TheShortestTravel();
+            _statisticsViewModel.TheShortestTravel = TheShortestTravel;
+
             return View(_statisticsViewModel);
         }
     }

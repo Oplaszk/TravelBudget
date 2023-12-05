@@ -9,5 +9,8 @@ namespace TravelBudget.Models
         public IEnumerable<Category> Categories { get; set; }
         public Travel TheMostExpensiveTravel { get; set; } = new Travel();
         public Travel TheCheapestTravel { get; set; } = new Travel();
+        public Travel TheLongestTravel { get; set; } = new Travel();
+        public Travel TheShortestTravel { get; set; } = new Travel();
+
     }
 }

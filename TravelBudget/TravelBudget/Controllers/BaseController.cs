@@ -8,7 +8,6 @@ namespace TravelBudget.Controllers
         public BaseController(ILogger<BaseController> logger)
         {
             _logger = logger;
-            ViewBag.HideMainSection = false;
         }
     }
 }
