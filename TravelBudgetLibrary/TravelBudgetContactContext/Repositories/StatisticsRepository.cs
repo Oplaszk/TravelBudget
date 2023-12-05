@@ -44,7 +44,6 @@ namespace TravelBudgetDBContact.Repositories
                 return new Travel();
             }
         }
-
         public Travel TheLongestTravel()
         {
             try
