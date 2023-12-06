@@ -1,21 +1,33 @@
 ﻿@using TravelBudget.Models;
-@model Travel
+@model StatisticsTravelSummary
 
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>StartingDate</th>
-                <th>FinishDate</th>
-                <th>Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.Id</td>
-                <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.StartingDate)</td>
-                <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.FinishDate)</td>
-                <td>@Model.Description</td>
-            </tr>
-        </tbody>
+<table id="table">
+    <thead>
+        <tr>
+            <th class="title" colspan="100%">@Model.TableTitle</th>
+        </tr>
+    </thead>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>StartingDate</th>
+            <th>FinishDate</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.DescribedTravel.Id</td>
+            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.DescribedTravel.StartingDate)</td>
+            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.DescribedTravel.FinishDate)</td>
+            <td>@Model.DescribedTravel.Description</td>
+        </tr>
+    </tbody>
+    <tfoot class="table-foot">
+        <tr>
+            <td class="foot-row" colspan="4">@Model.FooterTitle: <span class="summary-tabel">@Model.TotalCostWithCurrency</span></td>
+        </tr>
+    </tfoot>
+</table>
 
 

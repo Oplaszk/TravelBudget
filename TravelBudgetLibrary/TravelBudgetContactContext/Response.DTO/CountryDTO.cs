@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Aktualnie klasa ta jest niewykorzystywana 
 namespace TravelBudgetDBContact.Response.DTO
 {
     public class CountryDTO

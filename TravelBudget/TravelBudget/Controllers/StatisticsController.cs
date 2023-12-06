@@ -16,18 +16,20 @@ namespace TravelBudget.Controllers
             _statisticsViewModel = new StatisticsViewModel();
         }
         public IActionResult Statistics()
-        {           
-            var theMostExpensiveTravel = _statisticsRepository.GetTheMostExpensiveTravel();
-            _statisticsViewModel.TheMostExpensiveTravel = theMostExpensiveTravel;
+        {
+            _statisticsViewModel.TheMostExpensiveTravel.DescribedTravel = _statisticsRepository.GetTheMostExpensiveTravel();
 
-            var TheCheapestTravel = _statisticsRepository.TheCheapestTravel();
-            _statisticsViewModel.TheCheapestTravel = TheCheapestTravel;
+            _statisticsViewModel.TheCheapestTravel.DescribedTravel = _statisticsRepository.TheCheapestTravel();
+ 
+            var totalCostMax = _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheMostExpensiveTravel.DescribedTravel);
+            _statisticsViewModel.TheMostExpensiveTravel.TotalCost = totalCostMax;
 
-            var TheLongestTravel = _statisticsRepository.TheLongestTravel();
-            _statisticsViewModel.TheLongestTravel = TheLongestTravel;
+            var totalCostMin = _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheCheapestTravel.DescribedTravel);
+            _statisticsViewModel.TheCheapestTravel.TotalCost = totalCostMin;
 
-            var TheShortestTravel = _statisticsRepository.TheShortestTravel();
-            _statisticsViewModel.TheShortestTravel = TheShortestTravel;
+            _statisticsViewModel.TheLongestTravel.DescribedTravel = _statisticsRepository.TheLongestTravel();
+
+            _statisticsViewModel.TheShortestTravel.DescribedTravel = _statisticsRepository.TheShortestTravel();
 
             return View(_statisticsViewModel);
         }

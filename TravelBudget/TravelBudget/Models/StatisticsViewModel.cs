@@ -4,13 +4,9 @@ namespace TravelBudget.Models
 {
     public class StatisticsViewModel
     {
-        public IEnumerable<Travel> Travels { get; set; }
-        public IEnumerable<Expense> Expenses { get; set; }
-        public IEnumerable<Category> Categories { get; set; }
-        public Travel TheMostExpensiveTravel { get; set; } = new Travel();
-        public Travel TheCheapestTravel { get; set; } = new Travel();
-        public Travel TheLongestTravel { get; set; } = new Travel();
-        public Travel TheShortestTravel { get; set; } = new Travel();
-
+        public StatisticsTravelSummary TheMostExpensiveTravel { get; set; } = new StatisticsTravelSummary { TableTitle = "The Most Expensive Travel", FooterTitle = "Total Cost" };
+        public StatisticsTravelSummary TheCheapestTravel { get; set; } = new StatisticsTravelSummary { TableTitle = "The Cheapest Travel", FooterTitle = "Total Cost" };
+        public StatisticsTravelSummary TheLongestTravel { get; set; } = new StatisticsTravelSummary { TableTitle = "The Longest Travel", FooterTitle = "DurationTime" };
+        public StatisticsTravelSummary TheShortestTravel { get; set; } = new StatisticsTravelSummary { TableTitle = "The Shortest Travel", FooterTitle = "Duration Time" };
     }
 }

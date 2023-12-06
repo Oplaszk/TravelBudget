@@ -2,75 +2,24 @@
 
 <head>
     <link rel="stylesheet" href="~/css/Statistics-View.css" asp-append-version="true" />
-    @*     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"> *@
-    @*    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script> *@
 </head>
-<body class="body-statistics">
+<div class="body-statistics">
     <div class="record-container">
 
         <div class="box" id="box1">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th class="title" colspan="100%">Your Most Expensive Travel</th>
-                    </tr>
-                </thead>
-                <partial name="_StatisticsDataDisplay", model="@Model.TheLongestTravel"></partial>
-                <tfoot class="table-foot">
-                    <tr>
-                        <td class="foot-row" colspan="4">Total Cost:</td>
-                    </tr>
-                </tfoot>
-            </table>
+            <partial name="_StatisticsDataDisplay", model="@Model.TheMostExpensiveTravel"></partial>
         </div>
 
         <div class="box" id="box2">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th class="title" colspan="100%">Your Cheapest Travel</th>
-                    </tr>
-                </thead>
-                <partial name="_StatisticsDataDisplay", model="@Model.TheCheapestTravel"></partial>
-                <tfoot class="table-foot">
-                    <tr>
-                        <td class="foot-row" colspan="4">Total Cost:</td>
-                    </tr>
-                </tfoot>
-            </table>
+            <partial name="_StatisticsDataDisplay", model="@Model.TheCheapestTravel"></partial>
         </div>
 
         <div class="box" id="box3">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th class="title" colspan="100%">Your Longest Travel</th>
-                    </tr>
-                </thead>
-                <partial name="_StatisticsDataDisplay", model="@Model.TheLongestTravel"></partial>
-                <tfoot class="table-foot">
-                    <tr>
-                        <td class="foot-row" colspan="4">Duration Time:</td>
-                    </tr>
-                </tfoot>
-            </table>
+            <partial name="_StatisticsDataDisplay", model="@Model.TheLongestTravel"></partial>
         </div>
 
         <div class="box" id="box4">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th class="title" colspan="100%">Your Shortest Travel</th>
-                    </tr>
-                </thead>
-                <partial name="_StatisticsDataDisplay", model="@Model.TheShortestTravel"></partial>
-                <tfoot class="table-foot">
-                    <tr>
-                        <td class="foot-row" colspan="4">Duration Time:</td>
-                    </tr>
-                </tfoot>
-            </table>
+            <partial name="_StatisticsDataDisplay", model="@Model.TheShortestTravel"></partial>
         </div>
-
     </div>
-</body>
+</div>

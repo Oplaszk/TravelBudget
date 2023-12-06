@@ -13,5 +13,6 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
         public Travel TheCheapestTravel();
         public Travel TheLongestTravel();
         public Travel TheShortestTravel();
+        public double GetTotalCostByTravel(Travel travel);
     }
 }
