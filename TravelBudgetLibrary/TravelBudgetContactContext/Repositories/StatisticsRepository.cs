@@ -85,8 +85,22 @@ namespace TravelBudgetDBContact.Repositories
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "En error occured while retrieving total cost of travel from the database.");
+                _logger.LogError(ex, "En error occured while retrieving travel total cost.");
                 return 0;
+            }
+        }
+        public string GetTimeSpanByTravel(Travel travel)
+        {
+            try
+            {
+                var test = (travel.FinishDate - travel.StartingDate);
+                return test.ToString(@"dd") + " days " + test.ToString(@"hh") + " h " + test.ToString(@"mm") + " min";
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "En error occured while retrieving travel time span.");
+                return TimeSpan.Zero.ToString();
             }
         }
     }

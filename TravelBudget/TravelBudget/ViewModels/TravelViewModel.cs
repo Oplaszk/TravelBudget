@@ -1,6 +1,6 @@
 ﻿using TravelBudgetDBModels.Models;
 
-namespace TravelBudget.Models
+namespace TravelBudget.ViewModels
 {
     public class TravelViewModel
     {

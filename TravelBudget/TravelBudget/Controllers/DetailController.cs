@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TravelBudget.Models;
+using TravelBudget.ViewModels;
 using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;

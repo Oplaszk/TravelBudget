@@ -85,7 +85,7 @@ th, td {
 }
 
 .category-drop-down {
-    border: 2px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
     border-radius: 10px;
     background-color: black;
     color: darkgray;
@@ -94,13 +94,13 @@ th, td {
 
     .category-drop-down:hover {
         box-shadow: 0px 0px 10px 5px darkgoldenrod;
-        border: 2px solid white;
+        border: 3px solid white;
         transition: 0.8s;
         color: darkgoldenrod;
     }
 
 .form-control-category {
-    border: 2px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
     border-radius: 8px;
     background-color: black;
     color: darkgray;

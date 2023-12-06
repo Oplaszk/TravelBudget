@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Transactions;
-using TravelBudget.Models;
+using TravelBudget.ViewModels.Statistics;
 using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
 
@@ -18,18 +18,22 @@ namespace TravelBudget.Controllers
         public IActionResult Statistics()
         {
             _statisticsViewModel.TheMostExpensiveTravel.DescribedTravel = _statisticsRepository.GetTheMostExpensiveTravel();
-
             _statisticsViewModel.TheCheapestTravel.DescribedTravel = _statisticsRepository.TheCheapestTravel();
- 
-            var totalCostMax = _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheMostExpensiveTravel.DescribedTravel);
-            _statisticsViewModel.TheMostExpensiveTravel.TotalCost = totalCostMax;
 
-            var totalCostMin = _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheCheapestTravel.DescribedTravel);
-            _statisticsViewModel.TheCheapestTravel.TotalCost = totalCostMin;
+            _statisticsViewModel.TheMostExpensiveTravel.TotalCost = 
+            _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheMostExpensiveTravel.DescribedTravel);
+             
+            _statisticsViewModel.TheCheapestTravel.TotalCost = 
+            _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheCheapestTravel.DescribedTravel);
 
             _statisticsViewModel.TheLongestTravel.DescribedTravel = _statisticsRepository.TheLongestTravel();
-
             _statisticsViewModel.TheShortestTravel.DescribedTravel = _statisticsRepository.TheShortestTravel();
+
+            _statisticsViewModel.TheLongestTravel.DurationTime =
+            _statisticsRepository.GetTimeSpanByTravel(_statisticsViewModel.TheLongestTravel.DescribedTravel);
+
+            _statisticsViewModel.TheShortestTravel.DurationTime =
+            _statisticsRepository.GetTimeSpanByTravel(_statisticsViewModel.TheCheapestTravel.DescribedTravel);
 
             return View(_statisticsViewModel);
         }

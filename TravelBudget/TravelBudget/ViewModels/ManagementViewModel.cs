@@ -2,7 +2,7 @@
 using TravelBudgetDBContact.Response.DTO;
 using TravelBudgetDBModels.Models;
 
-namespace TravelBudget.Models
+namespace TravelBudget.ViewModels
 {
     public class ManagementViewModel
     {
