@@ -40,7 +40,6 @@ namespace TravelBudget.Controllers
             {
                 int Id = expenseViewModel.TravelId;
                 expenseViewModel.Expense.TravelId = Id;
-                expenseViewModel.Expense.CurrencyCode = _countryRepository.GetCurrencyCodeByCountryId(expenseViewModel.Expense.CountryId);
 
                 _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
                 return RedirectToAction("Details", "Detail", new { id = Id });
@@ -77,7 +76,7 @@ namespace TravelBudget.Controllers
                 Countries = _countryRepository.GetAllCountriesDTO(),
                 TravelId = expenseToUpdate.TravelId
             };
-            return View("AddExpense", viewModel); // Teoretycznie Expense.TravelId jest tutaj wypełnione a mimo to odczytuje mi formularz z Update 
+            return View("AddExpense", viewModel); 
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

@@ -7,13 +7,6 @@ namespace TravelBudget.ViewModels.Statistics
         public string TableTitle { get; set; }
         public string FooterTitle { get; set; }
         public Travel DescribedTravel { get; set; } =  new Travel();
-        //public Currency Currency { get; set; } = new Currency();
-        //public string CurrencyCode 
-        //{
-        //    get { return DescribedTravel; }
-
-        //    private set { } 
-        //}
         public double TotalCost
         {
             get { return DescribedTravel.Expenses.Sum(e => e.Price?? 0);}
@@ -29,7 +22,7 @@ namespace TravelBudget.ViewModels.Statistics
             }
             private set { }
         }
-        public string TotalCostWithCurrency { get { return (TotalCost.ToString("C") + DescribedTravel.Expenses.First().CurrencyCode); } }       
+        public string TotalCostWithCurrency { get { return (TotalCost.ToString() +" "+ DescribedTravel.Expenses.First().Country.Currency.Code); } }       
         public string SummaryTotal { get; set; }
     }
 }

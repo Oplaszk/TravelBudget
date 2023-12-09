@@ -12,8 +12,8 @@
         <partial name="_TravelDataDisplay" model="item"></partial>
 
         <div id="button-containerAdd">
-            <a href="#" data-record-id="@item.Id"><span class="MenuButton">Detail</span></a>
-            <a href="#" data-record-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+            <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton">Detail</span></a>
+            <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
             <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
             <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Retrieve" asp-route-id="@item.Id"><span class="MenuButton">Retreive</span></a>
             <a data-record-id-delete="@item.Id" asp-controller="Travel" asp-action="Delete" asp-route-id="@item.Id"

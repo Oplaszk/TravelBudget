@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBudgetDBContact;
 
@@ -11,9 +12,11 @@ using TravelBudgetDBContact;
 namespace TravelBudgetDBContact.Migrations
 {
     [DbContext(typeof(DBContact))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20231209204257_UpdatingDatesInTravelId1")]
+    partial class UpdatingDatesInTravelId1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -603,7 +606,7 @@ namespace TravelBudgetDBContact.Migrations
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("CommentId")
+                    b.Property<int>("CommentId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -622,8 +625,7 @@ namespace TravelBudgetDBContact.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CommentId")
-                        .IsUnique()
-                        .HasFilter("[CommentId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Travels");
 
@@ -776,7 +778,9 @@ namespace TravelBudgetDBContact.Migrations
                 {
                     b.HasOne("TravelBudgetDBModels.Models.Comment", "Comment")
                         .WithOne("Travel")
-                        .HasForeignKey("TravelBudgetDBModels.Models.Travel", "CommentId");
+                        .HasForeignKey("TravelBudgetDBModels.Models.Travel", "CommentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Comment");
                 });

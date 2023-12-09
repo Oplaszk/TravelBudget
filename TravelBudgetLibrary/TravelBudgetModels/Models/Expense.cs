@@ -31,6 +31,6 @@ namespace TravelBudgetDBModels.Models
         [ForeignKey("CountryId")]
         public int CountryId { get; set; }
         public Country? Country { get; set; }
-        public string? CurrencyCode { get; set; }
+        //public string? CurrencyCode { get; set; }
     }
 }
