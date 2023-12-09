@@ -141,6 +141,7 @@
           color: darkgoldenrod ;
           text-align: center;
           animation: fadeIn 4s ease;
+          padding-top: 10px;
     }
         /*<-------------------- Footer section -------------------->*/
     .footer {

@@ -38,17 +38,14 @@ namespace TravelBudget.Controllers
         {
             if (ModelState.IsValid)
             {
-                ////if (expenseViewModel.Expense.Price >= 0)
-                //{
-                    int Id = expenseViewModel.TravelId;
-                    expenseViewModel.Expense.TravelId = Id;
+                int Id = expenseViewModel.TravelId;
+                expenseViewModel.Expense.TravelId = Id;
+                expenseViewModel.Expense.CurrencyCode = _countryRepository.GetCurrencyCodeByCountryId(expenseViewModel.Expense.CountryId);
 
-                    _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
-                    return RedirectToAction("Details", "Detail", new { id = Id });
-                //}
+                _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
+                return RedirectToAction("Details", "Detail", new { id = Id });
             }
 
-            ModelState.AddModelError("Price", " Price cannot be negative.");
             expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
             expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
 

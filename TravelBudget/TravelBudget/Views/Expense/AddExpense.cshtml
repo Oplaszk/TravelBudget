@@ -6,7 +6,7 @@
 <div>
     <div class="container-expense">
         <form method="post">
-            @* @Html.AntiForgeryToken() *@
+            @Html.AntiForgeryToken()
             <div>
                 <h1 id="ExpenseTitle">@(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</h1>
             </div>

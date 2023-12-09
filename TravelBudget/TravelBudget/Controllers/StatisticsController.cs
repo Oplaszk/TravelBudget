@@ -20,20 +20,14 @@ namespace TravelBudget.Controllers
             _statisticsViewModel.TheMostExpensiveTravel.DescribedTravel = _statisticsRepository.GetTheMostExpensiveTravel();
             _statisticsViewModel.TheCheapestTravel.DescribedTravel = _statisticsRepository.TheCheapestTravel();
 
-            _statisticsViewModel.TheMostExpensiveTravel.TotalCost = 
-            _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheMostExpensiveTravel.DescribedTravel);
-             
-            _statisticsViewModel.TheCheapestTravel.TotalCost = 
-            _statisticsRepository.GetTotalCostByTravel(_statisticsViewModel.TheCheapestTravel.DescribedTravel);
+            _statisticsViewModel.TheMostExpensiveTravel.SummaryTotal = _statisticsViewModel.TheMostExpensiveTravel.TotalCostWithCurrency;
+            _statisticsViewModel.TheCheapestTravel.SummaryTotal = _statisticsViewModel.TheCheapestTravel.TotalCostWithCurrency;
 
             _statisticsViewModel.TheLongestTravel.DescribedTravel = _statisticsRepository.TheLongestTravel();
             _statisticsViewModel.TheShortestTravel.DescribedTravel = _statisticsRepository.TheShortestTravel();
 
-            _statisticsViewModel.TheLongestTravel.DurationTime =
-            _statisticsRepository.GetTimeSpanByTravel(_statisticsViewModel.TheLongestTravel.DescribedTravel);
-
-            _statisticsViewModel.TheShortestTravel.DurationTime =
-            _statisticsRepository.GetTimeSpanByTravel(_statisticsViewModel.TheCheapestTravel.DescribedTravel);
+            _statisticsViewModel.TheLongestTravel.SummaryTotal = _statisticsViewModel.TheLongestTravel.DurationTime;
+            _statisticsViewModel.TheShortestTravel.SummaryTotal = _statisticsViewModel.TheShortestTravel.DurationTime;
 
             return View(_statisticsViewModel);
         }

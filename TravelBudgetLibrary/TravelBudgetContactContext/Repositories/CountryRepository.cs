@@ -32,5 +32,17 @@ namespace TravelBudgetDBContact.Repositories
             }
 
         }
+        public string GetCurrencyCodeByCountryId(int countryId)
+        {
+            try
+            {
+                return _db.Countries.Include(c => c.Currency).FirstOrDefault(c => c.Id == countryId).Currency.Code;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "En error occurred while retriving currency code from the database");
+                return null;
+            }
+        }
     }
 }

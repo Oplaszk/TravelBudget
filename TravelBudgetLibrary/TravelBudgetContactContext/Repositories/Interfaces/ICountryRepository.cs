@@ -11,6 +11,7 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
     public interface ICountryRepository
     {
         public IEnumerable<CountryDTO> GetAllCountriesDTO();
+        public string GetCurrencyCodeByCountryId(int countryId);
         //public List<Country> GetAllCountries();
     }
 }

@@ -19,8 +19,11 @@ namespace TravelBudgetDBContact.Repositories
         {
             try
             {
-                var theMostExpensiveTravel = _db.Travels.Include(e => e.Expenses).Where(t => t.Expenses.Any())
-                .OrderByDescending(t => t.Expenses.Sum(e => e.Price ?? 0)).FirstOrDefault();
+                var theMostExpensiveTravel = _db.Travels.Include(e => e.Expenses)
+                    .ThenInclude(e => e.Country)
+                    .ThenInclude(e => e.Currency)
+                    .Where(t => t.Expenses.Any())
+                    .OrderByDescending(t => t.Expenses.Sum(e => e.Price ?? 0)).FirstOrDefault();
 
                 return theMostExpensiveTravel;
             }
@@ -34,8 +37,11 @@ namespace TravelBudgetDBContact.Repositories
         {
             try
             {
-                var theCheapestTravel = _db.Travels.Include(e => e.Expenses).Where(t => t.Expenses.Any())
-                .OrderBy(t => t.Expenses.Sum(e => e.Price ?? 0)).FirstOrDefault();
+                var theCheapestTravel = _db.Travels.Include(e => e.Expenses)
+                    .ThenInclude(e => e.Country)
+                    .ThenInclude(e => e.Currency)
+                    .Where(t => t.Expenses.Any())
+                    .OrderBy(t => t.Expenses.Sum(e => e.Price ?? 0)).FirstOrDefault();
 
                 return theCheapestTravel;
             }
@@ -75,32 +81,6 @@ namespace TravelBudgetDBContact.Repositories
                 _logger.LogError($"{ex.Message}");
 
                 return new Travel();
-            }
-        }
-        public double GetTotalCostByTravel(Travel travel)
-        {
-            try
-            {
-                return travel.Expenses.Sum(e => e.Price ?? 0);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "En error occured while retrieving travel total cost.");
-                return 0;
-            }
-        }
-        public string GetTimeSpanByTravel(Travel travel)
-        {
-            try
-            {
-                var test = (travel.FinishDate - travel.StartingDate);
-                return test.ToString(@"dd") + " days " + test.ToString(@"hh") + " h " + test.ToString(@"mm") + " min";
-
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "En error occured while retrieving travel time span.");
-                return TimeSpan.Zero.ToString();
             }
         }
     }

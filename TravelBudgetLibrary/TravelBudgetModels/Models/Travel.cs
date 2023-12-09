@@ -21,7 +21,7 @@ namespace TravelBudgetDBModels.Models
         // EntityFramework configuration section
 
         [ForeignKey("CommentId")]
-        public int? CommentId { get; set; } // Klucz obcy
+        public int CommentId { get; set; } // Klucz obcy
         public Comment Comment { get; set; } // Wartość nawigacyjna
         public ICollection<Expense> Expenses { get; set; } 
         public ICollection<Country> Countries { get; set; }   

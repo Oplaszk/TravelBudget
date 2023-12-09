@@ -26,13 +26,7 @@
     <tfoot class="table-foot">
         <tr>
             <td class="foot-row" colspan="4">
-                @Model.FooterTitle: <span class="summary-tabel">
-                    @if (@Model.TotalCost != 0)
-                    {
-                        @Model.TotalCostWithCurrency
-                    }
-                    else
-                        @Model.DurationTime
+                @Model.FooterTitle: <span class="summary-tabel">@Model.SummaryTotal
                 </span>
             </td>
         </tr>

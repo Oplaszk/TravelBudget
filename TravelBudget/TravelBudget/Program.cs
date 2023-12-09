@@ -10,6 +10,9 @@ namespace TravelBudget
     {
         public static void Main(string[] args)
         {
+            var cultureInfo = new System.Globalization.CultureInfo("en-GB");
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Logging.AddConsole();
@@ -26,7 +29,12 @@ namespace TravelBudget
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<ICountryRepository, CountryRepository>();
             builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
+            //builder.Services.AddEndpointsApiExplorer();
+            //builder.Services.AddSwaggerGen();
             var app = builder.Build();
+
+            //app.UseSwagger();
+            //app.UseSwaggerUI();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -35,6 +43,7 @@ namespace TravelBudget
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -45,6 +54,7 @@ namespace TravelBudget
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Travel}/{action=Index}/{id?}");
+
             app.MapRazorPages();
             app.Run();
         }

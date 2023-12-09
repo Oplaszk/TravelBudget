@@ -14,6 +14,5 @@ namespace TravelBudget.ViewModels
         public IEnumerable<Category>? CategoryOptions { get; set; }
         public IEnumerable<CountryDTO>? Countries { get; set; }
         public int TravelId { get; set; }
-///*        public string PriceWithCurrency { get { return (Expense.Price.ToString("C") + " " + Expense.Country.Currency*/.Code); } }
     }
 }
