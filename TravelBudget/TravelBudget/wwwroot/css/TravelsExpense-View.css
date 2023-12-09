@@ -152,7 +152,7 @@
 }
 /*<-------------------- Modification Category dropdown -------------------->*/
 .category-drop-down {
-    border: 2px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
     color: darkgoldenrod;
@@ -162,12 +162,12 @@
 }
 .category-drop-down:hover{
     box-shadow: 0px 0px 10px 5px darkgoldenrod;
-    border: 2px solid white;
+    border: 3px solid white;
     color: darkgoldenrod;
 }
 /*<-------------------- Modification Country dropdown -------------------->*/
 .country-drop-down {
-    border: 2px solid darkgoldenrod;
+    border: 3px solid darkgoldenrod;
     border-radius: 2px;
     background-color: black;
     color: darkgray;
@@ -176,7 +176,7 @@
 }
 .country-drop-down:hover {
     box-shadow: 0px 0px 10px 5px darkgoldenrod;
-    border: 2px solid white;
+    border: 3px solid white;
     color: darkgoldenrod;
 }
 /*<-------------------- Animation section -------------------->*/

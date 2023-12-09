@@ -7,9 +7,9 @@ namespace TravelBudgetDBModels.Models
     public class Expense
     {
         public int Id { get; set; }
-        [StringLength(50, ErrorMessage = "Description can not be longer then 50 characters")]
+        [StringLength(200, ErrorMessage = "Description can not be longer then 200 characters")]
         public string? Description { get; set; }
-        [Range(0, double.MaxValue, ErrorMessage = "Price must be greater than 0")]
+        [Range(0, double.MaxValue, ErrorMessage = "Price cannot be negative")]
         public double? Price { get; set; }
 
         [Display(Name = "Date")]
@@ -21,15 +21,15 @@ namespace TravelBudgetDBModels.Models
 
         [ForeignKey("CategoryId")]
         public int CategoryId { get; set; }
-        public Category Category { get; set; } 
+        public Category? Category { get; set; }
 
         [ForeignKey("TravelId")]
         public int TravelId { get; set; }
-        public Travel Travel { get; set; }
+        public Travel? Travel { get; set; }
 
         [DisplayName(displayName: "Country Options")]
         [ForeignKey("CountryId")]
         public int CountryId { get; set; }      
-        public Country Country { get; set; } 
+        public Country? Country { get; set; } 
     }
 }

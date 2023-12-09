@@ -2,10 +2,11 @@
 
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 <link rel="stylesheet" href="~/css/TravelsExpense-View.css" asp-append-version="true" />
-<body>
+
+<div>
     <div class="container-expense">
         <form method="post">
-            @Html.AntiForgeryToken()
+            @* @Html.AntiForgeryToken() *@
             <div>
                 <h1 id="ExpenseTitle">@(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</h1>
             </div>
@@ -50,16 +51,16 @@
                     const priceInput = document.getElementById('price-input');
 
                     priceInput.addEventListener('input', function () {
-                        // Oblicz szerokość na podstawie wprowadzonej długości tekstu (kwoty).
-                        const textWidth = (this.value.length + 1) * 10; // Przykładowy współczynnik szerokości.
+                        
+                        const textWidth = (this.value.length + 1) * 10; 
                         const minWidth = 60;
 
-                        // Ustaw szerokość pola 'Price'.
+                        
                         this.style.width = `${Math.max(textWidth, minWidth)}px`;
                     });
                 });
             </script>
         </form>
     </div>
-</body>
+</div>
 

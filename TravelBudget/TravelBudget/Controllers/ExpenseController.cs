@@ -38,20 +38,22 @@ namespace TravelBudget.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (expenseViewModel.Expense.Price >= 0)
-                {
+                ////if (expenseViewModel.Expense.Price >= 0)
+                //{
                     int Id = expenseViewModel.TravelId;
                     expenseViewModel.Expense.TravelId = Id;
 
                     _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
                     return RedirectToAction("Details", "Detail", new { id = Id });
-                }
+                //}
             }
-            ModelState.AddModelError("Price", "Price cannot be negative.");
+
+            ModelState.AddModelError("Price", " Price cannot be negative.");
             expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
             expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
 
             return View("AddExpense", expenseViewModel);
+
         }
         #endregion
         #region DELETE Section
