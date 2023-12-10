@@ -16,11 +16,11 @@ namespace TravelBudgetDBContact.Repositories
         public TravelRepository(DBContact db, ILogger<TravelRepository> logger) : base(db, logger)
         {
         }
-        public List<Travel> GetAllTravels()
+        public List<Travel> GetAllTravels(string userId, bool active)
         {
             try
             {
-                var listOfTravels = _db.Travels.ToList();
+                var listOfTravels = _db.Travels.Where(t => t.UserId == userId && t.Active == active).ToList();
                 return listOfTravels;
             }
             catch (Exception ex)

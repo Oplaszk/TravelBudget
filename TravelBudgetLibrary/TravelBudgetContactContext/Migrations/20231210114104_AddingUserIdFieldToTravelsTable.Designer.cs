@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBudgetDBContact;
 
@@ -11,9 +12,11 @@ using TravelBudgetDBContact;
 namespace TravelBudgetDBContact.Migrations
 {
     [DbContext(typeof(DBContact))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20231210114104_AddingUserIdFieldToTravelsTable")]
+    partial class AddingUserIdFieldToTravelsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -619,9 +622,8 @@ namespace TravelBudgetDBContact.Migrations
                     b.Property<DateTime>("StartingDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -641,7 +643,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2022, 12, 16, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2022, 12, 12, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "1"
+                            UserId = 1
                         },
                         new
                         {
@@ -652,7 +654,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2023, 10, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2023, 9, 18, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "1"
+                            UserId = 1
                         },
                         new
                         {
@@ -663,7 +665,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2023, 12, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2023, 6, 18, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "1"
+                            UserId = 1
                         });
                 });
 

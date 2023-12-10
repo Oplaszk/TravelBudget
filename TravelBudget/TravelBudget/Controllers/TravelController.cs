@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
+using System.Security.Claims;
 using TravelBudget.ViewModels;
 using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
@@ -26,7 +27,10 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var activeTravels = _travelRepository.GetAllTravels().Where(t => t.Active == true);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var activeTravels = _travelRepository
+            .GetAllTravels(userId, true);
+
             _travelViewModel.Travels = activeTravels;
 
             return View(_travelViewModel);
@@ -34,8 +38,9 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult History()
         {
-            var travelsFromDB = _travelRepository.GetAllTravels();
-            var inactiveTravels = travelsFromDB.Where(t => t.Active == false);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var inactiveTravels = _travelRepository
+            .GetAllTravels(userId, false).Where(t => t.Active == false);
             _travelViewModel.Travels = inactiveTravels;
 
             return View(_travelViewModel);

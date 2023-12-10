@@ -9,7 +9,7 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
 {
      public interface ITravelRepository
     {
-        public List<Travel> GetAllTravels();
+        public List<Travel> GetAllTravels(string userId, bool active);
         public bool SaveTravelToDB(Travel travel);
         public Travel GetById(int id);
         public bool UpdateTravel(Travel travel);
