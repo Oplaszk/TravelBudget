@@ -56,12 +56,16 @@ namespace TravelBudget.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(TravelViewModel travelViewModel)
         {
-            _travelRepository.SaveTravelToDB(travelViewModel.Travel);
-            if (travelViewModel.Travel.Active == true)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index");
+                _travelRepository.SaveTravelToDB(travelViewModel.Travel);
+                if (travelViewModel.Travel.Active == true)
+                {
+                    return RedirectToAction("Index");
+                }
+                return RedirectToAction("History");
             }
-            return RedirectToAction("History");
+            return View();
         }
         #endregion
         #region UPDATE Section
@@ -82,7 +86,6 @@ namespace TravelBudget.Controllers
             return RedirectToAction("Index");
         }
         #endregion
-        #region DELETE Section
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -90,8 +93,6 @@ namespace TravelBudget.Controllers
             _travelRepository.DeleteTravel(travel);
             return RedirectToAction("History");
         }
-        #endregion
-        #region End Travel Section
         [HttpGet]
         public IActionResult End(int id)
         {
@@ -99,8 +100,6 @@ namespace TravelBudget.Controllers
             _travelRepository.EndTravel(selected);
             return RedirectToAction("History");
         }
-        #endregion
-        #region Retrieve Travel Section
         [HttpGet]
         public IActionResult Retrieve(int id)
         {
@@ -108,6 +107,6 @@ namespace TravelBudget.Controllers
             _travelRepository.RetrieveTravel(selected);
             return RedirectToAction("Index");
         }
-        #endregion
+
     }
 }

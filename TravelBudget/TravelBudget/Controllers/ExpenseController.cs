@@ -29,7 +29,7 @@ namespace TravelBudget.Controllers
             _expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
             _expenseViewModel.TravelId = id;
 
-            return View(_expenseViewModel);
+            return View("AddExpense", _expenseViewModel);
         }
 
         [HttpPost]
@@ -52,7 +52,6 @@ namespace TravelBudget.Controllers
 
         }
         #endregion
-        #region DELETE Section
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -62,7 +61,6 @@ namespace TravelBudget.Controllers
 
             return RedirectToAction("Details", "Detail", new { id = travelId });
         }
-        #endregion
         #region UPDATE Section
         [HttpGet]
         public IActionResult Update(int id)

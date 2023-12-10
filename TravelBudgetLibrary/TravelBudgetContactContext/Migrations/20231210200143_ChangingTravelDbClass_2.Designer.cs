@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBudgetDBContact;
 
@@ -11,9 +12,11 @@ using TravelBudgetDBContact;
 namespace TravelBudgetDBContact.Migrations
 {
     [DbContext(typeof(DBContact))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20231210200143_ChangingTravelDbClass_2")]
+    partial class ChangingTravelDbClass_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -594,11 +597,11 @@ namespace TravelBudgetDBContact.Migrations
 
             modelBuilder.Entity("TravelBudgetDBModels.Models.Travel", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
