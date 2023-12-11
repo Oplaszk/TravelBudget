@@ -641,7 +641,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2022, 12, 16, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2022, 12, 12, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "1"
+                            UserId = "c9c98838-1475-49b6-a54d-6aa6cd4e5bdc"
                         },
                         new
                         {
@@ -652,7 +652,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2023, 10, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2023, 9, 18, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "1"
+                            UserId = "c9c98838-1475-49b6-a54d-6aa6cd4e5bdc"
                         },
                         new
                         {
@@ -663,7 +663,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2023, 12, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2023, 6, 18, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "1"
+                            UserId = "c9c98838-1475-49b6-a54d-6aa6cd4e5bdc"
                         });
                 });
 

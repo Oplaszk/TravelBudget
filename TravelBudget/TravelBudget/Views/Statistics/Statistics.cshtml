@@ -4,23 +4,40 @@
 <head>
     <link rel="stylesheet" href="~/css/Statistics-View.css" asp-append-version="true" />
 </head>
-<div class="body-statistics">
-    <div class="record-container">
+<div class="record-container">
+    <div class="box" id="the-most-expensive-travel">
+        <partial name="_StatisticsDataDisplay" , model="@Model.TheMostExpensiveTravel"></partial>
+    </div>
 
-        <div class="box" id="box1">
-            <partial name="_StatisticsDataDisplay", model="@Model.TheMostExpensiveTravel"></partial>
-        </div>
+    <div class="box" id="the-cheapest-travel">
+        <partial name="_StatisticsDataDisplay" , model="@Model.TheCheapestTravel"></partial>
+    </div>
 
-        <div class="box" id="box2">
-            <partial name="_StatisticsDataDisplay", model="@Model.TheCheapestTravel"></partial>
-        </div>
+    <div class="box" id="the-longest-travel">
+        <partial name="_StatisticsDataDisplay" , model="@Model.TheLongestTravel"></partial>
+    </div>
 
-        <div class="box" id="box3">
-            <partial name="_StatisticsDataDisplay", model="@Model.TheLongestTravel"></partial>
-        </div>
-
-        <div class="box" id="box4">
-            <partial name="_StatisticsDataDisplay", model="@Model.TheShortestTravel"></partial>
-        </div>
+    <div class="box" id="the-shortest-travel">
+        <partial name="_StatisticsDataDisplay" , model="@Model.TheShortestTravel"></partial>
     </div>
 </div>
+<div class="container text-center">
+    <div class="box">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th class="title" colspan="100%">The Most Visited Countries</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < Math.Min(3, Model.Countries.Count); i++)
+                {
+                    <tr>
+                        <td>@(i + 1): @Model.Countries[i].Name</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

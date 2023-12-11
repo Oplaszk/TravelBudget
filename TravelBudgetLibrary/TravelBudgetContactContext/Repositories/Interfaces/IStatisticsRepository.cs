@@ -9,9 +9,10 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
 {
     public interface IStatisticsRepository
     {
-        public Travel GetTheMostExpensiveTravel();
-        public Travel TheCheapestTravel();
-        public Travel TheLongestTravel();
-        public Travel TheShortestTravel();
+        public Travel GetTheMostExpensiveTravel(string userId);
+        public Travel TheCheapestTravel(string userId);
+        public Travel TheLongestTravel(string userId);
+        public Travel TheShortestTravel(string userId);
+        public List<Country> GetTheMostVisitedCountries(string userId);
     }
 }

@@ -71,9 +71,9 @@ namespace TravelBudgetDBContact
                 new Expense() { Id = 5, Description = "Random text4", Price = 130, Date = new DateTime(2022, 12, 17, 15, 15, 0), CategoryId = 1, TravelId = 3, CountryId = 4 }
             );
             modelBuilder.Entity<Travel>().HasData(
-               new Travel() { Id = 1, StartingDate = new DateTime(2022, 12, 12, 06, 15, 0), FinishDate = new DateTime(2022, 12, 16, 21, 15, 0), Name = "Around Poland", Description = "Visiting castles around Poland", Active = false, CommentId = 1, UserId = "1" },
-               new Travel() { Id = 2, StartingDate = new DateTime(2023, 09, 18, 06, 15, 0), FinishDate = new DateTime(2023, 10, 12, 21, 15, 0), Name = "Around Poland", Description = "Visiting forests", Active = true, CommentId = 2, UserId = "1" },
-               new Travel() { Id = 3, StartingDate = new DateTime(2023, 06, 18, 06, 15, 0), FinishDate = new DateTime(2023, 12, 12, 21, 15, 0), Name = "Around Poland", Description = "Mazurian lakes", Active = true, CommentId = 3, UserId = "1" }
+               new Travel() { Id = 1, StartingDate = new DateTime(2022, 12, 12, 06, 15, 0), FinishDate = new DateTime(2022, 12, 16, 21, 15, 0), Name = "Around Poland", Description = "Visiting castles around Poland", Active = false, CommentId = 1, UserId = "c9c98838-1475-49b6-a54d-6aa6cd4e5bdc" },
+               new Travel() { Id = 2, StartingDate = new DateTime(2023, 09, 18, 06, 15, 0), FinishDate = new DateTime(2023, 10, 12, 21, 15, 0), Name = "Around Poland", Description = "Visiting forests", Active = true, CommentId = 2, UserId = "c9c98838-1475-49b6-a54d-6aa6cd4e5bdc" },
+               new Travel() { Id = 3, StartingDate = new DateTime(2023, 06, 18, 06, 15, 0), FinishDate = new DateTime(2023, 12, 12, 21, 15, 0), Name = "Around Poland", Description = "Mazurian lakes", Active = true, CommentId = 3, UserId = "c9c98838-1475-49b6-a54d-6aa6cd4e5bdc" }
            );
 
         }

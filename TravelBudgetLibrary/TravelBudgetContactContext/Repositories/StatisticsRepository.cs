@@ -15,11 +15,11 @@ namespace TravelBudgetDBContact.Repositories
         public StatisticsRepository(DBContact db, ILogger<StatisticsRepository> logger) : base(db, logger)
         {
         }
-        public Travel GetTheMostExpensiveTravel()
+        public Travel GetTheMostExpensiveTravel(string userId)
         {
             try
             {
-                var theMostExpensiveTravel = _db.Travels.Include(e => e.Expenses)
+                var theMostExpensiveTravel = _db.Travels.Where(t => t.UserId == userId).Include(e => e.Expenses)
                     .ThenInclude(e => e.Country)
                     .ThenInclude(e => e.Currency)
                     .Where(t => t.Expenses.Any())
@@ -33,11 +33,11 @@ namespace TravelBudgetDBContact.Repositories
                 return new Travel();
             }
         }
-        public Travel TheCheapestTravel()
+        public Travel TheCheapestTravel(string userId)
         {
             try
             {
-                var theCheapestTravel = _db.Travels.Include(e => e.Expenses)
+                var theCheapestTravel = _db.Travels.Where(t => t.UserId == userId).Include(e => e.Expenses)
                     .ThenInclude(e => e.Country)
                     .ThenInclude(e => e.Currency)
                     .Where(t => t.Expenses.Any())
@@ -51,11 +51,11 @@ namespace TravelBudgetDBContact.Repositories
                 return new Travel();
             }
         }
-        public Travel TheLongestTravel()
+        public Travel TheLongestTravel(string userId)
         {
             try
             {
-                var theLongestTravel = _db.Travels
+                var theLongestTravel = _db.Travels.Where(t => t.UserId == userId)
                 .AsEnumerable().OrderByDescending(t => (t.FinishDate - t.StartingDate)).FirstOrDefault();
 
                 return theLongestTravel;
@@ -67,11 +67,11 @@ namespace TravelBudgetDBContact.Repositories
                 return new Travel();
             }
         }
-        public Travel TheShortestTravel()
+        public Travel TheShortestTravel(string userId)
         {
             try
             {
-                var theShortestTravel = _db.Travels
+                var theShortestTravel = _db.Travels.Where(t => t.UserId == userId)
                 .AsEnumerable().OrderBy(t => (t.FinishDate - t.StartingDate)).FirstOrDefault();
 
                 return theShortestTravel;
@@ -82,6 +82,19 @@ namespace TravelBudgetDBContact.Repositories
 
                 return new Travel();
             }
+        }
+        public List<Country> GetTheMostVisitedCountries(string userId)
+        {
+            var mostVisitedCountries = _db.Travels.Where(t => t.UserId == userId)
+            .Include(t => t.Expenses)
+            .ThenInclude(e => e.Country)
+            .SelectMany(t => t.Expenses.Select(e => e.Country)) // Połącz wszystkie kraje z wydatków w jedną listę
+            .GroupBy(c => c.Id) // Grupuj kraje według identyfikatorów
+            .OrderByDescending(group => group.Count()) // Sortuj grupy malejąco według liczby
+            .Select(group => group.First()) // Wybierz pierwszy kraj z każdej grupy (unikalne kraje)
+            .ToList();
+
+            return mostVisitedCountries;
         }
     }
 }

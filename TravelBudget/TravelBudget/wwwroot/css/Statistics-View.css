@@ -7,34 +7,32 @@
     font-family: 'Sans Serif Collection';
 }
 /*<-------------------- Main section -------------------->*/
-.body-statistics {
-    max-height: 100vh;
+/*.body-statistics {
+
+}*/
+.record-container {
+    max-height: auto;
     overflow-y: auto;
     background-color: black;
-}
-.record-container {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     column-gap: 20px;
     row-gap: 20px;
-   /* flex-wrap: wrap;*/    
+    /* flex-wrap: wrap;*/
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-left: 20px;
+    float: left;
+    max-height: auto;
+    background-color: black;
 }
 .box {
     max-width: auto;
     max-height: auto;
-}
-#box1 {
-
-}
-#box2 {
-
-}
-#box3 {
-
-}
-#box4 {
-
 }
 /*<-------------------- Table section -------------------->*/
 #table {
@@ -46,7 +44,7 @@
 }
 .title {
     font-size: 20px;
-    color: rgb(111, 111, 111) 
+    color: rgb(111, 111, 111);
 }
 
 th {
