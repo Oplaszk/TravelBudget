@@ -84,7 +84,11 @@ namespace TravelBudget.Controllers
         public IActionResult Update(TravelViewModel travelViewModel)
         {
             _travelRepository.UpdateTravel(travelViewModel.Travel);
-            return RedirectToAction("Index");
+            if (travelViewModel.Travel.Active == true)
+            {
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("History");
         }
         #endregion
         [HttpGet]

@@ -88,10 +88,10 @@ namespace TravelBudgetDBContact.Repositories
             var mostVisitedCountries = _db.Travels.Where(t => t.UserId == userId)
             .Include(t => t.Expenses)
             .ThenInclude(e => e.Country)
-            .SelectMany(t => t.Expenses.Select(e => e.Country)) // Połącz wszystkie kraje z wydatków w jedną listę
-            .GroupBy(c => c.Id) // Grupuj kraje według identyfikatorów
-            .OrderByDescending(group => group.Count()) // Sortuj grupy malejąco według liczby
-            .Select(group => group.First()) // Wybierz pierwszy kraj z każdej grupy (unikalne kraje)
+            .SelectMany(t => t.Expenses.Select(e => e.Country))
+            .GroupBy(c => c.Id) 
+            .OrderByDescending(group => group.Count()) 
+            .Select(group => group.First())
             .ToList();
 
             return mostVisitedCountries;
