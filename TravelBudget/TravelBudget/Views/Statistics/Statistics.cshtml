@@ -30,11 +30,16 @@
                 </tr>
             </thead>
             <tbody>
-                @for (var i = 0; i < Math.Min(3, Model.Countries.Count); i++)
+                @for (var i = 0; i < 3; i++)
                 {
                     <tr>
                         <td style="background-color: black; color: darkgoldenrod; font-weight:bold;">
-                        @(i + 1): @Model.Countries[i].Name</td>
+                            @(i + 1):
+                            @if (i < Model.Countries.Count)
+                            {
+                               @Model.Countries[i].Name                             
+                            }
+                        </td>
                     </tr>
                 }
             </tbody>

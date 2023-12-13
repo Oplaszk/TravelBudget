@@ -53,6 +53,7 @@ namespace TravelBudget.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(TravelViewModel travelViewModel)

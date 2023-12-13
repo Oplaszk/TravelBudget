@@ -91,7 +91,7 @@ namespace TravelBudgetDBContact.Repositories
             .SelectMany(t => t.Expenses.Select(e => e.Country))
             .GroupBy(c => c.Id) 
             .OrderByDescending(group => group.Count()) 
-            .Select(group => group.First())
+            .Select(group => group.First()).Take(3)
             .ToList();
 
             return mostVisitedCountries;
