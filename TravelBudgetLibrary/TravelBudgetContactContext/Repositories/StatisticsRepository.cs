@@ -96,5 +96,15 @@ namespace TravelBudgetDBContact.Repositories
 
             return mostVisitedCountries;
         }
+        public double GetTotalCostFromAllTravels(string userId)
+        {
+            var travelsExpenses = _db.Travels
+                  .Where(t => t.UserId == userId)
+                  .Select(t => t.Expenses.Sum(e => e.Price ?? 0))
+                  .ToList(); 
+
+            var totalCostFromAllTravels = travelsExpenses.Sum();
+            return totalCostFromAllTravels;
+        }
     }
 }

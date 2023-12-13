@@ -13,5 +13,6 @@ namespace TravelBudget.ViewModels.Statistics
         public StatisticsTravelSummary TheShortestTravel { get; set; }
         = new StatisticsTravelSummary { TableTitle = "The Shortest Travel", FooterTitle = "Duration Time" };
         public List<Country> Countries { get; set; } = new List<Country>();
+        public double TotalCostFromAllTravels { get; set; }
     }
 }

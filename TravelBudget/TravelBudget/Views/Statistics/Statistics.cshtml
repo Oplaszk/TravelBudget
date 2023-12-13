@@ -21,7 +21,7 @@
         <partial name="_StatisticsDataDisplay" , model="@Model.TheShortestTravel"></partial>
     </div>
 </div>
-<div class="container text-center">
+<div class="record-container text-center">
     <div class="box">
         <table id="table">
             <thead>
@@ -37,7 +37,7 @@
                             @(i + 1):
                             @if (i < Model.Countries.Count)
                             {
-                               @Model.Countries[i].Name                             
+                                @Model.Countries[i].Name
                             }
                         </td>
                     </tr>
@@ -45,5 +45,41 @@
             </tbody>
         </table>
     </div>
+    <div class="box">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th class="title" colspan="100%">Your Total Cost From All Travels</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="background-color: black; color: darkgoldenrod; font-weight:bold;">
+                        @Model.TotalCostFromAllTravels
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="box">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th class="title" colspan="100%">Na razie nic</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (var i = 0; i < 3; i++)
+                {
+                    <tr>
+                        <td style="background-color: black; color: darkgoldenrod; font-weight:bold;">
+                            Na razie nic
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+
 

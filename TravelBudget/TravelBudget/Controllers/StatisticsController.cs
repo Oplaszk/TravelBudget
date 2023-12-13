@@ -33,6 +33,8 @@ namespace TravelBudget.Controllers
 
             _statisticsViewModel.Countries = _statisticsRepository.GetTheMostVisitedCountries(userId);
 
+            _statisticsViewModel.TotalCostFromAllTravels = _statisticsRepository.GetTotalCostFromAllTravels(userId);
+
             return View(_statisticsViewModel);
         }
     }

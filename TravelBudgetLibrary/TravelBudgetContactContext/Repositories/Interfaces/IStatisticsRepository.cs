@@ -14,5 +14,6 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
         public Travel TheLongestTravel(string userId);
         public Travel TheShortestTravel(string userId);
         public List<Country> GetTheMostVisitedCountries(string userId);
+        public double GetTotalCostFromAllTravels(string userId);
     }
 }
