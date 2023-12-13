@@ -47,7 +47,8 @@
             </div>
             <div class="form-outline mb-2" id="C_label_5-activeBox">
                 <input asp-for="@Model.Travel.Active" class="form-check-input custom-buttom" type="checkbox" id="activeCheckbox">
-                <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 20px">Active</label>
+                <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 23px" 
+                title="Mark checkbox to add travel to your pending travels, otherwise it will be added to Travels History section">Active</label>
             </div>
             <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model == null ? "Create" : "Update")</button></li>
         </form>
