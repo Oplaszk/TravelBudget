@@ -1,18 +1,35 @@
 ﻿@model TravelBudget.ViewModels.TravelViewModel
-<h1 id="title">Pending Travels</h1>
+
+<h1 id="title"> @(Model.Travel.Active == true ? "Pending Travels" : "Travels History")</h1>
 <div id="container">
     @foreach (var item in Model.Travels)
     {
         <div class="record-container">
 
-            <partial name="_TravelDataDisplay", model="item"></partial>
+            <partial name="_TravelDataDisplay" , model="item"></partial>
 
-            <div id="button-containerAdd">
-                <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton">Details</span></a>
-                <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
-                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
-                <a data-record-id="@item.Id" asp-controller="Travel" asp-action="End" asp-route-id="@item.Id"><span class="MenuButton">End</span></a>
-            </div>
+            @if (Model.Travel.Active == true)
+            {
+                <div id="button-containerAdd">
+                    <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton">Details</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Travel" asp-action="End" asp-route-id="@item.Id"><span class="MenuButton">End</span></a>
+                </div>
+            }
+            else
+            {
+                <div id="button-containerAdd">
+                    <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton">Detail</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Retrieve" asp-route-id="@item.Id"><span class="MenuButton">Retreive</span></a>
+                    <a data-record-id-delete="@item.Id" asp-controller="Travel" asp-action="Delete" asp-route-id="@item.Id"
+                       onclick="return confirm('Are you sure that you want to delete this travel? Type OK/Cancel to continue');">
+                        <span class="MenuButton">Delete</span>
+                    </a>
+                </div>
+            }
         </div>
     }
 </div>

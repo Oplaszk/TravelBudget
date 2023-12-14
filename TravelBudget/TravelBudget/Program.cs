@@ -53,7 +53,7 @@ namespace TravelBudget
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Travel}/{action=Index}/{id?}");
+                pattern: "{controller=Travel}/{action=Index}/{active=true}/{id?}");
 
             app.MapRazorPages();
             app.Run();

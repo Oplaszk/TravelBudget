@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@* @model TravelBudget.ViewModels.TravelViewModel *@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Travel Budget</title>
@@ -23,8 +24,8 @@
             <li style="margin-right: 40px; border-right: 3.5px solid darkgoldenrod;"><a class="a1" asp-controller="Statistics" asp-action="Statistics">Statistics</a></li>
             <li style="margin-right: 40px; border-right: 3.5px solid darkgoldenrod;"><a class="a1" asp-controller="Management" asp-action="ManageZone">Management</a></li>
             <li><a class="a1" asp-controller="Travel" asp-action="Create"> Create New Travel </a></li>
-            <li><a class="a2" asp-controller="Travel" asp-action="Index"> Current Travels </a></li>
-            <li><a class="a3" asp-controller="Travel" asp-action="History"> Travels History </a></li>
+            <li><a class="a2" asp-controller="Travel" asp-action="Index" asp-route-active="true"> Current Travels </a></li>
+            <li><a class="a3" asp-controller="Travel" asp-action="Index" asp-route-active="false"> Travels History </a></li>
             <li id="buttonLi">             
                 <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Welcome", new { area = "" })" method="post">
                     <button type="submit" class="btn btn-outline-secondary" id="Mybutton" title="Click to log out">

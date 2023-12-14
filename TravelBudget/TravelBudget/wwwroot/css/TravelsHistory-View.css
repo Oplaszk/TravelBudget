@@ -1,11 +1,10 @@
 
 * {
-    margin: 0; /*ustawia wszystkie marginesy na zero*/
-    padding: 0; /*padding czyli odstêp kontentu jest ustawiony na zero*/
-    list-style: none; /*powoduje usuniêcie wszystkich "bullet points" które defaultowo s¹ dodawane do tagu (<ul>) lub (<ol>). Usuwa równie¿ tzn. 
-        list markery z tagu typu (<li>)*/
-    box-sizing: border-box; /*This style means that when you set the width and height of an element, any padding or border added to it will not cause it to expand beyond those specified dimensions.*/
-    font-family: 'Sans Serif Collection'; /*ustawia domyœln¹ czcionkê.*/
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+    box-sizing: border-box; 
+    font-family: 'Sans Serif Collection'; 
 }
 /*<-------------------- Navigation bar section -------------------->*/
 nav {
@@ -36,7 +35,7 @@ nav {
 /*<-------------------- Title section -------------------->*/
 .title {
     flex: 1;
-    color: darkgoldenrod; /*ustawia kolor dla ca³ego napisu logo.*/
+    color: darkgoldenrod; 
     font-size: 40px;
     animation: fadeIn 2s ease;
     text-align: center;
@@ -110,6 +109,7 @@ th, td {
 #button-containerAdd {
     display: flex;
     justify-content: center;
+    gap: 5px;
     align-items: center;
     padding-top: 10px;
     padding-bottom: 15px;
@@ -128,15 +128,15 @@ th, td {
     color: white;
     text-decoration: none;
     padding: 10px 30px;
-    border: 2px solid black;
+    border: 3px solid black;
     border-radius: 5px;
 }
 
     [data-record-id]:hover {
         letter-spacing: 0.06em;
         background: darkgoldenrod;
-        box-shadow: 0 0 30px; /*darkgoldenrod; kolor cienia po najechaniu na przycisk*/
-        color: darkgoldenrod; /*kolor liter po najechaniu na przycisk*/
+        box-shadow: 0 0 30px; 
+        color: darkgoldenrod; 
     }
     [data-record-id]:before {
         position: absolute;
@@ -148,33 +148,7 @@ th, td {
         position: relative;
         z-index: 1;
     }
-/*<-------------------- Delete button section -------------------->*/
-    [data-record-id-delete] {
-        position: relative;
-        background: white;
-        color: white;
-        text-decoration: none;
-        padding: 10px 30px;
-        border: 2px solid black;
-        border-radius: 5px;
-    }
-    [data-record-id-delete]:hover {
-        letter-spacing: 0.06em;
-        background-color: darkgoldenrod;
-        box-shadow: 1px 1px 30px; 
-        color: rgb(183, 8, 8); /*kolor liter po najechaniu na przycisk*/
-    }
-    [data-record-id-delete]:before {
-        position: absolute;
-        inset: 2px;
-        content: '';
-        color: black;
-        background: black;
-    }
-        a span {
-        position: relative;
-        z-index: 1;
-    }
+
 /*<---------------------- Additional styles for better look ----------------------->*/
 
 /*<-------------------- Animation section -------------------->*/

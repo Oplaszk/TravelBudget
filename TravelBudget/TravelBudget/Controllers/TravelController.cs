@@ -24,29 +24,18 @@ namespace TravelBudget.Controllers
             _travelRepository = travelRepository;
             _travelViewModel = new TravelViewModel();
         }
-        #region READ Section
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult Index(bool active)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var activeTravels = _travelRepository
-            .GetAllTravels(userId, true);
+            .GetAllTravels(userId, active);
 
             _travelViewModel.Travels = activeTravels;
+            _travelViewModel.Travel.Active = active;
 
             return View(_travelViewModel);
         }
-        [HttpGet]
-        public IActionResult History()
-        {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var inactiveTravels = _travelRepository
-            .GetAllTravels(userId, false).Where(t => t.Active == false);
-            _travelViewModel.Travels = inactiveTravels;
-
-            return View(_travelViewModel);
-        }
-        #endregion
         #region CREATE Section
         [HttpGet]
         public IActionResult Create()
