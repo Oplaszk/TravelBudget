@@ -11,6 +11,8 @@
     display: flex;
     flex-direction: column; 
     align-items: center; 
+    overflow-y: auto;
+    margin-bottom: 60px;
 }
 /*<-------------------- Table section -------------------->*/
 #table {
@@ -53,7 +55,6 @@ th, td {
     padding-bottom: 15px;
     cursor: pointer;
     animation: fadeIn 10s ease;
-/*    margin-right: 5px;*/
 }
 .MenuButton {
     margin: 0;

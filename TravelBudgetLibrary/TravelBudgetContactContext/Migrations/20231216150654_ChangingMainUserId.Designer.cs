@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TravelBudgetDBContact;
 
@@ -11,9 +12,11 @@ using TravelBudgetDBContact;
 namespace TravelBudgetDBContact.Migrations
 {
     [DbContext(typeof(DBContact))]
-    partial class ContactContextModelSnapshot : ModelSnapshot
+    [Migration("20231216150654_ChangingMainUserId")]
+    partial class ChangingMainUserId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -641,7 +644,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2022, 12, 16, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2022, 12, 12, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "bbde869e-3781-4076-bd46-aee8b984777d"
+                            UserId = "289a4aad-7cb3-4e92-b49a-04fd4bdda59a"
                         },
                         new
                         {
@@ -652,7 +655,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2023, 10, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2023, 9, 18, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "bbde869e-3781-4076-bd46-aee8b984777d"
+                            UserId = "289a4aad-7cb3-4e92-b49a-04fd4bdda59a"
                         },
                         new
                         {
@@ -663,7 +666,7 @@ namespace TravelBudgetDBContact.Migrations
                             FinishDate = new DateTime(2023, 12, 12, 21, 15, 0, 0, DateTimeKind.Unspecified),
                             Name = "Around Poland",
                             StartingDate = new DateTime(2023, 6, 18, 6, 15, 0, 0, DateTimeKind.Unspecified),
-                            UserId = "bbde869e-3781-4076-bd46-aee8b984777d"
+                            UserId = "289a4aad-7cb3-4e92-b49a-04fd4bdda59a"
                         });
                 });
 

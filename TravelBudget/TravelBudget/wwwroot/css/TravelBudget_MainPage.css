@@ -129,6 +129,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        max-height: 1080px;
     }
     .sidebar {
         flex: 1;
@@ -136,6 +137,7 @@
         background-color: black;
         margin:0;
         padding:0;
+        overflow-y:auto;
     }
     @keyframes fadeIn {
         from {
