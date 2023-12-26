@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement.Internal;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq.Expressions;
+﻿using Microsoft.AspNetCore.Mvc;
 using TravelBudget.ViewModels;
-using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
-using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
@@ -14,6 +10,7 @@ namespace TravelBudget.Controllers
         private readonly ICategoryRepository _categoryRepository;
         private readonly ICountryRepository _countryRepository;
         private readonly ExpenseViewModel _expenseViewModel;
+
         public ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository, ILogger<ExpenseController> logger) : base(logger)
         {
             _expenseRepository = expenseRepository;
@@ -21,7 +18,9 @@ namespace TravelBudget.Controllers
             _countryRepository = countryRepository;
             _expenseViewModel = new ExpenseViewModel();
         }
+
         #region CREATE Section
+
         [HttpGet]
         public IActionResult AddExpense(int id)
         {
@@ -49,10 +48,11 @@ namespace TravelBudget.Controllers
             expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
 
             return View("AddExpense", expenseViewModel);
-
         }
-        #endregion
-        [HttpGet]
+
+        #endregion CREATE Section
+
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
             var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
@@ -61,7 +61,9 @@ namespace TravelBudget.Controllers
 
             return RedirectToAction("Details", "Detail", new { id = travelId });
         }
+
         #region UPDATE Section
+
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -74,8 +76,9 @@ namespace TravelBudget.Controllers
                 Countries = _countryRepository.GetAllCountriesDTO(),
                 TravelId = expenseToUpdate.TravelId
             };
-            return View("AddExpense", viewModel); 
+            return View("AddExpense", viewModel);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(ExpenseViewModel expenseToUpdate)
@@ -87,6 +90,7 @@ namespace TravelBudget.Controllers
 
             return RedirectToAction("Details", "Detail", new { id = travelId });
         }
-        #endregion
+
+        #endregion UPDATE Section
     }
 }

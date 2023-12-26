@@ -42,7 +42,7 @@
                 <label asp-for="@Model.Expense.Description" class="form-label" style="font-size:24px"></label>
                 <input asp-for="@Model.Expense.Description" class="form-control-description" autocomplete="off" placeholder="You can give a short description of the expense" />
             </div>
-            <li class="expense-buttonSection"><button id="expense-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</button></li>
+            <li class="expense-buttonSection"><button onClick=ExpenseSaved() id="expense-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Expense.TravelId == 0 ? "Add Expense" : "Update Expense")</button></li>
 
             @* ------------------ JavaScript Section ------------------ *@
             @* ---------- Price box Section ---------- *@

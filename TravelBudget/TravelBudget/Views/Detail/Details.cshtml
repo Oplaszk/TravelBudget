@@ -3,10 +3,6 @@
 @{
     Layout = "~/Views/Shared/_Layout-TravelsDetails.cshtml";
 }
-@* <head>
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-<link rel="stylesheet" href="~/css/TravelsDetails-View.css" asp-append-version="true" />
-</head> *@
 
 <br>
 <div id="container">
@@ -41,9 +37,9 @@
             <div id="button-containerAdd">
                 <a data-record-id="@item.Id" asp-controller="Expense" asp-action="Update" asp-route-id="@item.Id">
                     <span class="MenuButton">Update</span></a>
-                <a data-record-id-delete="@item.Id" asp-controller="Expense" asp-action="Delete" asp-route-id="@item.Id"
-                    onclick="return confirm('Are you sure that you want to delete this expense? Type OK/Cancel');">
-                    <span class="MenuButton">Delete</span></a>               
+                <a onClick=DeleteExpense('/Expense/Delete?id=@item.Id') data-record-id-delete="@item.Id" class="delete-button">
+                    <span class="MenuButton">Delete</span>
+                </a>
             </div>
         </div>
     }
