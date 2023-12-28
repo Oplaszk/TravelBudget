@@ -23,10 +23,5 @@ namespace TravelBudget.Controllers
 
             return View(_expenseViewModel);
         }
-        //[HttpGet]
-        //public IActionResult FilterLocation(int id)
-        //{
-        //    return null;
-        //}
     }
 }

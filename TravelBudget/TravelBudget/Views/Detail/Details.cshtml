@@ -36,7 +36,8 @@
             </table>
             <div id="button-containerAdd">
                 <a data-record-id="@item.Id" asp-controller="Expense" asp-action="Update" asp-route-id="@item.Id">
-                    <span class="MenuButton">Update</span></a>
+                    <span class="MenuButton">Update</span>
+                </a>
                 <a onClick=DeleteExpense('/Expense/Delete?id=@item.Id') data-record-id-delete="@item.Id" class="delete-button">
                     <span class="MenuButton">Delete</span>
                 </a>

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelBudget.ViewModels;
+using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
+using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
@@ -20,7 +22,6 @@ namespace TravelBudget.Controllers
         }
 
         #region CREATE Section
-
         [HttpGet]
         public IActionResult AddExpense(int id)
         {
@@ -35,13 +36,23 @@ namespace TravelBudget.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult AddExpense(ExpenseViewModel expenseViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                int Id = expenseViewModel.TravelId;
-                expenseViewModel.Expense.TravelId = Id;
+                if (ModelState.IsValid)
+                {
+                    int Id = expenseViewModel.TravelId;
+                    expenseViewModel.Expense.TravelId = Id;
 
-                _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
-                return RedirectToAction("Details", "Detail", new { id = Id });
+                    _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
+
+                    Notify("Your expense has been added successfully");
+
+                    return RedirectToAction("AddExpense", "Expense", new { id = Id });
+                }
+            }
+            catch (Exception)
+            {
+                Notify("Error occurred while adding expense to the travel", notificationType: NotificationType.error);
             }
 
             expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
@@ -52,14 +63,25 @@ namespace TravelBudget.Controllers
 
         #endregion CREATE Section
 
-        [HttpDelete]
+        [HttpGet]
         public IActionResult Delete(int id)
         {
-            var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
-            _expenseRepository.DeleteExpense(expenseToDetele);
-            int travelId = expenseToDetele.TravelId;
+            try
+            {
+                var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
+                _expenseRepository.DeleteExpense(expenseToDetele);
+                int travelId = expenseToDetele.TravelId;
 
-            return RedirectToAction("Details", "Detail", new { id = travelId });
+                Notify("Your expense has been deleted successfully");
+
+                return RedirectToAction("Details", "Detail", new { Id = travelId });
+            }
+            catch (Exception)
+            {
+                Notify("Error occurred while deleting expense", notificationType: NotificationType.error);
+            }
+
+            return Ok();
         }
 
         #region UPDATE Section
@@ -76,6 +98,7 @@ namespace TravelBudget.Controllers
                 Countries = _countryRepository.GetAllCountriesDTO(),
                 TravelId = expenseToUpdate.TravelId
             };
+
             return View("AddExpense", viewModel);
         }
 
@@ -83,14 +106,25 @@ namespace TravelBudget.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(ExpenseViewModel expenseToUpdate)
         {
-            int travelId = expenseToUpdate.TravelId;
-            expenseToUpdate.Expense.TravelId = travelId;
+            try
+            {
+                int travelId = expenseToUpdate.TravelId;
+                expenseToUpdate.Expense.TravelId = travelId;
 
-            _expenseRepository.UpdateExpense(expenseToUpdate.Expense);
+                _expenseRepository.UpdateExpense(expenseToUpdate.Expense);
 
-            return RedirectToAction("Details", "Detail", new { id = travelId });
+                Notify("Your expense has been updated successfully");
+
+                return RedirectToAction("Details", "Detail", new { id = travelId });
+            }
+
+            catch (Exception)
+            {
+                Notify("Error occurred while updating expense to the travel", notificationType: NotificationType.error);
+            }
+            
+            return RedirectToAction("Update", "Expense", expenseToUpdate.Expense.Id);
         }
-
         #endregion UPDATE Section
     }
 }

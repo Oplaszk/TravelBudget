@@ -12,13 +12,14 @@
         align-items: center;
         margin-right: 5px;
     }
-    #title-link .a:hover {
+    #title-link :hover {
         cursor: pointer;
     }   
     .logo {
         color: white; 
-        font-size: 40px;
+        font-size: 45px;
         text-align: center;
+        cursor: pointer;
     }
     .logo-image {
         float: left;
@@ -145,6 +146,10 @@
         left: 0; 
         right: 0; 
         margin: 0;
+    }
+    #toast-container > .toast-success {
+        background-color: green;
+        color: white;
     }
 
 

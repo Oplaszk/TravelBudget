@@ -27,7 +27,7 @@ namespace TravelBudgetDBContact.Repositories
             }
             catch (Exception ex) 
             {
-                _logger.LogError(ex, "En error occurred while retriving countries with DTO from database");
+                _logger.LogError(ex, "En error occurred while retrieving countries with DTO from database");
                 return Enumerable.Empty<CountryDTO>();
             }
 

@@ -1,4 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Newtonsoft.Json;
+using NuGet.Protocol.Core.Types;
+using TravelBudget.ViewModels.Enums;
 
 namespace TravelBudget.Controllers
 {
@@ -8,6 +12,31 @@ namespace TravelBudget.Controllers
         public BaseController(ILogger<BaseController> logger)
         {
             _logger = logger;
+        }
+
+        public void Notify(string title, string message = "",
+        NotificationType notificationType = NotificationType.success)
+        {
+            var msg = new
+            {
+                title = title,
+                message = message,
+                type = notificationType.ToString(),
+            };
+
+            TempData["Message"] = JsonConvert.SerializeObject(msg);
+        }
+        public void DeleteNotify(string title, string message = "",
+        NotificationType notificationType = NotificationType.success)
+        {
+            var msg = new
+            {
+                title = title,
+                message = message,
+                icon = notificationType.ToString(),
+            };
+
+            TempData["Message"] = JsonConvert.SerializeObject(msg);
         }
     }
 }

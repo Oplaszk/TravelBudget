@@ -15,7 +15,7 @@ namespace TravelBudgetDBModels.Models
         [Display(Name = "Date")]
         [DataType(DataType.DateTime)]
         public DateTime? Date { get; set; }
-        [DisplayName(displayName: "Category Options")]
+        [DisplayName(displayName: "Category Options:")]
 
         // EntityFramework configuration section
 
@@ -27,7 +27,7 @@ namespace TravelBudgetDBModels.Models
         public int TravelId { get; set; }
         public Travel? Travel { get; set; }
 
-        [DisplayName(displayName: "Country Options")]
+        [DisplayName(displayName: "Country Options:")]
         [ForeignKey("CountryId")]
         public int CountryId { get; set; }
         public Country? Country { get; set; }

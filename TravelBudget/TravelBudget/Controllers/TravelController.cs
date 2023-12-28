@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TravelBudget.ViewModels;
+using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
 
 namespace TravelBudget.Controllers
@@ -21,6 +22,7 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult Index(bool active)
         {
+            ModelState.Clear();
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var activeTravels = _travelRepository
             .GetAllTravels(userId, active);
@@ -43,10 +45,20 @@ namespace TravelBudget.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(TravelViewModel travelViewModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _travelRepository.SaveTravelToDB(travelViewModel.Travel);
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    _travelRepository.SaveTravelToDB(travelViewModel.Travel);
+                    bool status = travelViewModel.Travel.Active; 
+                    Notify("Travel has been created successfully");
+
+                    return RedirectToAction("Index", "Travel", new {active = status});
+                }
+            }
+            catch (Exception)
+            {
+                Notify("Error occurred while creating the travel", notificationType: NotificationType.error);
             }
             return View();
         }
@@ -68,36 +80,80 @@ namespace TravelBudget.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update(TravelViewModel travelViewModel)
         {
-            _travelRepository.UpdateTravel(travelViewModel.Travel);
-            return RedirectToAction("Index");
+            try
+            {
+                _travelRepository.UpdateTravel(travelViewModel.Travel);
+
+                Notify("Travel has been updated successfully");
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                Notify("Error occurred while updating the travel", notificationType: NotificationType.error);
+            }
+            return View();
         }
 
         #endregion UPDATE Section
 
-        [HttpDelete]
+        [HttpPost]
         public IActionResult Delete(int id)
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var travel = _travelRepository.GetById(id);
-            _travelRepository.DeleteTravel(travel);
+            try
+            {
+                var travelToDelete = _travelRepository.GetById(id);
+                _travelRepository.DeleteTravel(travelToDelete);
 
+                Notify("Your travel has been deleted successfully");
+
+                bool status = false;
+
+                return RedirectToAction("Index","Travel", new {active = status});
+            }
+            catch (Exception)
+            {
+                Notify("Error occurred while deleting travel", notificationType: NotificationType.error);
+            }
             return Ok();
         }
 
         [HttpGet]
         public IActionResult End(int id)
         {
-            var selected = _travelRepository.GetById(id);
-            _travelRepository.EndTravel(selected);
-            return RedirectToAction("Index");
+            try
+            {
+                var selected = _travelRepository.GetById(id);
+                _travelRepository.EndTravel(selected);
+
+                Notify("Your travel has been wrapped up");
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                Notify("Error occurred while wrapping up the travel", notificationType: NotificationType.error);
+            }
+            return View(nameof(Index));
         }
 
         [HttpGet]
         public IActionResult Retrieve(int id)
         {
-            var selected = _travelRepository.GetById(id);
-            _travelRepository.RetrieveTravel(selected);
-            return RedirectToAction("Index");
+            try
+            {
+                var selected = _travelRepository.GetById(id);
+                _travelRepository.RetrieveTravel(selected);
+
+                Notify("Your travel has been retrieved successfully");
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                Notify("Error occurred while wrapping up the travel", notificationType: NotificationType.error);
+            }
+            return View(nameof(Index));
         }
     }
 

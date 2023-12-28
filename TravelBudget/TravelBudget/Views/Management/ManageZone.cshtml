@@ -8,16 +8,16 @@
 
 <body id="body-management">
     <div class="container-management">
-        <form method="post" asp-controller="Management" asp-action="ManageZone" novalidate>
+        <form method="post" asp-controller="Management" asp-action="CreateCategory" novalidate>
             @Html.AntiForgeryToken()
             <div>
-                <h1 id="management-category-title"> Category Zone</h1>
+                <h1 id="management-category-title">Category Zone</h1>
                 <h3 id="management-category-description">Here you can add or delete category for the expense that will be added to your travel</h3>
                 <div class="category-table">
                     <table class="table" style="border-radius: 8px">
                         <thead>
                             <tr>
-                                <th class="table-title" colspan="100%">Category Types</th>
+                                <th class="table-title" colspan="100%">Current Category Types</th>
                             </tr>
                         </thead>
                         <tbody>

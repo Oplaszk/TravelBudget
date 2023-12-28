@@ -5,7 +5,7 @@
     <title>Travel Budget</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TravelBudget</title>
+    @* <title>@ViewData["Title"] - TravelBudget</title> *@
     <!-------- CSS Links -------->
     <link rel="stylesheet" href="~/css/TravelBudget_MainPage.css" />
     <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg">
@@ -69,6 +69,7 @@
     <footer class="footer">
         <p>Copyright &copy; 2023 Designed by <span>MK</span></p>
     </footer>
+    @await Html.PartialAsync("_notificationPartial")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

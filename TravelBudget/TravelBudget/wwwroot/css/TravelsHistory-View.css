@@ -163,3 +163,7 @@ th, td {
 
 }
 
+#toast-container > .toast-success {
+    background-color: green;
+    color: white;
+}

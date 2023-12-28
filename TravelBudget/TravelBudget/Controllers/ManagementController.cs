@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TravelBudget.ViewModels;
+using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;
 
@@ -23,21 +24,40 @@ namespace TravelBudget.Controllers
             return View(_managementViewModel);
         }
         [HttpPost]
-        public IActionResult ManageZone(ManagementViewModel model)
+        public IActionResult CreateCategory(ManagementViewModel model)
         {
-            var newCategory = model.Category;
-            _categoryRepository.CreateNewCategory(newCategory);
+            try
+            {
+                var newCategory = model.Category;
+                _categoryRepository.CreateNewCategory(newCategory);
 
-            return RedirectToAction("ManageZone"); 
+                Notify("New Category created successfully!");
+            }
+            catch (Exception) 
+            {
+                Notify("Error while saving category", notificationType: NotificationType.error);
+            }
+            
+            return RedirectToAction(nameof(ManageZone));
+ 
         }
         [HttpGet]
         public IActionResult DeleteCategory(ManagementViewModel model)
         {
-            int indexToDelete = model.Category.Id;
-            var categoryToDelete = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == indexToDelete);
-            _categoryRepository.DeleteCategory(categoryToDelete);
+            try
+            {
+                int indexToDelete = model.Category.Id;
+                var categoryToDelete = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == indexToDelete);
+                _categoryRepository.DeleteCategory(categoryToDelete);
 
-            return RedirectToAction("ManageZone"); 
+                Notify("Category type deleted successfully!");
+            }
+            catch (Exception)
+            {
+                Notify("Error while deleting category", notificationType: NotificationType.error);
+            }
+
+            return RedirectToAction(nameof(ManageZone));
         }
     }
 }

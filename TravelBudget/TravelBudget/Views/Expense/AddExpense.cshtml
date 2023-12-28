@@ -15,7 +15,7 @@
                 <input asp-for="@Model.TravelId" class="form-control" autocomplete="off" />
             </div>
             <div class="form-outline mb-2" id="E_label_1-price">
-                <label asp-for="@Model.Expense.Price" class="form-label" style="font-size:24px"></label>
+                <label asp-for="@Model.Expense.Price" class="form-label" style="font-size:24px">Price:</label>
                 <input asp-for="@Model.Expense.Price" id="price-input" class="form-control-price" autocomplete="off" placeholder="Expense price" required />
                 <span asp-validation-for="@Model.Expense.Price" class="text-danger"></span>
             </div>
