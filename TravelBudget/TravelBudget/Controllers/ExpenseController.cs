@@ -45,7 +45,7 @@ namespace TravelBudget.Controllers
 
                     _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
 
-                    Notify("Your expense has been added successfully");
+                    //Notify("Your expense has been added successfully");
 
                     return RedirectToAction("AddExpense", "Expense", new { id = Id });
                 }
@@ -63,7 +63,7 @@ namespace TravelBudget.Controllers
 
         #endregion CREATE Section
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult Delete(int id)
         {
             try

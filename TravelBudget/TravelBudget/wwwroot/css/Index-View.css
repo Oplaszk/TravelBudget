@@ -52,7 +52,7 @@ th, td {
     gap: 5px;
     align-items: center;
     padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 22px;
     cursor: pointer;
     animation: fadeIn 10s ease;
 }

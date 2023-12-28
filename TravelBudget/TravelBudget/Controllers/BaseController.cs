@@ -26,17 +26,5 @@ namespace TravelBudget.Controllers
 
             TempData["Message"] = JsonConvert.SerializeObject(msg);
         }
-        public void DeleteNotify(string title, string message = "",
-        NotificationType notificationType = NotificationType.success)
-        {
-            var msg = new
-            {
-                title = title,
-                message = message,
-                icon = notificationType.ToString(),
-            };
-
-            TempData["Message"] = JsonConvert.SerializeObject(msg);
-        }
     }
 }

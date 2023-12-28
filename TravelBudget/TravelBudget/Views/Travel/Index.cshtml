@@ -2,8 +2,9 @@
 
 <h1 id="title"> @(Model.Travel.Active == true ? "Current Travels" : "Travels History")</h1>
 <div id="container">
+    
     @foreach (var item in Model.Travels)
-    {
+    {   
         <div class="record-container">
             <partial name="_TravelDataDisplay" , model="item"></partial>
 
@@ -31,6 +32,14 @@
         </div>
     }
 </div>
+<script>
+    var travelDeletedMessage = localStorage.getItem('travelDeletedMessage');
+
+    if (travelDeletedMessage) {
+        toastr.success(travelDeletedMessage);
+        localStorage.removeItem('travelDeletedMessage');
+    }
+</script>
 
 
 

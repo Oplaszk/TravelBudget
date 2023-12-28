@@ -105,7 +105,7 @@ namespace TravelBudget.Controllers
                 var travelToDelete = _travelRepository.GetById(id);
                 _travelRepository.DeleteTravel(travelToDelete);
 
-                Notify("Your travel has been deleted successfully");
+                //Notify("Your travel has been deleted successfully");
 
                 bool status = false;
 

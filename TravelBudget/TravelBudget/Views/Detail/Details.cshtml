@@ -45,4 +45,12 @@
         </div>
     }
 </div>
+<script>
+    var expenseDeletedMessage = localStorage.getItem('expenseDeletedMessage');
+
+    if (expenseDeletedMessage) {
+        toastr.success(expenseDeletedMessage);
+        localStorage.removeItem('expenseDeletedMessage');
+    }
+</script>
 
