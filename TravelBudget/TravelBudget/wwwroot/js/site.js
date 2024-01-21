@@ -1,49 +1,19 @@
 ﻿
-//function DeleteTravel(actionUrl) {
-//    console.log(actionUrl);
-//    Swal.fire({
-//        title: 'Confirm Deletion',
-//        text: 'Are you sure you want to delete your travel?',
-//        icon: 'warning',
-//        showCancelButton: true,
-//        confirmButtonText: 'Yes, delete it!',
-//        cancelButtonText: 'No, cancel!',
-//        reverseButtons: true
-//    }).then((result) => {
-//        if (result.isConfirmed) {
-//            $.ajax({
-//                url: actionUrl,
-//                type: 'DELETE',
-//                success: function () {
-//                    console.log('here success')
-//                    Swal.fire({
-//                        icon: 'success',
-//                        title: 'Deleted!',
-//                        text: 'Your travel has been deleted.',
-//                        showConfirmButton: false,
-//                        timer: 2000
-//                    });
-//                    setTimeout(function () {
-//                        location.reload();
-//                    }, 2000);
-//                },
-//                error: function () {
-//                    console.log('here error')
-//                    Swal.fire('Error', 'An error occurred while deleting the travel.', 'error');
-//                }
-//            });
-//        }
-//        else if (result.dismiss === Swal.DismissReason.cancel) {
-//            Swal.fire('Cancelled', 'Your travel is safe :)', 'info');
-//        }
-//    });
-//}
-
-function DeleteTravel(actionUrl) {
-    console.log(actionUrl);
+function DeleteTravel(actionUrl, name, description, startingDate, finishDate)
+{
     Swal.fire({
         title: 'Confirm Deletion',
-        text: 'Are you sure you want to delete your travel?',
+        html: `
+            <h4 style="color: red;"">Are you sure you want to delete this travel?</h4>
+            <div>
+            <hr class="horizontal-line">
+            <h2>Travel Details:</h2>
+            <strong>Name:</strong> ${name}<br>
+            <strong>Description:</strong> ${description}<br>
+            <strong>Starting Date:</strong> ${startingDate}<br>
+            <strong>Finish Date:</strong> ${finishDate}
+            </div>
+        `,
         icon: 'question',
         showCancelButton: true
     }).then(result => {
@@ -61,16 +31,26 @@ function DeleteTravel(actionUrl) {
             });
 
         } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire('Cancelled', 'operation has been canceled', 'info');
+            Swal.fire('Cancelled', 'Your travel is save :)', 'info');
         }
     });
 }
 
-function DeleteExpense(actionUrl) {
-    console.log(actionUrl);
+function DeleteExpense(actionUrl, price, descriprion, date, categoryType, countryName, countryCode) {
     Swal.fire({
         title: 'Confirm Deletion',
-        text: 'Are you sure you want to delete your expense?',
+        html: `
+            <h4 style="color: red;"">Are you sure you want to delete this expense?</h4>
+            <div>
+            <hr class="horizontal-line">
+            <h2>Expense Details:</h2>
+            <strong>Price:</strong> ${price}<br>
+            <strong>Description:</strong> ${descriprion}<br>
+            <strong>Starting Date:</strong> ${date}<br>
+            <strong>Category Type:</strong> ${categoryType}<br>
+            <strong>Country Name:</strong> ${countryName}(${countryCode})
+            </div>
+        `,
         icon: 'question',
         showCancelButton: true
     }).then(result => {
@@ -88,7 +68,7 @@ function DeleteExpense(actionUrl) {
             });
 
         } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire('Cancelled', 'operation has been canceled', 'info');
+            Swal.fire('Cancelled', 'Your expense is save :)', 'info');
         }
     });
 }

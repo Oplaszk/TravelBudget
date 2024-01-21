@@ -45,8 +45,6 @@ namespace TravelBudget.Controllers
 
                     _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
 
-                    //Notify("Your expense has been added successfully");
-
                     return RedirectToAction("AddExpense", "Expense", new { id = Id });
                 }
             }
@@ -71,8 +69,6 @@ namespace TravelBudget.Controllers
                 var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
                 _expenseRepository.DeleteExpense(expenseToDetele);
                 int travelId = expenseToDetele.TravelId;
-
-                Notify("Your expense has been deleted successfully");
 
                 return RedirectToAction("Details", "Detail", new { Id = travelId });
             }

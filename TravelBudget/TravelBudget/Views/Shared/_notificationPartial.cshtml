@@ -3,8 +3,6 @@
 
     var msg = @(TempData["Message"] != null ? Html.Raw(TempData["Message"]) : Html.Raw("undefined"));
 
-    console.log(msg)
-
     toastr.options = {
         "timeOut": "6000"
     }

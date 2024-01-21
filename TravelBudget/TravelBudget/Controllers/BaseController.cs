@@ -14,8 +14,7 @@ namespace TravelBudget.Controllers
             _logger = logger;
         }
 
-        public void Notify(string title, string message = "",
-        NotificationType notificationType = NotificationType.success)
+        public void Notify(string title, string message = "",  NotificationType notificationType = NotificationType.success)
         {
             var msg = new
             {

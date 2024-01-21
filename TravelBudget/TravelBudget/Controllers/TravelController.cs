@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Security.Claims;
 using TravelBudget.ViewModels;
 using TravelBudget.ViewModels.Enums;
@@ -101,11 +102,12 @@ namespace TravelBudget.Controllers
         public IActionResult Delete(int id)
         {
             try
-            {
+            {               
                 var travelToDelete = _travelRepository.GetById(id);
-                _travelRepository.DeleteTravel(travelToDelete);
 
-                //Notify("Your travel has been deleted successfully");
+                TempData["TravelToDelete"] = JsonConvert.SerializeObject(travelToDelete);
+
+                _travelRepository.DeleteTravel(travelToDelete);
 
                 bool status = false;
 

@@ -1,18 +1,20 @@
 ﻿@model TravelBudget.ViewModels.TravelViewModel
 
+
 <h1 id="title"> @(Model.Travel.Active == true ? "Current Travels" : "Travels History")</h1>
 <div id="container">
     
     @foreach (var item in Model.Travels)
     {   
         <div class="record-container">
+
             <partial name="_TravelDataDisplay" , model="item"></partial>
 
             @if (Model.Travel.Active == true)
             {
                 <div id="button-containerAdd">
                     <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton" title="Here you can check the list of your expenses">Details</span></a>
-                    <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add&nbsp;Expense</span></a>
                     <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
                     <a data-record-id="@item.Id" asp-controller="Travel" asp-action="End" asp-route-id="@item.Id"><span class="MenuButton">End</span></a>
                 </div>
@@ -21,10 +23,10 @@
             {
                 <div id="button-containerAdd">
                     <a data-record-id="@item.Id" asp-controller="Detail" asp-action="Details" asp-route-id="@item.Id"><span class="MenuButton" title="Here you can check the list of your expenses">Details</span></a>
-                    <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add Expense</span></a>
+                    <a data-record-id="@item.Id" asp-controller="Expense" asp-action="AddExpense" asp-route-id="@item.Id"><span class="MenuButton">Add&nbsp;Expense</span></a>
                     <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Update" asp-route-id="@item.Id"><span class="MenuButton">Update</span></a>
                     <a data-record-id="@item.Id" asp-controller="Travel" asp-action="Retrieve" asp-route-id="@item.Id"><span class="MenuButton">Retrieve</span></a>
-                    <a onClick=DeleteTravel('/Travel/Delete?id=@item.Id') data-record-id-delete="@item.Id" class="delete-button" data-record-name="@item.Name">
+                    <a onclick="DeleteTravel('@Url.Action("Delete", "Travel")?id=@item.Id','@item.Name','@item.Description','@item.StartingDate','@item.FinishDate')" data-record-id-delete="@item.Id" class="delete-button">
                         <span class="MenuButton">Delete</span>
                     </a>
                 </div>

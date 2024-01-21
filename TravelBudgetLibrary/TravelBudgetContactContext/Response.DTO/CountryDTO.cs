@@ -10,7 +10,7 @@ namespace TravelBudgetDBContact.Response.DTO
     {
         public int Id { get; set; }
         public string CountryName { get; set; }
-        public string ContinentName { get; set; }
+        //public string ContinentName { get; set; }
         public string Code { get; set; }
         public string CountryWithCode { get { return (CountryName + $"({Code})"); } }
     }

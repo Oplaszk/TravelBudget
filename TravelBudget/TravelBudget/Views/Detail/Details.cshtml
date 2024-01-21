@@ -38,7 +38,7 @@
                 <a data-record-id="@item.Id" asp-controller="Expense" asp-action="Update" asp-route-id="@item.Id">
                     <span class="MenuButton">Update</span>
                 </a>
-                <a onClick=DeleteExpense('/Expense/Delete?id=@item.Id') data-record-id-delete="@item.Id" class="delete-button">
+                <a onClick="DeleteExpense('@Url.Action("Delete", "Expense")?id=@item.Id','@item.Price','@item.Description','@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", item.Date)', '@item.Category.Type', '@item.Country.Name', '@item.Country.Code')" data-record-id-delete="@item.Id" class="delete-button">
                     <span class="MenuButton">Delete</span>
                 </a>
             </div>
