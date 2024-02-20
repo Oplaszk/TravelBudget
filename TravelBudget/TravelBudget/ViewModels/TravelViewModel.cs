@@ -6,5 +6,6 @@ namespace TravelBudget.ViewModels
     {
         public IEnumerable<Travel>? Travels { get; set; }  
         public Travel Travel { get; set; } = new Travel();
+        public List<Country>? Countries { get; set; }    
     }
 }

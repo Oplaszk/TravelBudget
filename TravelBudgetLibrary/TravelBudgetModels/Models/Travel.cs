@@ -6,11 +6,7 @@ namespace TravelBudgetDBModels.Models
     public class Travel
     {
         public int? Id { get; set; }
-        //[Required]
-        //[DataType(DataType.DateTime)]
         public DateTime StartingDate { get; set; } = new DateTime();
-        //[Required]
-        //[DataType(DataType.DateTime)]
         public DateTime FinishDate { get; set; } = new DateTime();
         public string? Name { get; set; }
 
@@ -22,8 +18,8 @@ namespace TravelBudgetDBModels.Models
         // EntityFramework configuration section
 
         [ForeignKey("CommentId")]
-        public int? CommentId { get; set; } // Klucz obcy
-        public Comment? Comment { get; set; } // Wartość nawigacyjna
+        public int? CommentId { get; set; } 
+        public Comment? Comment { get; set; } 
         public ICollection<Expense>? Expenses { get; set; } 
         public ICollection<Country>? Countries { get; set; }   
 

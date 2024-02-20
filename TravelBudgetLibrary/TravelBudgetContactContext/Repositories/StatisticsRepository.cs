@@ -85,7 +85,7 @@ namespace TravelBudgetDBContact.Repositories
         }
         public List<Country> GetTheMostVisitedCountries(string userId)
         {
-            var mostVisitedCountries = _db.Travels.Where(t => t.UserId == userId)
+            var mostVisitedCountries= _db.Travels.Where(t => t.UserId == userId)
             .Include(t => t.Expenses)
             .ThenInclude(e => e.Country)
             .SelectMany(t => t.Expenses.Select(e => e.Country))
@@ -98,13 +98,12 @@ namespace TravelBudgetDBContact.Repositories
         }
         public double GetTotalCostFromAllTravels(string userId)
         {
-            var travelsExpenses = _db.Travels
+            List<double> travelsExpenses = _db.Travels
                   .Where(t => t.UserId == userId)
                   .Select(t => t.Expenses.Sum(e => e.Price ?? 0))
                   .ToList(); 
 
-            var totalCostFromAllTravels = travelsExpenses.Sum();
-            return totalCostFromAllTravels;
+            return travelsExpenses.Sum();
         }
     }
 }

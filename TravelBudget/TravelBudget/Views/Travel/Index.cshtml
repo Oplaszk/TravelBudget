@@ -35,11 +35,13 @@
     }
 </div>
 <script>
-    var travelDeletedMessage = localStorage.getItem('travelDeletedMessage');
+    if (toastr) {
+        var travelDeletedMessage = localStorage.getItem('travelDeletedMessage');
 
-    if (travelDeletedMessage) {
-        toastr.success(travelDeletedMessage);
-        localStorage.removeItem('travelDeletedMessage');
+        if (travelDeletedMessage) {
+            toastr.success(travelDeletedMessage);
+            localStorage.removeItem('travelDeletedMessage');
+        }
     }
 </script>
 

@@ -20,15 +20,15 @@
                 <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off" />
             </div>
             <div class="form-outline mb-2" id="C_label_1-name">
-                <label asp-for="@Model.Travel.Name" class="form-label" style="font-size:20px"></label>
+                <label asp-for="@Model.Travel.Name" style="font-size:20px"></label>
                 <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" required />
             </div>
             <div class="form-outline mb-2" id="C_label_2-description">
-                <label asp-for="@Model.Travel.Description" class="form-label" style="font-size:20px"></label>
+                <label asp-for="@Model.Travel.Description" style="font-size:20px"></label>
                 <input asp-for="@Model.Travel.Description" class=form-control-description autocomplete="off" placeholder="What is your travel about?" />
             </div>
             <div class="form-outline mb-2" id="C_label_3-startDate">
-                <label asp-for="@Model.Travel.StartingDate" class="form-label" style="font-size:20px">StartingDate</label>
+                <label asp-for="@Model.Travel.StartingDate" style="font-size:20px">StartingDate</label>
                 <div class="input-group date">
                     <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker" />
                     <div class="input-group-append">
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div class="form-outline mb-2" id="C_label_4-finishDate">
-                <label asp-for="@Model.Travel.FinishDate" class="form-label" style="font-size: 20px">FinishDate</label>
+                <label asp-for="@Model.Travel.FinishDate" style="font-size: 20px">FinishDate</label>
                 <div class="input-group date">
                     <input asp-for="@Model.Travel.FinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
                     <div class="input-group-append">
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <div class="form-outline mb-2" id="C_label_5-activeBox">
-                <input asp-for="@Model.Travel.Active" class="form-check-input custom-buttom" type="checkbox" id="activeCheckbox">
+                <input asp-for="@Model.Travel.Active" class="form-check-input custom-button" type="checkbox" id="activeCheckbox">
                 <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 23px" 
                 title="Mark checkbox to add travel to your pending travels, otherwise it will be added to Travels History section">Active</label>
             </div>

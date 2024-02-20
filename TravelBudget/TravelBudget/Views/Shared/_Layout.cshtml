@@ -1,41 +1,41 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Travel Budget</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    @* <title>@ViewData["Title"] - TravelBudget</title> *@
     <!-------- CSS Links -------->
     <link rel="stylesheet" href="~/css/TravelBudget_MainPage.css" />
     <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="~/css/Index-View.css" asp-append-version="true" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" asp-append-version="true"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-xl">
         <div class="navbar-brand" id="custom-navbar-brand">
             <img src="/images/Logo/Compass.jpg" class="logo-image" />
         </div>
-        <span class="title-container">
-            <a id="title-link" href="@Url.Action("Index", "Travel")"><label class="logo">TravelBudget</label></a>
-        </span>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <div class="title-container">
+            <a id="title-link" href="@Url.Action("Index", "Travel", new { active = true })"><label class="logo">TravelBudget</label></a>
+        </div>
+        <button class="navbar-toggler d-lg-none" style="display: flex; flex-direction: column; justify-content: center; background-color: transparent; border: 2px solid darkgoldenrod; margin-right:20px " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="bi bi-list" style="background-color: darkgoldenrod; border: 2px solid darkgoldenrod; height: 1px; width: 25px; display: inline-block; margin-right: 1px; margin-top: 3px;"></span>
+            <span class="bi bi-list" style="background-color: darkgoldenrod; border: 2px solid darkgoldenrod; height: 1px; width: 25px; display: inline-block; margin-right: 1px; margin-top: 3px;"></span>
+            <span class="bi bi-list" style="background-color: darkgoldenrod; border: 2px solid darkgoldenrod; height: 1px; width: 25px; display: inline-block; margin-top: 3px; margin-bottom: 3px;"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end d-lg-none" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" style="margin-right: 40px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Statistics" asp-action="Statistics">Statistics</a></li>
-                <li class="nav-item" style="margin-right: 40px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Management" asp-action="ManageZone">Management</a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Create"> Create New Travel </a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="true"> Current Travels </a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="false"> Travels History </a></li>
-                <li class="nav-item" id="buttonLi">
+                <li class="nav-item" style="margin-right: 25px; margin-left: 25px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Statistics" asp-action="Statistics">Statistics</a></li>
+                <li class="nav-item" style="margin-right: 25px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Management" asp-action="ManageZone">Management</a></li>
+                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Create"> Create&nbsp;New&nbsp;Travel </a></li>
+                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="true"> Current&nbsp;Travels </a></li>
+                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="false"> Travels&nbsp;History </a></li>
+                <li @* class="nav-item" *@ id="buttonLi">
                     <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Welcome", new { area = "" })" method="post">
                         <button type="submit" class="btn btn-outline-secondary" id="Mybutton" title="Click to log out">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
@@ -65,11 +65,16 @@
             @RenderBody()
         </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Footer Design -->
     <footer class="footer">
         <p>Copyright &copy; 2023 Designed by <span>MK</span></p>
     </footer>
-    @await Html.PartialAsync("_notificationPartial")
+    @await Html.PartialAsync("_NotificationPartial")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

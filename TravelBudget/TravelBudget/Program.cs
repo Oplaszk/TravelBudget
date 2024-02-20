@@ -15,6 +15,7 @@ namespace TravelBudget
 
             var builder = WebApplication.CreateBuilder(args);
 
+
             builder.Logging.AddConsole();
 
             builder.Services.AddAntiforgery(options => options.HeaderName = "X-CSRF-TOKEN");
@@ -49,6 +50,7 @@ namespace TravelBudget
 
             app.UseRouting();
 
+            app.UseCookiePolicy();
             app.UseAuthorization();
 
             app.MapControllerRoute(

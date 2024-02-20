@@ -4,7 +4,7 @@ function DeleteTravel(actionUrl, name, description, startingDate, finishDate)
     Swal.fire({
         title: 'Confirm Deletion',
         html: `
-            <h4 style="color: red;"">Are you sure you want to delete this travel?</h4>
+            <h4 style="color: red;">Are you sure you want to delete this travel?</h4>
             <div>
             <hr class="horizontal-line">
             <h2>Travel Details:</h2>
@@ -31,7 +31,7 @@ function DeleteTravel(actionUrl, name, description, startingDate, finishDate)
             });
 
         } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire('Cancelled', 'Your travel is save :)', 'info');
+            Swal.fire('Cancelled', 'Your travel is safe :)', 'info');
         }
     });
 }
@@ -40,7 +40,7 @@ function DeleteExpense(actionUrl, price, descriprion, date, categoryType, countr
     Swal.fire({
         title: 'Confirm Deletion',
         html: `
-            <h4 style="color: red;"">Are you sure you want to delete this expense?</h4>
+            <h4 style="color: red;">Are you sure you want to delete this expense?</h4>
             <div>
             <hr class="horizontal-line">
             <h2>Expense Details:</h2>
@@ -68,7 +68,7 @@ function DeleteExpense(actionUrl, price, descriprion, date, categoryType, countr
             });
 
         } else if (result.dismiss === Swal.DismissReason.cancel) {
-            Swal.fire('Cancelled', 'Your expense is save :)', 'info');
+            Swal.fire('Cancelled', 'Your expense is safe :)', 'info');
         }
     });
 }

@@ -79,10 +79,6 @@ th, td {
 }
 
 /*<--------------------------- Delete Category Form --------------------------->*/
-.delete-title,
-.category-drop-down {
-    display: inline-block;
-}
 
 #M_label_1-delete-category {
     margin: 0;
@@ -119,13 +115,6 @@ th, td {
     .form-control-category:hover {
         color: darkgoldenrod;
     }
-
-.delete-title {
-    color: darkgoldenrod;
-    height: 35px;
-    font-size: 24px;
-    padding-right: 10px;
-}
 
 .form-outline {
     padding-left: 30px;

@@ -69,6 +69,7 @@ th, td {
     padding: 10px 30px;
     border: 3px solid black;
     border-radius: 5px;
+    white-space: nowrap;
 }
 [data-record-id]:hover {
     letter-spacing: 0.06em;
@@ -127,4 +128,28 @@ a span {
     color: white;
 }
 
+@media (max-width: 1460px) {
+    .navbar-toggler {
+        display: block;
+    }
+
+    .collapse.navbar-collapse {
+        display: none;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+        .navbar-nav li {
+            margin-right: 0;
+            border: none;
+        }
+
+    .navbar-toggler[aria-expanded="true"] .bi-list:before,
+    .navbar-toggler[aria-expanded="false"] .bi-list:before {
+        content: "\e5d2";
+    }
+}
 
