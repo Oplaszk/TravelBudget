@@ -30,11 +30,21 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end d-lg-none" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" style="margin-right: 25px; margin-left: 25px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Statistics" asp-action="Statistics">Statistics</a></li>
-                <li class="nav-item" style="margin-right: 25px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Management" asp-action="ManageZone">Management</a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Create"> Create&nbsp;New&nbsp;Travel </a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="true"> Current&nbsp;Travels </a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="false"> Travels&nbsp;History </a></li>
+                <li class="nav-item" style="margin-right: 25px; margin-left: 25px; border-right: 3.5px solid darkgoldenrod;">
+                    <a class="a" asp-controller="Statistics" asp-action="Statistics">Statistics</a>
+                </li>
+                <li class="nav-item" style="margin-right: 25px; border-right: 3.5px solid darkgoldenrod;">
+                    <a class="a" asp-controller="Management" asp-action="ManageZone">Management</a>
+                </li>
+                <li class="nav-item">
+                    <a class="a" asp-controller="Travel" asp-action="Create"> Create&nbsp;New&nbsp;Travel </a>
+                </li>
+                <li class="nav-item">
+                    <a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="true"> Current&nbsp;Travels </a>
+                </li>
+                <li class="nav-item">
+                    <a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="false"> Travels&nbsp;History </a>
+                </li>
                 <li @* class="nav-item" *@ id="buttonLi">
                     <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Welcome", new { area = "" })" method="post">
                         <button type="submit" class="btn btn-outline-secondary" id="Mybutton" title="Click to log out">
