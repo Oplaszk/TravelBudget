@@ -7,16 +7,22 @@
     font-family: 'Sans Serif Collection';
 /*    overflow: hidden;*/
 }
-@media (max-width: 1445px) {
-    /* Ukryj elementy, które maj¹ byæ niewidoczne na mniejszych ekranach */
-    .nav-item {
-        display: none;
+@media (max-width: 1455px) {
+    .navbar-nav {
+        display: none; /* Ukryj menu na ma³ych ekranach */
+        position: fixed;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: black;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
     }
 
-    /* Dodaj styl dla przycisku rozwijanego */
-    .navbar-toggler {
-        display: block; /* Wyœwietl przycisk rozwijany na mniejszych ekranach */
-    }
+        .navbar-nav.active {
+            display: flex; /* Poka¿ menu, gdy ma klasê active */
+        }
 }
 
 

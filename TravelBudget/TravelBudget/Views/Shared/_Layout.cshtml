@@ -35,7 +35,7 @@
                 <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Create"> Create&nbsp;New&nbsp;Travel </a></li>
                 <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="true"> Current&nbsp;Travels </a></li>
                 <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="false"> Travels&nbsp;History </a></li>
-                <li @* class="nav-item" *@ id="buttonLi">
+                <li class="nav-item" id="buttonLi">
                     <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Welcome", new { area = "" })" method="post">
                         <button type="submit" class="btn btn-outline-secondary" id="Mybutton" title="Click to log out">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
@@ -76,6 +76,20 @@
     </footer>
     @await Html.PartialAsync("_NotificationPartial")
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const hamburger = document.querySelector(".navbar-toggler");
+            const navbarNav = document.querySelector(".navbar-nav");
+
+            hamburger.addEventListener("click", () => {
+                hamburger.classList.toggle("active");
+                navbarNav.classList.toggle("active");
+            });
+        });
+
+    </script>
 </body>
 </html>
 
