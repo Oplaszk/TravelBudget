@@ -7,138 +7,57 @@
     font-family: 'Sans Serif Collection';
 /*    overflow: hidden;*/
 }
-@media (max-width: 1455px) {
-    .navbar-nav {
-        display: none; /* Ukryj menu na ma³ych ekranach */
-        position: fixed;
-        top: 70px;
-        gap: 0;
-        flex-direction: column;
-        background-color: black;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
-
-        .navbar-nav.active {
-            display: flex; /* Poka¿ menu, gdy ma klasê active */
-        }
-}
-
 
 /*<-------------------- Navbar section -------------------->*/
-    nav {
-        background-color: black;
-        display: inline-block;
-        width: 100%;
-        height: 95px; 
-        border-bottom: 2px solid white;
-        max-height: 120px;
-        /*overflow: hidden;*/
-    }
+.header {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: black;
+}
+.navbar {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
 
-    #title-link :hover {
-        cursor: pointer;
-    }
-
-    .logo {
-        color: white;
+}
+.navbar .logo {
+    display: flex;
+    gap: 10px;
+    text-decoration: none;
+    align-items: center;
+}
+.navbar .logo img {
+    float: left;
+    border-radius: 8px 8px 8px 8px;
+    width: 160px;
+    height: 80px;
+    padding-left: 10px;
+}
+    .navbar .logo h2 {
         font-size: 45px;
-        text-align: center;
-        cursor: pointer;
     }
-
-    .logo-image {
-        float: left;
-        border-radius: 8px 8px 8px 8px;
-        width: 160px;
-        height: 80px;
-        padding-left: 10px;
-    }
-
-    nav ul {
+    .navbar .links {
         display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+        list-style: none;
+        gap: 30px;
     }
-
-    .nav-item {
-        text-align: center;
-        white-space: nowrap;
-        overflow-y: hidden;
-    }
-
-    nav ul li a {
+    .navbar .links a {
         text-decoration: none;
-        color: white;
         font-size: 27px;
-        padding-right: 25px;
+        color: white;
         white-space: nowrap;
     }
-
-    nav ul li .a:hover {
+    .navbar .links a:hover {
         transition: 0.7s;
         color: darkgoldenrod;
         text-shadow: 10px 10px 10px darkgoldenrod;
         text-shadow: -15px -15px -15px darkgoldenrod;
     }
-
-    #custom-navbar-brand {
-        text-align: center;
-        align-items: center;
-        margin-right: 5px;
-        padding: 0;
-    }
-/*<-------------------- Unrolling Navbar section -------------------->*/
-.navbar-toggler-icon {
-    background-color: gold; /* Kolor trzech poziomych linii (z³oty) */
-    border: 1px solid gold; /* Obramowanie trzech poziomych linii (z³ote) */
-}
-/*    #navbarNav {
-        background-color: black;
-        z-index: 1000;
-    }*/
-    /*.navbar-collapse.show .navbar-nav {
-        position: fixed;
-        top: 120px;*/ /* Wartoœæ dostosuj do wysokoœci Twojego paska nawigacyjnego */
-        /*float: left;
-        width: auto;*/
-        /*background-color: black;*/ /* Kolor t³a, dostosuj do swoich preferencji */
-        /*z-index: 1000;*/ /* Upewnij siê, ¿e menu jest na wierzchu innych elementów */
-        /*border-top: 2px solid white;
-        padding-top: 20px;
-    }
-    .navbar-collapse.show .navbar-nav .nav-item:nth-child(1),
-    .navbar-collapse.show .navbar-nav .nav-item:nth-child(2) {
-        margin-right: 0;*/ /* Ustaw margines na zero lub dostosuj do preferencji */
-        /*border-right: none;*/ /* Usuñ prawe obramowanie */
-    /*}*/
-
-/*    .navbar-toggler {
-        background-color: white;
-        border: 1px solid darkgoldenrod;
-        display: inline-block;
-        width: 1.5em;
-        height: 1.5em;
-        vertical-align: middle;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-
-    .navbar-toggler-icon {
-        background-color: white;
-        border: 1px solid darkgoldenrod;
-        display: inline-block;
-        vertical-align: middle;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
-    .navbar-toggler {
-        background-color: black;
-        border: 2px solid white;
-    }*/
-
-/*<-------------------- Log out Button section -------------------->*/
+        /*<-------------------- Log out Button section -------------------->*/
     .button-container {
         padding-left: 3px;
         padding-right: 3px;
