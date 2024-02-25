@@ -1,74 +1,74 @@
 
 /*<-------------------- Main section -------------------->*/
-#Body-create {
-    max-height: 100vh;
-    overflow-y: auto;
-}
+    #Body-create {
+        max-height: 100vh;
+        overflow-y: auto;
+    }
 /*<-------------------- Title section -------------------->*/
-#CreateTitle {
-    color: darkgoldenrod;
-    text-align: center;
-    animation: fadeIn 2s ease;
-    padding-top: 10px;
-}
+    #CreateTitle {
+        color: darkgoldenrod;
+        text-align: center;
+        animation: fadeIn 2s ease;
+        padding-top: 10px;
+    }
 /*<-------------------- Form section -------------------->*/
-#C_label_1-name {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 2s ease;
-}
+    #C_label_1-name {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        color: darkgoldenrod;
+        animation: fadeIn 2s ease;
+    }
 
-#C_label_2-description {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 5s ease;
-}
+    #C_label_2-description {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        color: darkgoldenrod;
+        animation: fadeIn 3.5s ease;
+    }
 
-#C_label_3-startDate {
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 7s ease;
-}
+    #C_label_3-startDate {
+        margin: 0;
+        color: darkgoldenrod;
+        animation: fadeIn 4.5s ease;
+    }
 
-#C_label_4-finishDate {
-    margin: 0;
-    color: darkgoldenrod;
-    animation: fadeIn 9s ease;
-}
+    #C_label_4-finishDate {
+        margin: 0;
+        color: darkgoldenrod;
+        animation: fadeIn 5.5s ease;
+    }
 
-#C_label_5-activeBox {
-    margin: 0;
-    color: darkgoldenrod;
-    text-align: center;
-    animation: fadeIn 11s ease;
-    padding-top: 10px;
-}
+    #C_label_5-activeBox {
+        margin: 0;
+        color: darkgoldenrod;
+        text-align: center;
+        animation: fadeIn 6.5s ease;
+        padding-top: 10px;
+    }
 
-.form-outline {
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 0;
-    margin: 0;
-}
+    .form-outline {
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-bottom: 0;
+        margin: 0;
+    }
 
-.custom-buttom {
-    width: 30px;
-    height: 30px;
-}
+    .custom-buttom {
+        width: 30px;
+        height: 30px;
+    }
 
-.custom-label {
-    text-align: center;
-}
+    .custom-label {
+        text-align: center;
+    }
 /*<-------------------- Create button section -------------------->*/
-#create-button {
-    border: 2px solid black;
-    background-color: darkgoldenrod;
-    font-size: 25px;
-}
+    #create-button {
+        border: 2px solid black;
+        background-color: darkgoldenrod;
+        font-size: 25px;
+    }
 
     #create-button:hover {
         box-shadow: 0px 0px 8px 5px darkgoldenrod;
@@ -78,13 +78,13 @@
         border: 2px solid white;
     }
 
-.create-buttonSection {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    padding: 8px;
-    animation: fadeIn 13s ease;
-}
+    .create-buttonSection {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        padding: 8px;
+        animation: fadeIn 7s ease;
+    }
 /*<-------------------- Calendary buttons section -------------------->*/
     #showStartingDatePicker {
         border: 2.5px solid darkgoldenrod;
@@ -110,14 +110,14 @@
 /*<---------------------- Additional styles for better look ----------------------->*/
 
 /*<-------------------- Modification Name box -------------------->*/
-.form-control-name {
-    border: 2px solid darkgoldenrod;
-    border-radius: 2px;
-    background-color: black;
-    color: darkgray;
-    padding: 5px;
-    cursor: pointer;
-}
+    .form-control-name {
+        border: 2px solid darkgoldenrod;
+        border-radius: 2px;
+        background-color: black;
+        color: darkgray;
+        padding: 5px;
+        cursor: pointer;
+    }
 
     .form-control-name:hover {
         background-color: darkgoldenrod;
@@ -133,14 +133,14 @@
         color: black;
     }
 /*<-------------------- Modification Description box -------------------->*/
-.form-control-description {
-    border: 2px solid darkgoldenrod;
-    border-radius: 2px;
-    background-color: black;
-    color: darkgray;
-    padding: 5px;
-    cursor: pointer;
-}
+    .form-control-description {
+        border: 2px solid darkgoldenrod;
+        border-radius: 2px;
+        background-color: black;
+        color: darkgray;
+        padding: 5px;
+        cursor: pointer;
+    }
     .form-control-description:hover {
         background-color: darkgoldenrod;
         color: black;
@@ -155,13 +155,13 @@
         color: black;
     }
 /*<-------------------- Modification StartingDate box -------------------->*/
-#C_label_3-startDate input[type=datetime-local] {
-    border: 2px solid darkgoldenrod;
-    background-color: black;
-    color: darkgray;
-    padding: 5px;
-    cursor: pointer;
-}
+    #C_label_3-startDate input[type=datetime-local] {
+        border: 2px solid darkgoldenrod;
+        background-color: black;
+        color: darkgray;
+        padding: 5px;
+        cursor: pointer;
+    }
 
     #C_label_3-startDate input[type=datetime-local]:hover {
         background-color: darkgoldenrod;
@@ -169,13 +169,13 @@
         transition: 0.4s;
     }
 /*<-------------------- Modification FinishDate box -------------------->*/
-#C_label_4-finishDate input[type=datetime-local] {
-    border: 2px solid darkgoldenrod;
-    background-color: black;
-    color: darkgray;
-    padding: 5px;
-    cursor: pointer;
-}
+    #C_label_4-finishDate input[type=datetime-local] {
+        border: 2px solid darkgoldenrod;
+        background-color: black;
+        color: darkgray;
+        padding: 5px;
+        cursor: pointer;
+    }
 
     #C_label_4-finishDate input[type=datetime-local]:hover {
         background-color: darkgoldenrod;
@@ -183,27 +183,27 @@
         transition: 0.4s;
     }
 /*<-------------------- Modification Active checkbox -------------------->*/
-#C_label_5-activeBox {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    margin: 0;
-    color: darkgoldenrod;
-    text-align: left;
-    animation: fadeIn 11s ease;
-}
+    #C_label_5-activeBox {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        margin: 0;
+        color: darkgoldenrod;
+        text-align: left;
+        animation: fadeIn 8s ease;
+    }
 
-#activeCheckbox {
-    appearance: none; 
-    border: 2px solid darkgoldenrod;
-    border-radius: 2px;
-    background-color: black;
-    color: darkgoldenrod;
-    width: 32px; 
-    height: 32px; 
-    cursor: pointer;
-    margin-right: 10px; 
-}
+    #activeCheckbox {
+        appearance: none; 
+        border: 2px solid darkgoldenrod;
+        border-radius: 2px;
+        background-color: black;
+        color: darkgoldenrod;
+        width: 32px; 
+        height: 32px; 
+        cursor: pointer;
+        margin-right: 10px; 
+    }
     #activeCheckbox:checked {
         background-color: darkgoldenrod;
         color: black;
@@ -216,21 +216,21 @@
         line-height: 20px; 
     }
 
-.form-check-label.custom-label {
-    font-size: 20px;
-    text-align: left; 
-}
+    .form-check-label.custom-label {
+        font-size: 20px;
+        text-align: left; 
+    }
 /*<-------------------- Animation section -------------------->*/
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
 
-    to {
-        opacity: 1;
+        to {
+            opacity: 1;
+        }
     }
-}
-#toast-container > .toast-success {
-    background-color: green;
-    color: white;
-}
+    #toast-container > .toast-success {
+        background-color: green;
+        color: white;
+    }

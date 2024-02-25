@@ -7,9 +7,7 @@
     font-family: 'Sans Serif Collection';
 }
 /*<-------------------- Main section -------------------->*/
-/*.body-statistics {
 
-}*/
 .record-container {
     max-height: auto;
     overflow-y: auto;
@@ -20,17 +18,8 @@
     column-gap: 20px;
     row-gap: 20px;
     align-items: center;
-    /* flex-wrap: wrap;*/
 }
-/*.container {
-    display: flex;
-    flex-direction: row;
-    padding-top: 20px;
-    padding-left: 25px;
-    float: left;
-    max-height: auto;
-    background-color: black;
-}*/
+
 .box {
     max-width: auto;
     max-height: auto;
@@ -40,7 +29,6 @@
     border: 3px solid darkgoldenrod;
     width: 100%;
     background-color: darkgoldenrod;
-    animation: fadeIn 10s ease;
     border-radius: 5px;
 }
 .title {

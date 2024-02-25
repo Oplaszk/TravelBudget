@@ -29,7 +29,7 @@
             </div>
             <div class="form-outline mb-2" id="C_label_3-startDate">
                 <label asp-for="@Model.Travel.StartingDate" style="font-size:20px">StartingDate</label>
-                <div class="input-group date">
+                <div class="input-group date" style="z-index:0;">
                     <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showStartingDatePicker">Select</button>
@@ -38,7 +38,7 @@
             </div>
             <div class="form-outline mb-2" id="C_label_4-finishDate">
                 <label asp-for="@Model.Travel.FinishDate" style="font-size: 20px">FinishDate</label>
-                <div class="input-group date">
+                <div class="input-group date" style="z-index:0;">
                     <input asp-for="@Model.Travel.FinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>

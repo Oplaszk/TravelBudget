@@ -5,69 +5,68 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'Sans Serif Collection';
-/*    overflow: hidden;*/
 }
-
 
 /*<-------------------- Navbar section -------------------->*/
-nav {
-    background-color: black;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    height: 100px ;
-    width: 100%;
-    border-bottom: 2px solid white;
-}
-nav .logo-redirection {
-    display: flex;
-    justify-content: flex-start;
-}
-.logo-redirection {
-    display: inline-block;
-    justify-content: center;
-    gap: 10px;
-    align-items: center;
-    text-align: center;
-    margin-left: 6px;
-    text-decoration: none;
-}
-.logo-redirection img {
-    border-radius: 8px 8px 8px 8px;
-    width: 160px;
-    height: 90px;
-    cursor: pointer;
-    font-size: 70px;
-}
-.logo-text {
-    font-size: 42px;
-    cursor: pointer;
-    display: inline;
-    color: white;
-}
-nav .menu-container {
-    display: flex;
-    justify-content: flex-end;
-}
-.menu-container {
-    flex: 1;
-}
-.list-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
-    color: white;
-    font-size: 24px;
-}
-ul li a {
-    text-decoration: none;
-    list-style: none;
-    color: white;
-    white-space: nowrap;
-}
+    nav {
+        background-color: black;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        height: 110px;
+        width: 100%;
+        border-bottom: 2px solid white;
+    }
+    nav .logo-redirection {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .logo-redirection {
+        display: inline-block;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+        text-align: center;
+        margin-left: 6px;
+        text-decoration: none;
+    }
+    .logo-redirection img {
+        border-radius: 8px 8px 8px 8px;
+        width: 160px;
+        height: 90px;
+        cursor: pointer;
+        font-size: 70px;
+    }
+    .logo-text {
+        font-size: 42px;
+        cursor: pointer;
+        display: inline;
+        color: white;
+    }
+    nav .menu-container {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .menu-container {
+        flex: 1;
+    }
+    .list-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-size: 24px;
+        margin-right: 30px;
+    }
+    ul li a {
+        text-decoration: none;
+        list-style: none;
+        color: white;
+        white-space: nowrap;
+    }
     ul li a:hover {
         transition: 0.7s;
         color: darkgoldenrod;
@@ -78,47 +77,48 @@ ul li a {
                      0 -8px -14px darkgoldenrod,
                      0 10px -24px darkgoldenrod;
     }
-.hamburger-container {
-/*    flex: 2;*/
-    float: right;
-    margin-right: 20px;
-    flex-direction: column;
-    display: none;
-    cursor: pointer;
-/*    transform: translateY(-50%);*/
-/*    border: 2px solid red;
-    width: auto;
-    height: auto;*/
-}
 
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-    background-color: darkgoldenrod;
-}
+    /*<-------------------- Unrolling Navbar section -------------------->*/
+    .hamburger-container {
+        margin-right: 20px;
+        margin-left: 20px;
+        flex-direction: column;
+        display: none;
+        cursor: pointer;
+    }
 
-@media (max-width: 1445px) {
+    .bar {
+        display: block;
+        width: 30px;
+        height: 3px;
+        margin: 7px 0;
+        -webkit-transition: all 0.5s ease-in-out;
+        transition: all 0.5s ease-in-out;
+        background-color: darkgoldenrod;
+    }
+
+@media (max-width: 1350px) {
 
     .hamburger-container {
         display: block;
     }
-    .hamburger-container.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger-container.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger-container.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+
+        .hamburger-container.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-container.active .bar:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .hamburger-container.active .bar:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
     .list-container {
         position: fixed;
         left: -100%;
-        top: 100px;
+        top: 110px;
         gap: 0;
         flex-direction: column;
         background-color: black;
@@ -128,31 +128,27 @@ ul li a {
         z-index: 1;
         padding-top: 10px;
     }
+
     .nav-item {
         margin: 10px 0;
+        border-left: 2px solid darkgoldenrod;
+        border-right: 2px solid darkgoldenrod;
     }
+
+        .nav-item a {
+            margin: 0 20px;
+        }
+
     .list-container.active {
         left: 0;
     }
-/*    nav .hamburger-container {
-        display: flex;
-        justify-content: flex-end;
-    }*/
-
 }
-    /*<-------------------- Unrolling Navbar section -------------------->*/
     /*<-------------------- Log out Button section -------------------->*/
-/*    .button-container {
-    padding-left: 3px;
-    padding-right: 3px;
-}*/
 
     #buttonLi {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-/*        padding-top: 4px;
-        padding-right: 30px;*/
     }
 
     #Mybutton {
@@ -172,7 +168,6 @@ ul li a {
 
     #Mybutton:hover svg path {
         fill: darkgoldenrod; 
-/*        box-shadow: 5px 5px 5px 5px darkgoldenrod;*/
     }
 /*<-------------------- Main Grids -------------------->*/
     main {
@@ -182,7 +177,6 @@ ul li a {
         padding: 0;
         margin: 0;
         min-height: 100vh;
-        /*width: auto;*/
     }
 
     .main-section {
@@ -224,13 +218,6 @@ ul li a {
         to {
             opacity: 1;
         }
-    }
-
-    #title {
-        color: darkgoldenrod;
-        text-align: center;
-        animation: fadeIn 4s ease;
-        padding-top: 10px;
     }
     /*<-------------------- Footer section -------------------->*/
     .footer {

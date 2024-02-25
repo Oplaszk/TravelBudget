@@ -7,6 +7,12 @@
     font-family: 'Sans Serif Collection';
 }
 /*<-------------------- Table section -------------------->*/
+#title {
+    color: darkgoldenrod;
+    text-align: center;
+    animation: fadeIn 3s ease;
+    padding-top: 10px;
+}
 #container {
     display: flex;
     flex-direction: column; 
@@ -21,7 +27,7 @@
     width: 100%;
     margin-top: 10px;
     background-color: darkgoldenrod;
-    animation: fadeIn 10s ease;
+    animation: fadeIn 3s ease;
 }
 
 th {
@@ -54,7 +60,7 @@ th, td {
     padding-top: 10px;
     padding-bottom: 22px;
     cursor: pointer;
-    animation: fadeIn 10s ease;
+    animation: fadeIn 3s ease;
 }
 .MenuButton {
     margin: 0;
@@ -85,7 +91,6 @@ th, td {
 }
 a span {
     position: relative;
-    z-index: 1;
 }
 /*<-------------------- Delete button section -------------------->*/
 [data-record-id-delete] {
@@ -128,28 +133,4 @@ a span {
     color: white;
 }
 
-@media (max-width: 1460px) {
-    .navbar-toggler {
-        display: block;
-    }
-
-    .collapse.navbar-collapse {
-        display: none;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-    }
-
-        .navbar-nav li {
-            margin-right: 0;
-            border: none;
-        }
-
-    .navbar-toggler[aria-expanded="true"] .bi-list:before,
-    .navbar-toggler[aria-expanded="false"] .bi-list:before {
-        content: "\e5d2";
-    }
-}
 
