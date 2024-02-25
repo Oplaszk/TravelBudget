@@ -5,49 +5,59 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-------- CSS Links -------->
+    <link rel="stylesheet" href="~/css/Normalizer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/TravelBudget_MainPage.css" />
     <link rel="icon" type="image/jpg" href="\images\Logo\Compass.jpg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/Index-View.css" asp-append-version="true" />
+    @* <link rel="stylesheet" href="~/css/Index-View.css" asp-append-version="true" /> *@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-xl">
-        <div class="navbar-brand" id="custom-navbar-brand">
-            <img src="/images/Logo/Compass.jpg" class="logo-image" />
-        </div>
-        <div class="title-container">
-            <a id="title-link" href="@Url.Action("Index", "Travel", new { active = true })"><label class="logo">TravelBudget</label></a>
-        </div>
-        <button class="navbar-toggler d-lg-none" style="display: flex; flex-direction: column; justify-content: center; background-color: transparent; border: 2px solid darkgoldenrod; margin-right:20px " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="bi bi-list" style="background-color: darkgoldenrod; border: 2px solid darkgoldenrod; height: 1px; width: 25px; display: inline-block; margin-right: 1px; margin-top: 3px;"></span>
-            <span class="bi bi-list" style="background-color: darkgoldenrod; border: 2px solid darkgoldenrod; height: 1px; width: 25px; display: inline-block; margin-right: 1px; margin-top: 3px;"></span>
-            <span class="bi bi-list" style="background-color: darkgoldenrod; border: 2px solid darkgoldenrod; height: 1px; width: 25px; display: inline-block; margin-top: 3px; margin-bottom: 3px;"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end d-lg-none" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item" style="margin-right: 25px; margin-left: 25px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Statistics" asp-action="Statistics">Statistics</a></li>
-                <li class="nav-item" style="margin-right: 25px; border-right: 3.5px solid darkgoldenrod;"><a class="a" asp-controller="Management" asp-action="ManageZone">Management</a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Create"> Create&nbsp;New&nbsp;Travel </a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="true"> Current&nbsp;Travels </a></li>
-                <li class="nav-item"><a class="a" asp-controller="Travel" asp-action="Index" asp-route-active="false"> Travels&nbsp;History </a></li>
-                <li @* class="nav-item" *@ id="buttonLi">
-                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Welcome", new { area = "" })" method="post">
-                        <button type="submit" class="btn btn-outline-secondary" id="Mybutton" title="Click to log out">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
-                                <path d="M7.5 1v7h1V1h-1z" />
-                                <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
-                            </svg>
-                        </button>
-                    </form>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav>
+            <a class="logo-redirection" href="@Url.Action("Index", "Travel", new { active = true })">
+                <img class="logo-image" src="/images/Logo/Compass.jpg" alt="logo" />
+                <h2><span class="logo-text">TravelBudget</span></h2>
+            </a>
+            <div class="hamburger-container">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="menu-container">
+                <ul class="list-container">
+                    <li class="nav-item">
+                        <a href="#">Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#">Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"> Create&nbsp;Travel </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"> Current&nbsp;Travels </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#"> Travels&nbsp;History </a>
+                    </li>
+                    <li class="login-btn" id="buttonLi">
+                        <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Welcome", new { area = "" })" method="post">
+                            <button type="submit" class="btn btn-outline-secondary" id="Mybutton" title="Click to log out">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+                                    <path d="M7.5 1v7h1V1h-1z" />
+                                    <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <!-- Main Section -->
     <main>
         @{
@@ -76,6 +86,21 @@
     </footer>
     @await Html.PartialAsync("_NotificationPartial")
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        const hamburger = document.querySelector(".hamburger-container")
+        const navMenu = document.querySelector(".list-container")
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        })
+
+        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }))
+    </script>
 </body>
 </html>
 

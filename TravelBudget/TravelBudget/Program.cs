@@ -30,12 +30,9 @@ namespace TravelBudget
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<ICountryRepository, CountryRepository>();
             builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
-            //builder.Services.AddEndpointsApiExplorer();
-            //builder.Services.AddSwaggerGen();
+
             var app = builder.Build();
 
-            //app.UseSwagger();
-            //app.UseSwaggerUI();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
