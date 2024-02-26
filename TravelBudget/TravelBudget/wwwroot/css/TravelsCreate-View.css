@@ -15,7 +15,6 @@
     #C_label_1-name {
         display: flex;
         flex-direction: column;
-        margin: 0;
         color: darkgoldenrod;
         animation: fadeIn 2s ease;
     }
@@ -23,31 +22,29 @@
     #C_label_2-description {
         display: flex;
         flex-direction: column;
-        margin: 0;
         color: darkgoldenrod;
         animation: fadeIn 3.5s ease;
     }
 
     #C_label_3-startDate {
-        margin: 0;
         color: darkgoldenrod;
         animation: fadeIn 4.5s ease;
     }
 
     #C_label_4-finishDate {
-        margin: 0;
         color: darkgoldenrod;
         animation: fadeIn 5.5s ease;
     }
-
+    #C_label_6-CountrySelectList{
+        color: darkgoldenrod;
+        animation: fadeIn 8s ease;
+    }
     #C_label_5-activeBox {
-        margin: 0;
         color: darkgoldenrod;
         text-align: center;
         animation: fadeIn 6.5s ease;
         padding-top: 10px;
     }
-
     .form-outline {
         padding-left: 50px;
         padding-right: 50px;

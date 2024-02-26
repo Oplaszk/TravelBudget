@@ -1,13 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBContact.Response.DTO;
-using TravelBudgetDBModels.Models;
 
 namespace TravelBudgetDBContact.Repositories
 {
@@ -40,7 +34,7 @@ namespace TravelBudgetDBContact.Repositories
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "En error occurred while retriving currency code from the database");
+                _logger.LogError(ex, "En error occurred while retrieving currency code from the database");
                 return null;
             }
         }

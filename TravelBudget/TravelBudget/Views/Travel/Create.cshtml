@@ -45,6 +45,12 @@
                     </div>
                 </div>
             </div>
+            <div class="form-outline mb-2" id="C_label_6-CountrySelectList">
+                <label style="font-size: 20px">Select Country</label>
+                <select class="form-select" asp-items="Model.CountriesSelectList" asp-for="@Model.SelectedCountry" style="font-size:25px">
+                    <option>--Select Country--</option>
+                </select>            
+            </div>
             <div class="form-outline mb-2" id="C_label_5-activeBox">
                 <input asp-for="@Model.Travel.Active" class="form-check-input custom-button" type="checkbox" id="activeCheckbox">
                 <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 23px" 

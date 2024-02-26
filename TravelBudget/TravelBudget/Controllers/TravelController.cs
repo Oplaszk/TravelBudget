@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
 using System.Security.Claims;
 using TravelBudget.ViewModels;
@@ -13,10 +14,12 @@ namespace TravelBudget.Controllers
     {
         private readonly ITravelRepository _travelRepository;
         private readonly TravelViewModel _travelViewModel;
+        private readonly ICountryRepository _countryRepository;
 
-        public TravelController(ITravelRepository travelRepository, ILogger<TravelController> logger) : base(logger)
+        public TravelController(ITravelRepository travelRepository, ICountryRepository countryRepository, ILogger<TravelController> logger) : base(logger)
         {
             _travelRepository = travelRepository;
+            _countryRepository = countryRepository;
             _travelViewModel = new TravelViewModel();
         }
 
@@ -39,7 +42,14 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            var countries = _countryRepository.GetAllCountriesDTO();
+
+            foreach (var country in countries)
+            {
+                _travelViewModel.CountriesSelectList.Add(new SelectListItem {Text = country.CountryWithCode, Value = country.Id.ToString() });
+            }
+
+            return View(_travelViewModel);
         }
 
         [HttpPost]
