@@ -36,6 +36,8 @@
         animation: fadeIn 5.5s ease;
     }
     #C_label_6-CountrySelectList{
+        padding-top: 10px;
+        padding-left: -30px;
         color: darkgoldenrod;
         animation: fadeIn 8s ease;
     }

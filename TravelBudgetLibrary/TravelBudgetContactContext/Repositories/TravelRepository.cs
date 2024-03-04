@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;
 
@@ -22,12 +23,20 @@ namespace TravelBudgetDBContact.Repositories
                 return new List<Travel>();
             }
         }
-        public bool SaveTravelToDB(Travel travel)
+        public bool SaveTravelToDB(Travel travel, List<string> selectedCountryIds)
         {
             try
             {
                 _db.Travels.Add(travel);
                 _db.SaveChanges();
+
+                if (selectedCountryIds != null && selectedCountryIds.Any())
+                {
+                    var selectedCountries = _db.Countries.Where(c => selectedCountryIds.Contains(c.Id.ToString())).ToList();
+                    travel.Countries = selectedCountries;
+                    _db.SaveChanges();
+                }
+
                 return true;
             }
             catch (Exception ex)

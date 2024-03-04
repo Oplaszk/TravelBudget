@@ -38,17 +38,25 @@ namespace TravelBudget.Controllers
         }
 
         #region CREATE Section
+        private void PopulateCountriesSelectList()
+        {
+            var countries = _countryRepository.GetAllCountriesDTO();
+            _travelViewModel.CountriesSelectList.Clear();
+
+            foreach (var country in countries)
+            {
+                _travelViewModel.CountriesSelectList.Add(new SelectListItem
+                {
+                    Text = country.CountryWithCode,
+                    Value = country.Id.ToString()
+                });
+            }
+        }
 
         [HttpGet]
         public IActionResult Create()
         {
-            var countries = _countryRepository.GetAllCountriesDTO();
-
-            foreach (var country in countries)
-            {
-                _travelViewModel.CountriesSelectList.Add(new SelectListItem {Text = country.CountryWithCode, Value = country.Id.ToString() });
-            }
-
+            PopulateCountriesSelectList();
             return View(_travelViewModel);
         }
 
@@ -60,18 +68,25 @@ namespace TravelBudget.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _travelRepository.SaveTravelToDB(travelViewModel.Travel);
-                    bool status = travelViewModel.Travel.Active; 
-                    Notify("Travel has been created successfully");
+                    // Pobierz wybrane kraje z formularza
+                    var selectedCountries = travelViewModel.SelectedCountries;
 
-                    return RedirectToAction("Index", "Travel", new {active = status});
+                    // Przetwarzaj i zapisuj do bazy danych
+                    _travelRepository.SaveTravelToDB(travelViewModel.Travel, selectedCountries);
+
+                    PopUpNotification("Travel has been created successfully");
+
+                    return RedirectToAction("Index", "Travel");
                 }
             }
             catch (Exception)
             {
-                Notify("Error occurred while creating the travel", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while creating the travel", notificationType: NotificationType.error);
             }
-            return View();
+
+            // Jeżeli ModelState.IsValid nie jest spełnione, ponownie ustaw SelectList dla kraji i zwróć widok z błędami
+            PopulateCountriesSelectList();
+            return View(_travelViewModel);
         }
 
         #endregion CREATE Section
@@ -95,13 +110,13 @@ namespace TravelBudget.Controllers
             {
                 _travelRepository.UpdateTravel(travelViewModel.Travel);
 
-                Notify("Travel has been updated successfully");
+                PopUpNotification("Travel has been updated successfully");
 
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                Notify("Error occurred while updating the travel", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while updating the travel", notificationType: NotificationType.error);
             }
             return View();
         }
@@ -125,7 +140,7 @@ namespace TravelBudget.Controllers
             }
             catch (Exception)
             {
-                Notify("Error occurred while deleting travel", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while deleting travel", notificationType: NotificationType.error);
             }
             return Ok();
         }
@@ -138,13 +153,13 @@ namespace TravelBudget.Controllers
                 var selected = _travelRepository.GetById(id);
                 _travelRepository.EndTravel(selected);
 
-                Notify("Your travel has been wrapped up");
+                PopUpNotification("Your travel has been wrapped up");
 
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                Notify("Error occurred while wrapping up the travel", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while wrapping up the travel", notificationType: NotificationType.error);
             }
             return View(nameof(Index));
         }
@@ -157,13 +172,13 @@ namespace TravelBudget.Controllers
                 var selected = _travelRepository.GetById(id);
                 _travelRepository.RetrieveTravel(selected);
 
-                Notify("Your travel has been retrieved successfully");
+                PopUpNotification("Your travel has been retrieved successfully");
 
                 return RedirectToAction("Index");
             }
             catch (Exception)
             {
-                Notify("Error occurred while wrapping up the travel", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while wrapping up the travel", notificationType: NotificationType.error);
             }
             return View(nameof(Index));
         }

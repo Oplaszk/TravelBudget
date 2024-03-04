@@ -9,12 +9,12 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
 {
      public interface ITravelRepository
     {
-        public List<Travel> GetAllTravels(string userId, bool active);
-        public bool SaveTravelToDB(Travel travel);
-        public Travel GetById(int id);
-        public bool UpdateTravel(Travel travel);
-        public bool DeleteTravel(Travel travel);
-        public bool EndTravel(Travel travel);
-        public bool RetrieveTravel(Travel travel);
+        List<Travel> GetAllTravels(string userId, bool active);
+        bool SaveTravelToDB(Travel travel, List<string> selectedCountryIds);
+        Travel GetById(int id);
+        bool UpdateTravel(Travel travel);
+        bool DeleteTravel(Travel travel);
+        bool EndTravel(Travel travel);
+        bool RetrieveTravel(Travel travel);
     }
 }

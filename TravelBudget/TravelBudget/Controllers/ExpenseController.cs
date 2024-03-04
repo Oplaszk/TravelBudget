@@ -44,13 +44,14 @@ namespace TravelBudget.Controllers
                     expenseViewModel.Expense.TravelId = Id;
 
                     _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
+                    PopUpNotification("Expense has been added successfully", notificationType: NotificationType.success);
 
                     return RedirectToAction("AddExpense", "Expense", new { id = Id });
                 }
             }
             catch (Exception)
             {
-                Notify("Error occurred while adding expense to the travel", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while adding expense to the travel", notificationType: NotificationType.error);
             }
 
             expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
@@ -74,7 +75,7 @@ namespace TravelBudget.Controllers
             }
             catch (Exception)
             {
-                Notify("Error occurred while deleting expense", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while deleting expense", notificationType: NotificationType.error);
             }
 
             return Ok();
@@ -109,14 +110,14 @@ namespace TravelBudget.Controllers
 
                 _expenseRepository.UpdateExpense(expenseToUpdate.Expense);
 
-                Notify("Your expense has been updated successfully");
+                PopUpNotification("Your expense has been updated successfully");
 
                 return RedirectToAction("Details", "Detail", new { id = travelId });
             }
 
             catch (Exception)
             {
-                Notify("Error occurred while updating expense to the travel", notificationType: NotificationType.error);
+                PopUpNotification("Error occurred while updating expense to the travel", notificationType: NotificationType.error);
             }
             
             return RedirectToAction("Update", "Expense", expenseToUpdate.Expense.Id);

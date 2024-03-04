@@ -31,11 +31,11 @@ namespace TravelBudget.Controllers
                 var newCategory = model.Category;
                 _categoryRepository.CreateNewCategory(newCategory);
 
-                Notify("New Category created successfully!");
+                PopUpNotification("New Category created successfully!");
             }
             catch (Exception) 
             {
-                Notify("Error while saving category", notificationType: NotificationType.error);
+                PopUpNotification("Error while saving category", notificationType: NotificationType.error);
             }
             
             return RedirectToAction(nameof(ManageZone));
@@ -50,11 +50,11 @@ namespace TravelBudget.Controllers
                 var categoryToDelete = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == indexToDelete);
                 _categoryRepository.DeleteCategory(categoryToDelete);
 
-                Notify("Category type deleted successfully!");
+                PopUpNotification("Category type deleted successfully!");
             }
             catch (Exception)
             {
-                Notify("Error while deleting category", notificationType: NotificationType.error);
+                PopUpNotification("Error while deleting category", notificationType: NotificationType.error);
             }
 
             return RedirectToAction(nameof(ManageZone));

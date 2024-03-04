@@ -60,6 +60,16 @@
                     });
                 });
             </script>
+            <script>
+                if (toastr) {
+                    var travelDeletedMessage = localStorage.getItem('travelDeletedMessage');
+
+                    if (travelDeletedMessage) {
+                        toastr.success(travelDeletedMessage);
+                        localStorage.removeItem('travelDeletedMessage');
+                    }
+                }
+            </script>
         </form>
     </div>
 </div>

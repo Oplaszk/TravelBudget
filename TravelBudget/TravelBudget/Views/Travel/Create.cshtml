@@ -13,9 +13,9 @@
         <form method="post">
             @Html.AntiForgeryToken()
             <div>
-                <h1 id="CreateTitle">@(Model == null ? "Create Travel" : "Update Travel")</h1>
+                <h1 id="CreateTitle">@(Model.Travel.Name == null ? "Create Travel" : "Update Travel")</h1>
             </div>
-            <input asp-for="@Model.Travel.UserId" value="@UserManager.GetUserAsync(User).Result.Id"hidden/>
+            <input asp-for="@Model.Travel.UserId" value="@UserManager.GetUserAsync(User).Result.Id" hidden />
             <div class="form-outline mb-2" id="C_label_0" hidden>
                 <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off" />
             </div>
@@ -30,7 +30,10 @@
             <div class="form-outline mb-2" id="C_label_3-startDate">
                 <label asp-for="@Model.Travel.StartingDate" style="font-size:20px">StartingDate</label>
                 <div class="input-group date" style="z-index:0;">
-                    <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker" />
+                    @{
+                        var formattedStartDate = Model.Travel.StartingDate.ToString("yyyy-MM-dd|HH:mm");
+                    }
+                    <input asp-for="@formattedStartDate" class="form-control" type="datetime-local" id="startingDatePicker" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showStartingDatePicker">Select</button>
                     </div>
@@ -39,24 +42,28 @@
             <div class="form-outline mb-2" id="C_label_4-finishDate">
                 <label asp-for="@Model.Travel.FinishDate" style="font-size: 20px">FinishDate</label>
                 <div class="input-group date" style="z-index:0;">
-                    <input asp-for="@Model.Travel.FinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
+                    @{
+                        var formattedFinishDate = Model.Travel.FinishDate.ToString("yyyy-MM-dd|HH:mm");
+                    }
+                    <input asp-for="@formattedFinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
                     <div class="input-group-append">
                         <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>
                     </div>
                 </div>
             </div>
-            <div class="form-outline mb-2" id="C_label_6-CountrySelectList">
-                <label style="font-size: 20px">Select Country</label>
-                <select class="form-select" asp-items="Model.CountriesSelectList" asp-for="@Model.SelectedCountry" style="font-size:25px">
-                    <option>--Select Country--</option>
-                </select>            
-            </div>
+                <div class="form-outline mb-2" id="C_label_6-CountrySelectList" style="margin-left: -4px;">
+                    <label></label>
+                    @* <select class="drop-down" asp-items="Model.CountriesSelectList" asp-for="@Model.SelectedCountry" style="font-size:16px;">
+                        <option>--Select Country--</option>
+                    </select> *@
+                    @Html.ListBoxFor(Model => Model.SelectedCountries, new MultiSelectList(Model.CountriesSelectList, "Value", "Text"), new {@class = "form-control",  multiple = "multiple"})
+                </div>
             <div class="form-outline mb-2" id="C_label_5-activeBox">
                 <input asp-for="@Model.Travel.Active" class="form-check-input custom-button" type="checkbox" id="activeCheckbox">
-                <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 23px" 
-                title="Mark checkbox to add travel to your pending travels, otherwise it will be added to Travels History section">Active</label>
+                <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 23px"
+                       title="Mark checkbox to add travel to your pending travels, otherwise it will be added to Travels History section">Active</label>
             </div>
-            <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model == null ? "Create" : "Update")</button></li>
+            <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Travel.Name == null ? "Create" : "Update")</button></li>
         </form>
     </div>
 </body>
