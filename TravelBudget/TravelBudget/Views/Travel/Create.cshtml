@@ -4,66 +4,64 @@
 @inject UserManager<IdentityUser> UserManager
 <head>
     <link rel="stylesheet" href="~/css/TravelsCreate-View.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 </head>
 
-<body id="Body-create">
-    <div class="container-create">
-        <form method="post">
-            @Html.AntiForgeryToken()
-            <div>
-                <h1 id="CreateTitle">@(Model.Travel.Name == null ? "Create Travel" : "Update Travel")</h1>
-            </div>
-            <input asp-for="@Model.Travel.UserId" value="@UserManager.GetUserAsync(User).Result.Id" hidden />
-            <div class="form-outline mb-2" id="C_label_0" hidden>
-                <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off" />
-            </div>
-            <div class="form-outline mb-2" id="C_label_1-name">
-                <label asp-for="@Model.Travel.Name" style="font-size:20px"></label>
-                <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" required />
-            </div>
-            <div class="form-outline mb-2" id="C_label_2-description">
-                <label asp-for="@Model.Travel.Description" style="font-size:20px"></label>
-                <input asp-for="@Model.Travel.Description" class=form-control-description autocomplete="off" placeholder="What is your travel about?" />
-            </div>
-            <div class="form-outline mb-2" id="C_label_3-startDate">
-                <label asp-for="@Model.Travel.StartingDate" style="font-size:20px">StartingDate</label>
-                <div class="input-group date" style="z-index:0;">
-                    @{
-                        var formattedStartDate = Model.Travel.StartingDate.ToString("yyyy-MM-dd|HH:mm");
-                    }
-                    <input asp-for="@formattedStartDate" class="form-control" type="datetime-local" id="startingDatePicker" />
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" id="showStartingDatePicker">Select</button>
-                    </div>
+@* <body id="Body-create"> *@
+<div class="container-create">
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div>
+            <h1 id="CreateTitle">@(Model.Travel.Name == null ? "Create Travel" : "Update Travel")</h1>
+        </div>
+        <input asp-for="@Model.Travel.UserId" value="@UserManager.GetUserAsync(User).Result.Id" hidden />
+        <div class="form-outline mb-2" id="C_label_0" hidden>
+            <input asp-for="@Model.Travel.Id" class=form-control autocomplete="off" />
+        </div>
+        <div class="form-outline mb-2" id="C_label_1-name">
+            <label asp-for="@Model.Travel.Name" style="font-size:20px"></label>
+            <input asp-for="@Model.Travel.Name" class=form-control-name autocomplete="off" placeholder="Type name of your travel" required />
+        </div>
+        <div class="form-outline mb-2" id="C_label_2-description">
+            <label asp-for="@Model.Travel.Description" style="font-size:20px"></label>
+            <input asp-for="@Model.Travel.Description" class=form-control-description autocomplete="off" placeholder="What is your travel about?" />
+        </div>
+        <div class="form-outline mb-2" id="C_label_3-startDate">
+            <label asp-for="@Model.Travel.StartingDate" style="font-size:20px">StartingDate</label>
+            <div class="input-group date" style="z-index:0;">
+
+                <input asp-for="@Model.Travel.StartingDate" class="form-control" type="datetime-local" id="startingDatePicker" />
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" id="showStartingDatePicker">Select</button>
                 </div>
             </div>
-            <div class="form-outline mb-2" id="C_label_4-finishDate">
-                <label asp-for="@Model.Travel.FinishDate" style="font-size: 20px">FinishDate</label>
-                <div class="input-group date" style="z-index:0;">
-                    @{
-                        var formattedFinishDate = Model.Travel.FinishDate.ToString("yyyy-MM-dd|HH:mm");
-                    }
-                    <input asp-for="@formattedFinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
-                    <div class="input-group-append">
-                        <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>
-                    </div>
+        </div>
+        <div class="form-outline mb-2" id="C_label_4-finishDate">
+            <label asp-for="@Model.Travel.FinishDate" style="font-size: 20px">FinishDate</label>
+            <div class="input-group date" style="z-index:0;">
+
+                <input asp-for="@Model.Travel.FinishDate" class="form-control" type="datetime-local" id="finishDatePicker" />
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-primary" id="showFinishDatePicker">Select</button>
                 </div>
             </div>
-                <div class="form-outline mb-2" id="C_label_6-CountrySelectList" style="margin-left: -4px;">
-                    <label></label>
-                    @* <select class="drop-down" asp-items="Model.CountriesSelectList" asp-for="@Model.SelectedCountry" style="font-size:16px;">
-                        <option>--Select Country--</option>
-                    </select> *@
-                    @Html.ListBoxFor(Model => Model.SelectedCountries, new MultiSelectList(Model.CountriesSelectList, "Value", "Text"), new {@class = "form-control",  multiple = "multiple"})
-                </div>
-            <div class="form-outline mb-2" id="C_label_5-activeBox">
-                <input asp-for="@Model.Travel.Active" class="form-check-input custom-button" type="checkbox" id="activeCheckbox">
-                <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 23px"
-                       title="Mark checkbox to add travel to your pending travels, otherwise it will be added to Travels History section">Active</label>
-            </div>
-            <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Travel.Name == null ? "Create" : "Update")</button></li>
-        </form>
-    </div>
-</body>
+        </div>
+        <div class="form-outline mb-2" id="C_label_6-CountrySelectList" style="margin-left: -4px;">
+            <label></label>
+            @Html.ListBoxFor(Model => Model.SelectedCountries, new MultiSelectList(Model.CountriesSelectList, "Value", "Text"), new { @class = "form-control", multiple = "multiple", id = "example-getting-started" })
+        </div>
+        <div class="form-outline mb-2" id="C_label_5-activeBox">
+            <input asp-for="@Model.Travel.Active" class="form-check-input custom-button" type="checkbox" id="activeCheckbox">
+            <label asp-for="@Model.Travel.Active" class="form-check-label custom-label" for="activeCheckbox" style="font-size: 23px"
+                   title="Mark checkbox to add travel to your pending travels, otherwise it will be added to Travels History section">Active</label>
+        </div>
+        <li class="create-buttonSection"><button id="create-button" type="submit" class="btn btn-warning btn-lg"> @(Model.Travel.Name == null ? "Create" : "Update")</button></li>
+    </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.2/js/bootstrap-multiselect.min.js" integrity="sha512-lxQ4VnKKW7foGFV6L9zlSe+6QppP9B2t+tMMaV4s4iqAv4iHIyXED7O+fke1VeLNaRdoVkVt8Hw/jmZ+XocsXQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.2/css/bootstrap-multiselect.min.css" integrity="sha512-fZNmykQ6RlCyzGl9he+ScLrlU0LWeaR6MO/Kq9lelfXOw54O63gizFMSD5fVgZvU1YfDIc6mxom5n60qJ1nCrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#example-getting-started').multiselect();
+    });
+</script>
+@* </body> *@

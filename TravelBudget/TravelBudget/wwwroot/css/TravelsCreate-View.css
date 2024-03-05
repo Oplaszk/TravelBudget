@@ -1,9 +1,9 @@
 
 /*<-------------------- Main section -------------------->*/
-    #Body-create {
+/*    #Body-create {
         max-height: 100vh;
         overflow-y: auto;
-    }
+    }*/
 /*<-------------------- Title section -------------------->*/
     #CreateTitle {
         color: darkgoldenrod;

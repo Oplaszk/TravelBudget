@@ -17,7 +17,7 @@ namespace TravelBudget.ViewModels.Statistics
             get
             {
                 var timeSpan = (DescribedTravel.FinishDate - DescribedTravel.StartingDate);
-                var time = $"{timeSpan.Days} day(s) {timeSpan.Hours}h {timeSpan.Minutes}min";
+                var time = $"{timeSpan.TotalDays} day(s) {timeSpan.TotalHours}h {timeSpan.TotalMinutes}min";
                 return time;
             }
             private set { }

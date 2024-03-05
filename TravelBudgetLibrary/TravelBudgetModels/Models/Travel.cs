@@ -8,9 +8,11 @@ namespace TravelBudgetDBModels.Models
         public int? Id { get; set; }
 
         [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public DateTime StartingDate { get; set; } = new DateTime();
 
         [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-ddTHH:mm}", ApplyFormatInEditMode = true)]
         public DateTime FinishDate { get; set; } = new DateTime();
         public string? Name { get; set; }
 
