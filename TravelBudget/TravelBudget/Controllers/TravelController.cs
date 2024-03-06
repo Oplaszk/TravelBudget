@@ -68,10 +68,8 @@ namespace TravelBudget.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    // Pobierz wybrane kraje z formularza
                     var selectedCountries = travelViewModel.SelectedCountries;
 
-                    // Przetwarzaj i zapisuj do bazy danych
                     _travelRepository.SaveTravelToDB(travelViewModel.Travel, selectedCountries);
 
                     PopUpNotification("Travel has been created successfully");
@@ -84,7 +82,6 @@ namespace TravelBudget.Controllers
                 PopUpNotification("Error occurred while creating the travel", notificationType: NotificationType.error);
             }
 
-            // Jeżeli ModelState.IsValid nie jest spełnione, ponownie ustaw SelectList dla kraji i zwróć widok z błędami
             PopulateCountriesSelectList();
             return View(_travelViewModel);
         }
