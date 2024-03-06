@@ -4,6 +4,7 @@
         max-height: 100vh;
         overflow-y: auto;
     }*/
+
 /*<-------------------- Title section -------------------->*/
     #CreateTitle {
         color: darkgoldenrod;
@@ -82,6 +83,7 @@
         justify-content: center;
         text-align: center;
         padding: 8px;
+        padding-top: 15px;
         animation: fadeIn 7s ease;
     }
 /*<-------------------- Calendary buttons section -------------------->*/
@@ -181,8 +183,9 @@
         color: black;
         transition: 0.4s;
     }
+
 /*<-------------------- Modification Active checkbox -------------------->*/
-    #C_label_5-activeBox {
+    #C_label_6-activeBox {
         display: flex;
         justify-content: center;
         align-items: center; 
@@ -197,16 +200,17 @@
         border: 2px solid darkgoldenrod;
         border-radius: 2px;
         background-color: black;
-        color: darkgoldenrod;
+        color: darkgray;
         width: 32px; 
         height: 32px; 
         cursor: pointer;
         margin-right: 10px; 
     }
-    #activeCheckbox:checked {
-        background-color: darkgoldenrod;
-        color: black;
-    }
+        #activeCheckbox:checked {
+            background-color: darkgoldenrod;
+            color: darkgray;
+        }
+
 
     #activeCheckbox::before {
         display: block;
@@ -217,7 +221,8 @@
 
     .form-check-label.custom-label {
         font-size: 20px;
-        text-align: left; 
+        text-align: left;
+        color: darkgray;
     }
 /*<-------------------- Animation section -------------------->*/
     @keyframes fadeIn {
@@ -233,3 +238,49 @@
         background-color: green;
         color: white;
     }
+/*<-------------------- MultiSelectBox section -------------------->*/
+#C_label_5-multiDropUp {
+    text-align: center;
+    animation: fadeIn 8s ease;
+    color: black;
+    transition: 0.4s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+}
+.multiselect-native-select {
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+    color: darkgray;
+    text-align: center;
+    align-items: center;
+}
+.multiselect-selected-text {
+    color: darkgray;
+    background-color: black;
+    font-size: 25px;
+    border: 1px solid transparent;
+    animation: fadeIn 1s ease;
+}
+    .multiselect-selected-text:hover {
+        transition: 0.7s;
+        color: darkgoldenrod;
+        text-shadow: 0 -3px 7px darkgoldenrod, 0 -8px 14px darkgoldenrod, 0 -10px 24px darkgoldenrod;
+        text-shadow: 0 5px -10px darkgoldenrod, 0 -8px -14px darkgoldenrod, 0 10px -24px darkgoldenrod;
+    }
+    .multiselect {
+        padding-top: 8px;
+        padding-right: 5px;
+        padding-left: 10px;
+    }
+    .multiselect dropdown-toggle {
+        border: none;
+        background-color: black;
+    }
+
+.custom-select {
+    border: none; 
+    background-color: black; 
+}
