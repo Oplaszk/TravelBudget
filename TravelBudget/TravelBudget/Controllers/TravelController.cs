@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Security.Claims;
 using TravelBudget.ViewModels;
 using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
+using TravelBudgetDBContact.Response.DTO;
 
 namespace TravelBudget.Controllers
 {
@@ -16,7 +19,8 @@ namespace TravelBudget.Controllers
         private readonly TravelViewModel _travelViewModel;
         private readonly ICountryRepository _countryRepository;
 
-        public TravelController(ITravelRepository travelRepository, ICountryRepository countryRepository, ILogger<TravelController> logger) : base(logger)
+        public TravelController(ITravelRepository travelRepository, ICountryRepository countryRepository,
+        ILogger<TravelController> logger, IMapper mapper) : base(logger, mapper)
         {
             _travelRepository = travelRepository;
             _countryRepository = countryRepository;
@@ -52,6 +56,20 @@ namespace TravelBudget.Controllers
                 });
             }
         }
+        private void PopulatePresentCountriesSelectList(List<CountryDTO> countries)
+        {
+            _travelViewModel.CountriesSelectList.Clear();
+
+            foreach (var country in countries)
+            {
+                _travelViewModel.CountriesSelectList.Add(new SelectListItem
+                {
+                    Text = country.CountryWithCode,
+                    Value = country.Id.ToString(),
+                    Selected = true
+                });
+            }
+        }
 
         [HttpGet]
         public IActionResult Create()
@@ -82,7 +100,6 @@ namespace TravelBudget.Controllers
                 PopUpNotification("Error occurred while creating the travel", notificationType: NotificationType.error);
             }
 
-            PopulateCountriesSelectList();
             return View(_travelViewModel);
         }
 
@@ -96,6 +113,11 @@ namespace TravelBudget.Controllers
             var travel = _travelRepository.GetById((int)id);
             _travelViewModel.Travel = travel;
 
+            var travelCountries = travel.Countries;
+            var countriesDTO = _mapper.Map<List<CountryDTO>>(travelCountries);
+
+            PopulatePresentCountriesSelectList(countriesDTO);
+
             return View("Create", _travelViewModel);
         }
 
@@ -105,11 +127,16 @@ namespace TravelBudget.Controllers
         {
             try
             {
-                _travelRepository.UpdateTravel(travelViewModel.Travel);
+                if (ModelState.IsValid)
+                {
+                    var selectedCountries = travelViewModel.SelectedCountries;
+                    _travelRepository.UpdateTravel(travelViewModel.Travel, selectedCountries);
 
-                PopUpNotification("Travel has been updated successfully");
+                    PopUpNotification("Travel has been updated successfully");
 
-                return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+
             }
             catch (Exception)
             {

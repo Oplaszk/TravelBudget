@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
 using Microsoft.Extensions.Logging;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;
@@ -7,7 +7,7 @@ namespace TravelBudgetDBContact.Repositories
 {
     public class TravelRepository : BaseRepository, ITravelRepository
     {
-        public TravelRepository(DBContact db, ILogger<TravelRepository> logger) : base(db, logger)
+        public TravelRepository(DBContact db, ILogger<TravelRepository> logger, IMapper mapper) : base(db, logger, mapper)
         {
         }
         public List<Travel> GetAllTravels(string userId, bool active)
@@ -23,17 +23,17 @@ namespace TravelBudgetDBContact.Repositories
                 return new List<Travel>();
             }
         }
-        public bool SaveTravelToDB(Travel travel, List<string> selectedCountryIds)
+        public bool SaveTravelToDB(Travel travel, List<string> selectedCountries)
         {
             try
             {
                 _db.Travels.Add(travel);
                 _db.SaveChanges();
 
-                if (selectedCountryIds != null && selectedCountryIds.Any())
+                if (selectedCountries != null && selectedCountries.Any())
                 {
-                    var selectedCountries = _db.Countries.Where(c => selectedCountryIds.Contains(c.Id.ToString())).ToList();
-                    travel.Countries = selectedCountries;
+                    var CountriesToSave = _db.Countries.Where(c => selectedCountries.Contains(c.Id.ToString())).ToList();
+                    travel.Countries = CountriesToSave;
                     _db.SaveChanges();
                 }
 
@@ -58,21 +58,32 @@ namespace TravelBudgetDBContact.Repositories
                 return new Travel();
             }
         }
-        public bool UpdateTravel(Travel travel)
+        public bool UpdateTravel(Travel travel, List<string> selectedCountries)
         {
             try
             {
                 _db.Travels.Update(travel);
                 _db.SaveChanges();
+
+                if (selectedCountries != null && selectedCountries.Any())
+                {
+                    var CountriesToUpdate = _db.Countries.Where(c => selectedCountries.Contains(c.Id.ToString())).ToList();
+                    travel.Countries = CountriesToUpdate;
+                    _db.SaveChanges();
+                }
                 return true;
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 _logger.LogError(ex, "An error occurred while updating travel from the database.");
                 return false;
             }
-            
+
         }
+        //public List<Country> FindTravelCountriesById(List<string> selectedCountries)
+        //{
+
+        //}
         public bool DeleteTravel(Travel travel)
         {
             try
@@ -115,7 +126,8 @@ namespace TravelBudgetDBContact.Repositories
                 return false;
             }
             
-        }      
+        }
+
     }
 }
 

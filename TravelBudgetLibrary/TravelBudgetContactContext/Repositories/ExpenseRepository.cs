@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;
@@ -8,7 +9,7 @@ namespace TravelBudgetDBContact.Repositories
     public class ExpenseRepository : BaseRepository, IExpenseRepository
     {
         private readonly ILogger<ExpenseRepository> _logger;
-        public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger) : base(db, logger)
+        public ExpenseRepository(DBContact db, ILogger<ExpenseRepository> logger, IMapper mapper) : base(db, logger, mapper)
         {
 
         }

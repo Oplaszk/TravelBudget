@@ -9,7 +9,6 @@ namespace TravelBudget.ViewModels
     {
         public IEnumerable<Travel>? Travels { get; set; }
         public Travel? Travel { get; set; } = new Travel {StartingDate = DateTime.Now, FinishDate = DateTime.Now };
-        //public string SelectedCountry { get; set; }
         public List<string> SelectedCountries { get; set; } = new List<string>();
 
         [DisplayName("CountriesList")]

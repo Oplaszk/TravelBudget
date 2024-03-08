@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TravelBudget.ViewModels;
-using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
-using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
@@ -10,7 +9,7 @@ namespace TravelBudget.Controllers
     {
         private readonly ExpenseViewModel _expenseViewModel;
         private readonly IExpenseRepository _expenseRepository;
-        public DetailController(IExpenseRepository expenseRepository, ILogger<DetailController> logger) : base(logger)
+        public DetailController(IExpenseRepository expenseRepository, ILogger<DetailController> logger, IMapper mapper) : base(logger, mapper)
         {
             _expenseRepository = expenseRepository;
             _expenseViewModel = new ExpenseViewModel();

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBContact.Response.DTO;
@@ -7,7 +8,7 @@ namespace TravelBudgetDBContact.Repositories
 {
     public class CountryRepository : BaseRepository, ICountryRepository
     {
-        public CountryRepository(DBContact db, ILogger<CountryRepository> logger) : base(db, logger)
+        public CountryRepository(DBContact db, ILogger<CountryRepository> logger, IMapper mapper) : base(db, logger, mapper)
         {
         }
         public IEnumerable<CountryDTO> GetAllCountriesDTO()

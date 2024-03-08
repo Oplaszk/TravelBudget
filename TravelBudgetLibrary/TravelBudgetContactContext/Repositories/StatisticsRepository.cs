@@ -1,10 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;
 
@@ -12,7 +8,7 @@ namespace TravelBudgetDBContact.Repositories
 {
     public class StatisticsRepository : BaseRepository, IStatisticsRepository
     {
-        public StatisticsRepository(DBContact db, ILogger<StatisticsRepository> logger) : base(db, logger)
+        public StatisticsRepository(DBContact db, ILogger<StatisticsRepository> logger, IMapper mapper) : base(db, logger, mapper)
         {
         }
         public Travel GetTheMostExpensiveTravel(string userId)

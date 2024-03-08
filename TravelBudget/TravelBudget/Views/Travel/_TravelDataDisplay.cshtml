@@ -1,4 +1,4 @@
-﻿@using TravelBudget.ViewModels;
+﻿@using TravelBudget.ViewModels
 @model Travel
 
 <table id="table">
@@ -9,6 +9,7 @@
             <th>FinishDate</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Countries</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +19,12 @@
             <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.FinishDate)</td>
             <td>@Model.Name</td>
             <td>@Model.Description</td>
+            <td>
+                @foreach (var item in Model.Countries)
+                {
+                    <span>@item.Code</span><span>,</span>
+                }
+            </td>
         </tr>
     </tbody>
 </table>
-

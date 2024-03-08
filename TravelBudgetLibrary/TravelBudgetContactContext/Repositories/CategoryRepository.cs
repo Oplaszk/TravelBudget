@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;
 
@@ -6,7 +7,7 @@ namespace TravelBudgetDBContact.Repositories
 {
     public class CategoryRepository : BaseRepository, ICategoryRepository
     {
-        public CategoryRepository(DBContact db, ILogger<CategoryRepository> logger) : base(db, logger)
+        public CategoryRepository(DBContact db, ILogger<CategoryRepository> logger, IMapper mapper) : base(db, logger, mapper)
         {
         }
 

@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TravelBudget.ViewModels;
 using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
-using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
@@ -11,7 +11,7 @@ namespace TravelBudget.Controllers
         private readonly ManagementViewModel _managementViewModel;
         private readonly ICategoryRepository _categoryRepository;
 
-        public ManagementController(ICategoryRepository categoryRepository, ILogger<ManagementController> logger) : base(logger)
+        public ManagementController(ICategoryRepository categoryRepository, ILogger<ManagementController> logger, IMapper mapper) : base(logger, mapper)
         {
             _managementViewModel = new ManagementViewModel();
             _categoryRepository = categoryRepository;

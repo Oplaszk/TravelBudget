@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using System.Transactions;
 using TravelBudget.ViewModels.Statistics;
-using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
 
 namespace TravelBudget.Controllers
@@ -11,7 +10,7 @@ namespace TravelBudget.Controllers
     {
         private readonly IStatisticsRepository _statisticsRepository;
         private readonly StatisticsViewModel _statisticsViewModel;
-        public StatisticsController(IStatisticsRepository statisticsRepository, ILogger<StatisticsController> logger) : base(logger)
+        public StatisticsController(IStatisticsRepository statisticsRepository, ILogger<StatisticsController> logger, IMapper mapper) : base(logger, mapper)
         {
             _statisticsRepository = statisticsRepository;
             _statisticsViewModel = new StatisticsViewModel();

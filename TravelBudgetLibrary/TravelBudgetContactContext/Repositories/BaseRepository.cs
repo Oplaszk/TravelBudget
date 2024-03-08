@@ -1,9 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 
 namespace TravelBudgetDBContact.Repositories
 {
@@ -11,10 +7,12 @@ namespace TravelBudgetDBContact.Repositories
     {
         protected DBContact _db;
         protected readonly ILogger<BaseRepository> _logger;
-        public BaseRepository(DBContact db, ILogger<BaseRepository> logger)
+        protected readonly IMapper _mapper;
+        public BaseRepository(DBContact db, ILogger<BaseRepository> logger, IMapper mapper )
         {
             _db = db;
             _logger = logger;
+            _mapper = mapper;
         }
     }
 }

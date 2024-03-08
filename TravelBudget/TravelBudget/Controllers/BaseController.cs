@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Newtonsoft.Json;
 using NuGet.Protocol.Core.Types;
@@ -9,9 +10,11 @@ namespace TravelBudget.Controllers
     public class BaseController : Controller
     {
         protected readonly ILogger<BaseController> _logger;
-        public BaseController(ILogger<BaseController> logger)
+        protected readonly IMapper _mapper;
+        public BaseController(ILogger<BaseController> logger, IMapper mapper)
         {
             _logger = logger;
+            _mapper = mapper;
         }
 
         public void PopUpNotification(string title, string message = "",  NotificationType notificationType = NotificationType.success)

@@ -26,8 +26,8 @@ namespace TravelBudgetDBModels.Models
         [ForeignKey("CommentId")]
         public int? CommentId { get; set; } 
         public Comment? Comment { get; set; } 
-        public ICollection<Expense>? Expenses { get; set; } 
-        public ICollection<Country>? Countries { get; set; }   
+        public ICollection<Expense>? Expenses { get; set; }
+        public ICollection<Country>? Countries { get; set; } = new List<Country>();
 
     }
 }

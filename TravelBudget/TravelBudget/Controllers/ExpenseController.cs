@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using TravelBudget.ViewModels;
 using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
@@ -13,7 +14,8 @@ namespace TravelBudget.Controllers
         private readonly ICountryRepository _countryRepository;
         private readonly ExpenseViewModel _expenseViewModel;
 
-        public ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository, ILogger<ExpenseController> logger) : base(logger)
+        public ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository,
+        ILogger<ExpenseController> logger, IMapper mapper) : base(logger, mapper)
         {
             _expenseRepository = expenseRepository;
             _categoryRepository = categoryRepository;
