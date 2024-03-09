@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBContact.Response.DTO;
+using TravelBudgetDBModels.Models;
 
 namespace TravelBudgetDBContact.Repositories
 {
@@ -37,6 +38,18 @@ namespace TravelBudgetDBContact.Repositories
             {
                 _logger.LogError(ex, "En error occurred while retrieving currency code from the database");
                 return null;
+            }
+        }
+        public List<Country> GetCountriesByIds(List<int> countryIds)
+        {
+            try
+            {
+                return _db.Countries.Where(c => countryIds.Contains(c.Id)).ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "En error occurred while retrieving countries with DTO from the database");
+                return new List<Country>();
             }
         }
     }

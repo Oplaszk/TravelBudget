@@ -1,8 +1,12 @@
+using Autofac.Core;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using TravelBudgetDBContact;
+using TravelBudgetDBContact.AutoMapper;
 using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
+using TravelBudgetDBContact.Response.DTO;
+using TravelBudgetDBModels.Models;
 
 namespace TravelBudget
 {

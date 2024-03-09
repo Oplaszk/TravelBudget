@@ -1,14 +1,15 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Security.Claims;
 using TravelBudget.ViewModels;
 using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBContact.Response.DTO;
+using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
@@ -56,18 +57,22 @@ namespace TravelBudget.Controllers
                 });
             }
         }
-        private void PopulatePresentCountriesSelectList(List<CountryDTO> countries)
+        private void PopulatePresentCountriesSelectList(ICollection<Country>? countries, TravelViewModel travelViewModelToUpdate)
         {
             _travelViewModel.CountriesSelectList.Clear();
 
+            var countriesSelectList = new List<SelectListItem>();
             foreach (var country in countries)
             {
-                _travelViewModel.CountriesSelectList.Add(new SelectListItem
+                var listItem = new SelectListItem
                 {
-                    Text = country.CountryWithCode,
                     Value = country.Id.ToString(),
+                    Text = $"{country.Name} ({country.Code})",
                     Selected = true
-                });
+                };
+                countriesSelectList.Add(listItem);
+
+                travelViewModelToUpdate.CountriesSelectList = countriesSelectList;
             }
         }
 
@@ -86,9 +91,9 @@ namespace TravelBudget.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var selectedCountries = travelViewModel.SelectedCountries;
+                    var selectedCountriesId = travelViewModel.SelectedCountriesId.ToList();
 
-                    _travelRepository.SaveTravelToDB(travelViewModel.Travel, selectedCountries);
+                    _travelRepository.SaveTravelToDB(travelViewModel.Travel, selectedCountriesId);
 
                     PopUpNotification("Travel has been created successfully");
 
@@ -98,9 +103,10 @@ namespace TravelBudget.Controllers
             catch (Exception)
             {
                 PopUpNotification("Error occurred while creating the travel", notificationType: NotificationType.error);
+                PopulateCountriesSelectList();
             }
 
-            return View(_travelViewModel);
+            return View("Create", travelViewModel);
         }
 
         #endregion CREATE Section
@@ -110,15 +116,15 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var travel = _travelRepository.GetById((int)id);
-            _travelViewModel.Travel = travel;
+            var travel = _travelRepository.GetTravelById((int)id);
+            var travelViewModelToUpdate = _travelViewModel;
+            travelViewModelToUpdate.Travel = travel;
 
             var travelCountries = travel.Countries;
-            var countriesDTO = _mapper.Map<List<CountryDTO>>(travelCountries);
 
-            PopulatePresentCountriesSelectList(countriesDTO);
+            PopulatePresentCountriesSelectList(travelCountries, travelViewModelToUpdate);
 
-            return View("Create", _travelViewModel);
+            return View("Create", travelViewModelToUpdate);
         }
 
         [HttpPost]
@@ -152,7 +158,7 @@ namespace TravelBudget.Controllers
         {
             try
             {               
-                var travelToDelete = _travelRepository.GetById(id);
+                var travelToDelete = _travelRepository.GetTravelById(id);
 
                 TempData["TravelToDelete"] = JsonConvert.SerializeObject(travelToDelete);
 
@@ -174,7 +180,7 @@ namespace TravelBudget.Controllers
         {
             try
             {
-                var selected = _travelRepository.GetById(id);
+                var selected = _travelRepository.GetTravelById(id);
                 _travelRepository.EndTravel(selected);
 
                 PopUpNotification("Your travel has been wrapped up");
@@ -193,7 +199,7 @@ namespace TravelBudget.Controllers
         {
             try
             {
-                var selected = _travelRepository.GetById(id);
+                var selected = _travelRepository.GetTravelById(id);
                 _travelRepository.RetrieveTravel(selected);
 
                 PopUpNotification("Your travel has been retrieved successfully");

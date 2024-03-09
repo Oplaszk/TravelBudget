@@ -43,7 +43,7 @@
             <span asp-validation-for="@Model.Travel.FinishDate" class="text-danger"></span>
         </div>
         <div class="form-outline mb-2" id="C_label_5-multiDropUp">
-            <select asp-for="SelectedCountries" class="form-control" multiple="multiple" id="example-dropUp">
+            <select asp-for="SelectedCountriesId" class="form-control" multiple="multiple" id="example-dropUp">
                 @foreach (var country in Model.CountriesSelectList)
                 {
                     <option value="@country.Value">@country.Text</option>

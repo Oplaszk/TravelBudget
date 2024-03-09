@@ -1,7 +1,7 @@
 ﻿@model TravelBudget.ViewModels.TravelViewModel
 
 
-<h1 id="title"> @(Model.Travel.Active == true ? "Current Travels" : "Travels History")</h1>
+<h1 class="text-indicator" id="title"> @(Model.Travel.Active == true ? "Current Travels" : "Travels History")</h1>
 <div id="container">
     
     @foreach (var item in Model.Travels)

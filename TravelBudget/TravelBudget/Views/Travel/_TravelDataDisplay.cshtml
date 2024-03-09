@@ -4,25 +4,39 @@
 <table id="table">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>StartingDate</th>
-            <th>FinishDate</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Countries</th>
+            <th class="text-indicator">Id</th>
+            <th class ="text-indicator">StartingDate</th>
+            <th class="text-indicator">FinishDate</th>
+            <th class="text-indicator">Name</th>
+            <th class="text-indicator">Description</th>
+            <th class="text-indicator">Countries</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>@Model.Id</td>
-            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.StartingDate)</td>
-            <td>@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.FinishDate)</td>
-            <td>@Model.Name</td>
-            <td>@Model.Description</td>
+            <td>
+                <span class="pointer">@Model.Id</span>
+            </td>
+            <td>
+                <span class="pointer">@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.StartingDate)</span>
+            </td>
+            <td>
+                <span class="pointer">@string.Format("{0:yyyy-MM-dd} | {0:HH:mm}", @Model.FinishDate)</span>
+            </td>
+            <td>
+                <span class="pointer">@Model.Name</span>
+            </td>
+            <td>
+                <span class="pointer">@Model.Description</span>
+            </td>
             <td>
                 @foreach (var item in Model.Countries)
                 {
-                    <span>@item.Code</span><span>,</span>
+                    <span class="pointer" title="@item.Name">@item.Code</span>
+                    @if (item != Model.Countries.Last())
+                    {
+                        <span>,</span>
+                    }
                 }
             </td>
         </tr>

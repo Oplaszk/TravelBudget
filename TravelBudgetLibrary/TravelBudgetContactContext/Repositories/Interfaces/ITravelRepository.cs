@@ -5,8 +5,8 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
      public interface ITravelRepository
     {
         List<Travel> GetAllTravels(string userId, bool active);
-        bool SaveTravelToDB(Travel travel, List<string> selectedCountryIds);
-        Travel GetById(int id);
+        bool SaveTravelToDB(Travel travel, List<int> selectedCountryIds);
+        Travel GetTravelById(int id);
         bool UpdateTravel(Travel travel, List<string> selectedCountryIds);
         bool EndTravel(Travel travel);
         bool RetrieveTravel(Travel travel);

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelBudgetDBModels.Models;
+﻿using TravelBudgetDBModels.Models;
 
 namespace TravelBudgetDBContact.Repositories.Interfaces
 {
     public interface IStatisticsRepository
     {
-        public Travel GetTheMostExpensiveTravel(string userId);
-        public Travel TheCheapestTravel(string userId);
-        public Travel TheLongestTravel(string userId);
-        public Travel TheShortestTravel(string userId);
-        public List<Country> GetTheMostVisitedCountries(string userId);
-        public double GetTotalCostFromAllTravels(string userId);
+        Travel GetTheMostExpensiveTravel(string userId);
+        Travel TheCheapestTravel(string userId);
+        Travel TheLongestTravel(string userId);
+        Travel TheShortestTravel(string userId);
+        List<Country> GetTheMostVisitedCountries(string userId);
+        double GetTotalCostFromAllTravels(string userId);
     }
 }

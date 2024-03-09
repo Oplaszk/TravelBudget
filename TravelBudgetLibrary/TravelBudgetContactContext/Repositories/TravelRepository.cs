@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using TravelBudgetDBContact.Repositories.Interfaces;
 using TravelBudgetDBModels.Models;
@@ -14,8 +15,7 @@ namespace TravelBudgetDBContact.Repositories
         {
             try
             {
-                var listOfTravels = _db.Travels.Where(t => t.UserId == userId && t.Active == active).ToList();
-                return listOfTravels;
+                return  _db.Travels.Include(t => t.Countries).Where(t => t.UserId == userId && t.Active == active).ToList();
             }
             catch (Exception ex)
             {
@@ -23,17 +23,16 @@ namespace TravelBudgetDBContact.Repositories
                 return new List<Travel>();
             }
         }
-        public bool SaveTravelToDB(Travel travel, List<string> selectedCountries)
+        public bool SaveTravelToDB(Travel travel, List<int> selectedCountriesId)
         {
             try
             {
-                _db.Travels.Add(travel);
-                _db.SaveChanges();
 
-                if (selectedCountries != null && selectedCountries.Any())
+                if (selectedCountriesId != null && selectedCountriesId.Any())
                 {
-                    var CountriesToSave = _db.Countries.Where(c => selectedCountries.Contains(c.Id.ToString())).ToList();
+                    var CountriesToSave = _db.Countries.Where(c => selectedCountriesId.Contains(c.Id)).ToList();
                     travel.Countries = CountriesToSave;
+                    _db.Travels.Add(travel);
                     _db.SaveChanges();
                 }
 
@@ -45,11 +44,11 @@ namespace TravelBudgetDBContact.Repositories
                 return false;
             }
         }
-        public Travel GetById(int id)
+        public Travel GetTravelById(int id)
         {
             try
             {
-                var travel = _db.Travels.Where(a => a.Id == id).FirstOrDefault();
+                var travel = _db.Travels.Include(t => t.Countries).Where(a => a.Id == id).FirstOrDefault();
                 return travel;
             }
             catch (Exception ex)
@@ -80,10 +79,6 @@ namespace TravelBudgetDBContact.Repositories
             }
 
         }
-        //public List<Country> FindTravelCountriesById(List<string> selectedCountries)
-        //{
-
-        //}
         public bool DeleteTravel(Travel travel)
         {
             try
