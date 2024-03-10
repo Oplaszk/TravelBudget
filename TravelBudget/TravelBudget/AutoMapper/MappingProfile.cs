@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using TravelBudget.ViewModels;
 using TravelBudgetDBContact.Response.DTO;
 using TravelBudgetDBModels.Models;
 
@@ -23,6 +24,23 @@ namespace TravelBudgetDBContact.AutoMapper
                 .ForMember(dest => dest.CurrencyId, opt => opt.Ignore())
                 .ForMember(dest => dest.Continent, opt => opt.Ignore())
                 .ForMember(dest => dest.Currency, opt => opt.Ignore());
+
+            CreateMap<Travel, TravelViewModel>()
+                .ForMember(dest => dest.CountriesSelectList, opt => opt.MapFrom(src => src.Countries.Select(c => new SelectListItem
+                {
+                    Value = c.Id.ToString(),
+                    Text = $"{c.Name} ({c.Code})",
+                    Selected = true
+                })));
+
+            CreateMap<Country, SelectListItem>()
+            .ForMember(dest => dest.Value, opt => opt.MapFrom(src => src.Id.ToString()))
+            .ForMember(dest => dest.Text, opt => opt.MapFrom(src => $"{src.Name} ({src.Code})"));
+
+            CreateMap<Travel, TravelViewModel>()
+                .ForMember(dest => dest.CountriesSelectList, opt => opt.MapFrom(src => src.Countries))
+                .ReverseMap()
+                .ForMember(dest => dest.Countries, opt => opt.MapFrom(src => src.CountriesSelectList));
         }
     }
 }

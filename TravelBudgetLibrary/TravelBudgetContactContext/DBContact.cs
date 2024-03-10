@@ -1,10 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TravelBudgetDBModels.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
@@ -26,27 +21,27 @@ namespace TravelBudgetDBContact
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Category>().HasData(
-                new Category() { Id = 1, Type = "Accommodation"},
-                new Category() { Id = 2, Type = "Food"},
+                new Category() { Id = 1, Type = "Accommodation" },
+                new Category() { Id = 2, Type = "Food" },
                 new Category() { Id = 3, Type = "Transport" },
-                new Category() { Id = 4, Type = "Attractions"},
-                new Category() { Id = 5, Type = "Shopping"},
-                new Category() { Id = 6, Type = "Others"}
+                new Category() { Id = 4, Type = "Attractions" },
+                new Category() { Id = 5, Type = "Shopping" },
+                new Category() { Id = 6, Type = "Others" }
             );
             modelBuilder.Entity<Comment>().HasData(
-                new Comment() { Id = 1, Content = "At the first day..."},
+                new Comment() { Id = 1, Content = "At the first day..." },
                 new Comment() { Id = 2, Content = "At the first day..." },
                 new Comment() { Id = 3, Content = "At the first day..." }
             );
             modelBuilder.Entity<Continent>().HasData(
-                new Continent() { Id = 1, Name = "Europe"},
-                new Continent() { Id = 2, Name = "Africa"},
-                new Continent() { Id = 3, Name = "Asia"},
-                new Continent() { Id = 4, Name = "North America"},
-                new Continent() { Id = 5, Name = "South America"},
-                new Continent() { Id = 6, Name = "Australia"},
-                new Continent() { Id = 7, Name = "Zelandia"},
-                new Continent() { Id = 8, Name = "Antarctica"}
+                new Continent() { Id = 1, Name = "Europe" },
+                new Continent() { Id = 2, Name = "Africa" },
+                new Continent() { Id = 3, Name = "Asia" },
+                new Continent() { Id = 4, Name = "North America" },
+                new Continent() { Id = 5, Name = "South America" },
+                new Continent() { Id = 6, Name = "Australia" },
+                new Continent() { Id = 7, Name = "Zelandia" },
+                new Continent() { Id = 8, Name = "Antarctica" }
             );
             modelBuilder.Entity<Country>().HasData(
                 new Country() { Id = 1, Name = "Poland", Code = "PL", ContinentId = 1, CurrencyId = 1 },
@@ -75,7 +70,6 @@ namespace TravelBudgetDBContact
                new Travel() { Id = 2, StartingDate = new DateTime(2023, 09, 18, 06, 15, 0), FinishDate = new DateTime(2023, 10, 12, 21, 15, 0), Name = "Around Poland", Description = "Visiting forests", Active = true, CommentId = 2, UserId = "bbde869e-3781-4076-bd46-aee8b984777d" },
                new Travel() { Id = 3, StartingDate = new DateTime(2023, 06, 18, 06, 15, 0), FinishDate = new DateTime(2023, 12, 12, 21, 15, 0), Name = "Around Poland", Description = "Mazurian lakes", Active = true, CommentId = 3, UserId = "bbde869e-3781-4076-bd46-aee8b984777d" }
            );
-
         }
     }
 }

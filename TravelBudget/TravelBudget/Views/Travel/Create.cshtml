@@ -46,7 +46,8 @@
             <select asp-for="SelectedCountriesId" class="form-control" multiple="multiple" id="example-dropUp">
                 @foreach (var country in Model.CountriesSelectList)
                 {
-                    <option value="@country.Value">@country.Text</option>
+                    <option value="@country.Value">
+                        @country.Text</option>
                 }
             </select>
         </div>

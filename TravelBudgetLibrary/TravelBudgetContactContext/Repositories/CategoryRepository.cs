@@ -9,8 +9,8 @@ namespace TravelBudgetDBContact.Repositories
     {
         public CategoryRepository(DBContact db, ILogger<CategoryRepository> logger, IMapper mapper) : base(db, logger, mapper)
         {
-        }
 
+        }
         public List<Category> GetAllCategories()
         {
             try

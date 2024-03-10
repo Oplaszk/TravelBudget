@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelBudgetDBModels", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelBudgetDBContact", "..\TravelBudgetLibrary\TravelBudgetContactContext\TravelBudgetDBContact.csproj", "{BC594348-66EB-4227-9104-8A209F07459A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSV_Data", "CSV_Data\CSV_Data.csproj", "{EF9C644D-5E73-4499-A2FB-91FF947417A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BC594348-66EB-4227-9104-8A209F07459A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC594348-66EB-4227-9104-8A209F07459A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC594348-66EB-4227-9104-8A209F07459A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9C644D-5E73-4499-A2FB-91FF947417A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9C644D-5E73-4499-A2FB-91FF947417A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9C644D-5E73-4499-A2FB-91FF947417A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9C644D-5E73-4499-A2FB-91FF947417A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
