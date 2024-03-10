@@ -6,20 +6,14 @@ using TravelBudgetDBContact.Repositories.Interfaces;
 
 namespace TravelBudget.Controllers
 {
-    public class ManagementController : BaseController
+    public class ManagementController(ICategoryRepository categoryRepository, ILogger<ManagementController> logger, IMapper mapper) : BaseController(logger, mapper)
     {
-        private readonly ManagementViewModel _managementViewModel;
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly ManagementViewModel _managementViewModel = new ManagementViewModel();
 
-        public ManagementController(ICategoryRepository categoryRepository, ILogger<ManagementController> logger, IMapper mapper) : base(logger, mapper)
-        {
-            _managementViewModel = new ManagementViewModel();
-            _categoryRepository = categoryRepository;
-        }
         [HttpGet]
         public IActionResult ManageZone()
         {
-            _managementViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
+            _managementViewModel.CategoryOptions = categoryRepository.GetAllCategories();
 
             return View(_managementViewModel);
         }
@@ -29,7 +23,7 @@ namespace TravelBudget.Controllers
             try
             {
                 var newCategory = model.Category;
-                _categoryRepository.CreateNewCategory(newCategory);
+                categoryRepository.CreateNewCategory(newCategory);
 
                 PopUpNotification("New Category created successfully!");
             }
@@ -47,8 +41,8 @@ namespace TravelBudget.Controllers
             try
             {
                 int indexToDelete = model.Category.Id;
-                var categoryToDelete = _categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == indexToDelete);
-                _categoryRepository.DeleteCategory(categoryToDelete);
+                var categoryToDelete = categoryRepository.GetAllCategories().FirstOrDefault(c => c.Id == indexToDelete);
+                categoryRepository.DeleteCategory(categoryToDelete);
 
                 PopUpNotification("Category type deleted successfully!");
             }

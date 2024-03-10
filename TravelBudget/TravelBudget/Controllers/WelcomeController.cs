@@ -3,12 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TravelBudget.Controllers
 {
-    public class WelcomeController : BaseController
+    public class WelcomeController(ILogger<WelcomeController> logger, IMapper mapper) : BaseController(logger, mapper)
     {
-        public WelcomeController(ILogger<WelcomeController> logger, IMapper mapper) : base(logger, mapper)
-        {
-            
-        }
         public IActionResult Index()
         {
             return View();

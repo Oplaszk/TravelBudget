@@ -3,16 +3,10 @@ using Microsoft.Extensions.Logging;
 
 namespace TravelBudgetDBContact.Repositories
 {
-    public class BaseRepository
+    public class BaseRepository(DBContact db, ILogger<BaseRepository> logger, IMapper mapper)
     {
-        protected DBContact _db;
-        protected readonly ILogger<BaseRepository> _logger;
-        protected readonly IMapper _mapper;
-        public BaseRepository(DBContact db, ILogger<BaseRepository> logger, IMapper mapper )
-        {
-            _db = db;
-            _logger = logger;
-            _mapper = mapper;
-        }
+        protected DBContact _db = db;
+        protected readonly ILogger<BaseRepository> _logger = logger;
+        protected readonly IMapper _mapper = mapper;
     }
 }

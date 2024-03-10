@@ -5,19 +5,14 @@ using TravelBudgetDBContact.Repositories.Interfaces;
 
 namespace TravelBudget.Controllers
 {
-    public class DetailController : BaseController
+    public class DetailController(IExpenseRepository expenseRepository, ILogger<DetailController> logger, IMapper mapper) : BaseController(logger, mapper)
     {
-        private readonly ExpenseViewModel _expenseViewModel;
-        private readonly IExpenseRepository _expenseRepository;
-        public DetailController(IExpenseRepository expenseRepository, ILogger<DetailController> logger, IMapper mapper) : base(logger, mapper)
-        {
-            _expenseRepository = expenseRepository;
-            _expenseViewModel = new ExpenseViewModel();
-        }
+        private readonly ExpenseViewModel _expenseViewModel = new ExpenseViewModel();
+
         [HttpGet]
         public IActionResult Details(int Id)
         {
-            var expenses = _expenseRepository.GetExpensesByTravelId(Id);
+            var expenses = expenseRepository.GetExpensesByTravelId(Id);
             _expenseViewModel.Expenses = expenses;
 
             return View(_expenseViewModel);

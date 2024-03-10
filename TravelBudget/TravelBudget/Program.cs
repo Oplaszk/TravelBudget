@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TravelBudget.Services;
 using TravelBudgetDBContact;
 using TravelBudgetDBContact.Repositories;
 using TravelBudgetDBContact.Repositories.Interfaces;
@@ -30,6 +31,7 @@ namespace TravelBudget
             builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
             builder.Services.AddTransient<ICountryRepository, CountryRepository>();
             builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
+            builder.Services.AddTransient<TravelService>();
 
             var app = builder.Build();
 

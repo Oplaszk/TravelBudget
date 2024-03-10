@@ -83,6 +83,11 @@ namespace TravelBudgetDBContact.Repositories
         {
             try
             {
+                foreach (var country in travel.Countries.ToList())
+                {
+                    travel.Countries.Remove(country);
+                }
+
                 _db.Travels.Remove(travel);
                 _db.SaveChanges();
                 return true;

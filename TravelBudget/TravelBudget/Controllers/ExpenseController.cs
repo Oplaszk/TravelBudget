@@ -3,32 +3,20 @@ using Microsoft.AspNetCore.Mvc;
 using TravelBudget.ViewModels;
 using TravelBudget.ViewModels.Enums;
 using TravelBudgetDBContact.Repositories.Interfaces;
-using TravelBudgetDBModels.Models;
 
 namespace TravelBudget.Controllers
 {
-    public class ExpenseController : BaseController
+    public class ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository,
+    ILogger<ExpenseController> logger, IMapper mapper) : BaseController(logger, mapper)
     {
-        private readonly IExpenseRepository _expenseRepository;
-        private readonly ICategoryRepository _categoryRepository;
-        private readonly ICountryRepository _countryRepository;
-        private readonly ExpenseViewModel _expenseViewModel;
-
-        public ExpenseController(IExpenseRepository expenseRepository, ICategoryRepository categoryRepository, ICountryRepository countryRepository,
-        ILogger<ExpenseController> logger, IMapper mapper) : base(logger, mapper)
-        {
-            _expenseRepository = expenseRepository;
-            _categoryRepository = categoryRepository;
-            _countryRepository = countryRepository;
-            _expenseViewModel = new ExpenseViewModel();
-        }
+        private readonly ExpenseViewModel _expenseViewModel = new ExpenseViewModel();
 
         #region CREATE Section
         [HttpGet]
         public IActionResult AddExpense(int id)
         {
-            _expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
-            _expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
+            _expenseViewModel.CategoryOptions = categoryRepository.GetAllCategories();
+            _expenseViewModel.Countries = countryRepository.GetAllCountriesDTO();
             _expenseViewModel.TravelId = id;
 
             return View("AddExpense", _expenseViewModel);
@@ -45,7 +33,7 @@ namespace TravelBudget.Controllers
                     int Id = expenseViewModel.TravelId;
                     expenseViewModel.Expense.TravelId = Id;
 
-                    _expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
+                    expenseRepository.SaveExpenseToDB(expenseViewModel.Expense);
                     PopUpNotification("Expense has been added successfully", notificationType: NotificationType.success);
 
                     return RedirectToAction("AddExpense", "Expense", new { id = Id });
@@ -56,8 +44,8 @@ namespace TravelBudget.Controllers
                 PopUpNotification("Error occurred while adding expense to the travel", notificationType: NotificationType.error);
             }
 
-            expenseViewModel.CategoryOptions = _categoryRepository.GetAllCategories();
-            expenseViewModel.Countries = _countryRepository.GetAllCountriesDTO();
+            expenseViewModel.CategoryOptions = categoryRepository.GetAllCategories();
+            expenseViewModel.Countries = countryRepository.GetAllCountriesDTO();
 
             return View("AddExpense", expenseViewModel);
         }
@@ -69,8 +57,8 @@ namespace TravelBudget.Controllers
         {
             try
             {
-                var expenseToDetele = _expenseRepository.GetAllExpenses().Single(e => e.Id == id);
-                _expenseRepository.DeleteExpense(expenseToDetele);
+                var expenseToDetele = expenseRepository.GetAllExpenses().Single(e => e.Id == id);
+                expenseRepository.DeleteExpense(expenseToDetele);
                 int travelId = expenseToDetele.TravelId;
 
                 return RedirectToAction("Details", "Detail", new { Id = travelId });
@@ -88,13 +76,13 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var expenseToUpdate = _expenseRepository.GetExpenseById(id);
+            var expenseToUpdate = expenseRepository.GetExpenseById(id);
 
             var viewModel = new ExpenseViewModel
             {
                 Expense = expenseToUpdate,
-                CategoryOptions = _categoryRepository.GetAllCategories(),
-                Countries = _countryRepository.GetAllCountriesDTO(),
+                CategoryOptions = categoryRepository.GetAllCategories(),
+                Countries = countryRepository.GetAllCountriesDTO(),
                 TravelId = expenseToUpdate.TravelId
             };
 
@@ -110,7 +98,7 @@ namespace TravelBudget.Controllers
                 int travelId = expenseToUpdate.TravelId;
                 expenseToUpdate.Expense.TravelId = travelId;
 
-                _expenseRepository.UpdateExpense(expenseToUpdate.Expense);
+                expenseRepository.UpdateExpense(expenseToUpdate.Expense);
 
                 PopUpNotification("Your expense has been updated successfully");
 

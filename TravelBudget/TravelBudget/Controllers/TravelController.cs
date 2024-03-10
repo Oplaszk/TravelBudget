@@ -38,8 +38,8 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            PopulateCountriesSelectList();
-            return View(_travelViewModel);
+            _travelService.PopulateCountriesSelectList(_travelViewModel);
+            return View("Create_Update", _travelViewModel);
         }
 
         [HttpPost]
@@ -65,26 +65,12 @@ namespace TravelBudget.Controllers
                 _travelService.PopulateCountriesSelectList(travelViewModel);
             }
 
-            return View("Create", travelViewModel);
+            return View("Create_Update", travelViewModel);
         }
 
         #endregion CREATE Section
 
         #region UPDATE Section
-        private void PopulateCountriesSelectList()
-        {
-            var countries = countryRepository.GetAllCountriesDTO();
-            _travelViewModel.CountriesSelectList.Clear();
-
-            foreach (var country in countries)
-            {
-                _travelViewModel.CountriesSelectList.Add(new SelectListItem
-                {
-                    Text = country.CountryWithCode,
-                    Value = country.Id.ToString()                
-                });
-            }
-        }
         [HttpGet]
         public IActionResult Update(int id)
         {
@@ -100,7 +86,7 @@ namespace TravelBudget.Controllers
                 Value = c.Id.ToString(),
             }).ToList();
 
-            return View("Create", _travelViewModel);
+            return View("Create_Update", _travelViewModel);
         }
 
         [HttpPost]
@@ -134,13 +120,11 @@ namespace TravelBudget.Controllers
         {
             try
             {               
-                var travelToDelete = travelRepository.GetTravelById(id);
+                var travelToDelete = travelRepository.GetTravelById(id);             
+                travelRepository.DeleteTravel(travelToDelete);
+                bool status = false;
 
                 TempData["TravelToDelete"] = JsonConvert.SerializeObject(travelToDelete);
-
-                travelRepository.DeleteTravel(travelToDelete);
-
-                bool status = false;
 
                 return RedirectToAction("Index","Travel", new {active = status});
             }
