@@ -7,6 +7,7 @@ namespace TravelBudgetDBContact.Repositories.Interfaces
     {
         IEnumerable<CountryDTO> GetAllCountriesDTO();
         string GetCurrencyCodeByCountryId(int countryId);
-        List<Country> GetCountriesByIds(List<int> countryIds);
+        ICollection<Country> GetCountriesByIds(ICollection<int> countryIds);
+        ICollection<int> GetIdsByCountries(ICollection<Country> countries);
     }
 }

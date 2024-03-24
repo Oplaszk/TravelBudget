@@ -40,7 +40,7 @@ namespace TravelBudgetDBContact.Repositories
                 return null;
             }
         }
-        public List<Country> GetCountriesByIds(List<int> countryIds)
+        public ICollection<Country> GetCountriesByIds(ICollection<int> countryIds)
         {
             try
             {
@@ -51,6 +51,10 @@ namespace TravelBudgetDBContact.Repositories
                 _logger.LogError(ex, "En error occurred while retrieving countries with DTO from the database");
                 return new List<Country>();
             }
+        }
+        public ICollection<int> GetIdsByCountries(ICollection<Country> countries)
+        {
+            return countries.Select(c => c.Id).ToList();   
         }
     }
 }

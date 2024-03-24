@@ -44,12 +44,13 @@ namespace TravelBudgetDBContact.Repositories
                 return false;
             }
         }
-        public Travel GetTravelById(int id)
+        public Travel GetTravelById(int? id)
         {
             try
             {
                 var travel = _db.Travels.Include(t => t.Countries).Where(a => a.Id == id).FirstOrDefault();
-                return travel;
+
+                return travel?? new Travel();
             }
             catch (Exception ex)
             {
@@ -57,17 +58,17 @@ namespace TravelBudgetDBContact.Repositories
                 return new Travel();
             }
         }
-        public bool UpdateTravel(Travel travel, List<string> selectedCountries)
+        public bool UpdateTravel(Travel travel, ICollection<int> selectedCountries)
         {
             try
-            {
-                _db.Travels.Update(travel);
-                _db.SaveChanges();
-
-                if (selectedCountries != null && selectedCountries.Any())
+            {               
+                if (selectedCountries != null && selectedCountries.Any() && travel!= null)
                 {
-                    var CountriesToUpdate = _db.Countries.Where(c => selectedCountries.Contains(c.Id.ToString())).ToList();
-                    travel.Countries = CountriesToUpdate;
+                    var travelToUpdate = GetTravelById(travel.Id);
+                    var CountriesToUpdate = _db.Countries.Where(c => selectedCountries.Contains(c.Id)).ToList();
+                    travelToUpdate.Countries = CountriesToUpdate;
+                    
+                    _db.Travels.Update(travelToUpdate);
                     _db.SaveChanges();
                 }
                 return true;
@@ -77,7 +78,6 @@ namespace TravelBudgetDBContact.Repositories
                 _logger.LogError(ex, "An error occurred while updating travel from the database.");
                 return false;
             }
-
         }
         public bool DeleteTravel(Travel travel)
         {

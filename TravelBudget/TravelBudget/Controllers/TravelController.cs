@@ -74,19 +74,28 @@ namespace TravelBudget.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var travel = travelRepository.GetTravelById((int)id);
-            _travelViewModel.Travel = travel;
-
-            _travelViewModel.SelectedCountriesId = travel.Countries.Select(c => c.Id).ToList();
-
-            _travelViewModel.CountriesSelectList = countryRepository.GetAllCountriesDTO().Select(c =>
-            new SelectListItem
+            try
             {
-                Text = c.CountryWithCode,
-                Value = c.Id.ToString(),
-            }).ToList();
+                var travel = travelRepository.GetTravelById((int)id);
+                _travelViewModel.Travel = travel;
+                _travelViewModel.SelectedCountriesId = countryRepository.GetIdsByCountries(travel.Countries);
 
-            return View("Create_Update", _travelViewModel);
+                _travelViewModel.CountriesSelectList = countryRepository.GetAllCountriesDTO().Select(c =>
+                new SelectListItem
+                {
+                    Text = c.CountryWithCode,
+                    Value = c.Id.ToString(),
+                }).ToList();
+
+                return View("Create_Update", _travelViewModel);
+
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.Message, "Error occurred while creating update form for the travel");
+                PopUpNotification("Error occurred while creating update form for the travel", notificationType: NotificationType.error);
+            }
+            return View("Update", id);
         }
 
         [HttpPost]
@@ -97,14 +106,12 @@ namespace TravelBudget.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    var selectedCountries = travelViewModel.SelectedCountries;
-                    travelRepository.UpdateTravel(travelViewModel.Travel, selectedCountries);
+                    travelRepository.UpdateTravel(travelViewModel.Travel, travelViewModel.SelectedCountriesId);
 
                     PopUpNotification("Travel has been updated successfully");
 
                     return RedirectToAction("Index");
                 }
-
             }
             catch (Exception)
             {
